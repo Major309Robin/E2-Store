@@ -225,6 +225,22 @@
                         <i class="fa-solid fa-download"></i> <span data-i18n="dl_btn">تحميل</span>
                     </span>
                 </a>
+
+                <div class="app-card glass-panel p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800/80 sm:col-span-2 space-y-3 hover:border-violet-500/60 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/15 text-violet-400 flex items-center justify-center text-2xl border border-violet-500/20">
+                            <i class="fa-solid fa-satellite-dish"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-sm sm:text-base group-hover:text-violet-400 transition-colors" data-i18n="dl_agent_title">تثبيت الـ Agent على الرسيفر</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="dl_agent_desc">انسخ الأمر ونفّذه على الرسيفر عن طريق التلنت أو SSH</p>
+                        </div>
+                        <button type="button" onclick="copyAgentCmd()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white text-xs font-semibold flex items-center gap-1.5 shrink-0">
+                            <i class="fa-regular fa-copy"></i> <span data-i18n="dl_copy_btn">نسخ</span>
+                        </button>
+                    </div>
+                    <code id="agentCmd" dir="ltr" class="block w-full bg-slate-100 dark:bg-slate-900 text-[11px] sm:text-xs text-cyan-600 dark:text-cyan-400 rounded-xl p-3 border border-slate-200 dark:border-slate-800 overflow-x-auto whitespace-nowrap text-left select-all">wget --no-check-certificate -qO- https://major309robin.github.io/E2-Store/install-agent.sh | sh</code>
+                </div>
             </div>
         </section>
 
@@ -414,6 +430,9 @@
                 dl_exe_title: "تطبيق الويندوز (EXE)",
                 dl_exe_desc: "E2.Store.exe - للكمبيوتر",
                 dl_btn: "تحميل",
+                dl_agent_title: "تثبيت الـ Agent على الرسيفر",
+                dl_agent_desc: "انسخ الأمر ونفّذه على الرسيفر عن طريق التلنت أو SSH",
+                dl_copy_btn: "نسخ",
                 search_placeholder: "ابحث عن أمر، بلجن، أو مطوّر (مثل: AJPanel, Ncam, Python)...",
                 login_btn: "دخول",
                 hero_badge: "موسوعة أوامر إنيجما المتقدمة",
@@ -455,6 +474,9 @@
                 dl_exe_title: "Windows App (EXE)",
                 dl_exe_desc: "E2.Store.exe - for PC",
                 dl_btn: "Download",
+                dl_agent_title: "Install the Agent on the receiver",
+                dl_agent_desc: "Copy the command and run it on the receiver via Telnet or SSH",
+                dl_copy_btn: "Copy",
                 search_placeholder: "Search command, plugin, or developer (e.g., AJPanel, Ncam, Python)...",
                 login_btn: "Login",
                 hero_badge: "Advanced Enigma Commands Encyclopedia",
@@ -496,6 +518,9 @@
                 dl_exe_title: "Application Windows (EXE)",
                 dl_exe_desc: "E2.Store.exe - pour PC",
                 dl_btn: "Télécharger",
+                dl_agent_title: "Installer l'Agent sur le récepteur",
+                dl_agent_desc: "Copiez la commande et exécutez-la sur le récepteur via Telnet ou SSH",
+                dl_copy_btn: "Copier",
                 search_placeholder: "Rechercher une commande, un plugin ou un développeur...",
                 login_btn: "Connexion",
                 hero_badge: "Encyclopédie Avancée des Commandes Enigma",
@@ -1255,6 +1280,21 @@
                 icon.className = 'fa-solid fa-circle-xmark text-red-400 text-xl';
                 st.textContent = T('i_bridge_fail'); log.textContent = T('i_bridge_hint'); refreshRxUi('bad');
             }
+        }
+
+        function copyAgentCmd() {
+            const text = document.getElementById('agentCmd').textContent.trim();
+            const done = () => showToast(TRANSLATIONS[currentLang].toast_copied);
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(done).catch(() => { fallbackCopy(text); done(); });
+            } else { fallbackCopy(text); done(); }
+        }
+        function fallbackCopy(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+            document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            ta.remove();
         }
 
         function showToast(message) {
