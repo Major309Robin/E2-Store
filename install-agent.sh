@@ -1,128 +1,67 @@
 #!/bin/sh
-# =====================================================================
-# E2 Store Agent - Professional Installer
-# Compatible with Enigma2 (OpenATV, OpenBH, etc.)
-# =====================================================================
+# E2 Store Agent - installer
+# Usage: sh install-e2store.sh
 
-# Color definitions for terminal formatting
-RED='\033[1;31m'
-GREEN='\033[1;32m'
-CYAN='\033[1;36m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # Reset color
+URL="https://major309robin.github.io/E2-Store/enigma2-plugin-extensions-e2store-agent_1.0_all.ipk"
+PKG="enigma2-plugin-extensions-e2store-agent"
+TMP="/tmp/e2store-agent.ipk"
 
-BASE="https://major309robin.github.io/E2-Store"
-DIR="/usr/lib/e2store"
-INIT_SCRIPT="/etc/init.d/e2store-agent"
+echo "=============================="
+echo "   E2 Store Agent - Installer"
+echo "=============================="
 
-clear
-echo -e "${CYAN}=====================================================${NC}"
-echo -e "${CYAN}       E2 Store Agent - Automated Installer         ${NC}"
-echo -e "${CYAN}=====================================================${NC}"
-echo ""
-
-# 1. Check for Python environment
-echo -e "${YELLOW}[*]${NC} Checking Python environment..."
-PY=$(command -v python3 || command -v python)
-if [ -z "$PY" ]; then
-    echo -e "${RED}[✘] Error:${NC} Python was not found on your system. Please install it first."
-    exit 1
-fi
-echo -e "${GREEN}[✔]${NC} Python found: $($PY --version 2>&1)"
-
-# 2. Create directories and download files
-echo -e "${YELLOW}[*]${NC} Setting up directories and downloading agent..."
-mkdir -p "$DIR" /etc/e2store
-
-dl() {
-  wget --no-check-certificate -qO "$2" "$1" 2>/dev/null || curl -k -sL -o "$2" "$1" 2>/dev/null
-  [ -s "$2" ]
-}
-
-if ! dl "$BASE/e2store-agent.py" "$DIR/agent.py"; then
-    echo -e "${RED}[✘] Error:${NC} Failed to download agent.py."
-    echo -e "    Please check your internet connection and GitHub repository link."
-    exit 1
-fi
-echo -e "${GREEN}[✔]${NC} Main script downloaded successfully."
-
-# 3. Create the SysVinit service script
-echo -e "${YELLOW}[*]${NC} Configuring system daemon service..."
-cat > "$INIT_SCRIPT" <<'INIT'
-#!/bin/sh
-### BEGIN INIT INFO
-# Provides:          e2store-agent
-# Required-Start:    $network $local_fs
-# Required-Stop:     $network $local_fs
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: E2 Store Agent background service
-### END INIT INFO
-
-PY=$(command -v python3 || command -v python)
-DAEMON="/usr/lib/e2store/agent.py"
-LOG="/tmp/e2store-agent.log"
-
-case "$1" in
-  start)
-    [ -n "$PY" ] || exit 1
-    if ! pidof -x agent.py >/dev/null 2>&1 && ! ps | grep -v grep | grep -q "e2store/agent.py"; then
-      nohup $PY "$DAEMON" > "$LOG" 2>&1 &
-      echo "E2 Store Agent started."
+# 1) Make sure Python is available
+if ! which python3 >/dev/null 2>&1 && ! which python >/dev/null 2>&1 && ! which python2 >/dev/null 2>&1; then
+    echo "[!] Python not found. Trying to install it..."
+    opkg update >/dev/null 2>&1
+    opkg install python3 >/dev/null 2>&1 || opkg install python >/dev/null 2>&1
+    if ! which python3 >/dev/null 2>&1 && ! which python >/dev/null 2>&1; then
+        echo "[X] Failed to install Python. Install it manually and try again."
+        exit 1
     fi
-    ;;
-  stop)
-    for p in $(ps | grep "e2store/agent.py" | grep -v grep | awk '{print $1}'); do
-      kill "$p" 2>/dev/null
-    done
-    echo "E2 Store Agent stopped."
-    ;;
-  restart)
-    $0 stop
-    sleep 1
-    $0 start
-    ;;
-  status)
-    if pidof -x agent.py >/dev/null 2>&1 || ps | grep -v grep | grep -q "e2store/agent.py"; then
-      echo "E2 Store Agent is running."
-    else
-      echo "E2 Store Agent is stopped."
-    fi
-    ;;
-  *)
-    echo "Usage: $0 {start|stop|restart|status}"
-    exit 1
-    ;;
-esac
-exit 0
-INIT
-
-chmod +x "$INIT_SCRIPT" "$DIR/agent.py"
-
-# 4. Register the service for startup boot
-if command -v update-rc.d >/dev/null 2>&1; then
-  update-rc.d -f e2store-agent remove >/dev/null 2>&1
-  update-rc.d e2store-agent defaults 99 >/dev/null 2>&1
-else
-  for l in 2 3 4 5; do
-    mkdir -p "/etc/rc$l.d"
-    ln -sf "$INIT_SCRIPT" "/etc/rc$l.d/S99e2store-agent"
-  done
 fi
 
-# 5. Start the service and fetch receiver IP address
-echo -e "${YELLOW}[*]${NC} Starting the service..."
-"$INIT_SCRIPT" restart >/dev/null 2>&1
+# 2) Download the package
+echo "[1/3] Downloading package..."
+rm -f "$TMP"
+if which wget >/dev/null 2>&1; then
+    wget --no-check-certificate -q -O "$TMP" "$URL"
+fi
+if [ ! -s "$TMP" ] && which curl >/dev/null 2>&1; then
+    curl -k -sL -o "$TMP" "$URL"
+fi
+if [ ! -s "$TMP" ]; then
+    echo "[X] Download failed. Check your internet connection and this URL:"
+    echo "    $URL"
+    exit 1
+fi
+
+# Make sure we got a real package, not an HTML error page
+if head -c 15 "$TMP" | grep -qi "<!doctype\|<html"; then
+    echo "[X] Downloaded file is not an ipk (wrong URL or file not published yet)."
+    rm -f "$TMP"
+    exit 1
+fi
+
+# 3) Install
+echo "[2/3] Installing package..."
+opkg remove "$PKG" >/dev/null 2>&1
+if ! opkg install --force-reinstall "$TMP"; then
+    echo "[X] Installation failed."
+    rm -f "$TMP"
+    exit 1
+fi
+rm -f "$TMP"
+
+# 4) Start and verify
+echo "[3/3] Starting service..."
+/etc/init.d/e2store-agent restart
 sleep 2
 
-IP=$(ip route get 1 2>/dev/null | awk '{for(i=1;i<=NF;i++) if($i=="src") print $(i+1)}' | head -1)
-[ -z "$IP" ] && IP=$(ifconfig 2>/dev/null | grep -o 'inet addr:[0-9.]*' | grep -v 127.0.0.1 | head -1 | cut -d: -f2)
-[ -z "$IP" ] && IP="<Receiver-IP>"
+IP=$(ip -4 addr show 2>/dev/null | grep -o 'inet [0-9.]*' | grep -v '127.0.0.1' | head -n1 | cut -d' ' -f2)
+[ -z "$IP" ] && IP=$(ifconfig 2>/dev/null | grep -o 'inet addr:[0-9.]*' | grep -v '127.0.0.1' | head -n1 | cut -d: -f2)
 
-echo ""
-echo -e "${CYAN}=====================================================${NC}"
-echo -e "${GREEN}      [✔] Service installed and started successfully! ${NC}"
-echo -e "${CYAN}=====================================================${NC}"
-echo -e " Open your browser from any device on the same network and visit:"
-echo -e " ${YELLOW}http://${IP}:8080${NC}"
-echo -e "${CYAN}=====================================================${NC}"
+echo
+echo "[OK] Installed successfully."
+echo "Open in your browser:  http://${IP:-<receiver-ip>}:8080"
+exit 0
