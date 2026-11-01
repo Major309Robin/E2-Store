@@ -964,10 +964,10 @@
             return _svgUri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${m.hue},70%,38%)"/><stop offset="1" stop-color="hsl(${(m.hue+60)%360},75%,16%)"/></linearGradient></defs><rect width="800" height="300" fill="url(#g)"/>${dots}<circle cx="690" cy="60" r="130" fill="#fff" fill-opacity=".07"/><text x="400" y="190" font-size="140" text-anchor="middle" opacity=".9">${m.emo}</text></svg>`);
         }
 
-        function logoStyle(item){
+        function logoStyle(item0){ const item = eff(item0);
             return item.logo ? (item.logoFit ? `background:#fff url('${item.logo}') center/62% no-repeat` : `background-image:url('${item.logo}')`) : `background-image:url('${artLogo(item)}')`;
         }
-        function bannerStyle(item){
+        function bannerStyle(item0){ const item = eff(item0);
             return item.image ? `background-image:url('${item.image}')` : `background-image:url('${artBanner(item)}')`;
         }
         function renderCommands(list) {
@@ -1545,7 +1545,7 @@
         function routeHash(){
             const m = /^#item-(\d+)$/.exec(location.hash);
             const page = document.getElementById('detailPage');
-            if (!m) { page.classList.add('hidden'); document.body.style.overflow=''; _detailId=null; return; }
+            if (!m) { page.classList.add('hidden'); document.body.style.overflow=''; _detailId=null; if (typeof handleSearch==='function') handleSearch(); return; }
             const item = COMMANDS.find(c => c.id === Number(m[1]));
             _detailId = item ? item.id : null;
             page.classList.remove('hidden'); document.body.style.overflow='hidden';
@@ -1591,9 +1591,10 @@
                     <section class="space-y-2"><h2 class="font-bold text-sm">${_dl('desc')}</h2>
                         <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">${escapeHtml(descOf(item))}</p>
 </section>
+                    <section class="space-y-3"><h2 class="font-bold text-sm">${_it('imgs')}</h2>${imgSlot('logo', _it('logo'))}${imgSlot('image', _it('banner'))}</section>
                     <section class="space-y-3"><h2 class="font-bold text-sm flex items-center gap-2"><i class="fa-regular fa-images text-cyan-400"></i> ${_dl('shots')}</h2>
                         <div class="flex gap-3 overflow-x-auto pb-2 snap-x">${shotsHtml}</div>
-                        <div class="flex gap-2"><input id="shotUrl" dir="ltr" placeholder="${_dl('addshot')}" class="flex-1 min-w-0 bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none"><button onclick="addShot()" class="px-4 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('add')}</button></div></section>
+                        <div class="flex gap-2"><input id="shotUrl" dir="ltr" placeholder="${_dl('addshot')}" class="flex-1 min-w-0 bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none"><button onclick="addShot()" class="px-4 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('add')}</button><label class="px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-semibold cursor-pointer flex items-center gap-1.5 shrink-0"><i class="fa-solid fa-upload"></i><input type="file" accept="image/*" class="hidden" onchange="uploadShot(this)"></label></div></section>
                     <section class="space-y-2"><h2 class="font-bold text-sm">${_dl('rate')}</h2>
                         <div class="flex items-center gap-3"><div class="flex gap-1" dir="ltr">${stars}</div><span class="text-xs text-slate-400">${rev.rating ? _dl('yours') + ': ' + rev.rating + '/5' : ''}</span></div></section>
                     <section class="space-y-3"><h2 class="font-bold text-sm flex items-center gap-2"><i class="fa-regular fa-comments text-cyan-400"></i> ${_dl('comments')} <span class="text-slate-400 font-normal">(${(rev.comments||[]).length})</span></h2>
@@ -1606,6 +1607,76 @@
                         <p class="text-[11px] text-slate-400">${_dl('local')}</p></section>
                 </div>
             </div>`;
+        }
+        // ===== Custom images per item (logo / banner / screenshots): link or uploaded file, saved in this browser =====
+        const IMG_T = {
+            ar:{imgs:'الصور',logo:'اللوجو',banner:'البنر',upload:'رفع من جهازك',reset:'رجوع للأصلي',urlph:'رابط صورة https',fail:'تعذر قراءة الصورة'},
+            en:{imgs:'Images',logo:'Logo',banner:'Banner',upload:'Upload from device',reset:'Reset to default',urlph:'https image URL',fail:'Could not read image'},
+            fr:{imgs:'Images',logo:'Logo',banner:'Bannière',upload:"Importer depuis l'appareil",reset:'Réinitialiser',urlph:"URL https de l'image",fail:"Impossible de lire l'image"}
+        };
+        const _it = k => (IMG_T[currentLang] || IMG_T.ar)[k];
+        function eff(item){
+            const rv = _revGet(item);
+            return Object.assign({}, item, rv.logo ? {logo: rv.logo, logoFit: false} : {}, rv.image ? {image: rv.image} : {});
+        }
+        function _saveRev(it, r){
+            try { localStorage.setItem(_revKey(it), JSON.stringify(r)); return true; }
+            catch(e) { showToast(_it('fail')); return false; }
+        }
+        function readImgFile(file, cb){
+            if (!file || !/^image\//.test(file.type)) { showToast(_it('fail')); return; }
+            const fr = new FileReader();
+            fr.onerror = () => showToast(_it('fail'));
+            fr.onload = () => {
+                const im = new Image();
+                im.onerror = () => showToast(_it('fail'));
+                im.onload = () => {
+                    const s = Math.min(1, 900 / Math.max(im.naturalWidth, im.naturalHeight));
+                    const c = document.createElement('canvas');
+                    c.width = Math.max(1, Math.round(im.naturalWidth * s));
+                    c.height = Math.max(1, Math.round(im.naturalHeight * s));
+                    c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+                    cb(c.toDataURL('image/webp', 0.85));
+                };
+                im.src = fr.result;
+            };
+            fr.readAsDataURL(file);
+        }
+        function imgSlot(kind, label){
+            return `<div class="space-y-2 p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50">
+                        <p class="text-xs font-semibold">${label}</p>
+                        <div class="flex gap-2"><input id="url_${kind}" dir="ltr" placeholder="${_it('urlph')}" class="flex-1 min-w-0 bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none"><button onclick="setImgUrl('${kind}')" class="px-4 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('add')}</button></div>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-semibold cursor-pointer"><i class="fa-solid fa-upload"></i> ${_it('upload')}<input type="file" accept="image/*" class="hidden" onchange="uploadImg('${kind}', this)"></label>
+                            <button onclick="resetImg('${kind}')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_it('reset')}</button>
+                        </div>
+                    </div>`;
+        }
+        function setImgUrl(kind){
+            const it = _curItem(); if (!it) return;
+            const u = document.getElementById('url_' + kind).value.trim();
+            if (!/^https:\/\//i.test(u)) { showToast(_dl('bad')); return; }
+            const r = _revGet(it); r[kind] = u; if (kind === 'logo') r.logoFit = false;
+            if (_saveRev(it, r)) renderDetail(it);
+        }
+        function uploadImg(kind, input){
+            const it = _curItem(); if (!it) return;
+            readImgFile(input.files[0], url => {
+                const r = _revGet(it); r[kind] = url; if (kind === 'logo') r.logoFit = false;
+                if (_saveRev(it, r)) renderDetail(it);
+            });
+        }
+        function resetImg(kind){
+            const it = _curItem(); if (!it) return;
+            const r = _revGet(it); delete r[kind]; if (kind === 'logo') delete r.logoFit;
+            if (_saveRev(it, r)) renderDetail(it);
+        }
+        function uploadShot(input){
+            const it = _curItem(); if (!it) return;
+            readImgFile(input.files[0], url => {
+                const r = _revGet(it); r.shots = r.shots || []; r.shots.push(url);
+                if (_saveRev(it, r)) renderDetail(it);
+            });
         }
         function _curItem(){return COMMANDS.find(c => c.id === _detailId);}
         function rateItem(n){const it=_curItem(); if(!it)return; const r=_revGet(it); r.rating=n; _revSet(it,r); renderDetail(it);}
