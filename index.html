@@ -167,7 +167,7 @@
                         <span data-i18n="hero_title_prefix">جميع بلجنات وأدوات</span> <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">Enigma2</span>
                     </h1>
                     <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="hero_desc">
-                        مكتبة تفاعلية شاملة تضم جميع أوامر التلنت والـ Shell الصادرة عن John Kamel & Robin John، تشمل البانلات، أدوات الصوتيات، السوفتكام، السكنات والمكتبات البرمجية.
+                        مكتبة تفاعلية شاملة تضم جميع أوامر التلنت والـ Shell تشمل البانلات، أدوات الصوتيات، السوفتكام، السكنات والمكتبات البرمجية.
                     </p>
                 </div>
 
@@ -286,7 +286,7 @@
                         <span class="font-heading font-bold text-lg">E2 Store</span>
                     </div>
                     <p class="text-xs text-slate-500 dark:text-slate-400 max-w-md" data-i18n="footer_desc">
-                        موسوعة أوامر وسكربتات Enigma2 المعتمدة. إعداد John Kamel & Robin John.
+                        موسوعة أوامر وسكربتات Enigma2 المعتمدة.
                     </p>
                 </div>
             </div>
@@ -302,6 +302,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- PAGE: ITEM DETAILS (hash route #item-ID) -->
+    <div id="detailPage" class="fixed inset-0 z-40 hidden overflow-y-auto bg-slate-50 dark:bg-darkbg text-slate-800 dark:text-slate-100"></div>
 
     <!-- MODAL: DETAILS -->
     <div id="commandModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md overflow-y-auto">
@@ -320,6 +323,10 @@
                     <span id="modalStars"></span>
                     <span id="modalDl" class="text-slate-400"></span>
                     <span id="modalCategory" class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"></span>
+                </div>
+                <div id="modalShotsWrap" class="hidden space-y-2">
+                    <h4 class="text-xs font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-2"><i class="fa-regular fa-images text-cyan-400"></i> <span data-i18n="shots_title">لقطات الشاشة</span></h4>
+                    <div id="modalShots" class="flex gap-2 overflow-x-auto pb-2 snap-x"></div>
                 </div>
                 <p id="modalDescText" class="text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-900/60 p-3 rounded-xl border border-slate-200 dark:border-slate-800 leading-relaxed"></p>
                 <div class="flex items-center justify-end gap-3 border-t border-slate-200 dark:border-slate-800 pt-4">
@@ -437,14 +444,14 @@
                 login_btn: "دخول",
                 hero_badge: "موسوعة أوامر إنيجما المتقدمة",
                 hero_title_prefix: "جميع أوامر وبلجنات",
-                hero_desc: "مكتبة تفاعلية شاملة تضم جميع أوامر التلنت والـ Shell الصادرة عن John Kamel & Robin John، تشمل البانلات، أدوات الصوتيات، السوفتكام، السكنات والمكتبات البرمجية.",
+                hero_desc: "مكتبة تفاعلية شاملة تضم جميع أوامر التلنت والـ Shell تشمل البانلات، أدوات الصوتيات، السوفتكام، السكنات والمكتبات البرمجية.",
                 stat_commands: "بلجن وأداة",
                 stat_categories: "تصنيفات",
                 stat_version: "إصدار حصري",
                 categories_title: "التصنيفات والأقسام (اضغط للفلترة)",
                 commands_list_title: "قائمة الأوامر المتاحة",
                 cat_all: "عرض الكل",
-                footer_desc: "موسوعة أوامر وسكربتات Enigma2 المعتمدة. إعداد John Kamel & Robin John.",
+                footer_desc: "موسوعة أوامر وسكربتات Enigma2 المعتمدة.",
                 footer_rights: "&copy; 2026 E2 Store. جميع الحقوق محفوظة.",
                 privacy: "الخصوصية",
                 terms: "الشروط والأحكام",
@@ -481,14 +488,14 @@
                 login_btn: "Login",
                 hero_badge: "Advanced Enigma Commands Encyclopedia",
                 hero_title_prefix: "All Commands & Plugins for",
-                hero_desc: "A comprehensive interactive library featuring all Telnet and Shell commands by John Kamel & Robin John, including panels, audio tools, softcams, skins, and programming libraries.",
+                hero_desc: "A comprehensive interactive library featuring all Telnet and Shell commands, including panels, audio tools, softcams, skins, and programming libraries.",
                 stat_commands: "Commands & Scripts",
                 stat_categories: "Categories",
                 stat_version: "Exclusive Pro",
                 categories_title: "Categories & Sections (Click to Filter)",
                 commands_list_title: "Available Commands List",
                 cat_all: "All",
-                footer_desc: "Certified Enigma2 commands & scripts encyclopedia. Prepared by John Kamel & Robin John.",
+                footer_desc: "Certified Enigma2 commands & scripts encyclopedia.",
                 footer_rights: "&copy; 2026 E2 Store. All rights reserved.",
                 privacy: "Privacy",
                 terms: "Terms & Conditions",
@@ -525,14 +532,14 @@
                 login_btn: "Connexion",
                 hero_badge: "Encyclopédie Avancée des Commandes Enigma",
                 hero_title_prefix: "Toutes les Commandes & Plugins pour",
-                hero_desc: "Une bibliothèque interactive complète comprenant toutes les commandes Telnet et Shell par John Kamel & Robin John, incluant panels, outils audio, softcams, skins et bibliothèques.",
+                hero_desc: "Une bibliothèque interactive complète comprenant toutes les commandes Telnet et Shell, incluant panels, outils audio, softcams, skins et bibliothèques.",
                 stat_commands: "Commandes & Scripts",
                 stat_categories: "Catégories",
                 stat_version: "Pro Exclusif",
                 categories_title: "Catégories & Sections (Cliquez pour filtrer)",
                 commands_list_title: "Liste des Commandes Disponibles",
                 cat_all: "Tous",
-                footer_desc: "Encyclopédie certifiée de commandes et scripts Enigma2. Préparé par John Kamel & Robin John.",
+                footer_desc: "Encyclopédie certifiée de commandes et scripts Enigma2.",
                 footer_rights: "&copy; 2026 E2 Store. Tous droits réservés.",
                 privacy: "Confidentialité",
                 terms: "Conditions Générales",
@@ -576,6 +583,7 @@
             save:["حفظ","Save","Enregistrer"],
             install_btn:["تثبيت","Install","Installer"],
             install_on_rx:["تثبيت على الرسيفر","Install on receiver","Installer sur le récepteur"],
+            shots_title:["لقطات الشاشة","Screenshots","Captures d'écran"],
             t_testing:["جاري الاختبار...","Testing...","Test en cours..."],
             t_agent_ok:["✔ E2 Agent شغّال (v{0}) - {1} - Python {2}","✔ E2 Agent is running (v{0}) - {1} - Python {2}","✔ E2 Agent actif (v{0}) - {1} - Python {2}"],
             t_https:["المتصفح بيمنع صفحة HTTPS من مناداة الرسيفر. افتح الصفحة من: {0}","The browser blocks HTTPS pages from calling the receiver. Open this page from: {0}","Le navigateur empêche une page HTTPS d'appeler le récepteur. Ouvrez la page depuis : {0}"],
@@ -639,8 +647,8 @@
         let activeCategory = 'all';
 
         const COMMANDS = [
-            { id: 1, title: 'Install & Update Major System Scripts', author: 'John Kamel & Robin John', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'تحديث وتثبيت سكربت أوامر إنيجما من جون كاميل و روبن جون.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/update_linuxcommands.sh | bash' },
-            { id: 2, title: 'SoftCam Key Updater Order', author: 'John Kamel', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'تحديث شفرات السوفتكام بشكل سريع.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/MajorKey/refs/heads/main/SoftCam%20Script%20Updater.sh | bash' },
+            { id: 1, title: 'Install & Update Major System Scripts', author: 'E2 Store', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'تحديث وتثبيت سكربتات أوامر إنيجما.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/update_linuxcommands.sh | bash' },
+            { id: 2, title: 'SoftCam Key Updater Order', author: 'E2 Store', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'تحديث شفرات السوفتكام بشكل سريع.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/MajorKey/refs/heads/main/SoftCam%20Script%20Updater.sh | bash' },
             { id: 3, title: 'Clean Memory Order', author: 'System', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'تنظيف الذاكرة العشوائية (RAM) وتفريغ الكاش لزيادة سرعة الجهاز.', cmd: 'echo 3 > /proc/sys/vm/drop_caches && sync' },
             { id: 4, title: 'Restart Emu (NCam - OSCam)', author: 'System', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'إعادة تشغيل وأسية الإنيجما 2 (GUI Restart) فوراً.', cmd: 'killall -9 ncam oscam 2>/dev/null; sleep 1; /usr/bin/ncam &' },
             { id: 5, title: 'Restart GUI Order', author: 'System', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'إعادة تشغيل واجهة الرسيفر.', cmd: 'init 4 && init 3' },
@@ -697,7 +705,7 @@
             { id: 56, title: 'AJPanel Menu - Tarek Zoka', author: 'Tarek Zoka', category: 'panels', categoryName: 'البانلات والستورات', desc: 'نسخة مخصصة من لوحة إيه جي بانل مزودة بقوائم وأدوات إضافية.', cmd: 'wget -q --no-check-certificate https://raw.githubusercontent.com/tarekzoka/ajpanel/refs/heads/main/ajpanel_menu1.sh -O - | /bin/sh' },
             { id: 57, title: 'AJPanel Menu - Emil Nabil', author: 'Emil Nabil', category: 'panels', categoryName: 'البانلات والستورات', desc: 'نسخة مخصصة من لوحة إيه جي بانل مزودة بقوائم وأدوات إضافية.', cmd: 'wget -q --no-check-certificate https://dreambox4u.com/emilnabil237/plugins/ajpanel/new/emil-panel-lite.sh -O - | /bin/sh' },
             { id: 58, title: 'AJPanel Menu - Hamdy Ahmed', author: 'Hamdy Ahmed', category: 'panels', categoryName: 'البانلات والستورات', desc: 'نسخة مخصصة من لوحة إيه جي بانل مزودة بقوائم وأدوات إضافية.', cmd: 'wget -q --no-check-certificate https://raw.githubusercontent.com/Ham-ahmed/Secript-Panel/main/1New-Ajpanel-Panel-v5.0_HAN.sh -O - | /bin/sh' },
-            { id: 59, title: 'Major E2 Panel', author: 'John Kamel', category: 'panels', categoryName: 'البانلات والستورات', desc: 'لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات.', cmd: 'wget -qO - https://raw.githubusercontent.com/major79879/Major_E2_Panel_AJP/refs/heads/main/Major%20E2%20Panel_AJP.sh | /bin/sh' },
+            { id: 59, title: 'Major E2 Panel', author: 'E2 Store', category: 'panels', categoryName: 'البانلات والستورات', desc: 'لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات.', cmd: 'wget -qO - https://raw.githubusercontent.com/major79879/Major_E2_Panel_AJP/refs/heads/main/Major%20E2%20Panel_AJP.sh | /bin/sh' },
             { id: 60, title: 'Linuxsat Panel', author: 'Belfagor', category: 'panels', categoryName: 'البانلات والستورات', desc: 'لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات.', cmd: 'wget -q "--no-check-certificate" https://raw.githubusercontent.com/Belfagor2005/LinuxsatPanel/main/installer.sh -O - | /bin/sh' },
             { id: 61, title: 'Magic Panel Gold', author: 'Hamdy Ahmed', category: 'panels', categoryName: 'البانلات والستورات', desc: 'لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات.', cmd: 'wget -q "--no-check-certificate" https://raw.githubusercontent.com/Ham-ahmed/G10/refs/heads/main/MagicPanelGold-install.sh -O - | /bin/sh' },
             { id: 62, title: 'Magic Panel Max', author: 'Hamdy Ahmed', category: 'panels', categoryName: 'البانلات والستورات', desc: 'لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات.', cmd: 'wget -q "--no-check-certificate" https://raw.githubusercontent.com/Ham-ahmed/G12/refs/heads/main/MagicPanelMax-install.sh -O - | /bin/sh' },
@@ -803,8 +811,8 @@
             { id: 162, title: 'Transparent Picons', author: 'Picons Team', category: 'others', categoryName: 'إضافات وأدوات أخرى', desc: 'مجموعة بيكونز للإينجما.', cmd: 'URL="https://github.com/picons/picons/releases/download/2026-10-25--00-12-17/srp-full.220x132-190x102.light.on.transparent_2026-10-25--00-12-17.hardlink.tar.xz"; [ -d /media/hdd ] && BASE=/media/hdd || { [ -d /media/usb ] && BASE=/media/usb || { [ -d /media/mmc ] && BASE=/media/mmc || BASE=/usr/share/enigma2; }; }; mkdir -p $BASE/picon && cd /tmp && wget -O picons.tar.xz "$URL" && tar -xJf picons.tar.xz -C $BASE/picon --strip-components=1 && rm -rf /usr/share/enigma2/picon && ln -sfn $BASE/picon /usr/share/enigma2/picon && rm -f picons.tar.xz && sync && killall -9 enigma2' },
             { id: 163, title: 'My Web UI Controller', author: 'Mohamed Nasser', category: 'others', categoryName: 'إضافات وأدوات أخرى', desc: 'أداة لإدارة الويب.', cmd: 'wget -O /tmp/MyWebUIController.tar.gz "https://raw.githubusercontent.com/popking159/mywebuicontroller/refs/heads/main/MyWebUIController.tar.gz" && tar -xzf /tmp/MyWebUIController.tar.gz -C / && rm -f /tmp/MyWebUIController.tar.gz && killall -9 enigma2' },
             { id: 164, title: 'E2 Currency Pro', author: 'Ramzus', category: 'others', categoryName: 'إضافات وأدوات أخرى', desc: 'أداة لمعرفة أسعار العملات والذهب.', cmd: 'wget -qO- https://raw.githubusercontent.com/ramzus007/E2-Currency-Pro/main/installer.sh | sh' },
-            { id: 165, title: 'Extra Plugin Tool A', author: 'Robin John', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'أداة إضافية لفحص الذاكرة وإدارة السوفت وير.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/tool1.sh | sh' },
-            { id: 166, title: 'Extra Plugin Tool B', author: 'John Kamel', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'أداة مساعدة لإصلاح ملفات السيرفرات الوهمية.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/tool2.sh | sh' },
+            { id: 165, title: 'Extra Plugin Tool A', author: 'E2 Store', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'أداة إضافية لفحص الذاكرة وإدارة السوفت وير.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/tool1.sh | sh' },
+            { id: 166, title: 'Extra Plugin Tool B', author: 'E2 Store', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'أداة مساعدة لإصلاح ملفات السيرفرات الوهمية.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/tool2.sh | sh' },
             { id: 167, title: 'Advanced Skin Part X', author: 'Habeb S', category: 'skins', categoryName: 'السكنات والمظاهر', desc: 'إضافات وتعديلات متقدمة لواجهات العرض.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/skinpart1.sh | sh' },
             { id: 168, title: 'Advanced Skin Part Y', author: 'Dali 44G', category: 'skins', categoryName: 'السكنات والمظاهر', desc: 'تحديثات الأيقونات والرسومات الجانبية.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/skinpart2.sh | sh' },
             { id: 169, title: 'IPTV Stream Enhancer', author: 'Biko', category: 'iptv', categoryName: 'IPTV ومشغلات البث', desc: 'تحسين تدفق قنوات الأي بي تي في وتقليل التقطيع.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/iptv1.sh | sh' },
@@ -827,9 +835,9 @@
             { id: 186, title: 'Reboot Device Order', author: 'System', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'إعادة تشغيل الرسيفر بالكامل (Reboot).', cmd: 'reboot' },
             { id: 187, title: 'Power Off Order', author: 'System', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'إيقاف تشغيل الجهاز تماماً.', cmd: 'poweroff' },
             { id: 188, title: 'Check RAM Usage', author: 'System', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'عرض استهلاك الذاكرة العشوائية.', cmd: 'free -m' },
-            { id: 189, title: 'Test Internet Speed Script', author: 'Robin John', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'اختبار سرعة الإنترنت المتصل بالرسيفر.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/speedtest.sh | sh' },
-            { id: 190, title: 'Backup Channel Settings', author: 'John Kamel', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'عمل نسخة احتياطية لملف القنوات الحالي.', cmd: 'tar -czvf /tmp/channels_backup.tar.gz /etc/enigma2/*.tv /etc/enigma2/*.radio' },
-            { id: 191, title: 'Restore Channel Settings', author: 'John Kamel', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'استعادة ملف القنوات المحفوظ.', cmd: 'tar -xzvf /tmp/channels_backup.tar.gz -C / && init 4 && init 3' },
+            { id: 189, title: 'Test Internet Speed Script', author: 'E2 Store', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'اختبار سرعة الإنترنت المتصل بالرسيفر.', cmd: 'wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/speedtest.sh | sh' },
+            { id: 190, title: 'Backup Channel Settings', author: 'E2 Store', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'عمل نسخة احتياطية لملف القنوات الحالي.', cmd: 'tar -czvf /tmp/channels_backup.tar.gz /etc/enigma2/*.tv /etc/enigma2/*.radio' },
+            { id: 191, title: 'Restore Channel Settings', author: 'E2 Store', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'استعادة ملف القنوات المحفوظ.', cmd: 'tar -xzvf /tmp/channels_backup.tar.gz -C / && init 4 && init 3' },
             { id: 192, title: 'Clear Temp Files', author: 'System', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'حذف الملفات المؤقتة من مجلد tmp لتوفير مساحة.', cmd: 'rm -rf /tmp/*_ipk /tmp/*.tar.gz /tmp/*.sh' },
             { id: 193, title: 'Python Version Check', author: 'System', category: 'python', categoryName: 'مكتبات Python 3', desc: 'التحقق من إصدار بايثون المثبت.', cmd: 'python3 --version' },
             { id: 194, title: 'Update Python Pip', author: 'System', category: 'python', categoryName: 'مكتبات Python 3', desc: 'تحديث أداة إدارة حزم بايثون.', cmd: 'python3 -m pip install --upgrade pip' },
@@ -838,7 +846,7 @@
             { id: 197, title: 'Check USB Devices', author: 'System', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'عرض وحدات التخزين الخارجية الموصولة.', cmd: 'lsusb && blkid' },
             { id: 198, title: 'Mount External HDD', author: 'System', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'تهيئة وربط الهارد الخارجي.', cmd: 'mount -a' },
             { id: 199, title: 'Enigma2 Debug Mode', author: 'System', category: 'tools', categoryName: 'أدوات النظام والإصلاح', desc: 'تشغيل الإنيجما في وضع تتبع الأخطاء.', cmd: 'enigma2 --debug' },
-            { id: 200, title: 'Final System Cleanup', author: 'John Kamel & Robin John', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'تنظيف شامل للرسيفر وإعادة ترتيب العمليات.', cmd: 'echo 3 > /proc/sys/vm/drop_caches && sync && killall -9 enigma2' }
+            { id: 200, title: 'Final System Cleanup', author: 'E2 Store', category: 'fast', categoryName: 'أوامر النظام وسرعة', desc: 'تنظيف شامل للرسيفر وإعادة ترتيب العمليات.', cmd: 'echo 3 > /proc/sys/vm/drop_caches && sync && killall -9 enigma2' }
         ];
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -852,6 +860,7 @@
 
         function changeLanguage(lang) {
             currentLang = lang;
+            setTimeout(() => { if (typeof _detailId !== 'undefined' && _detailId !== null) renderDetail(_curItem()); }, 0);
             const html = document.documentElement;
             html.setAttribute('lang', lang);
             html.setAttribute('dir', RTL_LANGS.includes(lang) ? 'rtl' : 'ltr');
@@ -928,12 +937,38 @@
             return h+` <span class="text-slate-400 text-[11px] mx-1">${r.toFixed(1)}</span>`;
         }
         function fmtNum(n){return n>=1000?(n/1000).toFixed(n>=10000?0:1)+'K':String(n)}
+
+        // ===== Generated artwork (unique logo + banner per item; real images in OVERRIDES win) =====
+        const ART_CAT = {fast:['⚡',30],python:['🐍',215],update:['🔄',190],libs:['📦',265],softcam_feeds:['📡',155],panels:['🧩',205],tools:['🛠️',20],softcams:['🔑',175],audio:['🔊',325],subtitles:['💬',140],iptv:['📺',350],skins:['🎨',300],others:['✨',210]};
+        const ART_KW = [[/youtube/i,'▶️'],[/python|pycrypto|beautifulsoup|urllib|sqlite|requests|pip\b/i,'🐍'],[/ffmpeg|gstreamer|gstplayer|exteplayer|serviceapp/i,'🎬'],[/weather/i,'⛅'],[/chromium|browser|qtweb|webif|web ui/i,'🌐'],[/epg|autotimer|timer/i,'📅'],[/biss|key|cam|server/i,'🔑'],[/subtitle|subs|sub\b|translator|tmbd/i,'💬'],[/audio|ipaudio|hits/i,'🔊'],[/skin|aglare|luka|maxy|metrix|fury|obsidian|cine|dreamy/i,'🎨'],[/iptv|stalker|xtream|streamity|vavoo|portal|tivi|e2i|tsi|player|streamer/i,'📺'],[/ssl|crypto|pcsc/i,'🔒'],[/usb|hdd|disk|mount|ntfs|exfat|flash/i,'💽'],[/ram|memory|clean|temp|cleanup/i,'🧹'],[/restart|reboot|reset/i,'🔄'],[/power off/i,'⏻'],[/network|dns|internet|speed/i,'📡'],[/backup|restore/i,'💾'],[/nano|editor/i,'📝'],[/curl|wget|download/i,'⬇️'],[/panel|addons/i,'🧩'],[/picon/i,'🖼️'],[/currency/i,'💱'],[/log|debug|crash/i,'🐞'],[/update|upgrade|feed/i,'🔄'],[/uninstall|remove/i,'🗑️'],[/signal/i,'📶'],[/football|foot/i,'⚽']];
+        function _artHash(n){let x=2166136261;for(const ch of String(n)){x=Math.imul(x^ch.charCodeAt(0),16777619)>>>0}return x}
+        function _artMeta(item){
+            const cat = ART_CAT[item.category] || ART_CAT.others;
+            let emo = cat[0];
+            for (const [re,e] of ART_KW) { if (re.test(item.title)) { emo = e; break; } }
+            const h = _artHash(item.title + '|' + item.id);
+            const hue = (cat[1] + (h % 70) - 35 + 360) % 360;
+            const words = item.title.replace(/[^A-Za-z0-9 ]/g,' ').split(/\s+/).filter(w => w && !/^(install|the|and|by|v?\d.*)$/i.test(w));
+            const ini = ((words[0]||'E')[0] + (words[1] ? words[1][0] : (words[0]||'E')[1] || '')).toUpperCase();
+            return {emo, hue, ini, h};
+        }
+        function _svgUri(svg){return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg).replace(/'/g,'%27').replace(/\(/g,'%28').replace(/\)/g,'%29');}
+        function artLogo(item){
+            const m = _artMeta(item);
+            return _svgUri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${m.hue},75%,52%)"/><stop offset="1" stop-color="hsl(${(m.hue+45)%360},80%,30%)"/></linearGradient></defs><rect width="200" height="200" fill="url(#g)"/><circle cx="160" cy="40" r="46" fill="#fff" fill-opacity=".10"/><text x="100" y="112" font-size="88" text-anchor="middle">${m.emo}</text><text x="100" y="176" font-size="30" font-weight="700" fill="#fff" fill-opacity=".92" text-anchor="middle" font-family="Arial,sans-serif">${m.ini}</text></svg>`);
+        }
+        function artBanner(item){
+            const m = _artMeta(item);
+            let dots = '';
+            for (let k = 0; k < 7; k++) { const r = _artHash(m.h + ':' + k); dots += `<text x="${(r % 760) + 20}" y="${((r >> 8) % 260) + 30}" font-size="${24 + (r >> 16) % 30}" opacity=".13">${m.emo}</text>`; }
+            return _svgUri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${m.hue},70%,38%)"/><stop offset="1" stop-color="hsl(${(m.hue+60)%360},75%,16%)"/></linearGradient></defs><rect width="800" height="300" fill="url(#g)"/>${dots}<circle cx="690" cy="60" r="130" fill="#fff" fill-opacity=".07"/><text x="400" y="190" font-size="140" text-anchor="middle" opacity=".9">${m.emo}</text></svg>`);
+        }
+
         function logoStyle(item){
-            return item.logo ? `background-image:url('${item.logo}')` : `background:#0b1220 var(--logo) center/72% no-repeat`;
+            return item.logo ? (item.logoFit ? `background:#fff url('${item.logo}') center/62% no-repeat` : `background-image:url('${item.logo}')`) : `background-image:url('${artLogo(item)}')`;
         }
         function bannerStyle(item){
-            return item.image ? `background-image:url('${item.image}')`
-                : `background-image:var(--logo),linear-gradient(120deg,${item.c1}55,${item.c2}55 55%,#0b1220);background-size:auto 62%,cover;background-position:center;background-repeat:no-repeat;background-color:#0b1220`;
+            return item.image ? `background-image:url('${item.image}')` : `background-image:url('${artBanner(item)}')`;
         }
         function renderCommands(list) {
             const container = document.getElementById('commandsGrid');
@@ -1004,7 +1039,8 @@
         }
 
         let currentModalId = null;
-        function openCommandModal(id) {
+        function openCommandModal(id) { location.hash = 'item-' + id; }
+        function _legacyOpenCommandModal(id) {
             const item = COMMANDS.find(c => c.id === id);
             if (!item) return;
             currentModalId = id;
@@ -1016,6 +1052,10 @@
             document.getElementById('modalDl').innerHTML = `<i class="fa-solid fa-cloud-arrow-down text-cyan-400"></i> ${fmtNum(item.downloads)}`;
             const ban = document.getElementById('modalBanner'); ban.style.cssText = bannerStyle(item);
             const lg = document.getElementById('modalLogo'); lg.style.cssText = logoStyle(item); lg.textContent = '';
+            const shots = Array.isArray(item.shots) ? item.shots : [];
+            const sw = document.getElementById('modalShotsWrap'), sb = document.getElementById('modalShots');
+            sb.innerHTML = shots.map(u => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener noreferrer" class="snap-start shrink-0"><img src="${escapeHtml(u)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()" class="h-32 w-auto rounded-xl border border-slate-200 dark:border-slate-700 object-cover bg-slate-900"></a>`).join('');
+            sw.classList.toggle('hidden', !shots.length);
             document.getElementById('modalInstallBtn').onclick = () => { closeModal('commandModal'); installItem(id); };
             openModal('commandModal');
         }
@@ -1042,8 +1082,152 @@
         // ===== Enrich data: colors, rating, downloads (edit freely / override per item) =====
         const CAT_COLORS = {fast:['#f59e0b','#ef4444'],python:['#3b82f6','#facc15'],update:['#06b6d4','#6366f1'],libs:['#8b5cf6','#ec4899'],softcam_feeds:['#10b981','#0ea5e9'],panels:['#0284c7','#7c3aed'],tools:['#f97316','#b91c1c'],softcams:['#14b8a6','#1d4ed8'],audio:['#ec4899','#7c3aed'],subtitles:['#22c55e','#0f766e'],iptv:['#ef4444','#9333ea'],skins:['#d946ef','#f59e0b'],others:['#64748b','#0ea5e9']};
         // يمكنك وضع لوجو/صورة حقيقية لأي عنصر هنا بالـ id:  { 21: {logo:'https://...', image:'https://...', rating:4.8, downloads:12000} }
-        const OVERRIDES = {};
+        const OVERRIDES = {
+        "124": {
+                "logo": "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_start.jpg",
+                "image": "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_all.jpg",
+                "shots": [
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_start.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_all.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_youtube.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_download.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_settings.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_local.jpg"
+                ]
+        },
+        "125": {
+                "logo": "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_start.jpg",
+                "image": "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_all.jpg",
+                "shots": [
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_start.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_all.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_youtube.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_download.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_settings.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_local.jpg"
+                ]
+        },
+        "126": {
+                "logo": "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_start.jpg",
+                "image": "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_all.jpg",
+                "shots": [
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_start.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_all.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_youtube.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_download.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_settings.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_local.jpg"
+                ]
+        },
+        "128": {
+                "logo": "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_start.jpg",
+                "image": "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_all.jpg",
+                "shots": [
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_start.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_all.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_youtube.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_download.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_settings.jpg",
+                        "https://raw.githubusercontent.com/oe-mirrors/e2iplayer/gh-pages/Readme%20Screenshots/screenshot_local.jpg"
+                ]
+        },
+        "6": {
+                "logo": "https://cdn.simpleicons.org/python",
+                "logoFit": true
+        },
+        "7": {
+                "logo": "https://cdn.simpleicons.org/python",
+                "logoFit": true
+        },
+        "8": {
+                "logo": "https://cdn.simpleicons.org/python",
+                "logoFit": true
+        },
+        "9": {
+                "logo": "https://cdn.simpleicons.org/python",
+                "logoFit": true
+        },
+        "10": {
+                "logo": "https://cdn.simpleicons.org/python",
+                "logoFit": true
+        },
+        "193": {
+                "logo": "https://cdn.simpleicons.org/python",
+                "logoFit": true
+        },
+        "194": {
+                "logo": "https://cdn.simpleicons.org/python",
+                "logoFit": true
+        },
+        "195": {
+                "logo": "https://cdn.simpleicons.org/python",
+                "logoFit": true
+        },
+        "196": {
+                "logo": "https://cdn.simpleicons.org/python",
+                "logoFit": true
+        },
+        "17": {
+                "logo": "https://cdn.simpleicons.org/curl",
+                "logoFit": true
+        },
+        "41": {
+                "logo": "https://cdn.simpleicons.org/curl",
+                "logoFit": true
+        },
+        "20": {
+                "logo": "https://cdn.simpleicons.org/ffmpeg",
+                "logoFit": true
+        },
+        "26": {
+                "logo": "https://cdn.simpleicons.org/youtube",
+                "logoFit": true
+        },
+        "12": {
+                "logo": "https://cdn.simpleicons.org/gnu",
+                "logoFit": true
+        },
+        "15": {
+                "logo": "https://cdn.simpleicons.org/gnu",
+                "logoFit": true
+        },
+        "16": {
+                "logo": "https://cdn.simpleicons.org/gnu",
+                "logoFit": true
+        },
+        "183": {
+                "logo": "https://cdn.simpleicons.org/linux",
+                "logoFit": true
+        },
+        "184": {
+                "logo": "https://cdn.simpleicons.org/linux",
+                "logoFit": true
+        }
+};
+        // يشيل اسم كاميل من أي بيانات (المحلية أو المحمّلة من الكتالوج الخارجي)
+        function scrubNames(str, isAuthor) {
+            if (typeof str !== 'string') return str;
+            const names = /(John\s+Kamel|Robin\s+John|جون\s+كاميل|روبن\s+جون)/gi;
+            if (isAuthor) {
+                const r = str.replace(names, '').replace(/^[\s&,،و]+|[\s&,،و]+$/g, '').replace(/\s*(&|,|،)\s*(&|,|،)\s*/g, ' ').trim();
+                return r || 'E2 Store';
+            }
+            let o = str.replace(/\s*(من|بواسطة|عن|by|par|de)\s+(John\s+Kamel|Robin\s+John|جون\s+كاميل|روبن\s+جون)(\s*(و|&|and|et)\s*(John\s+Kamel|Robin\s+John|جون\s+كاميل|روبن\s+جون))*/gi, '');
+            o = o.replace(names, '');
+            return o.replace(/\s+([.،,])/g, '$1').replace(/\s{2,}/g, ' ').trim();
+        }
+        const DESC_I18N = {"تحديث وتثبيت سكربتات أوامر إنيجما.": {"en": "Update and install Enigma2 command scripts.", "fr": "Mise à jour et installation des scripts de commandes Enigma2."}, "تحديث شفرات السوفتكام بشكل سريع.": {"en": "Quickly update SoftCam keys.", "fr": "Mise à jour rapide des clés SoftCam."}, "تنظيف الذاكرة العشوائية (RAM) وتفريغ الكاش لزيادة سرعة الجهاز.": {"en": "Frees RAM and clears the cache to speed up the receiver.", "fr": "Libère la RAM et vide le cache pour accélérer le récepteur."}, "إعادة تشغيل وأسية الإنيجما 2 (GUI Restart) فوراً.": {"en": "Instantly restart the Enigma2 GUI.", "fr": "Redémarre immédiatement l'interface Enigma2."}, "إعادة تشغيل واجهة الرسيفر.": {"en": "Restart the receiver interface.", "fr": "Redémarre l'interface du récepteur."}, "تثبيت مكتبة الطلبات python3-requests.": {"en": "Install the python3-requests HTTP library.", "fr": "Installe la bibliothèque HTTP python3-requests."}, "تثبيت مكتبة python3-sqlite3.": {"en": "Install the python3-sqlite3 library.", "fr": "Installe la bibliothèque python3-sqlite3."}, "تثبيت مكتبة التحليل python3-beautifulsoup4.": {"en": "Install the python3-beautifulsoup4 parsing library.", "fr": "Installe la bibliothèque d'analyse python3-beautifulsoup4."}, "تثبيت مكتبة التشفير python3-pycrypto.": {"en": "Install the python3-pycrypto encryption library.", "fr": "Installe la bibliothèque de chiffrement python3-pycrypto."}, "تثبيت مكتبة python3-urllib3.": {"en": "Install the python3-urllib3 library.", "fr": "Installe la bibliothèque python3-urllib3."}, "تحديث قائمة الفيد وترقية حزم النظام.": {"en": "Refresh the feed list and upgrade system packages.", "fr": "Actualise la liste des feeds et met à niveau les paquets système."}, "تحديث الفيد وتثبيت أداة التحميل wget.": {"en": "Update the feed and install the wget download tool.", "fr": "Met à jour le feed et installe l'outil de téléchargement wget."}, "إعادة تثبيت حزم الميديا serviceapp, exteplayer3, ffmpeg, gstplayer.": {"en": "Reinstall the media packages serviceapp, exteplayer3, ffmpeg and gstplayer.", "fr": "Réinstalle les paquets média serviceapp, exteplayer3, ffmpeg et gstplayer."}, "تثبيت كافة مشغلات GStreamer وملحقاتها مع serviceapp.": {"en": "Install all GStreamer players and add-ons together with serviceapp.", "fr": "Installe tous les lecteurs GStreamer et leurs extensions avec serviceapp."}, "تثبيت محرر النصوص nano.": {"en": "Install the nano text editor.", "fr": "Installe l'éditeur de texte nano."}, "تثبيت أداة wget.": {"en": "Install the wget tool.", "fr": "Installe l'outil wget."}, "تثبيت أداة curl.": {"en": "Install the curl tool.", "fr": "Installe l'outil curl."}, "تثبيت أداة astra-sm.": {"en": "Install the astra-sm tool.", "fr": "Installe l'outil astra-sm."}, "تثبيت أداة dvbsnoop.": {"en": "Install the dvbsnoop tool.", "fr": "Installe l'outil dvbsnoop."}, "تثبيت مشغل وسائط ffmpeg.": {"en": "Install the ffmpeg media player.", "fr": "Installe le lecteur multimédia ffmpeg."}, "تنظيف الرام لأجهزة إنيجما.": {"en": "RAM cleaner for Enigma2 receivers.", "fr": "Nettoyeur de RAM pour récepteurs Enigma2."}, "مشغل الميديا لأجهزة إنيجما.": {"en": "Media player for Enigma2 receivers.", "fr": "Lecteur multimédia pour récepteurs Enigma2."}, "متصفح لتشغيل اليوتيوب لأجهزة إنيجما.": {"en": "Browser for playing YouTube on Enigma2 receivers.", "fr": "Navigateur pour lire YouTube sur les récepteurs Enigma2."}, "بلجن الطقس لأجهزة إنيجما.": {"en": "Weather plugin for Enigma2 receivers.", "fr": "Plugin météo pour récepteurs Enigma2."}, "بلجن أوتو تايمر لأجهزة إنيجما.": {"en": "AutoTimer plugin for Enigma2 receivers.", "fr": "Plugin AutoTimer pour récepteurs Enigma2."}, "بلجن يوتيوب تايمر لأجهزة إنيجما.": {"en": "YouTube plugin for Enigma2 receivers.", "fr": "Plugin YouTube pour récepteurs Enigma2."}, "بلجن فايل كوماندر تايمر لأجهزة إنيجما.": {"en": "FileCommander file manager plugin for Enigma2 receivers.", "fr": "Plugin gestionnaire de fichiers FileCommander pour Enigma2."}, "بلجن دريم اكسبلورر تايمر لأجهزة إنيجما.": {"en": "DreamExplorer file explorer plugin for Enigma2 receivers.", "fr": "Plugin explorateur DreamExplorer pour Enigma2."}, "بلجن سيريوس تايمر لأجهزة إنيجما.": {"en": "SeriesPlugin for Enigma2 receivers.", "fr": "SeriesPlugin pour récepteurs Enigma2."}, "بلجن اكستريمي تايمر لأجهزة إنيجما.": {"en": "Xstreamity plugin for Enigma2 receivers.", "fr": "Plugin Xstreamity pour récepteurs Enigma2."}, "بلجن إي بي حي امبورت تايمر لأجهزة إنيجما.": {"en": "EPGImport plugin for Enigma2 receivers.", "fr": "Plugin EPGImport pour récepteurs Enigma2."}, "بلجن اوبن ويب اف تايمر لأجهزة إنيجما.": {"en": "OpenWebif plugin for Enigma2 receivers.", "fr": "Plugin OpenWebif pour récepteurs Enigma2."}, "تثبيت مكتبة QtWebEngine.": {"en": "Install the QtWebEngine library.", "fr": "Installe la bibliothèque QtWebEngine."}, "تشغيل أقراص NTFS.": {"en": "Enables NTFS disk support.", "fr": "Active la prise en charge des disques NTFS."}, "تشغيل أقراص exFAT.": {"en": "Enables exFAT disk support.", "fr": "Active la prise en charge des disques exFAT."}, "تثبيت مشغل gstplayer ومكتباته.": {"en": "Install the gstplayer player and its libraries.", "fr": "Installe le lecteur gstplayer et ses bibliothèques."}, "تثبيت livestreamer.": {"en": "Install livestreamer.", "fr": "Installe livestreamer."}, "تثبيت خادم livestreamersrv.": {"en": "Install the livestreamersrv server.", "fr": "Installe le serveur livestreamersrv."}, "تثبيت مكتبة libusb.": {"en": "Install the libusb library.", "fr": "Installe la bibliothèque libusb."}, "تثبيت مكتبة الأمان libssl1.0.2.": {"en": "Install the libssl1.0.2 security library.", "fr": "Installe la bibliothèque de sécurité libssl1.0.2."}, "تثبيت مكتبة libcurl4.": {"en": "Install the libcurl4 library.", "fr": "Installe la bibliothèque libcurl4."}, "تثبيت مكتبة libpcsclite1.": {"en": "Install the libpcsclite1 library.", "fr": "Installe la bibliothèque libpcsclite1."}, "تثبيت مكتبة libcrypto1.0.2.": {"en": "Install the libcrypto1.0.2 library.", "fr": "Installe la bibliothèque libcrypto1.0.2."}, "تثبيت المشغل الخارجي exteplayer3.": {"en": "Install the exteplayer3 external player.", "fr": "Installe le lecteur externe exteplayer3."}, "تثبيت حزم gstreamer1.0-plugins-good.": {"en": "Install the gstreamer1.0-plugins-good packages.", "fr": "Installe les paquets gstreamer1.0-plugins-good."}, "تثبيت حزم gstreamer1.0-plugins-base.": {"en": "Install the gstreamer1.0-plugins-base packages.", "fr": "Installe les paquets gstreamer1.0-plugins-base."}, "تثبيت حزم gstreamer1.0-plugins-bad.": {"en": "Install the gstreamer1.0-plugins-bad packages.", "fr": "Installe les paquets gstreamer1.0-plugins-bad."}, "تثبيت حزم gstreamer1.0-plugins-ugly.": {"en": "Install the gstreamer1.0-plugins-ugly packages.", "fr": "Installe les paquets gstreamer1.0-plugins-ugly."}, "تثبيت حزم gstreamer1.0-plugins-bad-meta.": {"en": "Install the gstreamer1.0-plugins-bad-meta packages.", "fr": "Installe les paquets gstreamer1.0-plugins-bad-meta."}, "تثبيت فيد السوفتكام لأجهزة OpenATV.": {"en": "Install the SoftCam feed for OpenATV receivers.", "fr": "Installe le feed SoftCam pour les récepteurs OpenATV."}, "تثبيت فيد السوفتكام الإصدار 8.0 بصيغة ipk.": {"en": "Install SoftCam feed version 8.0 as an ipk package.", "fr": "Installe le feed SoftCam version 8.0 au format ipk."}, "تثبيت الفيد العالمي الموحد للسوفتكام.": {"en": "Install the universal SoftCam feed.", "fr": "Installe le feed SoftCam universel."}, "تثبيت فيد السوفتكام لنظام OpenEight.": {"en": "Install the SoftCam feed for OpenEight.", "fr": "Installe le feed SoftCam pour OpenEight."}, "تعيين خوادم DNS الخاصة بجوجل وإعادة تشغيل الإنيجما.": {"en": "Set Google DNS servers and restart Enigma2.", "fr": "Définit les serveurs DNS de Google et redémarre Enigma2."}, "لوحة أدوات متكاملة لإدارة إضافات وأدوات إنيجما فى مكان واحد.": {"en": "An all-in-one panel to manage Enigma2 add-ons and tools in one place.", "fr": "Un panneau tout-en-un pour gérer les extensions et outils Enigma2."}, "نسخة مخصصة من لوحة إيه جي بانل مزودة بقوائم وأدوات إضافية.": {"en": "A customized AJPanel edition with extra menus and tools.", "fr": "Édition personnalisée d'AJPanel avec menus et outils supplémentaires."}, "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات.": {"en": "A comprehensive panel bringing together dozens of tools, add-ons and services.", "fr": "Un panneau complet réunissant des dizaines d'outils, extensions et services."}, "تحسين دعم اللغة العربية وإصلاح مشاكل الخطوط والترجمة.": {"en": "Improves Arabic language support and fixes font and translation issues.", "fr": "Améliore la prise en charge de l'arabe et corrige les polices et traductions."}, "أداة عرض و إظهار أخطاء النظام.": {"en": "Tool to view and display system errors.", "fr": "Outil d'affichage des erreurs système."}, "أداة حذف الاضافات.": {"en": "Tool to remove add-ons.", "fr": "Outil de suppression des extensions."}, "أداة إظهار الإشارة على القنوات.": {"en": "Shows the signal level on channels.", "fr": "Affiche le niveau du signal sur les chaînes."}, "أداة إظهار التايم شيفت داخل صوت القناة.": {"en": "Shows time-shift delay within the channel audio.", "fr": "Affiche le décalage temporel dans l'audio de la chaîne."}, "أداة التحكم في شكل عرض قائمة القنوات.": {"en": "Controls how the channel list is displayed.", "fr": "Contrôle l'affichage de la liste des chaînes."}, "أداة لإنشاء نسخة احتياطية كاملة من النظام الحالي واستعادتها بسهولة.": {"en": "Create a full backup of the current system and restore it easily.", "fr": "Crée une sauvegarde complète du système et la restaure facilement."}, "أداة لتحديث ملفات وترددات الأقمار.": {"en": "Updates satellite files and frequencies.", "fr": "Met à jour les fichiers et fréquences des satellites."}, "أداة لقياس وإظهار درجة حرارة الجهاز.": {"en": "Measures and displays the device temperature.", "fr": "Mesure et affiche la température de l'appareil."}, "أداة جيمني لإضافة العديد من الوظائف المتقدمة وأدوات الإدارة.": {"en": "Gemini tool adding many advanced functions and management tools.", "fr": "Outil Gemini ajoutant de nombreuses fonctions avancées et outils de gestion."}, "أداة كيبوورد متطورة.": {"en": "An advanced virtual keyboard.", "fr": "Un clavier virtuel avancé."}, "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام.": {"en": "Add, manage and run SoftCam subscriptions.", "fr": "Ajoute, gère et exécute les abonnements SoftCam."}, "أداة للبحث عن الفيدات.": {"en": "Tool to search for satellite feeds.", "fr": "Outil de recherche de feeds satellites."}, "أداة لإدخال وتحديث شفرات ملف السوفتكام.": {"en": "Enter and update keys in the SoftCam file.", "fr": "Saisit et met à jour les clés du fichier SoftCam."}, "أداة للبحث عن الفيدات وإظهار وإدخال شفراتها.": {"en": "Search feeds and display and enter their keys.", "fr": "Recherche les feeds, affiche et saisit leurs clés."}, "أداة لإدخال شفرات القنوات.": {"en": "Tool to enter channel keys.", "fr": "Outil de saisie des clés de chaînes."}, "أداة متخصصة لمتابعة بيانات وأخبار الأقمار والقنوات.": {"en": "A specialized tool for following satellite and channel data and news.", "fr": "Outil dédié au suivi des données et actualités des satellites et chaînes."}, "أداة لإضافة سيرفرات مجانية للسوفتكام.": {"en": "Adds free servers for SoftCam.", "fr": "Ajoute des serveurs gratuits pour SoftCam."}, "أداة إضافة لإدارة وإضافة أنظمة السوفتكام المختلفة وتسهيل التبديل بينها.": {"en": "Add-on to manage and add different SoftCam systems and switch between them easily.", "fr": "Extension pour gérer et ajouter différents systèmes SoftCam et basculer facilement."}, "أداة لإدارة وإضافة أنظمة السوفتكام المختلفة وتسهيل التبديل بينها.": {"en": "Manage and add different SoftCam systems and switch between them easily.", "fr": "Gère et ajoute différents systèmes SoftCam et permet de basculer facilement."}, "أداة إضافية خاصة بمنصة إيجل سات لتوسيع وظائف الجهاز.": {"en": "An extra tool for the Eagle Sat platform that extends receiver functions.", "fr": "Outil supplémentaire pour la plateforme Eagle Sat qui étend les fonctions du récepteur."}, "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت.": {"en": "Play and manage online audio and radio services.", "fr": "Lit et gère les services audio et radio en ligne."}, "أداة تشغيل وتحويل القنوات الصوتية من خدمات الإكستريم.": {"en": "Play and convert audio channels from Xtream services.", "fr": "Lit et convertit les chaînes audio des services Xtream."}, "أداة لإضافة خواص للصوتيات.": {"en": "Adds extra options to audio tracks.", "fr": "Ajoute des options supplémentaires aux pistes audio."}, "أداة سريعة لتبديل المسارات الصوتية داخل القنوات والأفلام بسهولة.": {"en": "A quick tool to switch audio tracks in channels and movies.", "fr": "Outil rapide pour changer de piste audio dans les chaînes et films."}, "أداة تشغيل الصوتيات والأي بي تي في.": {"en": "Play audio and IPTV.", "fr": "Lit l'audio et l'IPTV."}, "أداة تحميل وتشغيل الأغاني.": {"en": "Download and play songs.", "fr": "Télécharge et lit des chansons."}, "أداة لتحميل وإدارة الترجمات للمحتوى المرئى.": {"en": "Download and manage subtitles for video content.", "fr": "Télécharge et gère les sous-titres du contenu vidéo."}, "أداة لترجمة النصوص والصوت داخل القنوات.": {"en": "Translate text and audio inside channels.", "fr": "Traduit le texte et l'audio dans les chaînes."}, "أداة لاستخراج الترجمات المدمجة وإنشاء ملفات ترجمة مستقلة.": {"en": "Extract embedded subtitles and create standalone subtitle files.", "fr": "Extrait les sous-titres intégrés et crée des fichiers de sous-titres séparés."}, "مترجم متعدد اللغات لترجمة النصوص داخل القنوات.": {"en": "A multilingual translator for text inside channels.", "fr": "Traducteur multilingue pour le texte dans les chaînes."}, "أداة لإنشاء ترجمات تلقائية للمحتوى المرئي باستخدام تقنيات التعرف على الصوت.": {"en": "Generate automatic subtitles for video using speech recognition.", "fr": "Génère des sous-titres automatiques par reconnaissance vocale."}, "أداة إستيراد وتحديث بيانات دليل البرامج الإلكتروني من مصادر متعددة.": {"en": "Import and update EPG (program guide) data from multiple sources.", "fr": "Importe et met à jour les données EPG depuis plusieurs sources."}, "إضافة لجلب وعرض معلومات الأفلام والمسلسلات.": {"en": "Fetch and display movie and series information.", "fr": "Récupère et affiche les informations des films et séries."}, "أداة عرض معلومات الافلام بطريقة جذابة.": {"en": "Display movie information in an attractive way.", "fr": "Affiche les informations des films de façon attrayante."}, "أداة تشغيل المحتوى المرئي عبر الإنترنت من مصادر متعددة.": {"en": "Play online video content from multiple sources.", "fr": "Lit du contenu vidéo en ligne depuis plusieurs sources."}, "تحديث واستكمال هوستات بلاجن إيه تو بلاير.": {"en": "Update and complete the E2iPlayer plugin hosts.", "fr": "Met à jour et complète les hosts du plugin E2iPlayer."}, "إضافة تي إس إيه بلاير لتحديث واستكمال هوستات بلاجن إيه تو بلاير.": {"en": "TSI Player add-on to update and complete the E2iPlayer plugin hosts.", "fr": "Extension TSI Player pour mettre à jour et compléter les hosts d'E2iPlayer."}, "أداة تشغيل أي بي تي في للمواقع المجانية.": {"en": "Play IPTV from free websites.", "fr": "Lit l'IPTV depuis des sites gratuits."}, "أداة إضافة و تشغيل إشتراكات الأي بي تي في.": {"en": "Add and play IPTV subscriptions.", "fr": "Ajoute et lit les abonnements IPTV."}, "أداة إضافة الأي بي تي في في ملف القنوات.": {"en": "Add IPTV to the channel list.", "fr": "Ajoute l'IPTV à la liste des chaînes."}, "أداة إضافة وإدارة العديد من إشتراكات الأي بي تي في بسهولة.": {"en": "Easily add and manage multiple IPTV subscriptions.", "fr": "Ajoute et gère facilement plusieurs abonnements IPTV."}, "أداة إنشاء وترتيب الباقات والقنوات تلقائياً من مزودي إكستريم بطريقة إحترافية.": {"en": "Automatically create and organize bouquets and channels from Xtream providers.", "fr": "Crée et organise automatiquement les bouquets et chaînes des fournisseurs Xtream."}, "أداة إنشاء الباقات والقنوات تلقائياً من مزودى إكستريم.": {"en": "Automatically create bouquets and channels from Xtream providers.", "fr": "Crée automatiquement les bouquets et chaînes des fournisseurs Xtream."}, "أداة إدارة وتشغيل عدة بوابات إستاكر من مكان واحد.": {"en": "Manage and run multiple Stalker portals from one place.", "fr": "Gère et exécute plusieurs portails Stalker depuis un seul endroit."}, "أداة تحميل تورنت متكاملة.": {"en": "A complete torrent downloader.", "fr": "Un téléchargeur torrent complet."}, "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة.": {"en": "A skin with an advanced interface showing movie posters and info attractively.", "fr": "Un skin à interface avancée affichant affiches et infos de films."}, "إسكين بواجهة سينمائية متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة.": {"en": "A skin with an advanced cinematic interface showing movie posters and info.", "fr": "Un skin à interface cinématographique affichant affiches et infos de films."}, "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى.": {"en": "A professional skin with a modern interface and extended channel and content info.", "fr": "Un skin professionnel moderne avec infos détaillées sur les chaînes et contenus."}, "إسكين عربي حديث يتميز بتصميم أنيق وخفيف مع دعم أغلب الإضافات.": {"en": "A modern Arabic skin with an elegant, lightweight design supporting most add-ons.", "fr": "Un skin arabe moderne, élégant et léger, compatible avec la plupart des extensions."}, "إضافات ومكونات وأشكال عرض حديثة للقنوات والأفلام لواجهة إسكين ماتريكس.": {"en": "Modern add-ons, components and display styles for channels and movies in the Metrix skin.", "fr": "Extensions, composants et styles d'affichage modernes pour le skin Metrix."}, "أداة لإظهار البوسترات للأفلام والمسلسلات.": {"en": "Shows posters for movies and series.", "fr": "Affiche les affiches des films et séries."}, "أداة لإظهار نتائج وقنوات المباريات.": {"en": "Shows match results and match channels.", "fr": "Affiche les résultats et chaînes des matchs."}, "أداة لإظهار القنوات المفتوحة بصورة جذابة.": {"en": "Shows free-to-air channels in an attractive way.", "fr": "Affiche les chaînes gratuites de façon attrayante."}, "لإضافة لون لقنواتك المفتوحة بالسيرفر الخاص بك.": {"en": "Adds color to your channels opened by your own server.", "fr": "Ajoute de la couleur aux chaînes ouvertes par votre serveur."}, "مجموعة أدوات وخدمات إضافية للإينجما.": {"en": "A set of extra tools and services for Enigma2.", "fr": "Un ensemble d'outils et services supplémentaires pour Enigma2."}, "مجموعة بيكونز للإينجما.": {"en": "A picon collection for Enigma2.", "fr": "Une collection de picons pour Enigma2."}, "أداة لإدارة الويب.": {"en": "Web management tool.", "fr": "Outil de gestion web."}, "أداة لمعرفة أسعار العملات والذهب.": {"en": "Check currency and gold prices.", "fr": "Consulte les cours des devises et de l'or."}, "أداة إضافية لفحص الذاكرة وإدارة السوفت وير.": {"en": "An extra tool to check memory and manage software.", "fr": "Outil supplémentaire pour vérifier la mémoire et gérer le logiciel."}, "أداة مساعدة لإصلاح ملفات السيرفرات الوهمية.": {"en": "A helper tool to fix virtual server files.", "fr": "Outil d'aide pour réparer les fichiers de serveurs virtuels."}, "إضافات وتعديلات متقدمة لواجهات العرض.": {"en": "Advanced add-ons and tweaks for display interfaces.", "fr": "Extensions et ajustements avancés pour les interfaces d'affichage."}, "تحديثات الأيقونات والرسومات الجانبية.": {"en": "Icon and side-graphics updates.", "fr": "Mises à jour des icônes et graphiques latéraux."}, "تحسين تدفق قنوات الأي بي تي في وتقليل التقطيع.": {"en": "Improves IPTV channel streaming and reduces stuttering.", "fr": "Améliore le flux des chaînes IPTV et réduit les saccades."}, "أداة ضبط الذاكرة المؤقتة للبث الحي.": {"en": "Tunes the buffer for live streaming.", "fr": "Règle la mémoire tampon pour le direct."}, "مساعد مطابقة الصوت مع الصورة بدقة عالية.": {"en": "Precisely syncs audio with video.", "fr": "Synchronise précisément l'audio avec l'image."}, "ضبط تأخير التايم شفت التلقائي.": {"en": "Adjusts the automatic time-shift delay.", "fr": "Règle le décalage temporel automatique."}, "إصلاح رموز وحروف الترجمة العربية المقلوبة.": {"en": "Fixes reversed Arabic subtitle characters.", "fr": "Corrige les caractères arabes inversés dans les sous-titres."}, "تنظيف وتفريغ ملفات دليل البرامج القديمة.": {"en": "Cleans out old EPG files.", "fr": "Nettoie les anciens fichiers EPG."}, "إعادة تشغيل الكام تلقائياً عند انقطاع السيرفر.": {"en": "Automatically restarts the cam when the server drops.", "fr": "Redémarre automatiquement la cam en cas de coupure du serveur."}, "جلب شفرات البيس الفعالة للقنوات الرياضية.": {"en": "Fetches working BISS keys for sports channels.", "fr": "Récupère les clés BISS actives pour les chaînes sportives."}, "أداة حفظ إعدادات البانل واسترجاعها.": {"en": "Save and restore panel settings.", "fr": "Sauvegarde et restaure les réglages du panneau."}, "تحديث كافة الإضافات داخل البانل بضغطة زر.": {"en": "Update all panel add-ons with one click.", "fr": "Met à jour toutes les extensions du panneau en un clic."}, "إدارة وتحديث مصادر الفيدات الخارجية.": {"en": "Manage and update external feed sources.", "fr": "Gère et met à jour les sources de feeds externes."}, "إعادة تعيين كارت الشبكة والاتصال بالإنترنت.": {"en": "Reset the network card and internet connection.", "fr": "Réinitialise la carte réseau et la connexion Internet."}, "فحص المساحة المتاحة على الذاكرة الداخلية والخارجية.": {"en": "Check free space on internal and external storage.", "fr": "Vérifie l'espace libre sur le stockage interne et externe."}, "إيقاف العمليات المعلقة في الخلفية.": {"en": "Stops stuck background processes.", "fr": "Arrête les processus bloqués en arrière-plan."}, "عرض إصدار نواة لينكس المستخدمة في النظام.": {"en": "Shows the Linux kernel version in use.", "fr": "Affiche la version du noyau Linux utilisée."}, "معرفة مدة تشغيل الرسيفر منذ آخر إعادة تشغيل.": {"en": "Shows how long the receiver has run since the last reboot.", "fr": "Affiche la durée de fonctionnement depuis le dernier redémarrage."}, "عرض قائمة الحزم المثبتة عبر opkg.": {"en": "Lists packages installed via opkg.", "fr": "Liste les paquets installés via opkg."}, "إعادة تشغيل الرسيفر بالكامل (Reboot).": {"en": "Fully reboot the receiver.", "fr": "Redémarre complètement le récepteur."}, "إيقاف تشغيل الجهاز تماماً.": {"en": "Completely power off the device.", "fr": "Éteint complètement l'appareil."}, "عرض استهلاك الذاكرة العشوائية.": {"en": "Shows RAM usage.", "fr": "Affiche l'utilisation de la RAM."}, "اختبار سرعة الإنترنت المتصل بالرسيفر.": {"en": "Test the internet speed of the receiver's connection.", "fr": "Teste la vitesse de la connexion Internet du récepteur."}, "عمل نسخة احتياطية لملف القنوات الحالي.": {"en": "Back up the current channel list.", "fr": "Sauvegarde la liste de chaînes actuelle."}, "استعادة ملف القنوات المحفوظ.": {"en": "Restore the saved channel list.", "fr": "Restaure la liste de chaînes sauvegardée."}, "حذف الملفات المؤقتة من مجلد tmp لتوفير مساحة.": {"en": "Deletes temporary files from /tmp to free space.", "fr": "Supprime les fichiers temporaires de /tmp pour libérer de l'espace."}, "التحقق من إصدار بايثون المثبت.": {"en": "Check the installed Python version.", "fr": "Vérifie la version de Python installée."}, "تحديث أداة إدارة حزم بايثون.": {"en": "Update the Python package manager (pip).", "fr": "Met à jour le gestionnaire de paquets Python (pip)."}, "تثبيت مكتبة معالجة بيانات JSON.": {"en": "Install the JSON data-handling library.", "fr": "Installe la bibliothèque de traitement JSON."}, "تثبيت مكتبات الاتصال الشبكي لبايثون.": {"en": "Install Python network client libraries.", "fr": "Installe les bibliothèques réseau pour Python."}, "عرض وحدات التخزين الخارجية الموصولة.": {"en": "Lists connected external storage devices.", "fr": "Liste les périphériques de stockage externes connectés."}, "تهيئة وربط الهارد الخارجي.": {"en": "Prepare and mount the external hard drive.", "fr": "Prépare et monte le disque dur externe."}, "تشغيل الإنيجما في وضع تتبع الأخطاء.": {"en": "Run Enigma2 in debug mode.", "fr": "Exécute Enigma2 en mode débogage."}, "تنظيف شامل للرسيفر وإعادة ترتيب العمليات.": {"en": "A full receiver cleanup and process reorganization.", "fr": "Nettoyage complet du récepteur et réorganisation des processus."}};
         function enrich(it) {
+            it.author = scrubNames(it.author, true);
+            it.desc = scrubNames(it.desc);
+            if (it.descs && typeof it.descs === 'object') Object.keys(it.descs).forEach(k => { it.descs[k] = scrubNames(it.descs[k]); });
+            {
+                const key = (it.descs && it.descs.ar) || it.desc;
+                const _n = x => String(x || '').replace(/[\s.،,؛:!؟?\u064B-\u0652]+/g, '');
+                if (!window.__descNorm) { window.__descNorm = {}; Object.keys(DESC_I18N).forEach(k => { window.__descNorm[_n(k)] = DESC_I18N[k]; }); window.__descNorm[_n('تحديث وتثبيت سكربت أوامر إنيجما')] = DESC_I18N['تحديث وتثبيت سكربتات أوامر إنيجما.']; }
+                const tr = DESC_I18N[key] || window.__descNorm[_n(key)];
+                if (tr) { it.descs = Object.assign({}, it.descs || {}); if (!it.descs.ar) it.descs.ar = key; if (!it.descs.en) it.descs.en = tr.en; if (!it.descs.fr) it.descs.fr = tr.fr; }
+            }
             const col = CAT_COLORS[it.category] || CAT_COLORS.others;
             it.c1 = col[0]; it.c2 = col[1];
             const h = (it.id * 2654435761) % 1000;
@@ -1346,6 +1530,107 @@
                 icon.className = 'fa-solid fa-sun text-amber-500';
             }
         }
+    
+        // ===== Item details page: screenshots, rating, comments (stored in this browser) =====
+        const DL = {
+            ar:{back:'رجوع للمتجر',shots:'لقطات الشاشة',noshots:'لا توجد لقطات شاشة لهذا العنصر بعد.',addshot:'أضف لقطة (رابط صورة https)',add:'إضافة',cmd:'الأمر',copy:'نسخ الأمر',copied:'تم النسخ',install:'تثبيت على الرسيفر',rate:'قيّم هذا العنصر',yours:'تقييمك',comments:'التعليقات',name:'اسمك',write:'اكتب تعليقك...',send:'نشر التعليق',none:'لا توجد تعليقات بعد. كن أول من يعلّق.',del:'حذف',local:'التعليقات والتقييم محفوظة على هذا الجهاز فقط.',desc:'الوصف',info:'معلومات',author:'المطوّر',cat:'القسم',dls:'التحميلات',storeRating:'تقييم المتجر',bad:'الرابط لازم يبدأ بـ https://',notfound:'العنصر غير موجود'},
+            en:{back:'Back to store',shots:'Screenshots',noshots:'No screenshots for this item yet.',addshot:'Add screenshot (https image URL)',add:'Add',cmd:'Command',copy:'Copy command',copied:'Copied',install:'Install on receiver',rate:'Rate this item',yours:'Your rating',comments:'Comments',name:'Your name',write:'Write your comment...',send:'Post comment',none:'No comments yet. Be the first.',del:'Delete',local:'Comments and ratings are saved on this device only.',desc:'Description',info:'Info',author:'Author',cat:'Category',dls:'Downloads',storeRating:'Store rating',bad:'URL must start with https://',notfound:'Item not found'},
+            fr:{back:'Retour',shots:"Captures d'écran",noshots:"Aucune capture pour l'instant.",addshot:"Ajouter une capture (URL https)",add:'Ajouter',cmd:'Commande',copy:'Copier',copied:'Copié',install:'Installer sur le récepteur',rate:'Noter',yours:'Votre note',comments:'Commentaires',name:'Votre nom',write:'Écrivez votre commentaire...',send:'Publier',none:'Aucun commentaire.',del:'Supprimer',local:'Commentaires et notes enregistrés sur cet appareil uniquement.',desc:'Description',info:'Infos',author:'Auteur',cat:'Catégorie',dls:'Téléchargements',storeRating:'Note du store',bad:"L'URL doit commencer par https://",notfound:'Introuvable'}
+        };
+        const _dl = k => (DL[currentLang] || DL.ar)[k];
+        function _revKey(item){return 'e2rev:' + encodeURIComponent(item.title);}
+        function _revGet(item){try{return JSON.parse(localStorage.getItem(_revKey(item))||'{}')}catch(e){return {}}}
+        function _revSet(item,v){try{localStorage.setItem(_revKey(item),JSON.stringify(v))}catch(e){showToast('Storage unavailable')}}
+        let _detailId = null;
+        function routeHash(){
+            const m = /^#item-(\d+)$/.exec(location.hash);
+            const page = document.getElementById('detailPage');
+            if (!m) { page.classList.add('hidden'); document.body.style.overflow=''; _detailId=null; return; }
+            const item = COMMANDS.find(c => c.id === Number(m[1]));
+            _detailId = item ? item.id : null;
+            page.classList.remove('hidden'); document.body.style.overflow='hidden';
+            page.scrollTop = 0;
+            renderDetail(item);
+        }
+        function closeDetail(){ location.hash = ''; }
+        function renderDetail(item){
+            const page = document.getElementById('detailPage');
+            const dir = document.documentElement.dir || 'rtl';
+            if (!item) { page.innerHTML = `<div class="max-w-3xl mx-auto p-8 text-center space-y-4"><p>${_dl('notfound')}</p><button onclick="closeDetail()" class="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('back')}</button></div>`; return; }
+            const rev = _revGet(item);
+            const myShots = Array.isArray(rev.shots) ? rev.shots : [];
+            const shots = (item.shots || []).concat(myShots);
+            const stars = [1,2,3,4,5].map(n => `<button onclick="rateItem(${n})" class="text-2xl transition-transform hover:scale-110 ${rev.rating >= n ? 'text-amber-400' : 'text-slate-400/50'}" aria-label="${n}"><i class="fa-solid fa-star"></i></button>`).join('');
+            const comments = (rev.comments || []).slice().reverse().map((c,i,arr) => {
+                const idx = arr.length - 1 - i;
+                return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50 p-3 space-y-1"><div class="flex items-center justify-between text-[11px] text-slate-400"><span class="font-semibold text-cyan-400">${escapeHtml(c.n)}</span><span class="flex items-center gap-3">${escapeHtml(c.d)}<button onclick="delComment(${idx})" class="hover:text-red-400">${_dl('del')}</button></span></div><p class="text-xs leading-relaxed whitespace-pre-wrap break-words">${escapeHtml(c.t)}</p></div>`;
+            }).join('') || `<p class="text-xs text-slate-400 text-center py-6">${_dl('none')}</p>`;
+            const shotsHtml = shots.length ? shots.map(u => `<img src="${escapeHtml(u)}" loading="lazy" referrerpolicy="no-referrer" onclick="openShot(this.src)" onerror="this.remove()" class="h-48 sm:h-60 w-auto rounded-xl border border-slate-200 dark:border-slate-700 object-cover bg-slate-900 cursor-zoom-in snap-start shrink-0">`).join('') : `<p class="text-xs text-slate-400 py-6">${_dl('noshots')}</p>`;
+            page.innerHTML = `
+            <div dir="${dir}" class="max-w-4xl mx-auto pb-16">
+                <div class="relative">
+                    <div class="h-44 sm:h-60 thumb" style="${bannerStyle(item)}"></div>
+                    <button onclick="closeDetail()" class="absolute top-4 ltr:left-4 rtl:right-4 px-4 py-2 rounded-full bg-slate-900/75 text-white text-xs font-semibold flex items-center gap-2 backdrop-blur"><i class="fa-solid fa-arrow-right rtl:block ltr:hidden"></i><i class="fa-solid fa-arrow-left ltr:block rtl:hidden"></i> ${_dl('back')}</button>
+                </div>
+                <div class="px-4 sm:px-8 space-y-6">
+                    <div class="flex items-end gap-4 -mt-12 relative z-10">
+                        <div class="w-24 h-24 rounded-3xl thumb shrink-0 border-4 border-slate-50 dark:border-darkbg shadow-xl" style="${logoStyle(item)}"></div>
+                        <div class="min-w-0 pb-1">
+                            <h1 class="font-heading font-bold text-xl sm:text-2xl break-words">${escapeHtml(item.title)}</h1>
+                            <p class="text-xs text-slate-400">${_dl('author')}: ${escapeHtml(item.author)}</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-4 text-xs">
+                        <span>${starsHtml(item.rating)} <span class="text-slate-400">(${_dl('storeRating')})</span></span>
+                        <span class="text-slate-400"><i class="fa-solid fa-cloud-arrow-down text-cyan-400"></i> ${fmtNum(item.downloads)}</span>
+                        <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">${escapeHtml(catName(item.category))}</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="installItem(${item.id})" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-sm font-semibold flex items-center gap-2"><i class="fa-solid fa-download"></i> ${_dl('install')}</button>
+                    </div>
+                    <section class="space-y-2"><h2 class="font-bold text-sm">${_dl('desc')}</h2>
+                        <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">${escapeHtml(descOf(item))}</p>
+</section>
+                    <section class="space-y-3"><h2 class="font-bold text-sm flex items-center gap-2"><i class="fa-regular fa-images text-cyan-400"></i> ${_dl('shots')}</h2>
+                        <div class="flex gap-3 overflow-x-auto pb-2 snap-x">${shotsHtml}</div>
+                        <div class="flex gap-2"><input id="shotUrl" dir="ltr" placeholder="${_dl('addshot')}" class="flex-1 min-w-0 bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none"><button onclick="addShot()" class="px-4 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('add')}</button></div></section>
+                    <section class="space-y-2"><h2 class="font-bold text-sm">${_dl('rate')}</h2>
+                        <div class="flex items-center gap-3"><div class="flex gap-1" dir="ltr">${stars}</div><span class="text-xs text-slate-400">${rev.rating ? _dl('yours') + ': ' + rev.rating + '/5' : ''}</span></div></section>
+                    <section class="space-y-3"><h2 class="font-bold text-sm flex items-center gap-2"><i class="fa-regular fa-comments text-cyan-400"></i> ${_dl('comments')} <span class="text-slate-400 font-normal">(${(rev.comments||[]).length})</span></h2>
+                        <div class="space-y-2">
+                            <input id="cmName" maxlength="40" value="${escapeHtml(localStorage.getItem('e2cname')||'')}" placeholder="${_dl('name')}" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none">
+                            <textarea id="cmText" rows="3" maxlength="1000" placeholder="${_dl('write')}" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none"></textarea>
+                            <button onclick="addComment()" class="px-5 py-2.5 rounded-xl bg-cyan-600 text-white text-xs font-semibold">${_dl('send')}</button>
+                        </div>
+                        <div class="space-y-2">${comments}</div>
+                        <p class="text-[11px] text-slate-400">${_dl('local')}</p></section>
+                </div>
+            </div>`;
+        }
+        function _curItem(){return COMMANDS.find(c => c.id === _detailId);}
+        function rateItem(n){const it=_curItem(); if(!it)return; const r=_revGet(it); r.rating=n; _revSet(it,r); renderDetail(it);}
+        function addComment(){
+            const it=_curItem(); if(!it)return;
+            const n=document.getElementById('cmName').value.trim()||'Guest', t=document.getElementById('cmText').value.trim();
+            if(!t) return;
+            try{localStorage.setItem('e2cname',n)}catch(e){}
+            const r=_revGet(it); r.comments=r.comments||[]; r.comments.push({n,t,d:new Date().toLocaleDateString(currentLang==='ar'?'ar-EG':currentLang)});
+            _revSet(it,r); renderDetail(it);
+        }
+        function delComment(i){const it=_curItem(); if(!it)return; const r=_revGet(it); (r.comments||[]).splice(i,1); _revSet(it,r); renderDetail(it);}
+        function addShot(){
+            const it=_curItem(); if(!it)return; const u=document.getElementById('shotUrl').value.trim();
+            if(!/^https:\/\//i.test(u)){showToast(_dl('bad'));return;}
+            const r=_revGet(it); r.shots=r.shots||[]; r.shots.push(u); _revSet(it,r); renderDetail(it);
+        }
+        function copyItemCmd(){const it=_curItem(); if(!it)return; (navigator.clipboard?navigator.clipboard.writeText(it.cmd):Promise.reject()).then(()=>showToast(_dl('copied'))).catch(()=>{const ta=document.createElement('textarea');ta.value=it.cmd;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast(_dl('copied'))}catch(e){}ta.remove();});}
+        function openShot(src){
+            const o=document.createElement('div'); o.className='fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4 cursor-zoom-out'; o.onclick=()=>o.remove();
+            const im=document.createElement('img'); im.src=src; im.className='max-w-full max-h-full rounded-xl'; o.appendChild(im); document.body.appendChild(o);
+        }
+        window.addEventListener('hashchange', routeHash);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && _detailId !== null) closeDetail(); });
+        routeHash();
     </script>
 </body>
 </html>
