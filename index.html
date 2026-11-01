@@ -141,11 +141,7 @@
                     <span id="rxLabel" class="hidden sm:inline"><span data-i18n="rx_btn">ربط الرسيفر</span></span>
                 </button>
 
-                <!-- User Login Button -->
-                <button onclick="openModal('loginModal')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium text-xs sm:text-sm hover:opacity-95 shadow-md shadow-cyan-500/20 transition-all">
-                    <i class="fa-solid fa-user"></i>
-                    <span class="hidden sm:inline" data-i18n="login_btn">دخول</span>
-                </button>
+                
             </div>
         </div>
     </header>
@@ -393,37 +389,6 @@
             </div>
             <div id="instLog" class="term p-3 rounded-xl border border-slate-800"></div>
             <div class="flex justify-end"><button id="instClose" onclick="closeModal('installModal')" class="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold" data-i18n="close_btn">إغلاق</button></div>
-        </div>
-    </div>
-
-    <!-- MODAL: USER LOGIN -->
-    <div id="loginModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md transition-opacity">
-        <div class="glass-panel bg-white dark:bg-darkbg-card border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 space-y-6 relative">
-            <button onclick="closeModal('loginModal')" class="absolute top-5 ltr:right-5 rtl:left-5 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-800 dark:hover:text-white flex items-center justify-center text-sm">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="text-center space-y-2">
-                <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 mx-auto flex items-center justify-center text-xl font-bold">
-                    <i class="fa-solid fa-user-lock"></i>
-                </div>
-                <h3 class="font-heading font-bold text-xl" data-i18n="login_title">تسجيل الدخول</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="login_subtitle">سجل الدخول لحفظ الأوامر المفضلة لديك</p>
-            </div>
-
-            <form onsubmit="handleLogin(event)" class="space-y-4">
-                <div class="space-y-1">
-                    <label class="text-xs font-semibold text-slate-600 dark:text-slate-400" data-i18n="username_label">اسم المستخدم</label>
-                    <input type="text" required data-i18n-placeholder="username_placeholder" placeholder="أدخل اسم المستخدم" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-semibold text-slate-600 dark:text-slate-400" data-i18n="password_label">كلمة المرور</label>
-                    <input type="password" required placeholder="••••••••" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500">
-                </div>
-                <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold hover:shadow-lg hover:shadow-cyan-500/20 transition-all" data-i18n="login_submit">
-                    دخول
-                </button>
-            </form>
         </div>
     </div>
 
@@ -1548,6 +1513,7 @@
             if (!m) { page.classList.add('hidden'); document.body.style.overflow=''; _detailId=null; if (typeof handleSearch==='function') handleSearch(); return; }
             const item = COMMANDS.find(c => c.id === Number(m[1]));
             _detailId = item ? item.id : null;
+            if (item) _socialLoaded[_k(item)] = false;
             page.classList.remove('hidden'); document.body.style.overflow='hidden';
             page.scrollTop = 0;
             renderDetail(item);
@@ -1558,15 +1524,19 @@
             const dir = document.documentElement.dir || 'rtl';
             if (!item) { page.innerHTML = `<div class="max-w-3xl mx-auto p-8 text-center space-y-4"><p>${_dl('notfound')}</p><button onclick="closeDetail()" class="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('back')}</button></div>`; return; }
             const rev = _revGet(item);
+            _loadSocial(item);
+            const ri = SHARED_ON ? _ratingInfo(item) : null;
+            const myR = SHARED_ON ? ri.mine : (rev.rating || 0);
+            const cmList = SHARED_ON ? (_comments[_k(item)] || []) : (rev.comments || []);
             const myShots = Array.isArray(rev.shots) ? rev.shots : [];
             _loadShots(item);
-            const sharedS = (_sharedShots || {})[item.id] || [];
+            const sharedS = (_sharedShots || {})[_k(item)] || [];
             const baseN = (item.shots || []).length;
             const shots = (item.shots || []).concat(sharedS, myShots);
-            const stars = [1,2,3,4,5].map(n => `<button onclick="rateItem(${n})" class="text-2xl transition-transform hover:scale-110 ${rev.rating >= n ? 'text-amber-400' : 'text-slate-400/50'}" aria-label="${n}"><i class="fa-solid fa-star"></i></button>`).join('');
-            const comments = (rev.comments || []).slice().reverse().map((c,i,arr) => {
+            const stars = [1,2,3,4,5].map(n => `<button onclick="rateItem(${n})" class="text-2xl transition-transform hover:scale-110 ${myR >= n ? 'text-amber-400' : 'text-slate-400/50'}" aria-label="${n}"><i class="fa-solid fa-star"></i></button>`).join('');
+            const comments = cmList.slice().reverse().map((c,i,arr) => {
                 const idx = arr.length - 1 - i;
-                return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50 p-3 space-y-1"><div class="flex items-center justify-between text-[11px] text-slate-400"><span class="font-semibold text-cyan-400">${escapeHtml(c.n)}</span><span class="flex items-center gap-3">${escapeHtml(c.d)}<button onclick="delComment(${idx})" class="hover:text-red-400">${_dl('del')}</button></span></div><p class="text-xs leading-relaxed whitespace-pre-wrap break-words">${escapeHtml(c.t)}</p></div>`;
+                return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50 p-3 space-y-1"><div class="flex items-center justify-between text-[11px] text-slate-400"><span class="font-semibold text-cyan-400">${escapeHtml(c.n)}</span><span class="flex items-center gap-3">${escapeHtml(c.d)}${(!SHARED_ON || _isAdmin()) ? `<button onclick="delComment(${idx})" class="hover:text-red-400">${_dl('del')}</button>` : ''}</span></div><p class="text-xs leading-relaxed whitespace-pre-wrap break-words">${escapeHtml(c.t)}</p></div>`;
             }).join('') || `<p class="text-xs text-slate-400 text-center py-6">${_dl('none')}</p>`;
             const shotsHtml = shots.length ? shots.map((u, i) => { const si = i - baseN; const del = (SHARED_ON && _isAdmin() && si >= 0 && si < sharedS.length) ? `<button onclick="delSharedShot(${si})" class="absolute top-1.5 left-1.5 w-6 h-6 rounded-full bg-red-600 text-white text-xs leading-none">×</button>` : ''; return `<div class="relative shrink-0 snap-start"><img src="${escapeHtml(u)}" loading="lazy" referrerpolicy="no-referrer" onclick="openShot(this.src)" onerror="this.remove()" class="h-48 sm:h-60 w-auto rounded-xl border border-slate-200 dark:border-slate-700 object-cover bg-slate-900 cursor-zoom-in">${del}</div>`; }).join('') : `<p class="text-xs text-slate-400 py-6">${_dl('noshots')}</p>`;
             page.innerHTML = `
@@ -1584,7 +1554,7 @@
                         </div>
                     </div>
                     <div class="flex flex-wrap items-center gap-4 text-xs">
-                        <span>${starsHtml(item.rating)} <span class="text-slate-400">(${_dl('storeRating')})</span></span>
+                        <span>${starsHtml(SHARED_ON && ri.count ? ri.avg : item.rating)} <span class="text-slate-400">(${_dl('storeRating')})</span></span>
                         <span class="text-slate-400"><i class="fa-solid fa-cloud-arrow-down text-cyan-400"></i> ${fmtNum(item.downloads)}</span>
                         <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">${escapeHtml(catName(item.category))}</span>
                     </div>
@@ -1594,20 +1564,20 @@
                     <section class="space-y-2"><h2 class="font-bold text-sm">${_dl('desc')}</h2>
                         <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">${escapeHtml(descOf(item))}</p>
 </section>
-                    ${_canEdit() ? `<section class="space-y-3"><h2 class="font-bold text-sm">${_it('imgs')}</h2>${imgSlot('logo', _it('logo'))}${imgSlot('image', _it('banner'))}</section>` : ''}
+                    ${_canEdit() ? `<section class="space-y-3"><h2 class="font-bold text-sm">${_it('imgs')}</h2>${SHARED_ON ? '' : '<p class="text-[11px] text-amber-400">⚠ SHARED.db is empty: images are saved in this browser only, other visitors will not see them.</p>'}${imgSlot('logo', _it('logo'))}${imgSlot('image', _it('banner'))}</section>` : ''}
                     <section class="space-y-3"><h2 class="font-bold text-sm flex items-center gap-2"><i class="fa-regular fa-images text-cyan-400"></i> ${_dl('shots')}</h2>
                         <div class="flex gap-3 overflow-x-auto pb-2 snap-x">${shotsHtml}</div>
                         ${_canEdit() ? `<div class="flex gap-2"><input id="shotUrl" dir="ltr" placeholder="${_dl('addshot')}" class="flex-1 min-w-0 bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none"><button onclick="addShot()" class="px-4 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('add')}</button><label class="px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-semibold cursor-pointer flex items-center gap-1.5 shrink-0"><i class="fa-solid fa-upload"></i><input type="file" accept="image/*" class="hidden" onchange="uploadShot(this)"></label></div>` : ''}</section>
                     <section class="space-y-2"><h2 class="font-bold text-sm">${_dl('rate')}</h2>
-                        <div class="flex items-center gap-3"><div class="flex gap-1" dir="ltr">${stars}</div><span class="text-xs text-slate-400">${rev.rating ? _dl('yours') + ': ' + rev.rating + '/5' : ''}</span></div></section>
-                    <section class="space-y-3"><h2 class="font-bold text-sm flex items-center gap-2"><i class="fa-regular fa-comments text-cyan-400"></i> ${_dl('comments')} <span class="text-slate-400 font-normal">(${(rev.comments||[]).length})</span></h2>
+                        <div class="flex items-center gap-3"><div class="flex gap-1" dir="ltr">${stars}</div><span class="text-xs text-slate-400">${myR ? _dl('yours') + ': ' + myR + '/5' : ''}${SHARED_ON && ri.count ? ' &nbsp;·&nbsp; ' + ri.avg.toFixed(1) + '/5 (' + ri.count + ')' : ''}</span></div></section>
+                    <section class="space-y-3"><h2 class="font-bold text-sm flex items-center gap-2"><i class="fa-regular fa-comments text-cyan-400"></i> ${_dl('comments')} <span class="text-slate-400 font-normal">(${cmList.length})</span></h2>
                         <div class="space-y-2">
                             <input id="cmName" maxlength="40" value="${escapeHtml(localStorage.getItem('e2cname')||'')}" placeholder="${_dl('name')}" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none">
                             <textarea id="cmText" rows="3" maxlength="1000" placeholder="${_dl('write')}" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none"></textarea>
                             <button onclick="addComment()" class="px-5 py-2.5 rounded-xl bg-cyan-600 text-white text-xs font-semibold">${_dl('send')}</button>
                         </div>
                         <div class="space-y-2">${comments}</div>
-                        <p class="text-[11px] text-slate-400">${_dl('local')}</p></section>
+                        ${SHARED_ON ? '' : `<p class="text-[11px] text-slate-400">${_dl('local')}</p>`}</section>
                 </div>
             </div>`;
         }
@@ -1618,51 +1588,41 @@
             fr:{imgs:'Images',logo:'Logo',banner:'Bannière',upload:"Importer depuis l'appareil",reset:'Réinitialiser',urlph:"URL https de l'image",fail:"Impossible de lire l'image"}
         };
         const _it = k => (IMG_T[currentLang] || IMG_T.ar)[k];
-        // ===== Shared images (visible to everyone) via Firebase Realtime Database =====
-        // Fill these two values (see setup notes). Leave empty to keep old behaviour (images saved in this browser only).
-        var SHARED = { db: '', apiKey: '' };
-        var SHARED_ON = !!(SHARED.db && SHARED.apiKey);
+        // ===== Shared data (images, comments, ratings) visible to everyone, via Firebase Realtime Database =====
+        // Put your database URL here (see setup notes). Leave empty to keep old behaviour (saved in this browser only).
+        var SHARED = { db: '' };
+        var SHARED_ON = !!SHARED.db;
         var _shared = {};          // itemId -> {logo, image}
         var _sharedShots = {};     // itemId -> [urls]
         var _shotsLoaded = {};
-        function _isAdmin(){ try { return !!localStorage.getItem('e2admin'); } catch(e){ return false; } }
+        var _comments = {};        // itemId -> [{key,n,t,d,ts}]
+        var _ratRaw = {};          // itemId -> {uid: n}
+        var _socialLoaded = {};
+        function _k(x){ return String((x && (x.title || x.id)) || '').replace(/[.$#\[\]\/\s]+/g, '_').slice(0, 120) || '_'; }
+        function _isAdmin(){ try { return localStorage.getItem('e2admin') === '1'; } catch(e){ return false; } }
         function _canEdit(){ return _isAdmin(); }
-        function _sBase(){ return SHARED.db.replace(/\/+$/, ''); }
+        function _uid(){ let u = ''; try { u = localStorage.getItem('e2uid'); if (!u) { u = Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem('e2uid', u); } } catch(e){ u = 'anon'; } return u; }
+        function _sUrl(path){ return SHARED.db.replace(/\/+$/, '') + '/' + path + '.json'; }
         function _toObj(d){ if (!d) return {}; if (Array.isArray(d)) { const o = {}; d.forEach((v,i) => { if (v) o[i] = v; }); return o; } return d; }
         function _toArr(d){ return !d ? [] : (Array.isArray(d) ? d.filter(Boolean) : Object.values(d)); }
-        async function _sGet(path){
-            const r = await fetch(_sBase() + '/' + path + '.json', { cache: 'no-store' });
-            if (!r.ok) throw new Error('read'); return r.json();
-        }
-        async function _sToken(){
-            const c = JSON.parse(localStorage.getItem('e2admin') || 'null'); if (!c) throw new Error('noadmin');
-            const r = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + SHARED.apiKey, {
-                method: 'POST', headers: {'Content-Type':'application/json'},
-                body: JSON.stringify({ email: c.e, password: c.p, returnSecureToken: true })
-            });
-            const d = await r.json(); if (!d.idToken) throw new Error('login'); return d.idToken;
-        }
-        async function _sPut(path, data){
-            const t = await _sToken();
-            const r = await fetch(_sBase() + '/' + path + '.json?auth=' + encodeURIComponent(t), {
-                method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
-            });
-            if (!r.ok) throw new Error('write');
-        }
+        async function _sGet(path){ const r = await fetch(_sUrl(path), { cache: 'no-store' }); if (!r.ok) throw new Error('read'); return r.json(); }
+        async function _sPut(path, data){ const r = await fetch(_sUrl(path), { method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) }); if (!r.ok) throw new Error('write'); }
+        async function _sPush(path, data){ const r = await fetch(_sUrl(path), { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) }); if (!r.ok) throw new Error('write'); return (await r.json()).name; }
+        async function _sDel(path){ const r = await fetch(_sUrl(path), { method: 'DELETE' }); if (!r.ok) throw new Error('write'); }
         async function _mutMeta(it, fn){
-            const cur = Object.assign({}, _shared[it.id]); fn(cur);
+            const cur = Object.assign({}, _shared[_k(it)]); fn(cur);
             Object.keys(cur).forEach(k => { if (!cur[k]) delete cur[k]; });
-            if (Object.keys(cur).length) { await _sPut('meta/' + it.id, cur); _shared[it.id] = cur; }
-            else { await _sPut('meta/' + it.id, null); delete _shared[it.id]; }
+            if (Object.keys(cur).length) { await _sPut('meta/' + _k(it), cur); _shared[_k(it)] = cur; }
+            else { await _sPut('meta/' + _k(it), null); delete _shared[_k(it)]; }
         }
         async function _mutShots(it, fn){
-            const list = (_sharedShots[it.id] || []).slice(); fn(list);
-            await _sPut('shots/' + it.id, list.length ? list : null);
-            _sharedShots[it.id] = list;
+            const list = (_sharedShots[_k(it)] || []).slice(); fn(list);
+            await _sPut('shots/' + _k(it), list.length ? list : null);
+            _sharedShots[_k(it)] = list;
         }
         async function _doShared(it, fn){
             try { await fn(); renderDetail(it); if (typeof handleSearch === 'function') handleSearch(); }
-            catch(e) { showToast(e && (e.message === 'noadmin' || e.message === 'login') ? (currentLang === 'ar' ? 'سجّل دخول الأدمن أولاً (?admin)' : 'Admin login required (?admin)') : _it('fail')); }
+            catch(e) { showToast(_it('fail')); }
         }
         async function loadShared(){
             if (!SHARED_ON) return;
@@ -1673,23 +1633,39 @@
             } catch(e) {}
         }
         function _loadShots(item){
-            if (!SHARED_ON || _shotsLoaded[item.id]) return;
-            _shotsLoaded[item.id] = true;
-            _sGet('shots/' + item.id).then(d => { _sharedShots[item.id] = _toArr(d); if (_detailId === item.id) renderDetail(item); }).catch(() => { _shotsLoaded[item.id] = false; });
+            if (!SHARED_ON || _shotsLoaded[_k(item)]) return;
+            _shotsLoaded[_k(item)] = true;
+            _sGet('shots/' + _k(item)).then(d => { _sharedShots[_k(item)] = _toArr(d); if (_detailId === item.id) _rerenderKeep(item); }).catch(() => { _shotsLoaded[_k(item)] = false; });
+        }
+        function _loadSocial(item){
+            if (!SHARED_ON || _socialLoaded[_k(item)]) return;
+            _socialLoaded[_k(item)] = true;
+            Promise.all([_sGet('comments/' + _k(item)), _sGet('ratings/' + _k(item))]).then(([c, r]) => {
+                _comments[_k(item)] = Object.entries(c || {}).map(([key, v]) => Object.assign({ key }, v)).sort((a, b) => (a.ts || 0) - (b.ts || 0));
+                _ratRaw[_k(item)] = r || {};
+                if (_detailId === item.id) _rerenderKeep(item);
+            }).catch(() => { _socialLoaded[_k(item)] = false; });
+        }
+        function _rerenderKeep(item){
+            const n = document.getElementById('cmName'), t = document.getElementById('cmText'), u = document.getElementById('shotUrl');
+            const keep = [n && n.value, t && t.value, u && u.value];
+            renderDetail(item);
+            const n2 = document.getElementById('cmName'), t2 = document.getElementById('cmText'), u2 = document.getElementById('shotUrl');
+            if (n2 && keep[0]) n2.value = keep[0]; if (t2 && keep[1]) t2.value = keep[1]; if (u2 && keep[2]) u2.value = keep[2];
+        }
+        function _ratingInfo(item){
+            const raw = _ratRaw[_k(item)] || {}, vals = Object.values(raw).map(Number).filter(v => v >= 1 && v <= 5);
+            return { count: vals.length, avg: vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0, mine: Number(raw[_uid()]) || 0 };
         }
         (function adminSetup(){
             try {
                 const q = new URLSearchParams(location.search).get('admin'); if (q === null) return;
+                if (q === 'out') localStorage.removeItem('e2admin'); else localStorage.setItem('e2admin', '1');
                 history.replaceState(null, '', location.pathname + location.hash);
-                setTimeout(() => {
-                    if (q === 'out') { localStorage.removeItem('e2admin'); alert('Admin logged out'); location.reload(); return; }
-                    const u = prompt('Username'); if (!u) return; const p = prompt('Password'); if (!p) return;
-                    localStorage.setItem('e2admin', JSON.stringify({ e: u.trim().toLowerCase() + '@e2store.app', p })); location.reload();
-                }, 300);
             } catch(e) {}
         })();
         function eff(item){
-            const rv = _revGet(item), sh = (_shared || {})[item.id] || {};
+            const rv = _revGet(item), sh = (_shared || {})[_k(item)] || {};
             const logo = sh.logo || rv.logo, image = sh.image || rv.image;
             return Object.assign({}, item, logo ? {logo: logo, logoFit: false} : {}, image ? {image: image} : {});
         }
@@ -1758,16 +1734,22 @@
             });
         }
         function _curItem(){return COMMANDS.find(c => c.id === _detailId);}
-        function rateItem(n){const it=_curItem(); if(!it)return; const r=_revGet(it); r.rating=n; _revSet(it,r); renderDetail(it);}
+        function rateItem(n){const it=_curItem(); if(!it)return;
+            if(SHARED_ON){ _sPut('ratings/' + _k(it)+'/'+_uid(), n).then(()=>{ (_ratRaw[_k(it)]=_ratRaw[_k(it)]||{})[_uid()]=n; renderDetail(it); }).catch(()=>showToast(_it('fail'))); return; }
+            const r=_revGet(it); r.rating=n; _revSet(it,r); renderDetail(it);}
         function addComment(){
             const it=_curItem(); if(!it)return;
             const n=document.getElementById('cmName').value.trim()||'Guest', t=document.getElementById('cmText').value.trim();
             if(!t) return;
             try{localStorage.setItem('e2cname',n)}catch(e){}
+            const dd=new Date().toLocaleDateString(currentLang==='ar'?'ar-EG':currentLang);
+            if(SHARED_ON){ _sPush('comments/' + _k(it),{n,t,d:dd,ts:Date.now()}).then(k=>{ (_comments[_k(it)]=_comments[_k(it)]||[]).push({key:k,n,t,d:dd,ts:Date.now()}); renderDetail(it); }).catch(()=>showToast(_it('fail'))); return; }
             const r=_revGet(it); r.comments=r.comments||[]; r.comments.push({n,t,d:new Date().toLocaleDateString(currentLang==='ar'?'ar-EG':currentLang)});
             _revSet(it,r); renderDetail(it);
         }
-        function delComment(i){const it=_curItem(); if(!it)return; const r=_revGet(it); (r.comments||[]).splice(i,1); _revSet(it,r); renderDetail(it);}
+        function delComment(i){const it=_curItem(); if(!it)return;
+            if(SHARED_ON){ if(!_isAdmin())return; const c=(_comments[_k(it)]||[])[i]; if(!c)return; _sDel('comments/' + _k(it)+'/'+c.key).then(()=>{ _comments[_k(it)].splice(i,1); renderDetail(it); }).catch(()=>showToast(_it('fail'))); return; }
+            const r=_revGet(it); (r.comments||[]).splice(i,1); _revSet(it,r); renderDetail(it);}
         function addShot(){
             const it=_curItem(); if(!it)return; const u=document.getElementById('shotUrl').value.trim();
             if(!/^https:\/\//i.test(u)){showToast(_dl('bad'));return;}
