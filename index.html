@@ -1559,13 +1559,16 @@
             if (!item) { page.innerHTML = `<div class="max-w-3xl mx-auto p-8 text-center space-y-4"><p>${_dl('notfound')}</p><button onclick="closeDetail()" class="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('back')}</button></div>`; return; }
             const rev = _revGet(item);
             const myShots = Array.isArray(rev.shots) ? rev.shots : [];
-            const shots = (item.shots || []).concat(myShots);
+            _loadShots(item);
+            const sharedS = (_sharedShots || {})[item.id] || [];
+            const baseN = (item.shots || []).length;
+            const shots = (item.shots || []).concat(sharedS, myShots);
             const stars = [1,2,3,4,5].map(n => `<button onclick="rateItem(${n})" class="text-2xl transition-transform hover:scale-110 ${rev.rating >= n ? 'text-amber-400' : 'text-slate-400/50'}" aria-label="${n}"><i class="fa-solid fa-star"></i></button>`).join('');
             const comments = (rev.comments || []).slice().reverse().map((c,i,arr) => {
                 const idx = arr.length - 1 - i;
                 return `<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50 p-3 space-y-1"><div class="flex items-center justify-between text-[11px] text-slate-400"><span class="font-semibold text-cyan-400">${escapeHtml(c.n)}</span><span class="flex items-center gap-3">${escapeHtml(c.d)}<button onclick="delComment(${idx})" class="hover:text-red-400">${_dl('del')}</button></span></div><p class="text-xs leading-relaxed whitespace-pre-wrap break-words">${escapeHtml(c.t)}</p></div>`;
             }).join('') || `<p class="text-xs text-slate-400 text-center py-6">${_dl('none')}</p>`;
-            const shotsHtml = shots.length ? shots.map(u => `<img src="${escapeHtml(u)}" loading="lazy" referrerpolicy="no-referrer" onclick="openShot(this.src)" onerror="this.remove()" class="h-48 sm:h-60 w-auto rounded-xl border border-slate-200 dark:border-slate-700 object-cover bg-slate-900 cursor-zoom-in snap-start shrink-0">`).join('') : `<p class="text-xs text-slate-400 py-6">${_dl('noshots')}</p>`;
+            const shotsHtml = shots.length ? shots.map((u, i) => { const si = i - baseN; const del = (SHARED_ON && _isAdmin() && si >= 0 && si < sharedS.length) ? `<button onclick="delSharedShot(${si})" class="absolute top-1.5 left-1.5 w-6 h-6 rounded-full bg-red-600 text-white text-xs leading-none">×</button>` : ''; return `<div class="relative shrink-0 snap-start"><img src="${escapeHtml(u)}" loading="lazy" referrerpolicy="no-referrer" onclick="openShot(this.src)" onerror="this.remove()" class="h-48 sm:h-60 w-auto rounded-xl border border-slate-200 dark:border-slate-700 object-cover bg-slate-900 cursor-zoom-in">${del}</div>`; }).join('') : `<p class="text-xs text-slate-400 py-6">${_dl('noshots')}</p>`;
             page.innerHTML = `
             <div dir="${dir}" class="max-w-4xl mx-auto pb-16">
                 <div class="relative">
@@ -1591,10 +1594,10 @@
                     <section class="space-y-2"><h2 class="font-bold text-sm">${_dl('desc')}</h2>
                         <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">${escapeHtml(descOf(item))}</p>
 </section>
-                    <section class="space-y-3"><h2 class="font-bold text-sm">${_it('imgs')}</h2>${imgSlot('logo', _it('logo'))}${imgSlot('image', _it('banner'))}</section>
+                    ${_canEdit() ? `<section class="space-y-3"><h2 class="font-bold text-sm">${_it('imgs')}</h2>${imgSlot('logo', _it('logo'))}${imgSlot('image', _it('banner'))}</section>` : ''}
                     <section class="space-y-3"><h2 class="font-bold text-sm flex items-center gap-2"><i class="fa-regular fa-images text-cyan-400"></i> ${_dl('shots')}</h2>
                         <div class="flex gap-3 overflow-x-auto pb-2 snap-x">${shotsHtml}</div>
-                        <div class="flex gap-2"><input id="shotUrl" dir="ltr" placeholder="${_dl('addshot')}" class="flex-1 min-w-0 bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none"><button onclick="addShot()" class="px-4 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('add')}</button><label class="px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-semibold cursor-pointer flex items-center gap-1.5 shrink-0"><i class="fa-solid fa-upload"></i><input type="file" accept="image/*" class="hidden" onchange="uploadShot(this)"></label></div></section>
+                        ${_canEdit() ? `<div class="flex gap-2"><input id="shotUrl" dir="ltr" placeholder="${_dl('addshot')}" class="flex-1 min-w-0 bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 outline-none"><button onclick="addShot()" class="px-4 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-semibold">${_dl('add')}</button><label class="px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-semibold cursor-pointer flex items-center gap-1.5 shrink-0"><i class="fa-solid fa-upload"></i><input type="file" accept="image/*" class="hidden" onchange="uploadShot(this)"></label></div>` : ''}</section>
                     <section class="space-y-2"><h2 class="font-bold text-sm">${_dl('rate')}</h2>
                         <div class="flex items-center gap-3"><div class="flex gap-1" dir="ltr">${stars}</div><span class="text-xs text-slate-400">${rev.rating ? _dl('yours') + ': ' + rev.rating + '/5' : ''}</span></div></section>
                     <section class="space-y-3"><h2 class="font-bold text-sm flex items-center gap-2"><i class="fa-regular fa-comments text-cyan-400"></i> ${_dl('comments')} <span class="text-slate-400 font-normal">(${(rev.comments||[]).length})</span></h2>
@@ -1615,15 +1618,87 @@
             fr:{imgs:'Images',logo:'Logo',banner:'Bannière',upload:"Importer depuis l'appareil",reset:'Réinitialiser',urlph:"URL https de l'image",fail:"Impossible de lire l'image"}
         };
         const _it = k => (IMG_T[currentLang] || IMG_T.ar)[k];
+        // ===== Shared images (visible to everyone) via Firebase Realtime Database =====
+        // Fill these two values (see setup notes). Leave empty to keep old behaviour (images saved in this browser only).
+        var SHARED = { db: '', apiKey: '' };
+        var SHARED_ON = !!(SHARED.db && SHARED.apiKey);
+        var _shared = {};          // itemId -> {logo, image}
+        var _sharedShots = {};     // itemId -> [urls]
+        var _shotsLoaded = {};
+        function _isAdmin(){ try { return !!localStorage.getItem('e2admin'); } catch(e){ return false; } }
+        function _canEdit(){ return _isAdmin(); }
+        function _sBase(){ return SHARED.db.replace(/\/+$/, ''); }
+        function _toObj(d){ if (!d) return {}; if (Array.isArray(d)) { const o = {}; d.forEach((v,i) => { if (v) o[i] = v; }); return o; } return d; }
+        function _toArr(d){ return !d ? [] : (Array.isArray(d) ? d.filter(Boolean) : Object.values(d)); }
+        async function _sGet(path){
+            const r = await fetch(_sBase() + '/' + path + '.json', { cache: 'no-store' });
+            if (!r.ok) throw new Error('read'); return r.json();
+        }
+        async function _sToken(){
+            const c = JSON.parse(localStorage.getItem('e2admin') || 'null'); if (!c) throw new Error('noadmin');
+            const r = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + SHARED.apiKey, {
+                method: 'POST', headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({ email: c.e, password: c.p, returnSecureToken: true })
+            });
+            const d = await r.json(); if (!d.idToken) throw new Error('login'); return d.idToken;
+        }
+        async function _sPut(path, data){
+            const t = await _sToken();
+            const r = await fetch(_sBase() + '/' + path + '.json?auth=' + encodeURIComponent(t), {
+                method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
+            });
+            if (!r.ok) throw new Error('write');
+        }
+        async function _mutMeta(it, fn){
+            const cur = Object.assign({}, _shared[it.id]); fn(cur);
+            Object.keys(cur).forEach(k => { if (!cur[k]) delete cur[k]; });
+            if (Object.keys(cur).length) { await _sPut('meta/' + it.id, cur); _shared[it.id] = cur; }
+            else { await _sPut('meta/' + it.id, null); delete _shared[it.id]; }
+        }
+        async function _mutShots(it, fn){
+            const list = (_sharedShots[it.id] || []).slice(); fn(list);
+            await _sPut('shots/' + it.id, list.length ? list : null);
+            _sharedShots[it.id] = list;
+        }
+        async function _doShared(it, fn){
+            try { await fn(); renderDetail(it); if (typeof handleSearch === 'function') handleSearch(); }
+            catch(e) { showToast(e && (e.message === 'noadmin' || e.message === 'login') ? (currentLang === 'ar' ? 'سجّل دخول الأدمن أولاً (?admin)' : 'Admin login required (?admin)') : _it('fail')); }
+        }
+        async function loadShared(){
+            if (!SHARED_ON) return;
+            try {
+                _shared = _toObj(await _sGet('meta'));
+                if (typeof handleSearch === 'function') handleSearch();
+                if (_detailId !== null) renderDetail(_curItem());
+            } catch(e) {}
+        }
+        function _loadShots(item){
+            if (!SHARED_ON || _shotsLoaded[item.id]) return;
+            _shotsLoaded[item.id] = true;
+            _sGet('shots/' + item.id).then(d => { _sharedShots[item.id] = _toArr(d); if (_detailId === item.id) renderDetail(item); }).catch(() => { _shotsLoaded[item.id] = false; });
+        }
+        (function adminSetup(){
+            try {
+                const q = new URLSearchParams(location.search).get('admin'); if (q === null) return;
+                history.replaceState(null, '', location.pathname + location.hash);
+                setTimeout(() => {
+                    if (q === 'out') { localStorage.removeItem('e2admin'); alert('Admin logged out'); location.reload(); return; }
+                    const u = prompt('Username'); if (!u) return; const p = prompt('Password'); if (!p) return;
+                    localStorage.setItem('e2admin', JSON.stringify({ e: u.trim().toLowerCase() + '@e2store.app', p })); location.reload();
+                }, 300);
+            } catch(e) {}
+        })();
         function eff(item){
-            const rv = _revGet(item);
-            return Object.assign({}, item, rv.logo ? {logo: rv.logo, logoFit: false} : {}, rv.image ? {image: rv.image} : {});
+            const rv = _revGet(item), sh = (_shared || {})[item.id] || {};
+            const logo = sh.logo || rv.logo, image = sh.image || rv.image;
+            return Object.assign({}, item, logo ? {logo: logo, logoFit: false} : {}, image ? {image: image} : {});
         }
         function _saveRev(it, r){
             try { localStorage.setItem(_revKey(it), JSON.stringify(r)); return true; }
             catch(e) { showToast(_it('fail')); return false; }
         }
-        function readImgFile(file, cb){
+        function readImgFile(file, cb, maxDim, q){
+            maxDim = maxDim || 900; q = q || 0.85;
             if (!file || !/^image\//.test(file.type)) { showToast(_it('fail')); return; }
             const fr = new FileReader();
             fr.onerror = () => showToast(_it('fail'));
@@ -1631,12 +1706,12 @@
                 const im = new Image();
                 im.onerror = () => showToast(_it('fail'));
                 im.onload = () => {
-                    const s = Math.min(1, 900 / Math.max(im.naturalWidth, im.naturalHeight));
+                    const s = Math.min(1, maxDim / Math.max(im.naturalWidth, im.naturalHeight));
                     const c = document.createElement('canvas');
                     c.width = Math.max(1, Math.round(im.naturalWidth * s));
                     c.height = Math.max(1, Math.round(im.naturalHeight * s));
                     c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
-                    cb(c.toDataURL('image/webp', 0.85));
+                    cb(c.toDataURL('image/webp', q));
                 };
                 im.src = fr.result;
             };
@@ -1656,24 +1731,28 @@
             const it = _curItem(); if (!it) return;
             const u = document.getElementById('url_' + kind).value.trim();
             if (!/^https:\/\//i.test(u)) { showToast(_dl('bad')); return; }
+            if (SHARED_ON) { _doShared(it, () => _mutMeta(it, c => { c[kind] = u; })); return; }
             const r = _revGet(it); r[kind] = u; if (kind === 'logo') r.logoFit = false;
             if (_saveRev(it, r)) renderDetail(it);
         }
         function uploadImg(kind, input){
             const it = _curItem(); if (!it) return;
             readImgFile(input.files[0], url => {
+                if (SHARED_ON) { _doShared(it, () => _mutMeta(it, c => { c[kind] = url; })); return; }
                 const r = _revGet(it); r[kind] = url; if (kind === 'logo') r.logoFit = false;
                 if (_saveRev(it, r)) renderDetail(it);
-            });
+            }, kind === 'logo' ? 256 : 800, 0.78);
         }
         function resetImg(kind){
             const it = _curItem(); if (!it) return;
+            if (SHARED_ON) { _doShared(it, () => _mutMeta(it, c => { delete c[kind]; })); return; }
             const r = _revGet(it); delete r[kind]; if (kind === 'logo') delete r.logoFit;
             if (_saveRev(it, r)) renderDetail(it);
         }
         function uploadShot(input){
             const it = _curItem(); if (!it) return;
             readImgFile(input.files[0], url => {
+                if (SHARED_ON) { _doShared(it, () => _mutShots(it, l => { l.push(url); })); return; }
                 const r = _revGet(it); r.shots = r.shots || []; r.shots.push(url);
                 if (_saveRev(it, r)) renderDetail(it);
             });
@@ -1692,8 +1771,10 @@
         function addShot(){
             const it=_curItem(); if(!it)return; const u=document.getElementById('shotUrl').value.trim();
             if(!/^https:\/\//i.test(u)){showToast(_dl('bad'));return;}
+            if (SHARED_ON) { _doShared(it, () => _mutShots(it, l => { l.push(u); })); return; }
             const r=_revGet(it); r.shots=r.shots||[]; r.shots.push(u); _revSet(it,r); renderDetail(it);
         }
+        function delSharedShot(i){ const it=_curItem(); if(!it||!SHARED_ON) return; _doShared(it, () => _mutShots(it, l => { l.splice(i,1); })); }
         function copyItemCmd(){const it=_curItem(); if(!it)return; (navigator.clipboard?navigator.clipboard.writeText(it.cmd):Promise.reject()).then(()=>showToast(_dl('copied'))).catch(()=>{const ta=document.createElement('textarea');ta.value=it.cmd;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast(_dl('copied'))}catch(e){}ta.remove();});}
         function openShot(src){
             const o=document.createElement('div'); o.className='fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4 cursor-zoom-out'; o.onclick=()=>o.remove();
@@ -1702,6 +1783,7 @@
         window.addEventListener('hashchange', routeHash);
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && _detailId !== null) closeDetail(); });
         routeHash();
+        loadShared();
     </script>
 </body>
 </html>
