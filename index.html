@@ -1624,13 +1624,59 @@
             try { await fn(); renderDetail(it); if (typeof handleSearch === 'function') handleSearch(); }
             catch(e) { showToast(_it('fail')); }
         }
+        function _shrink(src, maxDim, q){
+            return new Promise(res => {
+                if (!/^data:image/.test(src)) return res(src);
+                const im = new Image();
+                im.onload = () => {
+                    const sc = Math.min(1, maxDim / Math.max(im.naturalWidth, im.naturalHeight));
+                    const c = document.createElement('canvas');
+                    c.width = Math.max(1, Math.round(im.naturalWidth * sc)); c.height = Math.max(1, Math.round(im.naturalHeight * sc));
+                    c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+                    try { res(c.toDataURL('image/webp', q)); } catch(e) { res(src); }
+                };
+                im.onerror = () => res(src); im.src = src;
+            });
+        }
+        // Admin only: push every image previously saved in THIS browser up to the shared database
+        async function migrateLocalImages(){
+            if (!SHARED_ON || !_isAdmin()) return;
+            let moved = 0, failed = false; const keys = [];
+            try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.indexOf('e2rev:') === 0) keys.push(k); } } catch(e) { return; }
+            for (const key of keys) {
+                let rv; try { rv = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e) { continue; }
+                if (!rv.logo && !rv.image && !(rv.shots && rv.shots.length)) continue;
+                let title; try { title = decodeURIComponent(key.slice(6)); } catch(e) { continue; }
+                const it = { title }, k = _k(it);
+                try {
+                    const meta = Object.assign({}, _shared[k]); let changed = false;
+                    if (rv.logo && !meta.logo) { meta.logo = await _shrink(rv.logo, 256, 0.8); changed = true; }
+                    if (rv.image && !meta.image) { meta.image = await _shrink(rv.image, 800, 0.78); changed = true; }
+                    if (changed) { await _sPut('meta/' + k, meta); _shared[k] = meta; moved++; }
+                    if (rv.shots && rv.shots.length) {
+                        const cur = _toArr(await _sGet('shots/' + k)), add = [];
+                        for (const u of rv.shots) { if (!cur.includes(u)) add.push(await _shrink(u, 900, 0.8)); }
+                        if (add.length) { await _sPut('shots/' + k, cur.concat(add)); _sharedShots[k] = cur.concat(add); moved += add.length; }
+                    }
+                    delete rv.logo; delete rv.image; delete rv.logoFit; delete rv.shots;
+                    localStorage.setItem(key, JSON.stringify(rv));
+                } catch(e) { failed = true; break; }
+            }
+            if (moved && typeof handleSearch === 'function') handleSearch();
+            if (moved) showToast(currentLang === 'ar' ? 'تم رفع ' + moved + ' صورة للكل ✓' : moved + ' image(s) published for everyone ✓');
+            if (failed) showToast(currentLang === 'ar' ? 'فشل الرفع: تأكد من SHARED.db ومن Rules الداتابيز' : 'Upload failed: check SHARED.db and database rules');
+        }
         async function loadShared(){
-            if (!SHARED_ON) return;
+            if (!SHARED_ON) {
+                if (_isAdmin()) setTimeout(() => showToast(currentLang === 'ar' ? 'SHARED.db فاضي: الصور مش هتظهر للكل' : 'SHARED.db is empty: images will not be shared'), 800);
+                return;
+            }
             try {
                 _shared = _toObj(await _sGet('meta'));
                 if (typeof handleSearch === 'function') handleSearch();
                 if (_detailId !== null) renderDetail(_curItem());
-            } catch(e) {}
+            } catch(e) { if (_isAdmin()) showToast(currentLang === 'ar' ? 'تعذر الاتصال بالداتابيز' : 'Cannot reach the database'); return; }
+            migrateLocalImages();
         }
         function _loadShots(item){
             if (!SHARED_ON || _shotsLoaded[_k(item)]) return;
