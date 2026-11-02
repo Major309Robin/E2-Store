@@ -348,27 +348,14 @@
                 <div class="grid grid-cols-3 gap-3">
                     <div class="space-y-1 col-span-2"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400">IP Address</label>
                         <input id="rxIp" dir="ltr" required type="text" placeholder="192.168.1.50" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
-                    <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400">SSH Port</label>
-                        <input id="rxPort" dir="ltr" type="number" value="22" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
+                    <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400">Agent Port</label>
+                        <input id="rxWebPort" dir="ltr" type="number" value="8080" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
                 </div>
-                <div id="rxSshRows" class="grid grid-cols-2 gap-3">
-                    <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="username_label">اسم المستخدم</span></label>
-                        <input id="rxUser" dir="ltr" required type="text" value="root" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
-                    <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="password_label">كلمة المرور</span></label>
-                        <input id="rxPass" dir="ltr" type="password" data-i18n-placeholder="rx_pass_ph" placeholder="(فاضية لو مفيش)" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
+                <div id="rxSshRows" style="display:none">
+                    <input id="rxPort" type="hidden" value="22"><input id="rxUser" type="hidden" value="root"><input id="rxPass" type="hidden" value="">
+                    <input id="rxMode" type="hidden" value="agent"><input id="rxBridge" type="hidden" value="http://127.0.0.1:8765">
                 </div>
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="space-y-1 col-span-2"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_mode">طريقة التثبيت</span></label>
-                        <select id="rxMode" onchange="onModeChange()" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500">
-                            <option value="agent" data-i18n="rx_mode_agent">E2 Agent على الرسيفر (كل الأوامر)</option>
-                            <option value="owif" data-i18n="rx_mode_owif">OpenWebif مباشر (أوامر opkg فقط)</option>
-                            <option value="ssh" data-i18n="rx_mode_ssh">SSH عبر Bridge على اللاب</option>
-                        </select></div>
-                    <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400">Port</label>
-                        <input id="rxWebPort" dir="ltr" type="number" value="80" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
-                </div>
-                <div id="rxBridgeRow" class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_bridge">عنوان جسر الاتصال (Bridge) - لوضع SSH فقط</span></label>
-                    <input id="rxBridge" dir="ltr" type="text" value="http://127.0.0.1:8765" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
+                <div id="rxBridgeRow" style="display:none"></div>
                 <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_catalog">رابط الكتالوج على GitHub (Raw JSON)</span></label>
                     <input id="rxCatalog" dir="ltr" type="text" value="https://major309robin.github.io/E2-Store/store.json" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
                 <div id="rxTestMsg" class="text-xs hidden"></div>
@@ -1243,6 +1230,7 @@
 
         // ===== Receiver connection =====
         let RX = JSON.parse(localStorage.getItem('e2receiver') || 'null');
+        if (RX) RX.mode = 'agent';
         function refreshRxUi(state) {
             window.__rxs = state;
             const dot = document.getElementById('rxDot'), lbl = document.getElementById('rxLabel');
@@ -1307,6 +1295,14 @@
                 fillRxForm(); onModeChange(); refreshRxUi('ok');
                 await loadCatalog(true);
                 showToast(T('t_connected', RX.name));
+                try {
+                    const want = new URLSearchParams(location.search).get('install');
+                    if (want) {
+                        history.replaceState(null, '', location.pathname + location.hash);
+                        const it = COMMANDS.find(c => c.title === want);
+                        if (it) installItem(it.id);
+                    }
+                } catch (e) {}
             } catch (e) { /* مش مفتوحة من الـ Agent */ }
         }
 
@@ -1357,6 +1353,12 @@
         async function installItem(id) {
             const item = COMMANDS.find(c => c.id === id); if (!item) return;
             if (!RX) { showToast(T('t_link_first')); openModal('receiverModal'); return; }
+            if ((RX.mode || 'agent') === 'agent' && location.protocol === 'https:' && !AGENT_SAME_ORIGIN) {
+                // Browsers block https -> http calls, so continue on the receiver's own address and install automatically there
+                showToast(currentLang === 'ar' ? 'جاري التثبيت على الرسيفر...' : 'Installing on the receiver...');
+                location.href = 'http://' + RX.ip + ':' + (RX.webPort || 8080) + '/?install=' + encodeURIComponent(item.title);
+                return;
+            }
             const log = document.getElementById('instLog'), icon = document.getElementById('instIcon'), st = document.getElementById('instStatus');
             document.getElementById('instTitle').textContent = item.title + ' ← ' + (RX.name || RX.ip);
             log.textContent = ''; st.textContent = T('i_installing'); icon.className = 'fa-solid fa-circle-notch spin text-cyan-400 text-xl';
@@ -1810,6 +1812,7 @@
         }
         window.addEventListener('hashchange', routeHash);
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && _detailId !== null) closeDetail(); });
+
         routeHash();
         loadShared();
     </script>
