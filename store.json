@@ -3,7 +3,7 @@
   "title": "Install & Update Major System Scripts",
   "author": "John Kamel & Robin John",
   "category": "fast",
-  "desc": "تحديث وتثبيت سكربت أوامر إنيجما من جون كاميل و روبن جون.",
+  "desc": "تحديث وتثبيت سكربت أوامر إنيجما من جون كامل و روبن جون.",
   "cmd": "wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/update_linuxcommands.sh | bash"
  },
  {
