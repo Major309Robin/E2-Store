@@ -360,9 +360,9 @@
             <form onsubmit="saveReceiver(event)" class="space-y-3">
                 <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_name">اسم الجهاز</span></label>
                     <input id="rxName" type="text" data-i18n-placeholder="rx_name_ph" placeholder="مثال: Vu+ الصالون" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
-                <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_code">كود الربط (من شاشة الرسيفر)</span></label>
+                <div class="space-y-1" style="display:none"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_code">كود الربط (اختياري - للاتصال من خارج الشبكة فقط)</span></label>
                     <input id="rxCode" dir="ltr" type="text" autocomplete="off" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 tracking-wider uppercase">
-                    <p class="text-[10px] text-slate-400" data-i18n="rx_code_hint">على الرسيفر: Plugins ← E2 Store Link، هيظهرلك الكود.</p></div>
+                    <p class="text-[10px] text-slate-400" data-i18n="rx_code_hint">على الشبكة المحلية اكتب IP الرسيفر بس وسيب الكود فاضي.</p></div>
                 <div class="grid grid-cols-3 gap-3">
                     <div class="space-y-1 col-span-2"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400">IP Address</label>
                         <input id="rxIp" dir="ltr" type="text" placeholder="192.168.1.50" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
@@ -545,8 +545,8 @@
             page_title:["E2 Store | موسوعة و متجر البلجنات","E2 Store | Plugins Encyclopedia & Store","E2 Store | Encyclopédie & boutique de plugins"],
             theme_title:["تبديل المظهر","Toggle theme","Changer de thème"],
             rx_btn:["ربط الرسيفر","Link receiver","Lier le récepteur"],
-            rx_code:["كود الربط (من شاشة الرسيفر)","Link code (from the receiver screen)","Code de liaison (affiché sur le récepteur)"],
-            rx_code_hint:["على الرسيفر: Plugins ← E2 Store Link، هيظهرلك الكود.","On the receiver: Plugins → E2 Store Link shows the code.","Sur le récepteur : Plugins → E2 Store Link affiche le code."],
+            rx_code:["كود الربط (اختياري - للاتصال من خارج الشبكة فقط)","Link code (optional - remote access only)","Code de liaison (facultatif - accès distant uniquement)"],
+            rx_code_hint:["على الشبكة المحلية اكتب IP الرسيفر بس وسيب الكود فاضي.","On the local network, just enter the receiver IP and leave the code empty.","Sur le réseau local, saisissez seulement l'IP du récepteur et laissez le code vide."],
             link_title:["بانل E2 Store Link على الرسيفر","E2 Store Link panel on the receiver","Panneau E2 Store Link sur le récepteur"],
             link_desc:["بيظهر على شاشة الإنيجما2 ويربط الرسيفر بالصفحة وينفذ الأوامر عليه","Shows on the Enigma2 screen, links the receiver to this page and runs the commands on it","S'affiche sur l'écran Enigma2, relie le récepteur à cette page et exécute les commandes"],
             rx_sub:["أدخل بيانات جهازك مرة واحدة وهتتحفظ في المتصفح","Enter your device details once; they are saved in your browser","Saisissez les infos de votre appareil une seule fois, elles sont enregistrées dans le navigateur"],
@@ -1287,7 +1287,7 @@
             e.preventDefault();
             const _c = normCode(rxCode.value);
             if (_c && _c.length !== 20) { showToast(currentLang === 'ar' ? 'كود الربط لازم يكون 20 حرف/رقم' : 'The link code must be 20 characters'); return; }
-            if (!_c && !rxIp.value.trim()) { showToast(currentLang === 'ar' ? 'اكتب كود الربط أو الـ IP' : 'Enter the link code or the IP'); return; }
+            if (!_c && !rxIp.value.trim()) { showToast(currentLang === 'ar' ? 'اكتب الـ IP بتاع الرسيفر' : 'Enter the receiver IP'); return; }
             RX = readRxForm();
             localStorage.setItem('e2receiver', JSON.stringify(RX));
             closeModal('receiverModal'); refreshRxUi('unknown');
