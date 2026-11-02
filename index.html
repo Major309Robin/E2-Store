@@ -237,6 +237,21 @@
                     </div>
                     <code id="agentCmd" dir="ltr" class="block w-full bg-slate-100 dark:bg-slate-900 text-[11px] sm:text-xs text-cyan-600 dark:text-cyan-400 rounded-xl p-3 border border-slate-200 dark:border-slate-800 overflow-x-auto whitespace-nowrap text-left select-all">wget --no-check-certificate -qO- https://major309robin.github.io/E2-Store/install-agent.sh | sh</code>
                 </div>
+                <div class="app-card glass-panel p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800/80 sm:col-span-2 space-y-3 hover:border-cyan-500/60 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 shrink-0 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-2xl border border-cyan-500/20">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-sm sm:text-base group-hover:text-cyan-400 transition-colors" data-i18n="link_title">بانل E2 Store Link على الرسيفر</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="link_desc">بيظهر على شاشة الإنيجما2 ويربط الرسيفر بالصفحة وينفذ الأوامر عليه</p>
+                        </div>
+                        <button type="button" onclick="copyAgentCmd('linkCmd')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold flex items-center gap-1.5 shrink-0">
+                            <i class="fa-regular fa-copy"></i> <span data-i18n="dl_copy_btn">نسخ</span>
+                        </button>
+                    </div>
+                    <code id="linkCmd" dir="ltr" class="block w-full bg-slate-100 dark:bg-slate-900 text-[11px] sm:text-xs text-cyan-600 dark:text-cyan-400 rounded-xl p-3 border border-slate-200 dark:border-slate-800 overflow-x-auto whitespace-nowrap text-left select-all">wget --no-check-certificate -qO- https://major309robin.github.io/E2-Store/install-link.sh | sh</code>
+                </div>
             </div>
         </section>
 
@@ -345,9 +360,12 @@
             <form onsubmit="saveReceiver(event)" class="space-y-3">
                 <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_name">اسم الجهاز</span></label>
                     <input id="rxName" type="text" data-i18n-placeholder="rx_name_ph" placeholder="مثال: Vu+ الصالون" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
+                <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_code">كود الربط (من شاشة الرسيفر)</span></label>
+                    <input id="rxCode" dir="ltr" type="text" autocomplete="off" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 tracking-wider uppercase">
+                    <p class="text-[10px] text-slate-400" data-i18n="rx_code_hint">على الرسيفر: Plugins ← E2 Store Link، هيظهرلك الكود.</p></div>
                 <div class="grid grid-cols-3 gap-3">
                     <div class="space-y-1 col-span-2"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400">IP Address</label>
-                        <input id="rxIp" dir="ltr" required type="text" placeholder="192.168.1.50" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
+                        <input id="rxIp" dir="ltr" type="text" placeholder="192.168.1.50" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
                     <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400">Agent Port</label>
                         <input id="rxWebPort" dir="ltr" type="number" value="8080" onchange="fixAgentPort()" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
                 </div>
@@ -527,6 +545,10 @@
             page_title:["E2 Store | موسوعة و متجر البلجنات","E2 Store | Plugins Encyclopedia & Store","E2 Store | Encyclopédie & boutique de plugins"],
             theme_title:["تبديل المظهر","Toggle theme","Changer de thème"],
             rx_btn:["ربط الرسيفر","Link receiver","Lier le récepteur"],
+            rx_code:["كود الربط (من شاشة الرسيفر)","Link code (from the receiver screen)","Code de liaison (affiché sur le récepteur)"],
+            rx_code_hint:["على الرسيفر: Plugins ← E2 Store Link، هيظهرلك الكود.","On the receiver: Plugins → E2 Store Link shows the code.","Sur le récepteur : Plugins → E2 Store Link affiche le code."],
+            link_title:["بانل E2 Store Link على الرسيفر","E2 Store Link panel on the receiver","Panneau E2 Store Link sur le récepteur"],
+            link_desc:["بيظهر على شاشة الإنيجما2 ويربط الرسيفر بالصفحة وينفذ الأوامر عليه","Shows on the Enigma2 screen, links the receiver to this page and runs the commands on it","S'affiche sur l'écran Enigma2, relie le récepteur à cette page et exécute les commandes"],
             rx_sub:["أدخل بيانات جهازك مرة واحدة وهتتحفظ في المتصفح","Enter your device details once; they are saved in your browser","Saisissez les infos de votre appareil une seule fois, elles sont enregistrées dans le navigateur"],
             rx_name:["اسم الجهاز","Device name","Nom de l'appareil"],
             rx_name_ph:["مثال: Vu+ الصالون","e.g. Vu+ Living room","ex. Vu+ Salon"],
@@ -1236,18 +1258,20 @@
 
         // ===== Receiver connection =====
         let RX = JSON.parse(localStorage.getItem('e2receiver') || 'null');
-        if (RX) { RX.mode = 'agent'; if ([21, 22, 23].includes(parseInt(RX.webPort))) RX.webPort = 8080; }
+        function normCode(v) { return String(v || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+        function effMode() { const e = document.getElementById('rxCode'); return (e && normCode(e.value).length === 20) ? 'link' : 'agent'; }
+        if (RX) { RX.mode = RX.code ? 'link' : 'agent'; if ([21, 22, 23].includes(parseInt(RX.webPort))) RX.webPort = 8080; }
         function refreshRxUi(state) {
             window.__rxs = state;
             const dot = document.getElementById('rxDot'), lbl = document.getElementById('rxLabel');
             if (!RX) { dot.className = 'dot bg-slate-500'; lbl.textContent = T('rx_btn'); return; }
             dot.className = 'dot ' + (state === 'ok' ? 'bg-emerald-400' : state === 'bad' ? 'bg-red-500' : 'bg-amber-400');
-            lbl.textContent = RX.name || RX.ip;
+            lbl.textContent = RX.name || RX.ip || 'Receiver';
         }
         function fillRxForm() {
             if (!RX) return;
             rxName.value = RX.name || ''; rxIp.value = RX.ip; rxPort.value = RX.port || 22;
-            rxUser.value = RX.user || 'root'; rxPass.value = RX.pass || ''; rxBridge.value = RX.bridge || 'http://127.0.0.1:8765'; if (RX.catalog) rxCatalog.value = RX.catalog; rxMode.value = RX.mode || 'agent'; rxWebPort.value = RX.webPort || 80;
+            rxUser.value = RX.user || 'root'; rxPass.value = RX.pass || ''; rxBridge.value = RX.bridge || 'http://127.0.0.1:8765'; if (RX.catalog) rxCatalog.value = RX.catalog; rxCode.value = RX.code || ''; rxMode.value = effMode(); rxWebPort.value = RX.webPort || 80;
         }
         function fixAgentPort() {
             const p = parseInt(rxWebPort.value);
@@ -1257,16 +1281,52 @@
         function readRxForm() {
             fixAgentPort();
             return { name: rxName.value.trim(), ip: rxIp.value.trim(), port: parseInt(rxPort.value) || 22,
-                     user: rxUser.value.trim() || 'root', pass: rxPass.value, bridge: rxBridge.value.trim().replace(/\/$/, ''), catalog: rxCatalog.value.trim(), mode: rxMode.value, webPort: parseInt(rxWebPort.value) || 80 };
+                     user: rxUser.value.trim() || 'root', pass: rxPass.value, bridge: rxBridge.value.trim().replace(/\/$/, ''), catalog: rxCatalog.value.trim(), mode: effMode(), code: normCode(rxCode.value), webPort: parseInt(rxWebPort.value) || 80 };
         }
         function saveReceiver(e) {
             e.preventDefault();
+            const _c = normCode(rxCode.value);
+            if (_c && _c.length !== 20) { showToast(currentLang === 'ar' ? 'كود الربط لازم يكون 20 حرف/رقم' : 'The link code must be 20 characters'); return; }
+            if (!_c && !rxIp.value.trim()) { showToast(currentLang === 'ar' ? 'اكتب كود الربط أو الـ IP' : 'Enter the link code or the IP'); return; }
             RX = readRxForm();
             localStorage.setItem('e2receiver', JSON.stringify(RX));
             closeModal('receiverModal'); refreshRxUi('unknown');
             showToast(T('t_saved'));
             loadCatalog(false);
         }
+        // ===== Link mode: page <-> E2 Store Link panel on the receiver, through an HTTPS relay (ntfy.sh) =====
+        async function linkRun(code, payload, onOut, timeoutMs) {
+            const n = Math.random().toString(36).slice(2, 10);
+            const ctl = new AbortController();
+            const timer = setTimeout(() => ctl.abort(), timeoutMs);
+            try {
+                const res = await fetch('https://ntfy.sh/e2s-' + code + '-out/json?since=2m', { signal: ctl.signal });
+                fetch('https://ntfy.sh/e2s-' + code + '-in', { method: 'POST', body: JSON.stringify(Object.assign({ n }, payload)) }).catch(() => {});
+                const reader = res.body.getReader(), dec = new TextDecoder(); let buf = '';
+                while (true) {
+                    const { done, value } = await reader.read(); if (done) break;
+                    buf += dec.decode(value, { stream: true });
+                    let i;
+                    while ((i = buf.indexOf('\n')) >= 0) {
+                        const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1); if (!line) continue;
+                        let ev, m; try { ev = JSON.parse(line); } catch (e) { continue; }
+                        if (ev.event !== 'message') continue;
+                        try { m = JSON.parse(ev.message); } catch (e) { continue; }
+                        if (m.n !== n) continue;
+                        if (m.t === 'out') { if (onOut) onOut(m); } else { return m; }
+                    }
+                }
+                throw new Error('closed');
+            } finally { clearTimeout(timer); ctl.abort(); }
+        }
+        function linkFailText(m) {
+            const ar = currentLang === 'ar';
+            if (m.code === -4) return ar ? 'اترفض التثبيت من على الرسيفر' : 'Rejected on the receiver';
+            if (m.code === -3) return ar ? 'الأداة مش موجودة في الكتالوج' : 'Item not found in the catalog';
+            if (m.code === -2) return ar ? 'الرسيفر مشغول بتثبيت تاني' : 'Receiver is busy with another install';
+            return (ar ? 'فشل التنفيذ، كود الخروج: ' : 'Failed, exit code: ') + m.code;
+        }
+
         // ===== OpenWebif helpers =====
         function owifBase(c) { return 'http://' + c.ip + (c.webPort && c.webPort != 80 ? ':' + c.webPort : ''); }
         function owifPackages(cmd) {
@@ -1321,6 +1381,18 @@
         async function testReceiver() {
             const cfg = readRxForm(), box = document.getElementById('rxTestMsg');
             box.className = 'text-xs text-amber-400'; box.textContent = T('t_testing');
+            if (cfg.mode === 'link') {
+                try {
+                    const m = await linkRun(cfg.code, { t: 'ping' }, null, 20000);
+                    box.className = 'text-xs text-emerald-400';
+                    box.textContent = (currentLang === 'ar' ? '✔ الرسيفر متصل: ' : '✔ Receiver linked: ') + (m.host || '');
+                    RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false);
+                } catch (err) {
+                    box.className = 'text-xs text-red-400';
+                    box.textContent = currentLang === 'ar' ? '✖ مفيش رد من الرسيفر. اتأكد من الكود وإن الرسيفر عليه إنترنت وبلجن E2 Store Link متثبّت.' : '✖ No reply from the receiver. Check the code, that it has internet, and that E2 Store Link is installed.';
+                }
+                return;
+            }
             if (cfg.mode === 'agent') {
                 try {
                     const d = await agentPing(cfg);
@@ -1328,9 +1400,11 @@
                     box.textContent = T('t_agent_ok', d.version, d.host || '', d.python);
                     RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false);
                 } catch (err) {
-                    box.className = 'text-xs text-red-400';
+                    box.className = location.protocol === 'https:' ? 'text-xs text-amber-400' : 'text-xs text-red-400';
                     box.textContent = location.protocol === 'https:'
-                        ? '✖ ' + T('t_https', 'http://' + cfg.ip + ':' + (cfg.webPort || 8080))
+                        ? (currentLang === 'ar'
+                            ? 'ℹ المتصفح بيمنع اختبار الاتصال من صفحة https، ده طبيعي. دوس "حفظ" وهيتم التثبيت تلقائياً من صفحة الرسيفر.'
+                            : 'ℹ The browser blocks the connection test from an https page - this is normal. Press Save; installs will run automatically via the receiver page.')
                         : T('t_agent_down', cfg.ip + ':' + (cfg.webPort || 8080));
                 }
                 return;
@@ -1376,6 +1450,19 @@
             log.textContent = ''; st.textContent = T('i_installing'); icon.className = 'fa-solid fa-circle-notch spin text-cyan-400 text-xl';
             openModal('installModal');
 
+            if (RX.mode === 'link') {
+                st.textContent = currentLang === 'ar' ? 'في انتظار الموافقة على شاشة الرسيفر...' : 'Waiting for confirmation on the receiver screen...';
+                try {
+                    const m = await linkRun(RX.code, { t: 'run', id: item.id, title: item.title },
+                        o => { st.textContent = T('i_installing'); log.textContent += o.d; log.scrollTop = log.scrollHeight; }, 25 * 60 * 1000);
+                    if (m.code === 0) { icon.className = 'fa-solid fa-circle-check text-emerald-400 text-xl'; st.textContent = T('i_ok'); refreshRxUi('ok'); }
+                    else { icon.className = 'fa-solid fa-circle-xmark text-red-400 text-xl'; st.textContent = linkFailText(m); }
+                } catch (err) {
+                    icon.className = 'fa-solid fa-circle-xmark text-red-400 text-xl';
+                    st.textContent = currentLang === 'ar' ? 'مفيش رد من الرسيفر' : 'No reply from the receiver'; refreshRxUi('bad');
+                }
+                return;
+            }
             if ((RX.mode || 'agent') === 'agent') {
                 try {
                     const r = await fetch(agentBase(RX) + '/install', { method: 'POST', headers: {'Content-Type':'application/json'},
@@ -1445,8 +1532,8 @@
             }
         }
 
-        function copyAgentCmd() {
-            const text = document.getElementById('agentCmd').textContent.trim();
+        function copyAgentCmd(id) {
+            const text = document.getElementById(id || 'agentCmd').textContent.trim();
             const done = () => showToast(TRANSLATIONS[currentLang].toast_copied);
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(text).then(done).catch(() => { fallbackCopy(text); done(); });
