@@ -391,8 +391,8 @@
                 <div class="space-y-1" style="display:none"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_catalog">رابط الكتالوج على GitHub (Raw JSON)</span></label>
                     <input id="rxCatalog" dir="ltr" type="text" value="https://major309robin.github.io/E2-Store/store.json" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
                 <div id="rxTestMsg" class="text-xs hidden"></div>
+                <div id="rxConnStatus" class="hidden text-xs font-semibold text-center py-2.5 rounded-xl border"></div>
                 <div class="flex gap-2 pt-1">
-                    <button type="button" onclick="testReceiver()" class="flex-1 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-semibold"><span data-i18n="rx_test">اختبار الاتصال</span></button>
                     <button type="submit" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold"><span data-i18n="save">حفظ</span></button>
                 </div>
             </form>
@@ -1342,6 +1342,21 @@
                  lb.classList.toggle('shadow-[0_0_18px_rgba(16,185,129,0.85)]', on);
              })();
             const dot = document.getElementById('rxDot'), lbl = document.getElementById('rxLabel');
+            const cs = document.getElementById('rxConnStatus');
+            if (cs) {
+                if (!RX) { cs.className = 'hidden'; cs.textContent = ''; }
+                else {
+                    const nm = RX.name || RX.ip || 'Receiver';
+                    if (state === 'bad') {
+                        cs.className = 'text-xs font-semibold text-center py-2.5 rounded-xl border bg-red-500/10 text-red-400 border-red-500/30';
+                        cs.textContent = (currentLang === 'ar' ? '✖ غير متصل بـ ' : '✖ Not connected to ') + nm;
+                    } else {
+                        const ok = state === 'ok';
+                        cs.className = 'text-xs font-semibold text-center py-2.5 rounded-xl border ' + (ok ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' : 'bg-amber-500/10 text-amber-400 border-amber-500/30');
+                        cs.textContent = '✔ ' + T('t_connected', nm);
+                    }
+                }
+            }
             if (!RX) { dot.className = 'dot bg-slate-500'; lbl.textContent = T('rx_btn'); return; }
             dot.className = 'dot ' + (state === 'ok' ? 'bg-emerald-400' : state === 'bad' ? 'bg-red-500' : 'bg-amber-400');
             lbl.textContent = RX.name || RX.ip || 'Receiver';
@@ -1371,6 +1386,7 @@
             closeModal('receiverModal'); refreshRxUi('unknown');
             showToast(T('t_saved'));
             loadCatalog(false);
+            try { testReceiver(); } catch (e) {}
         }
         // ===== Link mode: page <-> E2 Store Link panel on the receiver, through an HTTPS relay (ntfy.sh) =====
         async function linkRun(code, payload, onOut, timeoutMs) {
