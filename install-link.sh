@@ -8,7 +8,7 @@
 #    wget --no-check-certificate -qO- https://major309robin.github.io/E2-Store/install-link.sh | sh
 # =============================================================================
 
-VERSION="2.0.0"
+VERSION="2.0.1"
 BASE_URL="https://major309robin.github.io/E2-Store"
 IPK_NAME="Panel_${VERSION}_all.ipk"
 IPK_URL="${BASE_URL}/${IPK_NAME}"
