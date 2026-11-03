@@ -1478,8 +1478,7 @@
             if (cfg.mode === 'link') {
                 try {
                     const m = await linkRun(cfg.code, { t: 'ping' }, null, 20000);
-                    box.className = 'text-xs text-emerald-400';
-                    box.textContent = (currentLang === 'ar' ? '✔ الرسيفر متصل: ' : '✔ Receiver linked: ') + (m.host || '');
+                    box.className = 'hidden'; box.textContent = '';
                     RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false);
                 } catch (err) {
                     box.className = 'text-xs text-red-400';
@@ -1490,8 +1489,7 @@
             if (cfg.mode === 'agent') {
                 try {
                     const d = await agentPing(cfg);
-                    box.className = 'text-xs text-emerald-400';
-                    box.textContent = T('t_agent_ok', d.version, d.host || '', d.python);
+                    box.className = 'hidden'; box.textContent = '';
                     RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false);
                 } catch (err) {
                     box.className = location.protocol === 'https:' ? 'text-xs text-amber-400' : 'text-xs text-red-400';
@@ -1506,8 +1504,7 @@
             if (cfg.mode === 'owif') {
                 try {
                     await owifCall(cfg, '/api/about');
-                    box.className = 'text-xs text-emerald-400';
-                    box.textContent = T('t_owif_ok', owifBase(cfg));
+                    box.className = 'hidden'; box.textContent = '';
                     RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false);
                 } catch (err) {
                     box.className = 'text-xs text-red-400';
@@ -1521,8 +1518,8 @@
                 const r = await fetch(cfg.bridge + '/test', { method: 'POST', headers: {'Content-Type':'application/json'},
                     body: JSON.stringify({ host: cfg.ip, port: cfg.port, user: cfg.user, password: cfg.pass }) });
                 const d = await r.json();
-                box.className = 'text-xs ' + (d.ok ? 'text-emerald-400' : 'text-red-400');
-                box.textContent = d.ok ? T('t_ssh_ok', d.info || '') : ('✖ ' + d.error);
+                box.className = d.ok ? 'hidden' : 'text-xs text-red-400';
+                box.textContent = d.ok ? '' : ('✖ ' + d.error);
                 if (d.ok) { RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false); }
             } catch (err) {
                 box.className = 'text-xs text-red-400';
