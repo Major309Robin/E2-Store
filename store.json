@@ -2,7 +2,7 @@
   {
     "title": "AJPanel",
     "author": "AMAJamry",
-    "category": "tools",
+    "category": "softcams",
     "desc": "لوحة أدوات متكاملة لإدارة إضافات وأدوات Enigma2 فى مكان واحد.",
     "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/biko-73/AjPanel/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/biko-73/AjPanel"
@@ -10,7 +10,7 @@
   {
     "title": "DreamArabia",
     "author": "dreambox4u",
-    "category": "tools",
+    "category": "softcams",
     "desc": "لوحة عربية متكاملة تحتوي على مجموعة كبيرة من الإضافات والأدوات الخاصة بإنجما2.",
     "cmd": "wget -q --no-check-certificate http://dreambox4u.com/dreamarabia/scripts/installer.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/dreamarabia/scripts/installer.sh"
@@ -18,7 +18,7 @@
   {
     "title": "GP4.2",
     "author": "Blue Panel",
-    "category": "tools",
+    "category": "panels",
     "desc": "حزمة Gemini الشهيرة التي تضيف العديد من الوظائف المتقدمة وأدوات الإدارة.",
     "cmd": "apt update && wget -O /tmp/geminilocale_all.deb http://download.blue-panel.com/geminilocale_gp4.php && apt install -y /tmp/geminilocale_all.deb",
     "source": "http://download.blue-panel.com/geminilocale_gp4.php"
@@ -26,7 +26,7 @@
   {
     "title": "Mohamed Store",
     "author": "wwwgoper77-wq",
-    "category": "tools",
+    "category": "panels",
     "desc": "متجر إضافات عربي يتيح تثبيت وتحديث العديد من البلجنات من مكان واحد.",
     "cmd": "wget -O - https://raw.githubusercontent.com/wwwgoper77-wq/MohamedStore/main/install.sh | sh",
     "source": "https://github.com/wwwgoper77-wq/MohamedStore"
@@ -42,7 +42,7 @@
   {
     "title": "MagicPanelMax",
     "author": "Ham-ahmed",
-    "category": "tools",
+    "category": "panels",
     "desc": "لوحة متقدمة تجمع الأدوات والإضافات والخدمات الشائعة في واجهة موحدة.",
     "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/Ham-ahmed/G12/refs/heads/main/MagicPanelMax-install.sh -O - | /bin/sh",
     "source": "https://github.com/Ham-ahmed/G12"
@@ -50,7 +50,7 @@
   {
     "title": "LinuxSat Panel",
     "author": "Belfagor2005",
-    "category": "tools",
+    "category": "panels",
     "desc": "إحدى أشهر لوحات إدارة الإضافات والأدوات والتحديثات لأجهزة إنجما2.",
     "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/Belfagor2005/LinuxsatPanel/main/installer.sh -O - | /bin/bash",
     "source": "https://github.com/Belfagor2005/LinuxsatPanel"
@@ -58,7 +58,7 @@
   {
     "title": "AIO Panel",
     "author": "OliOli2013",
-    "category": "tools",
+    "category": "panels",
     "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات في مكان واحد.",
     "cmd": "wget -q -O - https://raw.githubusercontent.com/OliOli2013/PanelAIO-Plugin/main/installer.sh | /bin/sh",
     "source": "https://github.com/OliOli2013/PanelAIO-Plugin"
@@ -66,7 +66,7 @@
   {
     "title": "AJPanel Menu1",
     "author": "غير محدد",
-    "category": "tools",
+    "category": "panels",
     "desc": "نسخة مخصصة من لوحة AJPanel مزودة بقوائم وأدوات إضافية.",
     "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/tarekzoka/ajpanel/refs/heads/main/ajpanel_menu1.sh -O - | /bin/sh",
     "source": "https://github.com/tarekzoka/ajpanel"
@@ -74,7 +74,7 @@
   {
     "title": "EmilPanelPro",
     "author": "غير محدد",
-    "category": "tools",
+    "category": "panels",
     "desc": "لوحة احترافية تحتوى على مجموعة كبيرة من أدوات وإضافات Enigma2.",
     "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/EmilPanelPro/emilpanelpro.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins"
@@ -82,7 +82,7 @@
   {
     "title": "Emil Panel Lite",
     "author": "غير محدد",
-    "category": "tools",
+    "category": "panels",
     "desc": "نسخة خفيفة من لوحة EmilPanel للأجهزة محدودة الموارد.",
     "cmd": "wget -q --no-check-certificate https://dreambox4u.com/emilnabil237/plugins/ajpanel/new/emil-panel-lite.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/plugins/ajpanel/new"
@@ -90,7 +90,7 @@
   {
     "title": "SmartAddons Panel",
     "author": "غير محدد",
-    "category": "tools",
+    "category": "panels",
     "desc": "لوحة إضافات متقدمة لإدارة أدوات وملحقات Enigma2.",
     "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/Ham-ahmed/Secript-Panel/main/1New-Ajpanel-Panel-v5.0_HAN.sh -O - | /bin/sh",
     "source": "https://github.com/Ham-ahmed/Secript-Panel"
@@ -98,7 +98,7 @@
   {
     "title": "SmartAddons Panel Pro",
     "author": "غير محدد",
-    "category": "tools",
+    "category": "panels",
     "desc": "إصدار متطور من لوحة SmartAddons مزود بأدوات إضافية.",
     "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/SmartAddonspanel/smart-Panel.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins"
@@ -106,7 +106,7 @@
   {
     "title": "Xtreamity",
     "author": "biko-73",
-    "category": "libs",
+    "category": "iptv",
     "desc": "مشغل IPTV احترافي يدعم Xtream Codes مع تنظيم القنوات والأفلام والمسلسلات بواجهة سهلة وسريعة.",
     "cmd": "wget https://raw.githubusercontent.com/biko-73/xstreamity/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/biko-73/xstreamity"
@@ -114,7 +114,7 @@
   {
     "title": "DreamXtream",
     "author": "dreambox4u",
-    "category": "libs",
+    "category": "iptv",
     "desc": "إضافة IPTV خفيفة مخصصة لصور DreamOS توفر تجربة مشاهدة مستقرة مع دعم قوائم Xtream.",
     "cmd": "wget http://dreambox4u.com/ch/E2/enigma2-plugin-extensions-dreamxtream_0.3-r9.0_arm64.deb -O /tmp/enigma2-plugin-extensions-dreamxtream_0.3-r9.0_arm64.deb && dpkg -i /tmp/enigma2-plugin-extensions-dreamxtream_0.3-r9.0_arm64.deb",
     "source": "http://dreambox4u.com/ch/E2/enigma2-plugin-extensions-dreamxtream_0.3-r9.0_arm64.deb"
@@ -122,7 +122,7 @@
   {
     "title": "MyStreamer",
     "author": "popking159",
-    "category": "libs",
+    "category": "iptv",
     "desc": "مشغل IPTV متطور يدعم القنوات المباشرة ومكتبات الفيديو مع واجهة عربية سهلة الاستخدام.",
     "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/MyStreamer/refs/heads/main/myinstaller.sh | /bin/sh",
     "source": "https://github.com/popking159/MyStreamer"
@@ -130,7 +130,7 @@
   {
     "title": "XPortal",
     "author": "azroukarim",
-    "category": "libs",
+    "category": "softcams",
     "desc": "عميل IPTV متكامل يدعم Stalker وXtream وMac Portal للوصول إلى محتوى IPTV بسهولة.",
     "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/azroukarim/XPortal/refs/heads/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/azroukarim/XPortal"
@@ -138,7 +138,7 @@
   {
     "title": "TiViMate",
     "author": "opesboy",
-    "category": "libs",
+    "category": "others",
     "desc": "نسخة محسنة من تجربة TiviMate لأجهزة Enigma2 مع دعم القوائم الحديثة والتنقل السريع.",
     "cmd": "wget -qO- https://raw.githubusercontent.com/opesboy/TiviMateE2/main/install.sh | sh",
     "source": "https://github.com/opesboy/TiviMateE2"
@@ -146,7 +146,7 @@
   {
     "title": "UltraStalker",
     "author": "K3bOra",
-    "category": "libs",
+    "category": "others",
     "desc": "إضافة متخصصة لدعم بوابات Stalker Portal مع أداء عالٍ واستقرار أثناء المشاهدة.",
     "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/-UltraStalker/main/install.sh | /bin/sh",
     "source": "https://github.com/K3bOra/-UltraStalker"
@@ -154,7 +154,7 @@
   {
     "title": "XtreamNew",
     "author": "ahmedhussein4342-lgtm",
-    "category": "libs",
+    "category": "iptv",
     "desc": "إضافة IPTV حديثة تدعم أحدث أساليب تشغيل مكتبات Xtream Codes.",
     "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/install_xtreamnew.sh -O - | /bin/sh",
     "source": "https://github.com/ahmedhussein4342-lgtm/XtreamNew"
@@ -162,7 +162,7 @@
   {
     "title": "BouquetMakerXtream",
     "author": "biko-73",
-    "category": "libs",
+    "category": "iptv",
     "desc": "أداة لإنشاء وترتيب الباقات والقنوات تلقائياً من مزودي Xtream بطريقة احترافية.",
     "cmd": "wget https://raw.githubusercontent.com/biko-73/BouquetMakerXtream/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/biko-73/BouquetMakerXtream"
@@ -170,7 +170,7 @@
   {
     "title": "E2Player",
     "author": "oe-mirrors",
-    "category": "libs",
+    "category": "others",
     "desc": "واحدة من أشهر إضافات تشغيل المحتوى المرئي عبر الإنترنت لمشاهدة الأفلام والمسلسلات من مصادر متعددة.",
     "cmd": "wget -q https://raw.githubusercontent.com/oe-mirrors/e2iplayer/refs/heads/python3/e2iplayer_install.sh -O - | /bin/sh",
     "source": "https://github.com/oe-mirrors/e2iplayer"
@@ -178,7 +178,7 @@
   {
     "title": "E2Player — E2Iplayer Updater",
     "author": "Unknown",
-    "category": "libs",
+    "category": "fast",
     "desc": "أمر إضافي مرتبط بإضافة E2Player. راجع المصدر والتوافق قبل الاستخدام.",
     "cmd": "wget --no-check-certificate -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/E2IplayerUpdater/E2IplayerUpdater.sh | /bin/sh",
     "source": "https://github.com/oe-mirrors/e2iplayer"
@@ -186,7 +186,7 @@
   {
     "title": "MultiIptvAdder",
     "author": "غير محدد",
-    "category": "libs",
+    "category": "iptv",
     "desc": "أداة لإضافة وإدارة العديد من اشتراكات IPTV بسهولة.",
     "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/MultiIptvAdder/installer.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins"
@@ -194,7 +194,7 @@
   {
     "title": "E2Player Hosts Update",
     "author": "غير محدد",
-    "category": "libs",
+    "category": "fast",
     "desc": "تحديث واستكمال هوستات E2Player.",
     "cmd": "wget -q --no-check-certificate https://github.com/angelheart150/My_e2iplayer_hosts/raw/main/install-e2iplayer-update-hosts.sh -O - | /bin/sh",
     "source": "https://github.com/angelheart150/My_e2iplayer_hosts"
@@ -202,7 +202,7 @@
   {
     "title": "My Tsiplayer",
     "author": "غير محدد",
-    "category": "libs",
+    "category": "fast",
     "desc": "تحديث وإضافة هوستات Tsiplayer لمصادر مشاهدة إضافية.",
     "cmd": "wget -q --no-check-certificate https://github.com/angelheart150/My-tsiplayer/raw/main/install-tsiplayer-update-hosts.sh -O - | /bin/sh",
     "source": "https://github.com/angelheart150/My-tsiplayer"
@@ -210,7 +210,7 @@
   {
     "title": "JediMakerXtream",
     "author": "غير محدد",
-    "category": "libs",
+    "category": "iptv",
     "desc": "إنشاء الباقات والقنوات تلقائياً من مزودى Xtream.",
     "cmd": "wget https://raw.githubusercontent.com/biko-73/JediMakerXtream/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/biko-73/JediMakerXtream"
@@ -218,7 +218,7 @@
   {
     "title": "Multi Stalker",
     "author": "غير محدد",
-    "category": "libs",
+    "category": "others",
     "desc": "إدارة وتشغيل عدة بوابات Stalker من مكان واحد.",
     "cmd": "wget https://raw.githubusercontent.com/biko-73/Multi-Stalker/main/pro/installer.sh -O - | /bin/sh",
     "source": "https://github.com/biko-73/Multi-Stalker"
@@ -226,7 +226,7 @@
   {
     "title": "SubsSupportPro",
     "author": "popking159",
-    "category": "libs",
+    "category": "subtitles",
     "desc": "إضافة ترجمة شهيرة لتحميل وإدارة ملفات الترجمة للأفلام والمسلسلات مباشرة من الجهاز.",
     "cmd": "wget https://github.com/popking159/SubsSupportPro/raw/refs/heads/main/myinstaller.sh -O - | /bin/sh",
     "source": "https://github.com/popking159/SubsSupportPro"
@@ -234,7 +234,7 @@
   {
     "title": "SubExtractor Lite",
     "author": "Arian7s",
-    "category": "libs",
+    "category": "subtitles",
     "desc": "أداة لاستخراج الترجمات المدمجة من ملفات الفيديو وإنشاء ملفات ترجمة مستقلة.",
     "cmd": "wget https://raw.githubusercontent.com/Arian7s/SubExtractorLite/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/Arian7s/SubExtractorLite"
@@ -242,7 +242,7 @@
   {
     "title": "MyTranslator",
     "author": "ismailelkhooly",
-    "category": "libs",
+    "category": "subtitles",
     "desc": "مترجم متعدد اللغات لترجمة النصوص والقوائم داخل إضافات Enigma2.",
     "cmd": "wget -O /tmp/mytranslator.ipk https://github.com/ismailelkhooly/Ismail-/raw/refs/heads/main/enigma2-plugin-extensions-mytranslator_1.75.ipk && opkg install --force-reinstall /tmp/mytranslator.ipk",
     "source": "https://github.com/ismailelkhooly/Ismail-"
@@ -250,7 +250,7 @@
   {
     "title": "AiSubtitles",
     "author": "hmeng80",
-    "category": "libs",
+    "category": "subtitles",
     "desc": "إضافة تعتمد على تقنيات الذكاء الاصطناعي لإنشاء وترجمة الترجمات بشكل أسرع وأكثر دقة.",
     "cmd": "wget -q --no-check-certificate https://gitlab.com/hmeng80/extensions/-/raw/main/AISubtitles/aisubtitles.sh -O - | /bin/sh",
     "source": "https://gitlab.com/hmeng80/extensions"
@@ -258,7 +258,7 @@
   {
     "title": "AutoSub AI",
     "author": "HBK2010",
-    "category": "libs",
+    "category": "subtitles",
     "desc": "أداة ذكية لإنشاء ترجمات تلقائية للمحتوى المرئي باستخدام تقنيات التعرف على الصوت.",
     "cmd": "wget -q -O /tmp/AutoSub.tar.gz https://raw.githubusercontent.com/HBK2010/AutoSub/main/AutoSub.tar.gz && tar xzf /tmp/AutoSub.tar.gz -C /usr/lib/enigma2/python/Plugins/Extensions",
     "source": "https://github.com/HBK2010/AutoSub"
@@ -266,7 +266,7 @@
   {
     "title": "SSupport",
     "author": "غير محدد",
-    "category": "libs",
+    "category": "subtitles",
     "desc": "إضافة لتحميل وإدارة الترجمات للمحتوى المرئى.",
     "cmd": "wget -q --no-check-certificate https://github.com/popking159/ssupport/raw/main/subssupport-install.sh -O - | /bin/sh",
     "source": "https://github.com/popking159/ssupport"
@@ -274,7 +274,7 @@
   {
     "title": "Levi45 Emulator (IPK)",
     "author": "Emil Nabil",
-    "category": "libs",
+    "category": "others",
     "desc": "حزمة IPK لإضافة Levi45 Emulator.",
     "cmd": "set -e\nURL='https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/levi45emulator/enigma2-plugin-extensions-levi45emulator_all.ipk'\nPKG='/tmp/levi45-emulator.ipk'\nif command -v wget >/dev/null 2>&1; then wget -O \"$PKG\" \"$URL\"; elif command -v curl >/dev/null 2>&1; then curl -fL \"$URL\" -o \"$PKG\"; else echo 'wget أو curl غير متاح'; exit 1; fi\nif [ ! -s \"$PKG\" ]; then echo 'فشل تنزيل ملف التثبيت'; exit 1; fi\nif [ 'ipk' = 'ipk' ]; then\n  if command -v opkg >/dev/null 2>&1; then opkg install \"$PKG\"; else echo 'الصورة لا تحتوي على opkg؛ ملف IPK غير مدعوم هنا'; exit 1; fi\nelse\n  if command -v dpkg >/dev/null 2>&1; then dpkg -i \"$PKG\"; else echo 'الصورة لا تحتوي على dpkg؛ ملف DEB غير مدعوم هنا'; exit 1; fi\nfi\nrm -f \"$PKG\"\necho 'انتهى أمر التثبيت؛ راجع سجل الجهاز للتأكد من نجاح الحزمة.'",
     "source": "https://github.com/emilnabil/download-plugins"
@@ -282,7 +282,7 @@
   {
     "title": "Levi45 Emulator (DEB)",
     "author": "Emil Nabil",
-    "category": "libs",
+    "category": "others",
     "desc": "حزمة DEB لإضافة Levi45 Emulator.",
     "cmd": "set -e\nURL='https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/levi45emulator/enigma2-plugin-extensions-levi45emulator_all.deb'\nPKG='/tmp/levi45-emulator.deb'\nif command -v wget >/dev/null 2>&1; then wget -O \"$PKG\" \"$URL\"; elif command -v curl >/dev/null 2>&1; then curl -fL \"$URL\" -o \"$PKG\"; else echo 'wget أو curl غير متاح'; exit 1; fi\nif [ ! -s \"$PKG\" ]; then echo 'فشل تنزيل ملف التثبيت'; exit 1; fi\nif [ 'deb' = 'ipk' ]; then\n  if command -v opkg >/dev/null 2>&1; then opkg install \"$PKG\"; else echo 'الصورة لا تحتوي على opkg؛ ملف IPK غير مدعوم هنا'; exit 1; fi\nelse\n  if command -v dpkg >/dev/null 2>&1; then dpkg -i \"$PKG\"; else echo 'الصورة لا تحتوي على dpkg؛ ملف DEB غير مدعوم هنا'; exit 1; fi\nfi\nrm -f \"$PKG\"\necho 'انتهى أمر التثبيت؛ راجع سجل الجهاز للتأكد من نجاح الحزمة.'",
     "source": "https://github.com/emilnabil/download-plugins"
@@ -290,7 +290,7 @@
   {
     "title": "Ciefp — قمر واحد 19°E",
     "author": "Emil Nabil / Online4Tech",
-    "category": "libs",
+    "category": "iptv",
     "desc": "قائمة قنوات لقمر Astra 19.2°E. سكربت المصدر يحدّث ملفات إعدادات القنوات على الرسيفر؛ احتفظ بنسخة احتياطية قبل التنفيذ.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/ciefp-channels-e2/ciefp-E2-1sat-19E.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/ciefp-channels-e2"
@@ -298,7 +298,7 @@
   {
     "title": "Ciefp — قمران 19°E + 13°E",
     "author": "Emil Nabil / Online4Tech",
-    "category": "libs",
+    "category": "iptv",
     "desc": "قائمة قنوات لتجميعة Astra 19.2°E وHot Bird 13°E. قد تستبدل إعدادات القنوات الحالية؛ راجع توافق الأقمار والتوصيلات وخذ نسخة احتياطية.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/ciefp-channels-e2/ciefp-E2-2satA-19E-13E.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/ciefp-channels-e2"
@@ -306,7 +306,7 @@
   {
     "title": "Ciefp — 6 أقمار",
     "author": "Emil Nabil / Online4Tech",
-    "category": "libs",
+    "category": "iptv",
     "desc": "قائمة متعددة الأقمار تشمل 23°E و19.2°E و16°E و13°E و1.9°E و0.8°W. تأكد من إعدادات الـDiSEqC قبل التثبيت.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/ciefp-channels-e2/ciefp-E2-6sat-23E-19E-16E-13E-1.9E-0.8W.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/ciefp-channels-e2"
@@ -314,7 +314,7 @@
   {
     "title": "Morpheus883 — Hot Bird + Astra",
     "author": "Emil Nabil / Online4Tech",
-    "category": "libs",
+    "category": "iptv",
     "desc": "قائمة قنوات متعددة الأقمار من Morpheus883 لتجميعة 13°E و19.2°E. السكربت ينشئ نسخة احتياطية من /etc/enigma2 قبل الاستبدال.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/morpheus883-channels/E2_Morph883_13E-19.2E.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/morpheus883-channels"
@@ -322,7 +322,7 @@
   {
     "title": "Morpheus883 — Motor Settings",
     "author": "Emil Nabil / Online4Tech",
-    "category": "libs",
+    "category": "iptv",
     "desc": "إعدادات قنوات للموتور من Morpheus883. السكربت ينشئ نسخة احتياطية مؤرخة من /etc/enigma2 قبل نسخ الإعدادات الجديدة.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/morpheus883-channels/E2_Morph883_Motor.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/morpheus883-channels"
@@ -330,7 +330,7 @@
   {
     "title": "Morpheus883 — Settings",
     "author": "Emil Nabil / Online4Tech",
-    "category": "libs",
+    "category": "iptv",
     "desc": "حزمة إعدادات قنوات عامة من Morpheus883. السكربت ينشئ نسخة احتياطية قبل تحديث ملفات /etc/enigma2.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/morpheus883-channels/E2_Morph883_Settings.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/morpheus883-channels"
@@ -338,7 +338,7 @@
   {
     "title": "Vhannibal — Hot Bird 13°E",
     "author": "Emil Nabil / Online4Tech",
-    "category": "libs",
+    "category": "iptv",
     "desc": "قائمة Vhannibal لقمر Hot Bird 13°E. تنبيه: السكربت يحذف ملفات القنوات والراديو الحالية قبل نسخ الجديدة؛ خذ نسخة احتياطية أولاً.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/vanenbal-channels/Vhannibal-HotBird-13E.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/vanenbal-channels"
@@ -346,7 +346,7 @@
   {
     "title": "Vhannibal — Motor 70°E إلى 45°W",
     "author": "Emil Nabil / Online4Tech",
-    "category": "libs",
+    "category": "iptv",
     "desc": "إعدادات Vhannibal للموتور عبر نطاق أقمار واسع. السكربت يحذف ملفات القنوات والراديو الحالية؛ تأكد من إعدادات الموتور وخذ نسخة احتياطية.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/vanenbal-channels/Vhannibal-Motor-70E-45W.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/vanenbal-channels"
@@ -354,7 +354,7 @@
   {
     "title": "Vhannibal — Dual 13°E + 19°E",
     "author": "Emil Nabil / Online4Tech",
-    "category": "libs",
+    "category": "iptv",
     "desc": "قائمة Vhannibal لقمرين Hot Bird 13°E وAstra 19.2°E. راجع توافق إعدادات الأقمار قبل الاستبدال.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/vanenbal-channels/Vhannibal-Dual-13-19E.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/vanenbal-channels"
@@ -362,7 +362,7 @@
   {
     "title": "EPGImport",
     "author": "Saiedf",
-    "category": "libs",
+    "category": "epg",
     "desc": "أداة استيراد وتحديث بيانات دليل البرامج الإلكتروني EPG من مصادر متعددة.",
     "cmd": "wget -qO- https://raw.githubusercontent.com/Saiedf/EPGImport/main/installer_epgimportiet5_auto.sh | /bin/sh",
     "source": "https://github.com/Saiedf/EPGImport"
@@ -370,7 +370,7 @@
   {
     "title": "MultiCamAdder",
     "author": "emilnabil",
-    "category": "libs",
+    "category": "softcams",
     "desc": "إضافة لإدارة وإضافة أنظمة SoftCam المختلفة وتسهيل التبديل بينها.",
     "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/MultiCamAdder/installer.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/MultiCamAdder"
@@ -378,7 +378,7 @@
   {
     "title": "Server EagleSat",
     "author": "eliesat",
-    "category": "libs",
+    "category": "others",
     "desc": "خدمة وأدوات إضافية خاصة بمنصة EagleSat لتوسيع وظائف الجهاز.",
     "cmd": "wget -qO- --no-check-certificate https://raw.githubusercontent.com/eliesat/ServerEagleSat/main/installer.sh | bash",
     "source": "https://github.com/eliesat/ServerEagleSat"
@@ -386,7 +386,7 @@
   {
     "title": "TMBD",
     "author": "غير محدد",
-    "category": "libs",
+    "category": "others",
     "desc": "إضافة لجلب وعرض معلومات الأفلام والمسلسلات.",
     "cmd": "wget https://raw.githubusercontent.com/biko-73/TMBD/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/biko-73/TMBD"
@@ -394,7 +394,7 @@
   {
     "title": "XtraEvent",
     "author": "غير محدد",
-    "category": "libs",
+    "category": "iptv",
     "desc": "جلب صور وبيانات الأحداث والأفلام والقنوات تلقائياً.",
     "cmd": "wget -q --no-check-certificate https://github.com/digiteng/xtra/raw/main/xtraEvent.sh -O - | /bin/sh",
     "source": "https://github.com/digiteng/xtra"
@@ -402,7 +402,7 @@
   {
     "title": "TeamNitro",
     "author": "غير محدد",
-    "category": "libs",
+    "category": "others",
     "desc": "مجموعة أدوات وخدمات إضافية لأجهزة Enigma2.",
     "cmd": "wget https://raw.githubusercontent.com/biko-73/TeamNitro/main/script/installerB.sh -O - | /bin/sh",
     "source": "https://github.com/biko-73/TeamNitro"
@@ -410,7 +410,7 @@
   {
     "title": "IPAudioPro",
     "author": "zKhadiri",
-    "category": "libs",
+    "category": "audio",
     "desc": "تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت.",
     "cmd": "wget https://raw.githubusercontent.com/emilnabil/ipaudiopro/refs/heads/main/ipaudiopro.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/ipaudiopro"
@@ -418,7 +418,7 @@
   {
     "title": "AudioShift",
     "author": "xfayez95",
-    "category": "libs",
+    "category": "iptv",
     "desc": "أداة سريعة لتبديل المسارات الصوتية داخل القنوات والأفلام بسهولة.",
     "cmd": "wget -O - https://xfayez95.github.io/audioshift/installer.sh | sh",
     "source": "https://xfayez95.github.io/audioshift/installer.sh"
@@ -426,7 +426,7 @@
   {
     "title": "UltraAudio",
     "author": "K3bOra",
-    "category": "libs",
+    "category": "softcams",
     "desc": "حزمة متكاملة لتحسين وظائف الصوت وتوفير خيارات استماع إضافية داخل الجهاز.",
     "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | /bin/sh",
     "source": "https://github.com/K3bOra/UltraAudio"
@@ -434,7 +434,7 @@
   {
     "title": "OrangeAudio",
     "author": "popking159",
-    "category": "libs",
+    "category": "audio",
     "desc": "مشغل صوتي متطور يدعم البث الصوتي عبر الإنترنت ومحطات الراديو المختلفة.",
     "cmd": "wget -qO- https://raw.githubusercontent.com/popking159/OrangeAudio/main/installer.sh | sh",
     "source": "https://github.com/popking159/OrangeAudio"
@@ -442,7 +442,7 @@
   {
     "title": "IPAudioPlus",
     "author": "Ahmadarjan1",
-    "category": "libs",
+    "category": "audio",
     "desc": "نسخة مطورة من خدمات الصوت عبر الإنترنت مع واجهة أكثر سهولة ودعماً لعدد أكبر من المصادر.",
     "cmd": "wget -q -O - https://raw.githubusercontent.com/Ahmadarjan1/IPAudioPlus-Releases/main/installer.sh | /bin/sh",
     "source": "https://github.com/Ahmadarjan1/IPAudioPlus-Releases"
@@ -450,7 +450,7 @@
   {
     "title": "Xtream2Audio",
     "author": "emilnabil",
-    "category": "libs",
+    "category": "iptv",
     "desc": "تشغيل وتحويل القنوات الصوتية من خدمات Xtream.",
     "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/Xtream2Audio/Xtream2Audio.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/Xtream2Audio"
@@ -482,7 +482,7 @@
   {
     "title": "ArabicSavior",
     "author": "popking159",
-    "category": "tools",
+    "category": "subtitles",
     "desc": "تحسين دعم اللغة العربية وإصلاح مشاكل الخطوط والترجمة.",
     "cmd": "wget https://raw.githubusercontent.com/fairbird/ArabicSavior/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/fairbird/ArabicSavior"
@@ -490,7 +490,7 @@
   {
     "title": "BackupFlash",
     "author": "fairbird",
-    "category": "tools",
+    "category": "softcams",
     "desc": "أداة لإنشاء نسخة احتياطية كاملة من النظام الحالي واستعادتها بسهولة عند الحاجة.",
     "cmd": "wget https://raw.githubusercontent.com/fairbird/backupflash/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/fairbird/backupflash"
@@ -498,7 +498,7 @@
   {
     "title": "RaedQuickSignal",
     "author": "fairbird",
-    "category": "tools",
+    "category": "fast",
     "desc": "عرض نسبة الإشارة بسرعة أثناء المشاهدة.",
     "cmd": "opkg update && opkg install wget && wget https://raw.githubusercontent.com/fairbird/RaedQuickSignal/main/installer.sh -O - | /bin/sh",
     "source": "https://github.com/fairbird/RaedQuickSignal"
@@ -514,7 +514,7 @@
   {
     "title": "Transmission",
     "author": "غير محدد",
-    "category": "tools",
+    "category": "softcams",
     "desc": "أداة تحميل تورنت متكاملة لأجهزة Enigma2.",
     "cmd": "opkg install transmission transmission-client python3-transmission-rpc xz python3-beautifulsoup4 && wget -q --no-check-certificate http://dreambox4u.com/dreamarabia/Transmission_e2/Transmission_e2.sh -O - | bash",
     "source": "http://dreambox4u.com/dreamarabia/Transmission_e2"
@@ -522,7 +522,7 @@
   {
     "title": "Satelliweb E2",
     "author": "غير محدد",
-    "category": "tools",
+    "category": "iptv",
     "desc": "إضافة متخصصة لمتابعة بيانات وأخبار الأقمار والقنوات.",
     "cmd": "wget -q --no-check-certificate http://dreambox4u.com/dreamarabia/Satelliweb_e2/install_satelliweb.sh -O - | bash",
     "source": "http://dreambox4u.com/dreamarabia/Satelliweb_e2"
@@ -538,7 +538,7 @@
   {
     "title": "ImagesDownloader",
     "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
+    "category": "fast",
     "desc": "أداة تنزيل الصور/الملفات المرتبطة ببيئة Enigma2. سكربت المصدر يحذف مجلد الإضافة القديم قبل التثبيت؛ لا تنفّذه أثناء وجود تحديث أو عملية أخرى.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/ImagesDownloader/ImagesDownloader.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/ImagesDownloader"
@@ -562,7 +562,7 @@
   {
     "title": "NumberZapExt",
     "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
+    "category": "iptv",
     "desc": "إضافة موسعة للتعامل مع التنقل بالأرقام بين القنوات. سكربت المصدر يحذف مجلد SystemPlugins السابق قبل التثبيت؛ لا تستخدمه إلا بعد التأكد من التوافق.",
     "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/NumberZapExt/NumberZapExt.sh | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/tree/main/NumberZapExt"
@@ -586,7 +586,7 @@
   {
     "title": "تحديث فهارس الحزم — OpenATV / Enigma2",
     "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
+    "category": "fast",
     "desc": "تحديث قوائم الحزم المتاحة فقط دون تثبيت ترقيات. مناسب لصور Enigma2 التي تستخدم opkg.",
     "cmd": "opkg update",
     "source": "https://github.com/emilnabil/download-plugins"
@@ -594,7 +594,7 @@
   {
     "title": "تحديث فهارس الحزم — DreamOS",
     "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
+    "category": "fast",
     "desc": "تحديث قوائم الحزم في DreamOS دون ترقية الحزم المثبتة.",
     "cmd": "apt-get update",
     "source": "https://github.com/emilnabil/download-plugins"
@@ -602,7 +602,7 @@
   {
     "title": "ترقية الحزم — OpenATV / Enigma2",
     "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
+    "category": "fast",
     "desc": "ترقية حزم النظام عبر opkg. قد تؤدي ترقية الحزم عشوائياً إلى عدم استقرار الصورة أو تعارضات؛ استخدمها فقط عند توصية مطور الصورة وبعد نسخة احتياطية.",
     "cmd": "opkg upgrade",
     "source": "https://github.com/emilnabil/download-plugins"
@@ -610,7 +610,7 @@
   {
     "title": "ترقية الحزم — DreamOS",
     "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
+    "category": "fast",
     "desc": "ترقية الحزم عبر apt في DreamOS. قد تغيّر مكونات النظام؛ استخدمها فقط عند توصية مطور الصورة وبعد نسخة احتياطية.",
     "cmd": "apt-get upgrade",
     "source": "https://github.com/emilnabil/download-plugins"
@@ -618,7 +618,7 @@
   {
     "title": "Metrix Poster",
     "author": "hmeng80",
-    "category": "skins",
+    "category": "iptv",
     "desc": "إضافات ومكونات لواجهة MetrixHD تضيف بوسترات وأشكال عرض حديثة للقنوات والأفلام.",
     "cmd": "wget -q --no-check-certificate https://gitlab.com/hmeng80/addons/-/raw/main/metrix-fhd-parts-ec.sh -O - | /bin/sh",
     "source": "https://gitlab.com/hmeng80/addons"
@@ -634,7 +634,7 @@
   {
     "title": "Obsidian FHD",
     "author": "dali44g",
-    "category": "skins",
+    "category": "iptv",
     "desc": "سكين Full HD احترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى.",
     "cmd": "wget -qO- https://raw.githubusercontent.com/dali44g/Obsidian-FHD/main/install.sh | sh",
     "source": "https://github.com/dali44g/Obsidian-FHD"
@@ -2290,7 +2290,7 @@
   {
     "title": "Eliesat (فيد اضافي للصورة)",
     "author": "Unknown",
-    "category": "update",
+    "category": "fast",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget https://gitlab.com/eliesat/scripts/-/raw/main/feed/eliesat-feed.sh -O - | /bin/sh",
     "source": "https://gitlab.com/eliesat/scripts/-/raw/main/feed/eliesat-feed.sh"
@@ -2298,7 +2298,7 @@
   {
     "title": "Emil (فيد أضافي للصورة)",
     "author": "Unknown",
-    "category": "update",
+    "category": "fast",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/FEED-emil-feed.sh -O - | /bin/sh",
     "source": "https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/FEED-emil-feed.sh"
@@ -2306,7 +2306,7 @@
   {
     "title": "Jungle (فيد أضافي للصورة)",
     "author": "Unknown",
-    "category": "update",
+    "category": "fast",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/FEED-jungle-feed.sh -O - | /bin/sh",
     "source": "https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/FEED-jungle-feed.sh"
@@ -2314,7 +2314,7 @@
   {
     "title": "Libraries_3.12.4",
     "author": "Unknown",
-    "category": "update",
+    "category": "fast",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-libraries-3.12.4.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-libraries-3.12.4.sh"
@@ -2322,7 +2322,7 @@
   {
     "title": "Libraries_3.12.6",
     "author": "Unknown",
-    "category": "update",
+    "category": "fast",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-libraries-3.12.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-libraries-3.12.sh"
@@ -2330,7 +2330,7 @@
   {
     "title": "Oe-alliance-Picons (فيد به بايكونات)",
     "author": "Unknown",
-    "category": "update",
+    "category": "skins",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-oe-picons.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-oe-picons.sh"
@@ -2338,7 +2338,7 @@
   {
     "title": "Oe-alliance-Settings (فيد به ملفات قنوات)",
     "author": "Unknown",
-    "category": "update",
+    "category": "iptv",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-oe-settings.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-oe-settings.sh"
@@ -2346,7 +2346,7 @@
   {
     "title": "Openatv-Deval (فيد صورة openatv للمطورين)",
     "author": "Unknown",
-    "category": "update",
+    "category": "fast",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget -O - -q https://feeds2.mynonpublic.com/devel-feed | bash",
     "source": "https://feeds2.mynonpublic.com/devel-feed"
@@ -2354,7 +2354,7 @@
   {
     "title": "OpenPicons (فيد بايكونات)",
     "author": "Unknown",
-    "category": "update",
+    "category": "skins",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-openpicons.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-openpicons.sh"
@@ -2362,7 +2362,7 @@
   {
     "title": "Tarek-Hanfy (فيد اضافي للصورة)",
     "author": "Unknown",
-    "category": "update",
+    "category": "fast",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: feeds. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ.",
     "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-Tarek.sh -O - | /bin/sh",
     "source": "https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-Tarek.sh"
@@ -2370,7 +2370,7 @@
   {
     "title": "نسخة قنوات OpenATV",
     "author": "Unknown",
-    "category": "tools",
+    "category": "iptv",
     "desc": "تحميل أرشيف نسخة القنوات المنشور بالمستودع إلى مجلد /tmp فقط. راجع محتوياته وتوافقه قبل أي استعادة.",
     "cmd": "wget -O /tmp/channels_backup_openATV_Enigma2-Chanal-List-BYRomeh.tar.gz https://github.com/online4tech/Enigma2-Chanal-List-BYRomeh/raw/main/channels_backup_openATV_Enigma2-Chanal-List-BYRomeh.tar.gz",
     "source": "https://github.com/online4tech/Enigma2-Chanal-List-BYRomeh/blob/main/channels_backup_openATV_Enigma2-Chanal-List-BYRomeh.tar.gz"
@@ -2378,7 +2378,7 @@
   {
     "title": "Backup-my-Channels",
     "author": "Unknown",
-    "category": "tools",
+    "category": "iptv",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: backup. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/Create-My-backup-shannels.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/Create-My-backup-shannels.sh"
@@ -2434,7 +2434,7 @@
   {
     "title": "Backup-my-ipaudio-server",
     "author": "Unknown",
-    "category": "tools",
+    "category": "audio",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: backup. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-ipaudio-server.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/backup-my-ipaudio-server.sh"
@@ -2442,7 +2442,7 @@
   {
     "title": "Backup-my-ipaudiopro-server",
     "author": "Unknown",
-    "category": "tools",
+    "category": "audio",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: backup. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-ipaudiopro-server.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/backup-my-ipaudiopro-server.sh"
@@ -2450,7 +2450,7 @@
   {
     "title": "Backup-my-jediplaylists",
     "author": "Unknown",
-    "category": "tools",
+    "category": "iptv",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: backup. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-jediplaylists.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/backup-my-jediplaylists.sh"
@@ -2466,7 +2466,7 @@
   {
     "title": "Backup-my-Subtitle-Setting",
     "author": "Unknown",
-    "category": "tools",
+    "category": "subtitles",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: backup. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup_my-subtitle-setting.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/backup_my-subtitle-setting.sh"
@@ -2474,7 +2474,7 @@
   {
     "title": "Backup-my-xstreamity-servers",
     "author": "Unknown",
-    "category": "tools",
+    "category": "iptv",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: backup. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-xstreamity-servers.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/backup-my-xstreamity-servers.sh"
@@ -2490,7 +2490,7 @@
   {
     "title": "Restore-my-Channels",
     "author": "Unknown",
-    "category": "tools",
+    "category": "iptv",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: restore. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/Restore-My-backup-shannels.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/Restore-My-backup-shannels.sh"
@@ -2538,7 +2538,7 @@
   {
     "title": "Restore-my-ipaudio-server",
     "author": "Unknown",
-    "category": "tools",
+    "category": "audio",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: restore. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-ipaudio-server.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/restore-my-ipaudio-server.sh"
@@ -2546,7 +2546,7 @@
   {
     "title": "Restore-my-ipaudiopro-server",
     "author": "Unknown",
-    "category": "tools",
+    "category": "audio",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: restore. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-ipaudiopro-server.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/restore-my-ipaudiopro-server.sh"
@@ -2554,7 +2554,7 @@
   {
     "title": "Restore-my-jediplaylists",
     "author": "Unknown",
-    "category": "tools",
+    "category": "iptv",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: restore. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-jediplaylists.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/restore-my-jediplaylists.sh"
@@ -2570,7 +2570,7 @@
   {
     "title": "Restore-My-Subtitle-Setting",
     "author": "Unknown",
-    "category": "tools",
+    "category": "subtitles",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: restore. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/Restore_my-subtitle-setting.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/Restore_my-subtitle-setting.sh"
@@ -2578,7 +2578,7 @@
   {
     "title": "Restore-my-xstreamity-servers",
     "author": "Unknown",
-    "category": "tools",
+    "category": "iptv",
     "desc": "المصدر: قائمة أوامر Enigma2 في مستودع Online4Tech. المجموعة: restore. راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-xstreamity-servers.sh -O - | /bin/sh",
     "source": "http://dreambox4u.com/emilnabil237/script/restore-my-xstreamity-servers.sh"
