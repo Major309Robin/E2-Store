@@ -1316,12 +1316,6 @@
         async function installItem(id) {
             const item = (typeof id === 'object') ? id : COMMANDS.find(c => c.id === id); if (!item) return;
             if (!RX) { showToast(T('t_link_first')); openModal('receiverModal'); return; }
-            if ((RX.mode || 'agent') === 'agent' && location.protocol === 'https:' && !AGENT_SAME_ORIGIN) {
-                // Browsers block https -> http calls, so continue on the receiver's own address and install automatically there
-                showToast(currentLang === 'ar' ? 'جاري التثبيت على الرسيفر...' : 'Installing on the receiver...');
-                location.href = 'http://' + RX.ip + ':' + (RX.webPort || 8765) + '/?install=' + encodeURIComponent(item.title);
-                return;
-            }
             const log = document.getElementById('instLog'), icon = document.getElementById('instIcon'), st = document.getElementById('instStatus'); showInstallErrors('', '');
             document.getElementById('instTitle').textContent = item.title + ' ← ' + (RX.name || RX.ip);
             log.textContent = ''; st.textContent = T('i_installing'); icon.className = 'fa-solid fa-circle-notch spin text-cyan-400 text-xl';
