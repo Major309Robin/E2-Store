@@ -617,19 +617,16 @@
 
         const CATEGORIES_DATA = [
             { id: 'all', nameKey: 'cat_all', nameAr: 'الكل', nameEn: 'All', nameFr: 'Tous', icon: 'fa-cubes' },
-            { id: 'fast', nameAr: 'أوامر النظام وسرعة', nameEn: 'System & Speed', nameFr: 'Système & Vitesse', icon: 'fa-bolt' },
-            { id: 'python', nameAr: 'مكتبات Python 3', nameEn: 'Python 3 Libraries', nameFr: 'Bibliothèques Python 3', icon: 'fa-code' },
-            { id: 'update', nameAr: 'تحديثات الفيد والنظام', nameEn: 'Feed & Updates', nameFr: 'Flux & Mises à jour', icon: 'fa-rotate' },
-            { id: 'libs', nameAr: 'مكتبات وأدوات عامة', nameEn: 'General Libs & Tools', nameFr: 'Bibliothèques & Outils', icon: 'fa-box-archive' },
-            { id: 'softcam_feeds', nameAr: 'فيدات السوفتكام', nameEn: 'Softcam Feeds', nameFr: 'Flux Softcam', icon: 'fa-satellite' },
-            { id: 'panels', nameAr: 'البانلات والستورات', nameEn: 'Panels & Stores', nameFr: 'Panels & Magasins', icon: 'fa-window-maximize' },
-            { id: 'tools', nameAr: 'أدوات النظام والإصلاح', nameEn: 'System Tools & Repair', nameFr: 'Outils & Réparation', icon: 'fa-screwdriver-wrench' },
-            { id: 'softcams', nameAr: 'الكامات والسوفتكام', nameEn: 'Softcams & Cams', nameFr: 'Softcams & Cams', icon: 'fa-key' },
-            { id: 'audio', nameAr: 'الصوتيات والتايم شفت', nameEn: 'Audio & Timeshift', nameFr: 'Audio & Timeshift', icon: 'fa-volume-high' },
-            { id: 'subtitles', nameAr: 'الترجمة ودليل البرامج', nameEn: 'Subtitles & EPG', nameFr: 'Sous-titres & EPG', icon: 'fa-language' },
-            { id: 'iptv', nameAr: 'IPTV ومشغلات البث', nameEn: 'IPTV & Stream Players', nameFr: 'IPTV & Lecteurs', icon: 'fa-tv' },
-            { id: 'skins', nameAr: 'السكنات والمظاهر', nameEn: 'Skins & Themes', nameFr: 'Skins & Thèmes', icon: 'fa-palette' },
-            { id: 'others', nameAr: 'إضافات وأدوات أخرى', nameEn: 'Other Addons', nameFr: 'Autres Addons', icon: 'fa-puzzle-piece' }
+            { id: 'fast', nameAr: 'Fast Order', nameEn: 'Fast Order', nameFr: 'Fast Order', icon: 'fa-bolt' },
+            { id: 'panels', nameAr: 'Panels', nameEn: 'Panels', nameFr: 'Panels', icon: 'fa-window-maximize' },
+            { id: 'tools', nameAr: 'Tools Plugins', nameEn: 'Tools Plugins', nameFr: 'Tools Plugins', icon: 'fa-screwdriver-wrench' },
+            { id: 'softcams', nameAr: 'SoftCams Plugins', nameEn: 'SoftCams Plugins', nameFr: 'SoftCams Plugins', icon: 'fa-key' },
+            { id: 'audio', nameAr: 'Audio Plugins', nameEn: 'Audio Plugins', nameFr: 'Audio Plugins', icon: 'fa-volume-high' },
+            { id: 'subtitles', nameAr: 'Subtitle Plugins', nameEn: 'Subtitle Plugins', nameFr: 'Subtitle Plugins', icon: 'fa-closed-captioning' },
+            { id: 'epg', nameAr: 'EPG Plugins', nameEn: 'EPG Plugins', nameFr: 'EPG Plugins', icon: 'fa-calendar-days' },
+            { id: 'iptv', nameAr: 'IPTV Plugins', nameEn: 'IPTV Plugins', nameFr: 'IPTV Plugins', icon: 'fa-tv' },
+            { id: 'skins', nameAr: 'Skins', nameEn: 'Skins', nameFr: 'Skins', icon: 'fa-paintbrush' },
+            { id: 'others', nameAr: 'Other Plugins', nameEn: 'Other Plugins', nameFr: 'Other Plugins', icon: 'fa-puzzle-piece' },
         ];
 
         let currentLang = (() => { const sv = localStorage.getItem('e2lang'); if (['ar','en','fr'].includes(sv)) return sv; const b = (navigator.language || 'ar').slice(0,2); return ['ar','en','fr'].includes(b) ? b : 'ar'; })();
