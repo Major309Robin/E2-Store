@@ -1,2270 +1,464 @@
 [
   {
+    "title": "Update Linux Commands",
+    "author": "John Kamel & Robin John",
+    "desc": "تحديث ملف أوامر اللينوكس",
+    "category": "fast",
+    "cmd": "wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/update_linuxcommands.sh | bash"
+  },
+  {
+    "title": "Update SoftCam Keys",
+    "author": "John Kamel & Robin John",
+    "desc": "تحديث ملف شفرات السوفتكام",
+    "category": "fast",
+    "cmd": "wget -qO- https://raw.githubusercontent.com/major79879/MajorKey/refs/heads/main/SoftCam%20Script%20Updater.sh | bash"
+  },
+  {
     "title": "AJPanel",
     "author": "AMAJamry",
+    "desc": "لوحة أدوات متكاملة لإدارة إضافات وأدوات إنيجما فى مكان واحد",
     "category": "panels",
-    "desc": "لوحة أدوات متكاملة لإدارة إضافات وأدوات Enigma2 فى مكان واحد.",
-    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/biko-73/AjPanel/main/installer.sh -O - | /bin/sh"
+    "cmd": "wget https://raw.githubusercontent.com/AMAJamry/AJPanel/main/installer.sh -O - | /bin/sh"
   },
   {
-    "title": "DreamArabia",
-    "author": "dreambox4u",
-    "category": "softcams",
-    "desc": "لوحة عربية متكاملة تحتوي على مجموعة كبيرة من الإضافات والأدوات الخاصة بإنجما2.",
-    "cmd": "wget -q --no-check-certificate http://dreambox4u.com/dreamarabia/scripts/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "GP4.2",
-    "author": "Blue Panel",
+    "title": "Linuxsat panel",
+    "author": "Belfagor",
+    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
     "category": "panels",
-    "desc": "حزمة Gemini الشهيرة التي تضيف العديد من الوظائف المتقدمة وأدوات الإدارة.",
-    "cmd": "apt update && wget -O /tmp/geminilocale_all.deb http://download.blue-panel.com/geminilocale_gp4.php && apt install -y /tmp/geminilocale_all.deb"
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Belfagor2005/LinuxsatPanel/main/installer.sh -O - | /bin/sh"
   },
   {
-    "title": "Mohamed Store",
-    "author": "wwwgoper77-wq",
+    "title": "Elie Sat Panel Grid",
+    "author": "Elie",
+    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
     "category": "panels",
-    "desc": "متجر إضافات عربي يتيح تثبيت وتحديث العديد من البلجنات من مكان واحد.",
-    "cmd": "wget -O - https://raw.githubusercontent.com/wwwgoper77-wq/MohamedStore/main/install.sh | sh"
+    "cmd": "opkg update >/dev/null 2>&1 && opkg install wget curl ca-certificates >/dev/null 2>&1 && wget -qO- https://dreambox4u.com/eliesat/panel/eliesatpanelgrid.sh | sh"
   },
   {
-    "title": "EnigmaPlay",
-    "author": "Ahmadarjan1",
-    "category": "tools",
-    "desc": "متجر إضافات حديث يوفر الوصول السريع إلى أدوات وبلجنات Enigma2 من واجهة موحدة.",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/Ahmadarjan1/EnigmaPlay-Repo/main/install.sh | sh"
-  },
-  {
-    "title": "MagicPanelMax",
-    "author": "Ham-ahmed",
+    "title": "Magic Panel Max",
+    "author": "Hamdy Ahmed",
+    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
     "category": "panels",
-    "desc": "لوحة متقدمة تجمع الأدوات والإضافات والخدمات الشائعة في واجهة موحدة.",
-    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/Ham-ahmed/G12/refs/heads/main/MagicPanelMax-install.sh -O - | /bin/sh"
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Ham-ahmed/G12/refs/heads/main/MagicPanelMax-install.sh -O - | /bin/sh"
   },
   {
-    "title": "LinuxSat Panel",
-    "author": "Belfagor2005",
+    "title": "Emil Panel Pro",
+    "author": "Emil Nabil",
+    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
     "category": "panels",
-    "desc": "إحدى أشهر لوحات إدارة الإضافات والأدوات والتحديثات لأجهزة إنجما2.",
-    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/Belfagor2005/LinuxsatPanel/main/installer.sh -O - | /bin/bash"
-  },
-  {
-    "title": "AIO Panel",
-    "author": "OliOli2013",
-    "category": "panels",
-    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات في مكان واحد.",
-    "cmd": "wget -q -O - https://raw.githubusercontent.com/OliOli2013/PanelAIO-Plugin/main/installer.sh | /bin/sh"
-  },
-  {
-    "title": "AJPanel Menu1",
-    "author": "غير محدد",
-    "category": "panels",
-    "desc": "نسخة مخصصة من لوحة AJPanel مزودة بقوائم وأدوات إضافية.",
-    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/tarekzoka/ajpanel/refs/heads/main/ajpanel_menu1.sh -O - | /bin/sh"
-  },
-  {
-    "title": "EmilPanelPro",
-    "author": "غير محدد",
-    "category": "panels",
-    "desc": "لوحة احترافية تحتوى على مجموعة كبيرة من أدوات وإضافات Enigma2.",
     "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/EmilPanelPro/emilpanelpro.sh -O - | /bin/sh"
   },
   {
-    "title": "Emil Panel Lite",
-    "author": "غير محدد",
+    "title": "Enigma Play Repo",
+    "author": "Ahmad Arjan",
+    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
     "category": "panels",
-    "desc": "نسخة خفيفة من لوحة EmilPanel للأجهزة محدودة الموارد.",
-    "cmd": "wget -q --no-check-certificate https://dreambox4u.com/emilnabil237/plugins/ajpanel/new/emil-panel-lite.sh -O - | /bin/sh"
+    "cmd": "wget -qO- https://raw.githubusercontent.com/Ahmadarjan1/EnigmaPlay-Repo/main/install.sh | sh"
   },
   {
-    "title": "SmartAddons Panel",
-    "author": "غير محدد",
+    "title": "Panel AIO",
+    "author": "Oli Oli",
+    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
     "category": "panels",
-    "desc": "لوحة إضافات متقدمة لإدارة أدوات وملحقات Enigma2.",
-    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/Ham-ahmed/Secript-Panel/main/1New-Ajpanel-Panel-v5.0_HAN.sh -O - | /bin/sh"
+    "cmd": "wget -q -O - https://raw.githubusercontent.com/OliOli2013/PanelAIO-Plugin/main/installer.sh | /bin/sh"
   },
   {
-    "title": "SmartAddons Panel Pro",
-    "author": "غير محدد",
+    "title": "Online 4 Tech",
+    "author": "Ahmed Romeh",
+    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
     "category": "panels",
-    "desc": "إصدار متطور من لوحة SmartAddons مزود بأدوات إضافية.",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/SmartAddonspanel/smart-Panel.sh -O - | /bin/sh"
+    "cmd": "wget -O /tmp/online4tech.sh https://online4tech.github.io/online4Tech/install.sh && chmod +x /tmp/online4tech.sh && /tmp/online4tech.sh"
   },
   {
-    "title": "Xtreamity",
-    "author": "biko-73",
-    "category": "iptv",
-    "desc": "مشغل IPTV احترافي يدعم Xtream Codes مع تنظيم القنوات والأفلام والمسلسلات بواجهة سهلة وسريعة.",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/xstreamity/main/installer.sh -O - | /bin/sh"
+    "title": "Mohamed Store",
+    "author": "Mahamed Iraqy",
+    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
+    "category": "panels",
+    "cmd": "wget -O - https://raw.githubusercontent.com/wwwgoper77-wq/MohamedStore/main/install.sh | sh"
   },
   {
-    "title": "DreamXtream",
-    "author": "dreambox4u",
-    "category": "iptv",
-    "desc": "إضافة IPTV خفيفة مخصصة لصور DreamOS توفر تجربة مشاهدة مستقرة مع دعم قوائم Xtream.",
-    "cmd": "wget http://dreambox4u.com/ch/E2/enigma2-plugin-extensions-dreamxtream_0.3-r9.0_arm64.deb -O /tmp/enigma2-plugin-extensions-dreamxtream_0.3-r9.0_arm64.deb && dpkg -i /tmp/enigma2-plugin-extensions-dreamxtream_0.3-r9.0_arm64.deb"
-  },
-  {
-    "title": "MyStreamer",
-    "author": "popking159",
-    "category": "iptv",
-    "desc": "مشغل IPTV متطور يدعم القنوات المباشرة ومكتبات الفيديو مع واجهة عربية سهلة الاستخدام.",
-    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/MyStreamer/refs/heads/main/myinstaller.sh | /bin/sh"
-  },
-  {
-    "title": "XPortal",
-    "author": "azroukarim",
-    "category": "softcams",
-    "desc": "عميل IPTV متكامل يدعم Stalker وXtream وMac Portal للوصول إلى محتوى IPTV بسهولة.",
-    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/azroukarim/XPortal/refs/heads/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "TiViMate",
-    "author": "opesboy",
-    "category": "others",
-    "desc": "نسخة محسنة من تجربة TiviMate لأجهزة Enigma2 مع دعم القوائم الحديثة والتنقل السريع.",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/opesboy/TiviMateE2/main/install.sh | sh"
-  },
-  {
-    "title": "UltraStalker",
-    "author": "K3bOra",
-    "category": "others",
-    "desc": "إضافة متخصصة لدعم بوابات Stalker Portal مع أداء عالٍ واستقرار أثناء المشاهدة.",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/-UltraStalker/main/install.sh | /bin/sh"
-  },
-  {
-    "title": "XtreamNew",
-    "author": "ahmedhussein4342-lgtm",
-    "category": "iptv",
-    "desc": "إضافة IPTV حديثة تدعم أحدث أساليب تشغيل مكتبات Xtream Codes.",
-    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/install_xtreamnew.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BouquetMakerXtream",
-    "author": "biko-73",
-    "category": "iptv",
-    "desc": "أداة لإنشاء وترتيب الباقات والقنوات تلقائياً من مزودي Xtream بطريقة احترافية.",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/BouquetMakerXtream/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "E2Player",
-    "author": "oe-mirrors",
-    "category": "others",
-    "desc": "واحدة من أشهر إضافات تشغيل المحتوى المرئي عبر الإنترنت لمشاهدة الأفلام والمسلسلات من مصادر متعددة.",
-    "cmd": "wget -q https://raw.githubusercontent.com/oe-mirrors/e2iplayer/refs/heads/python3/e2iplayer_install.sh -O - | /bin/sh"
-  },
-  {
-    "title": "E2Player — E2Iplayer Updater",
-    "author": "Unknown",
-    "category": "fast",
-    "desc": "أمر إضافي مرتبط بإضافة E2Player. راجع المصدر والتوافق قبل الاستخدام.",
-    "cmd": "wget --no-check-certificate -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/E2IplayerUpdater/E2IplayerUpdater.sh | /bin/sh"
-  },
-  {
-    "title": "MultiIptvAdder",
-    "author": "غير محدد",
-    "category": "iptv",
-    "desc": "أداة لإضافة وإدارة العديد من اشتراكات IPTV بسهولة.",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/MultiIptvAdder/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "E2Player Hosts Update",
-    "author": "غير محدد",
-    "category": "fast",
-    "desc": "تحديث واستكمال هوستات E2Player.",
-    "cmd": "wget -q --no-check-certificate https://github.com/angelheart150/My_e2iplayer_hosts/raw/main/install-e2iplayer-update-hosts.sh -O - | /bin/sh"
-  },
-  {
-    "title": "My Tsiplayer",
-    "author": "غير محدد",
-    "category": "fast",
-    "desc": "تحديث وإضافة هوستات Tsiplayer لمصادر مشاهدة إضافية.",
-    "cmd": "wget -q --no-check-certificate https://github.com/angelheart150/My-tsiplayer/raw/main/install-tsiplayer-update-hosts.sh -O - | /bin/sh"
-  },
-  {
-    "title": "JediMakerXtream",
-    "author": "غير محدد",
-    "category": "iptv",
-    "desc": "إنشاء الباقات والقنوات تلقائياً من مزودى Xtream.",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/JediMakerXtream/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Multi Stalker",
-    "author": "غير محدد",
-    "category": "others",
-    "desc": "إدارة وتشغيل عدة بوابات Stalker من مكان واحد.",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/Multi-Stalker/main/pro/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "SubsSupportPro",
-    "author": "popking159",
-    "category": "subtitles",
-    "desc": "إضافة ترجمة شهيرة لتحميل وإدارة ملفات الترجمة للأفلام والمسلسلات مباشرة من الجهاز.",
-    "cmd": "wget https://github.com/popking159/SubsSupportPro/raw/refs/heads/main/myinstaller.sh -O - | /bin/sh"
-  },
-  {
-    "title": "SubExtractor Lite",
-    "author": "Arian7s",
-    "category": "subtitles",
-    "desc": "أداة لاستخراج الترجمات المدمجة من ملفات الفيديو وإنشاء ملفات ترجمة مستقلة.",
-    "cmd": "wget https://raw.githubusercontent.com/Arian7s/SubExtractorLite/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MyTranslator",
-    "author": "ismailelkhooly",
-    "category": "subtitles",
-    "desc": "مترجم متعدد اللغات لترجمة النصوص والقوائم داخل إضافات Enigma2.",
-    "cmd": "wget -O /tmp/mytranslator.ipk https://github.com/ismailelkhooly/Ismail-/raw/refs/heads/main/enigma2-plugin-extensions-mytranslator_1.75.ipk && opkg install --force-reinstall /tmp/mytranslator.ipk"
-  },
-  {
-    "title": "AiSubtitles",
-    "author": "hmeng80",
-    "category": "subtitles",
-    "desc": "إضافة تعتمد على تقنيات الذكاء الاصطناعي لإنشاء وترجمة الترجمات بشكل أسرع وأكثر دقة.",
-    "cmd": "wget -q --no-check-certificate https://gitlab.com/hmeng80/extensions/-/raw/main/AISubtitles/aisubtitles.sh -O - | /bin/sh"
-  },
-  {
-    "title": "AutoSub AI",
-    "author": "HBK2010",
-    "category": "subtitles",
-    "desc": "أداة ذكية لإنشاء ترجمات تلقائية للمحتوى المرئي باستخدام تقنيات التعرف على الصوت.",
-    "cmd": "wget -q -O /tmp/AutoSub.tar.gz https://raw.githubusercontent.com/HBK2010/AutoSub/main/AutoSub.tar.gz && tar xzf /tmp/AutoSub.tar.gz -C /usr/lib/enigma2/python/Plugins/Extensions"
-  },
-  {
-    "title": "SSupport",
-    "author": "غير محدد",
-    "category": "subtitles",
-    "desc": "إضافة لتحميل وإدارة الترجمات للمحتوى المرئى.",
-    "cmd": "wget -q --no-check-certificate https://github.com/popking159/ssupport/raw/main/subssupport-install.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Levi45 Emulator (IPK)",
-    "author": "Emil Nabil",
-    "category": "others",
-    "desc": "حزمة IPK لإضافة Levi45 Emulator.",
-    "cmd": "set -e\nURL='https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/levi45emulator/enigma2-plugin-extensions-levi45emulator_all.ipk'\nPKG='/tmp/levi45-emulator.ipk'\nif command -v wget >/dev/null 2>&1; then wget -O \"$PKG\" \"$URL\"; elif command -v curl >/dev/null 2>&1; then curl -fL \"$URL\" -o \"$PKG\"; else echo 'wget أو curl غير متاح'; exit 1; fi\nif [ ! -s \"$PKG\" ]; then echo 'فشل تنزيل ملف التثبيت'; exit 1; fi\nif [ 'ipk' = 'ipk' ]; then\n  if command -v opkg >/dev/null 2>&1; then opkg install \"$PKG\"; else echo 'الصورة لا تحتوي على opkg؛ ملف IPK غير مدعوم هنا'; exit 1; fi\nelse\n  if command -v dpkg >/dev/null 2>&1; then dpkg -i \"$PKG\"; else echo 'الصورة لا تحتوي على dpkg؛ ملف DEB غير مدعوم هنا'; exit 1; fi\nfi\nrm -f \"$PKG\"\necho 'انتهى أمر التثبيت؛ راجع سجل الجهاز للتأكد من نجاح الحزمة.'"
-  },
-  {
-    "title": "Levi45 Emulator (DEB)",
-    "author": "Emil Nabil",
-    "category": "others",
-    "desc": "حزمة DEB لإضافة Levi45 Emulator.",
-    "cmd": "set -e\nURL='https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/levi45emulator/enigma2-plugin-extensions-levi45emulator_all.deb'\nPKG='/tmp/levi45-emulator.deb'\nif command -v wget >/dev/null 2>&1; then wget -O \"$PKG\" \"$URL\"; elif command -v curl >/dev/null 2>&1; then curl -fL \"$URL\" -o \"$PKG\"; else echo 'wget أو curl غير متاح'; exit 1; fi\nif [ ! -s \"$PKG\" ]; then echo 'فشل تنزيل ملف التثبيت'; exit 1; fi\nif [ 'deb' = 'ipk' ]; then\n  if command -v opkg >/dev/null 2>&1; then opkg install \"$PKG\"; else echo 'الصورة لا تحتوي على opkg؛ ملف IPK غير مدعوم هنا'; exit 1; fi\nelse\n  if command -v dpkg >/dev/null 2>&1; then dpkg -i \"$PKG\"; else echo 'الصورة لا تحتوي على dpkg؛ ملف DEB غير مدعوم هنا'; exit 1; fi\nfi\nrm -f \"$PKG\"\necho 'انتهى أمر التثبيت؛ راجع سجل الجهاز للتأكد من نجاح الحزمة.'"
-  },
-  {
-    "title": "Ciefp — قمر واحد 19°E",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "iptv",
-    "desc": "قائمة قنوات لقمر Astra 19.2°E. سكربت المصدر يحدّث ملفات إعدادات القنوات على الرسيفر؛ احتفظ بنسخة احتياطية قبل التنفيذ.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/ciefp-channels-e2/ciefp-E2-1sat-19E.sh | /bin/sh"
-  },
-  {
-    "title": "Ciefp — قمران 19°E + 13°E",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "iptv",
-    "desc": "قائمة قنوات لتجميعة Astra 19.2°E وHot Bird 13°E. قد تستبدل إعدادات القنوات الحالية؛ راجع توافق الأقمار والتوصيلات وخذ نسخة احتياطية.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/ciefp-channels-e2/ciefp-E2-2satA-19E-13E.sh | /bin/sh"
-  },
-  {
-    "title": "Ciefp — 6 أقمار",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "iptv",
-    "desc": "قائمة متعددة الأقمار تشمل 23°E و19.2°E و16°E و13°E و1.9°E و0.8°W. تأكد من إعدادات الـDiSEqC قبل التثبيت.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/ciefp-channels-e2/ciefp-E2-6sat-23E-19E-16E-13E-1.9E-0.8W.sh | /bin/sh"
-  },
-  {
-    "title": "Morpheus883 — Hot Bird + Astra",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "iptv",
-    "desc": "قائمة قنوات متعددة الأقمار من Morpheus883 لتجميعة 13°E و19.2°E. السكربت ينشئ نسخة احتياطية من /etc/enigma2 قبل الاستبدال.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/morpheus883-channels/E2_Morph883_13E-19.2E.sh | /bin/sh"
-  },
-  {
-    "title": "Morpheus883 — Motor Settings",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "iptv",
-    "desc": "إعدادات قنوات للموتور من Morpheus883. السكربت ينشئ نسخة احتياطية مؤرخة من /etc/enigma2 قبل نسخ الإعدادات الجديدة.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/morpheus883-channels/E2_Morph883_Motor.sh | /bin/sh"
-  },
-  {
-    "title": "Morpheus883 — Settings",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "iptv",
-    "desc": "حزمة إعدادات قنوات عامة من Morpheus883. السكربت ينشئ نسخة احتياطية قبل تحديث ملفات /etc/enigma2.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/morpheus883-channels/E2_Morph883_Settings.sh | /bin/sh"
-  },
-  {
-    "title": "Vhannibal — Hot Bird 13°E",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "iptv",
-    "desc": "قائمة Vhannibal لقمر Hot Bird 13°E. تنبيه: السكربت يحذف ملفات القنوات والراديو الحالية قبل نسخ الجديدة؛ خذ نسخة احتياطية أولاً.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/vanenbal-channels/Vhannibal-HotBird-13E.sh | /bin/sh"
-  },
-  {
-    "title": "Vhannibal — Motor 70°E إلى 45°W",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "iptv",
-    "desc": "إعدادات Vhannibal للموتور عبر نطاق أقمار واسع. السكربت يحذف ملفات القنوات والراديو الحالية؛ تأكد من إعدادات الموتور وخذ نسخة احتياطية.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/vanenbal-channels/Vhannibal-Motor-70E-45W.sh | /bin/sh"
-  },
-  {
-    "title": "Vhannibal — Dual 13°E + 19°E",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "iptv",
-    "desc": "قائمة Vhannibal لقمرين Hot Bird 13°E وAstra 19.2°E. راجع توافق إعدادات الأقمار قبل الاستبدال.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/vanenbal-channels/Vhannibal-Dual-13-19E.sh | /bin/sh"
-  },
-  {
-    "title": "EPGImport",
-    "author": "Saiedf",
-    "category": "epg",
-    "desc": "أداة استيراد وتحديث بيانات دليل البرامج الإلكتروني EPG من مصادر متعددة.",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/Saiedf/EPGImport/main/installer_epgimportiet5_auto.sh | /bin/sh"
-  },
-  {
-    "title": "MultiCamAdder",
-    "author": "emilnabil",
-    "category": "softcams",
-    "desc": "إضافة لإدارة وإضافة أنظمة SoftCam المختلفة وتسهيل التبديل بينها.",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/MultiCamAdder/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Server EagleSat",
-    "author": "eliesat",
-    "category": "others",
-    "desc": "خدمة وأدوات إضافية خاصة بمنصة EagleSat لتوسيع وظائف الجهاز.",
-    "cmd": "wget -qO- --no-check-certificate https://raw.githubusercontent.com/eliesat/ServerEagleSat/main/installer.sh | bash"
-  },
-  {
-    "title": "TMBD",
-    "author": "غير محدد",
-    "category": "others",
-    "desc": "إضافة لجلب وعرض معلومات الأفلام والمسلسلات.",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/TMBD/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "XtraEvent",
-    "author": "غير محدد",
-    "category": "iptv",
-    "desc": "جلب صور وبيانات الأحداث والأفلام والقنوات تلقائياً.",
-    "cmd": "wget -q --no-check-certificate https://github.com/digiteng/xtra/raw/main/xtraEvent.sh -O - | /bin/sh"
-  },
-  {
-    "title": "TeamNitro",
-    "author": "غير محدد",
-    "category": "others",
-    "desc": "مجموعة أدوات وخدمات إضافية لأجهزة Enigma2.",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/TeamNitro/main/script/installerB.sh -O - | /bin/sh"
-  },
-  {
-    "title": "IPAudioPro",
-    "author": "zKhadiri",
-    "category": "audio",
-    "desc": "تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت.",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/ipaudiopro/refs/heads/main/ipaudiopro.sh -O - | /bin/sh"
-  },
-  {
-    "title": "AudioShift",
-    "author": "xfayez95",
-    "category": "iptv",
-    "desc": "أداة سريعة لتبديل المسارات الصوتية داخل القنوات والأفلام بسهولة.",
-    "cmd": "wget -O - https://xfayez95.github.io/audioshift/installer.sh | sh"
-  },
-  {
-    "title": "UltraAudio",
-    "author": "K3bOra",
-    "category": "softcams",
-    "desc": "حزمة متكاملة لتحسين وظائف الصوت وتوفير خيارات استماع إضافية داخل الجهاز.",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | /bin/sh"
-  },
-  {
-    "title": "OrangeAudio",
-    "author": "popking159",
-    "category": "audio",
-    "desc": "مشغل صوتي متطور يدعم البث الصوتي عبر الإنترنت ومحطات الراديو المختلفة.",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/popking159/OrangeAudio/main/installer.sh | sh"
-  },
-  {
-    "title": "IPAudioPlus",
-    "author": "Ahmadarjan1",
-    "category": "audio",
-    "desc": "نسخة مطورة من خدمات الصوت عبر الإنترنت مع واجهة أكثر سهولة ودعماً لعدد أكبر من المصادر.",
-    "cmd": "wget -q -O - https://raw.githubusercontent.com/Ahmadarjan1/IPAudioPlus-Releases/main/installer.sh | /bin/sh"
-  },
-  {
-    "title": "Xtream2Audio",
-    "author": "emilnabil",
-    "category": "iptv",
-    "desc": "تشغيل وتحويل القنوات الصوتية من خدمات Xtream.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/Xtream2Audio/Xtream2Audio.sh -O - | /bin/sh"
-  },
-  {
-    "title": "تثبيت جميع ملفات القنوات",
-    "author": "Online4Tech",
-    "category": "iptv",
-    "desc": "تثبيت ملفات القنوات المرفوعة في مستودع Online4Tech، بما يشمل قوائم الباقات وملفات الأقمار وبيانات الاستقبال. ينشئ نسخة احتياطية من الملفات الحالية المطابقة قبل الاستبدال.",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/online4tech/Enigma2-Chanal-List-BYRomeh/main/install-channels.sh | sh"
-  },
-  {
-    "title": "ملف satellites.xml",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "ملف بيانات الأقمار الصناعية المنشور في مستودع BYRomeh. يتم تنزيله إلى /tmp فقط ولا يستبدل ملفات النظام.",
-    "cmd": "wget -O /tmp/satellites.xml https://raw.githubusercontent.com/online4tech/Enigma2-Chanal-List-BYRomeh/main/satellites.xml"
-  },
-  {
-    "title": "ملف cables.xml",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "ملف بيانات شبكات الكابل. يتم تنزيل نسخة إلى /tmp فقط.",
-    "cmd": "wget -O /tmp/cables.xml https://raw.githubusercontent.com/online4tech/Enigma2-Chanal-List-BYRomeh/main/cables.xml"
-  },
-  {
-    "title": "ArabicSavior",
-    "author": "popking159",
-    "category": "subtitles",
-    "desc": "تحسين دعم اللغة العربية وإصلاح مشاكل الخطوط والترجمة.",
+    "title": "Arabic Savior",
+    "author": "Fairbird",
+    "desc": "تحسين دعم اللغة العربية وإصلاح مشاكل الخطوط والترجمة",
+    "category": "tools",
     "cmd": "wget https://raw.githubusercontent.com/fairbird/ArabicSavior/main/installer.sh -O - | /bin/sh"
   },
   {
-    "title": "BackupFlash",
-    "author": "fairbird",
+    "title": "Crash Log Viewer",
+    "author": "Belfagor",
+    "desc": "أداة عرض و إظهار أخطاء النظام",
+    "category": "tools",
+    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/Belfagor2005/CrashlogViewer/main/installer.sh -O - | /bin/bash"
+  },
+  {
+    "title": "Emil Remove Package",
+    "author": "Emil Nabil",
+    "desc": "أداة حذف الاضافات",
+    "category": "tools",
+    "cmd": "wget -q \"--no-check-certificate\" https://github.com/emilnabil/download-plugins/raw/refs/heads/main/EmilRemovePackage/EmilRemovePackage.sh -O - | /bin/sh"
+  },
+  {
+    "title": "Raed Quick Signal",
+    "author": "Fairbird",
+    "desc": "أداة إظهار الإشارة على القنوات",
+    "category": "tools",
+    "cmd": "wget https://raw.githubusercontent.com/fairbird/RaedQuickSignal/main/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "Time Shift Delay",
+    "author": "Mosad Pro",
+    "desc": "أداة إظهار التايم شيفت داخل صوت القناة",
+    "category": "tools",
+    "cmd": "wget -qO - http://dreambox4u.com/mosadpro/scripts/timeshift-delay.sh | sh"
+  },
+  {
+    "title": "Custom Channel Selection",
+    "author": "Mohamed Nasser",
+    "desc": "أداة التحكم في شكل عرض قائمة القنوات",
+    "category": "tools",
+    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/customchannelselection/refs/heads/main/myinstaller.sh | /bin/sh"
+  },
+  {
+    "title": "sky Blue Scan",
+    "author": "Mohamed El Fatlawy",
+    "desc": "بلاجن التحكم ترتيب وحذف القنوات",
+    "category": "tools",
+    "cmd": "wget -O /tmp/install-skybluescan.sh https://updates.skyblue1.us/e2/install-skybluescan.sh && sh /tmp/install-skybluescan.sh && reboot"
+  },
+  {
+    "title": "New Virtual Keyboard",
+    "author": "Fairbird",
+    "desc": "أداة كيبوورد متطورة",
+    "category": "tools",
+    "cmd": "wget https://raw.githubusercontent.com/fairbird/NewVirtualKeyBoard/main/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "NCam EMU",
+    "author": "Fairbird",
+    "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
     "category": "softcams",
-    "desc": "أداة لإنشاء نسخة احتياطية كاملة من النظام الحالي واستعادتها بسهولة عند الحاجة.",
-    "cmd": "wget https://raw.githubusercontent.com/fairbird/backupflash/main/installer.sh -O - | /bin/sh"
+    "cmd": "wget https://raw.githubusercontent.com/biko-73/Ncam_EMU/main/installer.sh -O - | /bin/sh"
   },
   {
-    "title": "RaedQuickSignal",
-    "author": "fairbird",
-    "category": "fast",
-    "desc": "عرض نسبة الإشارة بسرعة أثناء المشاهدة.",
-    "cmd": "opkg update && opkg install wget && wget https://raw.githubusercontent.com/fairbird/RaedQuickSignal/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Chromium",
-    "author": "غير محدد",
-    "category": "tools",
-    "desc": "متصفح Chromium لأجهزة Enigma2.",
-    "cmd": "opkg install enigma2-plugin-extensions-chromium"
-  },
-  {
-    "title": "Transmission",
-    "author": "غير محدد",
+    "title": "Oscam Emu",
+    "author": "Linuxsat",
+    "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
     "category": "softcams",
-    "desc": "أداة تحميل تورنت متكاملة لأجهزة Enigma2.",
-    "cmd": "opkg install transmission transmission-client python3-transmission-rpc xz python3-beautifulsoup4 && wget -q --no-check-certificate http://dreambox4u.com/dreamarabia/Transmission_e2/Transmission_e2.sh -O - | bash"
+    "cmd": "wget https://raw.githubusercontent.com/biko-73/OsCam_EMU/main/installer.sh -O - | /bin/sh"
   },
   {
-    "title": "Satelliweb E2",
-    "author": "غير محدد",
+    "title": "Oscamicam",
+    "author": "Kitte888",
+    "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
+    "category": "softcams",
+    "cmd": "wget https://raw.githubusercontent.com/biko-73/OSCamicam_Kitte888/main/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "Powercam",
+    "author": "MohameD OS",
+    "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
+    "category": "softcams",
+    "cmd": "wget -qO- --no-check-certificate \"https://gitlab.com/MOHAMED_OS/dz_store/-/raw/main/Cam_Emulator/online-setup\" | bash -s powercam"
+  },
+  {
+    "title": "Key Adder",
+    "author": "Fairbird",
+    "desc": "أداة لإدخال وتحديث شفرات ملف السوفتكام",
+    "category": "softcams",
+    "cmd": "wget https://raw.githubusercontent.com/fairbird/KeyAdder/main/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "Fury Biss",
+    "author": "Islam Salama",
+    "desc": "أداة للبحث عن الفيدات وإظهار وإدخال شفراتها",
+    "category": "softcams",
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/islam-2412/FuryBiss/refs/heads/main/fury/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "E2 Biss Key Editor",
+    "author": "Ismail El Khouly",
+    "desc": "أداة لإدخال شفرات القنوات",
+    "category": "softcams",
+    "cmd": "wget -q -O - https://raw.githubusercontent.com/ismail9875/E2BissKeyEditor/refs/heads/main/installer.sh | /bin/bash"
+  },
+  {
+    "title": "IP Audio Pro",
+    "author": "Zakaria Khadiri",
+    "desc": "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
+    "category": "audio",
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/zKhadiri/IPAudioPro-Releases-/refs/heads/main/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "Ultra Audio",
+    "author": "Ahmed El Hadary",
+    "desc": "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
+    "category": "audio",
+    "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | /bin/sh"
+  },
+  {
+    "title": "IP Audio Plus",
+    "author": "Ahmed Arjan",
+    "desc": "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
+    "category": "audio",
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Ahmadarjan1/IPAudioPlus-Releases/refs/heads/main/installer.sh -O - | /bin/bash"
+  },
+  {
+    "title": "Alkuds Ipaudio",
+    "author": "Ibrahim Hamdy",
+    "desc": "أداة تشغيل الصوتيات والأي بي تي في",
+    "category": "audio",
+    "cmd": "wget -qO- https://raw.githubusercontent.com/xximhxx/Alkuds-ipaudio-MAC-Xtreme-Player/main/installer.sh | sh"
+  },
+  {
+    "title": "My Hits",
+    "author": "Mohamed Nasser",
+    "desc": "أداة تحميل وتشغيل الأغاني",
+    "category": "audio",
+    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/myhits/refs/heads/main/myinstaller.sh | /bin/sh"
+  },
+  {
+    "title": "Subs Support Pro",
+    "author": "Mohamed Nasser",
+    "desc": "أداة لتحميل وإدارة الترجمات للمحتوى المرئى",
+    "category": "subtitles",
+    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/SubsSupportPro/refs/heads/main/myinstaller.sh | /bin/sh"
+  },
+  {
+    "title": "My Translator",
+    "author": "Ismail El Khouly",
+    "desc": "أداة لترجمة النصوص والصوت داخل القنوات",
+    "category": "subtitles",
+    "cmd": "wget -O /tmp/mytranslator.ipk \"https://github.com/ismailelkhooly/Ismail-/raw/refs/heads/main/enigma2-plugin-extensions-mytranslator_1.76.ipk\" && opkg install --force-reinstall /tmp/mytranslator.ipk && rm -f /tmp/mytranslator.ipk"
+  },
+  {
+    "title": "Subextractor Lite",
+    "author": "Arian 7S",
+    "desc": "أداة لاستخراج الترجمات المدمجة وإنشاء ملفات ترجمة مستقلة",
+    "category": "subtitles",
+    "cmd": "wget https://raw.githubusercontent.com/Arian7s/SubExtractorLite/main/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "Channel Lingo",
+    "author": "Saiedf",
+    "desc": "بلاجن شامل الترجمات المدمجة والترجمة الصوتية",
+    "category": "subtitles",
+    "cmd": "wget -O /tmp/installer_ChannelLingo_auto.sh \"https://raw.githubusercontent.com/Saiedf/ChannelLingo/main/Release/UNIVERSAL/installer_ChannelLingo_auto.sh\" && sh /tmp/installer_ChannelLingo_auto.sh"
+  },
+  {
+    "title": "EPG Import",
+    "author": "Saiedf",
+    "desc": "أداة إستيراد وتحديث بيانات دليل البرامج الإلكتروني من مصادر متعددة",
+    "category": "epg",
+    "cmd": "wget -qO- https://raw.githubusercontent.com/Saiedf/EPGImport/main/installer_epgimportiet5_auto.sh | /bin/sh"
+  },
+  {
+    "title": "TMBD",
+    "author": "Biko",
+    "desc": "إضافة لجلب وعرض معلومات الأفلام والمسلسلات",
+    "category": "epg",
+    "cmd": "wget https://raw.githubusercontent.com/biko-73/TMBD/main/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "TMBD Search",
+    "author": "Ciefp",
+    "desc": "إضافة لجلب وعرض معلومات الأفلام والمسلسلات",
+    "category": "epg",
+    "cmd": "wget -q https://raw.githubusercontent.com/ciefp/CiefpTMDBSearch/main/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "Youre Watching",
+    "author": "Asdrere ALT",
+    "desc": "أداة عرض معلومات الافلام بطريقة جذابة",
+    "category": "epg",
+    "cmd": "wget --no-check-certificate -qO- \"https://raw.githubusercontent.com/asdrere123-alt/YoureWatching/main/install_yourewatching.sh?t=$(date +%s)\" | bash"
+  },
+  {
+    "title": "EPG Grabber",
+    "author": "Ziko",
+    "desc": "أداة إستيراد وتحديث بيانات دليل البرامج الإلكتروني من مصادر متعددة",
+    "category": "epg",
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/ziko-ZR1/Epg-plugin/master/Download/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "E2I Player",
+    "author": "OE Mirrors",
+    "desc": "أداة تشغيل المحتوى المرئي عبر الإنترنت من مصادر متعددة",
     "category": "iptv",
-    "desc": "إضافة متخصصة لمتابعة بيانات وأخبار الأقمار والقنوات.",
-    "cmd": "wget -q --no-check-certificate http://dreambox4u.com/dreamarabia/Satelliweb_e2/install_satelliweb.sh -O - | bash"
+    "cmd": "wget -q https://raw.githubusercontent.com/oe-mirrors/e2iplayer/refs/heads/python3/e2iplayer_install.sh -O - | /bin/sh"
   },
   {
-    "title": "AlMuaddhin",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
-    "desc": "إضافة مواقيت الصلاة والتنبيه لها على أجهزة Enigma2. سكربت المصدر يحذف مجلد الإضافة السابق قبل فك النسخة الجديدة؛ خذ نسخة من إعداداتك وراجع توافق الصورة قبل التنفيذ.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/AlMuaddhin/almoaddhin.sh | /bin/sh"
-  },
-  {
-    "title": "ImagesDownloader",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "fast",
-    "desc": "أداة تنزيل الصور/الملفات المرتبطة ببيئة Enigma2. سكربت المصدر يحذف مجلد الإضافة القديم قبل التثبيت؛ لا تنفّذه أثناء وجود تحديث أو عملية أخرى.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/ImagesDownloader/ImagesDownloader.sh | /bin/sh"
-  },
-  {
-    "title": "InfoBarWeather",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
-    "desc": "إضافة عرض معلومات الطقس على شريط المعلومات. سكربت المصدر يزيل مجلد النسخة السابقة ويثبت curl عند الحاجة؛ التوافق يعتمد على صورة Enigma2.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/InfoBarWeather/InfobarWeather.sh | /bin/sh"
-  },
-  {
-    "title": "Mawaqit",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
-    "desc": "إضافة Mawaqit لعرض مواقيت الصلاة. سكربت المصدر يحذف مجلد الإضافة السابق قبل فك الأرشيف؛ راجع التوافق وخذ نسخة احتياطية.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/Mawaqit/Mawaqit.sh | /bin/sh"
-  },
-  {
-    "title": "NumberZapExt",
-    "author": "Emil Nabil / Online4Tech",
+    "title": "E2I Player",
+    "author": "Mohamed OS",
+    "desc": "أداة تشغيل المحتوى المرئي عبر الإنترنت من مصادر متعددة",
     "category": "iptv",
-    "desc": "إضافة موسعة للتعامل مع التنقل بالأرقام بين القنوات. سكربت المصدر يحذف مجلد SystemPlugins السابق قبل التثبيت؛ لا تستخدمه إلا بعد التأكد من التوافق.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/NumberZapExt/NumberZapExt.sh | /bin/sh"
+    "cmd": "wget --no-check-certificate -qO - \"https://raw.githubusercontent.com/MOHAMED19OS/Install_E2I/refs/heads/main/online-setup.sh\" | bash"
   },
   {
-    "title": "QuadPip",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
-    "desc": "إضافة وظائف العرض متعدد النوافذ (Quad PiP) للأجهزة والصور المتوافقة. سكربت المصدر يزيل الحزمة ومجلد الإضافة القديمين قبل التثبيت.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/QuadPip/QuadPip.sh | /bin/sh"
-  },
-  {
-    "title": "Advanced Screenshot",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "tools",
-    "desc": "أداة لالتقاط صور من واجهة Enigma2. ملف التثبيت IPK؛ السكربت يثبته باستخدام opkg ويحتاج curl. تحقق من معمارية وتوافق الصورة قبل التثبيت.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/advancedscreenshot/advancedscreenshot.sh | /bin/sh"
-  },
-  {
-    "title": "تحديث فهارس الحزم — OpenATV / Enigma2",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "fast",
-    "desc": "تحديث قوائم الحزم المتاحة فقط دون تثبيت ترقيات. مناسب لصور Enigma2 التي تستخدم opkg.",
-    "cmd": "opkg update"
-  },
-  {
-    "title": "تحديث فهارس الحزم — DreamOS",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "fast",
-    "desc": "تحديث قوائم الحزم في DreamOS دون ترقية الحزم المثبتة.",
-    "cmd": "apt-get update"
-  },
-  {
-    "title": "ترقية الحزم — OpenATV / Enigma2",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "fast",
-    "desc": "ترقية حزم النظام عبر opkg. قد تؤدي ترقية الحزم عشوائياً إلى عدم استقرار الصورة أو تعارضات؛ استخدمها فقط عند توصية مطور الصورة وبعد نسخة احتياطية.",
-    "cmd": "opkg upgrade"
-  },
-  {
-    "title": "ترقية الحزم — DreamOS",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "fast",
-    "desc": "ترقية الحزم عبر apt في DreamOS. قد تغيّر مكونات النظام؛ استخدمها فقط عند توصية مطور الصورة وبعد نسخة احتياطية.",
-    "cmd": "apt-get upgrade"
-  },
-  {
-    "title": "Metrix Poster",
-    "author": "hmeng80",
+    "title": "E2I Player Hostes",
+    "author": "By Angel Heart",
+    "desc": "تحديث واستكمال هوستات بلاجن إيه تو بلاير",
     "category": "iptv",
-    "desc": "إضافات ومكونات لواجهة MetrixHD تضيف بوسترات وأشكال عرض حديثة للقنوات والأفلام.",
-    "cmd": "wget -q --no-check-certificate https://gitlab.com/hmeng80/addons/-/raw/main/metrix-fhd-parts-ec.sh -O - | /bin/sh"
+    "cmd": "wget -q --no-check-certificate https://github.com/angelheart150/My_e2iplayer_hosts/raw/main/install-e2iplayer-update-hosts.sh -O - | /bin/sh"
   },
   {
-    "title": "Mohammed Skin",
-    "author": "mido00020",
+    "title": "TSI Player",
+    "author": "By Angel Heart",
+    "desc": "إضافة تي إس إيه بلاير لتحديث واستكمال هوستات بلاجن إيه تو بلاير",
+    "category": "iptv",
+    "cmd": "wget -q \"--no-check-certificate\" https://github.com/angelheart150/My-tsiplayer/raw/main/install-tsiplayer-update-hosts.sh -O - | /bin/sh"
+  },
+  {
+    "title": "My Streamer",
+    "author": "Mohamed Nasser",
+    "desc": "أداة تشغيل أي بي تي في للمواقع المجانية",
+    "category": "iptv",
+    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/MyStreamer/refs/heads/main/myinstaller.sh | /bin/sh"
+  },
+  {
+    "title": "Luka TV",
+    "author": "Mohamed Nasser",
+    "desc": "بلاجن تشغيل أي بي تي في المدفوع باضافة الاشتراك",
+    "category": "iptv",
+    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/LukaTV/refs/heads/main/myinstaller.sh | /bin/sh"
+  },
+  {
+    "title": "Xtream New",
+    "author": "Ahmed Hussein",
+    "desc": "أداة إضافة و تشغيل إشتراكات الأي بي تي في",
+    "category": "iptv",
+    "cmd": "wget -q --no-check-certificate \"https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/install_xtreamnew.sh?cb=$(date +%s)\" -O - | /bin/sh"
+  },
+  {
+    "title": "Ultra Stalker",
+    "author": "Ahmed El Hadary",
+    "desc": "أداة إضافة و تشغيل إشتراكات الأي بي تي في",
+    "category": "iptv",
+    "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/-UltraStalker/main/install.sh | /bin/sh"
+  },
+  {
+    "title": "Tivi Mate E2",
+    "author": "Opes Boy",
+    "desc": "أداة إضافة و تشغيل إشتراكات الأي بي تي في",
+    "category": "iptv",
+    "cmd": "wget -qO- https://raw.githubusercontent.com/opesboy/TiviMateE2/main/install.sh | sh"
+  },
+  {
+    "title": "Aglare ATV",
+    "author": "Mohamed Nasser",
+    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
     "category": "skins",
-    "desc": "سكين عربي حديث يتميز بتصميم أنيق وخفيف مع دعم أغلب إضافات Enigma2.",
-    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/mido00020/MohammedSkin/main/installer.sh -O - | /bin/sh"
+    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/skins/refs/heads/main/aglareatv/myinstaller.sh | /bin/sh"
   },
   {
-    "title": "Obsidian FHD",
-    "author": "dali44g",
-    "category": "iptv",
-    "desc": "سكين Full HD احترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى.",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/dali44g/Obsidian-FHD/main/install.sh | sh"
-  },
-  {
-    "title": "CineView FHD",
-    "author": "habeb-s",
+    "title": "Aglare PLI",
+    "author": "Mohamed Nasser",
+    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
     "category": "skins",
-    "desc": "واجهة سينمائية متقدمة تركز على عرض البوسترات ومعلومات الأفلام بصورة جذابة.",
+    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/skins/refs/heads/main/aglarepli/myinstaller.sh | /bin/sh"
+  },
+  {
+    "title": "Fury Skin",
+    "author": "Islam Salama",
+    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+    "category": "skins",
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/islam-2412/IPKS/refs/heads/main/fury/installer.sh -O - | /bin/sh"
+  },
+  {
+    "title": "Cine View MLA",
+    "author": "Habeb S",
+    "desc": "إسكين بواجهة سينمائية متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+    "category": "skins",
     "cmd": "wget -qO /tmp/cineview-install.sh https://raw.githubusercontent.com/habeb-s/CineView-MLA-Install/main/cineview-install.sh && sh /tmp/cineview-install.sh"
   },
   {
-    "title": "CineView FHD MLA",
-    "author": "Emil Nabil / Online4Tech",
+    "title": "Obsidian FHD",
+    "author": "Dali 44G",
+    "desc": "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى",
     "category": "skins",
-    "desc": "ثيم FHD مع مثبت ذكي يحدد عائلة الصورة ويتحقق من إصدار Python وملف IPK ببصمة SHA256 قبل التثبيت. مدعوم حسب السكربت: OpenATV وEGAMI وPurE2 وOpenBH وOpenViX وOpenPLi مع Python 3 ضمن الإصدارات المذكورة في المثبت.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/skin-cineview/CineView.sh | /bin/sh"
+    "cmd": "wget -qO- https://raw.githubusercontent.com/dali44g/Obsidian-FHD/main/install.sh | sh"
   },
   {
-    "title": "MX Maestra Black Weather — Python 3.12",
-    "author": "Emil Nabil / Online4Tech",
+    "title": "jihad Skin",
+    "author": "Ahmed S",
+    "desc": "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى",
     "category": "skins",
-    "desc": "ملف السكين المخصص لبيئات Python 3.12 فقط. لا تستخدمه مع إصدار Python مختلف؛ سكربت التثبيت يحذف مجلد السكين والحزمة السابقة.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/Skin-MX_Maestra_Black_weather/Skin-MX_Maestra_Black_weather.sh | /bin/sh"
-  },
-  {
-    "title": "HoloFHD Black",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "skins",
-    "desc": "Skin FHD لأجهزة DreamOS. مثبت المصدر يحاول تحديث الحزم ويثبت عدة مكونات Skin إضافية قبل فك الأرشيف؛ راجع الاعتماديات ومساحة التخزين.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/skins-for-dreambox/HoloFHD-Black.sh | /bin/sh"
-  },
-  {
-    "title": "ZSkin FHD",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "skins",
-    "desc": "Skin بدقة FHD. سكربت المصدر يفك الأرشيف إلى نظام الملفات مباشرة؛ تأكد من توافق الصورة وخذ نسخة احتياطية من إعدادات السكين.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/skins-for-dreambox/ZSkin-FHD.sh | /bin/sh"
-  },
-  {
-    "title": "Brushedalu HD",
-    "author": "Emil Nabil / Online4Tech",
-    "category": "skins",
-    "desc": "Skin HD لأجهزة DreamOS. ملف تثبيت مباشر؛ راجع التوافق مع صورة جهازك قبل فك الملفات إلى النظام.",
-    "cmd": "wget -q --no-check-certificate -O - https://raw.githubusercontent.com/emilnabil/download-plugins/main/skins-for-dreambox/Brushedalu-HD.sh | /bin/sh"
-  },
-  {
-    "title": "Aglare-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Aglare-FHD",
-    "cmd": "wget https://github.com/emilnabil/aglare/raw/refs/heads/main/skins-aglare-fhd.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Areadeltasat_fhd",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Areadeltasat_fhd",
-    "cmd": "wget https://github.com/emil237/skins-enigma2/raw/refs/heads/main/ATV/skins_areadeltasat_fhd_dragon_1_9_Poster_Backdrop.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Barby-Black-py3-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Barby-Black-py3-FHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/script/SKIN-Barby-Black-py3-fhd.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Barby-Green-py3-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Barby-Green-py3-FHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/script/SKIN-Barby-Green-py3-FHD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Barby-purple-py3-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Barby-purple-py3-FHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/script/SKIN-Barby-purple-py3-fhd.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Barby-py3-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Barby-py3-FHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/script/SKIN-Barby-py3-fhd.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BLACKNEON-XP-FHD-V2_ArabicDiscription",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "BLACKNEON-XP-FHD-V2_ArabicDiscription",
-    "cmd": "wget https://github.com/emilnabil/skins-openatv/raw/refs/heads/main/skin-BLACKNEON-XP-FHD-v2_arabicdiscription.sh -O - | /bin/sh"
-  },
-  {
-    "title": "CineView-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "CineView-FHD",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/skin-cineview/CineView.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Fury-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Fury-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/islam-2412/IPKS/refs/heads/main/fury/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Gradient-fhd",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Gradient-fhd",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/skins-gradient-fhd.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Maxy-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Maxy-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/popking159/skins/refs/heads/main/maxyatv/installer.sh -O - | /bin/sh"
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/ahmeds200917/A…nstall_jihad.sh -O - | /bin/sh"
   },
   {
     "title": "Mohammed Skin",
     "author": "Unknown",
+    "desc": "إسكين عربي حديث يتميز بتصميم أنيق وخفيف مع دعم أغلب الإضافات",
     "category": "skins",
-    "desc": "Mohammed Skin",
-    "cmd": "wget https://raw.githubusercontent.com/mido00020/MohammedSkin/main/installer.sh -O - | /bin/sh"
+    "cmd": "wget -q --no-check-certificate \"https://raw.githubusercontent.com/mido00020/MohammedSkin/main/installer.sh\" -O - | /bin/sh"
   },
   {
-    "title": "Full HD Glass17",
-    "author": "Unknown",
+    "title": "X Dreamy",
+    "author": "Insprion",
+    "desc": "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى",
     "category": "skins",
-    "desc": "Full HD Glass17",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/skins/skin-fullhdglass17/installer.sh -O - | /bin/sh"
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Insprion80/Skins/main/xDreamy/installer.sh -O - | /bin/sh"
   },
   {
-    "title": "MyMetrixLiteBackup",
-    "author": "Unknown",
+    "title": "Luka ATV",
+    "author": "Mohamed Nasser",
+    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
     "category": "skins",
-    "desc": "MyMetrixLiteBackup",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/MyMetrixLiteBackup.sh -O - | /bin/sh"
+    "cmd": "wget -O /tmp/lukaatv.ipk 'https://raw.githubusercontent.com/popking159/skins/main/lukaatv/lukaatv.ipk' && opkg install /tmp/lukaatv.ipk"
   },
   {
-    "title": "MetrixFHD-Extraevent-PosterXD",
-    "author": "Unknown",
+    "title": "Luka PLI",
+    "author": "Mohamed Nasser",
+    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
     "category": "skins",
-    "desc": "MetrixFHD-Extraevent-PosterXD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/openatv/SKIN-MetrixFHD-OpenATV-Extraevent-PosterX.sh -O - | /bin/sh"
+    "cmd": "wget -O /tmp/lukapli.ipk 'https://raw.githubusercontent.com/popking159/skins/main/lukapli/lukapli.ipk' && opkg install /tmp/lukapli.ipk"
   },
   {
-    "title": "MetrixPoster-By_MNASR",
-    "author": "Unknown",
+    "title": "Maxy ATV",
+    "author": "Mohamed Nasser",
+    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
     "category": "skins",
-    "desc": "MetrixPoster-By_MNASR",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/MetrixPoster-By_MNASR/installer.sh -O - | /bin/sh"
+    "cmd": "wget -O /tmp/maxyatv.ipk 'https://raw.githubusercontent.com/popking159/skins/main/maxyatv/maxyatv.ipk' && opkg install /tmp/maxyatv.ipk"
   },
   {
-    "title": "malek-fhd",
-    "author": "Unknown",
+    "title": "Maxy PLI",
+    "author": "Mohamed Nasser",
+    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
     "category": "skins",
-    "desc": "malek-fhd",
-    "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/main/ATV/skins-malek-fhd_2.2_py3.11.2-py3.12.1.sh -O - | /bin/sh"
+    "cmd": "wget -O /tmp/maxypli.ipk 'https://raw.githubusercontent.com/popking159/skins/main/maxypli/maxypli.ipk' && opkg install /tmp/maxypli.ipk"
   },
   {
-    "title": "Nacht_1.7.3",
-    "author": "Unknown",
+    "title": "Metrix Poster",
+    "author": "Mohamed Nasser",
+    "desc": "إضافات ومكونات وأشكال عرض حديثة للقنوات والأفلام لواجهة إسكين ماتريكس",
     "category": "skins",
-    "desc": "Nacht_1.7.3",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-ATV-nacht_1.7.3.sh -O - | /bin/sh"
+    "cmd": "wget -O /tmp/metrix_skinparts.tar.gz 'https://raw.githubusercontent.com/popking159/skins/main/metrix_skinparts/metrix_skinparts_mnasr.tar.gz' && mkdir -p /tmp/metrix_skinparts && tar -xzf /tmp/metrix_skinparts.tar.gz -C /tmp/metrix_skinparts"
   },
   {
-    "title": "Nacht_7.1",
-    "author": "Unknown",
+    "title": "Metrix Poster",
+    "author": "Hmeng",
+    "desc": "إضافات ومكونات وأشكال عرض حديثة للقنوات والأفلام لواجهة إسكين ماتريكس",
     "category": "skins",
-    "desc": "Nacht_7.1",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/openatv/nacht_7.1.sh -O - | /bin/sh"
+    "cmd": "wget -q --no-check-certificate https://gitlab.com/hmeng80/addons/-/raw/main/metrix-fhd-parts-ec.sh -O - | /bin/sh"
   },
   {
-    "title": "Op-Artkoala-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Op-Artkoala-FHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/openatv/skins-op-artkoala.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Ozeta-Xtra",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Ozeta-Xtra",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-ATV-ozeta-xtra.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Premium-Magenta-Fhd",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Premium-Magenta-Fhd",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/script/SKIN-egami-premium-fhd-py3.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Premium-Black-Fhd",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Premium-Black-Fhd",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/script/SKIN-egami-premium--black-fhd-py3.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Premium-Blue-Fhd",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Premium-Blue-Fhd",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/script/SKIN-egami-premium--blue-fhd-py3.sh -O - | /bin/sh"
-  },
-  {
-    "title": "XDreamy-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "XDreamy-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/Insprion80/Skins/main/xDreamy/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "TeamNitro Control",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "TeamNitro Control",
-    "cmd": "wget https://gitlab.com/emilnabil1/teamnitro/-/raw/main/SKIN-teamnitro.sh -O - | /bin/sh"
-  },
-  {
-    "title": "AlAyam-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "AlAyam-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/TeamNitro/main/script/installerAL.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Desert-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Desert-FHD",
-    "cmd": "wget https://gitlab.com/emilnabil1/teamnitro/-/raw/main/installer-skin-desert.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BoHLALA-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "BoHLALA-FHD",
-    "cmd": "wget https://gitlab.com/emilnabil1/teamnitro/-/raw/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Dragon-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Dragon-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/TeamNitro/main/script/installerD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "NitroAdvance-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "NitroAdvance-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/TeamNitro/main/script/installerN.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Klll-Pro-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Klll-Pro-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/zelda77/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Aglare-fhd",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Aglare-fhd",
-    "cmd": "wget https://github.com/emilnabil/aglare/raw/refs/heads/main/skins-aglare-fhd-pli.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BlackShadow_X2P_OBH",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "BlackShadow_X2P_OBH",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/BlackShadow_X2P_OBH_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "EclipseFHD_OBH",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "EclipseFHD_OBH",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/EclipseFHD_OBH_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "EclipseFire_OBH",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "EclipseFire_OBH",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/EclipseFire_OBH_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MX_BlackSea",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "MX_BlackSea",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/obh/skins-MX_BlackSea.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MX-Sline-Black-Red-Gradient",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "MX-Sline-Black-Red-Gradient",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/obh/mx-sline-black-red-gradient_py3.12.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MX_GrayDots_X2B_OBH",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "MX_GrayDots_X2B_OBH",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/MX_GrayDots_X2B_OBH_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MX_GreenDots_OBH",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "MX_GreenDots_OBH",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/MX_GreenDots_OBH_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MX_HQ7_OBH",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "MX_HQ7_OBH",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/MX_HQ7_OBH_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MX_Maestra_Black_OBH",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "MX_Maestra_Black_OBH",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/MX_Maestra_Black_OBH_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MX_Maestra2b_weather",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "MX_Maestra2b_weather",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/MX_Maestra2b_weather_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MX_Sline-Blue",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "MX_Sline-Blue",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/obh/MX_Sline-Blue_OBH_5.4_py3.12_py3.12.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Mx-Sline-Glass-Gradient",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Mx-Sline-Glass-Gradient",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/skins-mx-sline-glass-gradient.sh -O - | /bin/sh"
-  },
-  {
-    "title": "MX_Sline-Red_X2",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "MX_Sline-Red_X2",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/obh/MX_Sline-Red_X2_py3.12.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenBhGreenFHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "OpenBhGreenFHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/obh/skin_OpenBhGreenFHD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Waves4_Fire_weather_OBH",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Waves4_Fire_weather_OBH",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/Waves4_Fire_weather_OBH_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Waves4_weather_OBH",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Waves4_weather_OBH",
-    "cmd": "wget https://github.com/emilnabil/skins-obh/raw/refs/heads/main/Waves4_weather_OBH_5.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Youchie-OBH-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Youchie-OBH-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/skins-obh/refs/heads/main/skin-Youchie-OBH-FHD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BARDO-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "BARDO-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/refs/heads/main/pli/Skin-bardo-fhd_3.7.2.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BLACKNEON-XP_Mod_M-Nasr",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "BLACKNEON-XP_Mod_M-Nasr",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/pli9x/Skin-BLACKNEON-XP_mod_mnasr-pli9x.sh -O - | /bin/sh"
-  },
-  {
-    "title": "malek-fhd",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "malek-fhd",
-    "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/main/pli/Skin-malek-fhd_1.2.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Ozeta-Xtra",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Ozeta-Xtra",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-PLI-ozeta-xtra.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Youchie-PLI-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Youchie-PLI-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/skins-openpli-9x/refs/heads/main/skin-Youchie-PLI-FHD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "estuary-1080-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "estuary-1080-FHD",
-    "cmd": "wget https://gitlab.com/elbrins/skins/-/raw/main/Spa/Skin-estuary-1080.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Skyline",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Skyline",
-    "cmd": "wget https://github.com/emilnabil/skins-spa/raw/refs/heads/main/skin-Skyline.sh -O - | /bin/sh"
-  },
-  {
-    "title": "E2-darkos-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "E2-darkos-FHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/openvix/skins-e2-darkos.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Magic-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Magic-FHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/openvix/skins-openvix-magic-fhd.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Vixbmc-1080-Confluence-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Vixbmc-1080-Confluence-FHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/openvix/skins-openvix-vixbmc-1080-confluence.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Bluemetal-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Bluemetal-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/refs/heads/main/pli/Skin-bluemetal-fhd.sh -O - | /bin/sh"
-  },
-  {
-    "title": "CH.LEAGUE-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "CH.LEAGUE-FHD",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-PLI-CH.LEAGUE-FHD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Maxy-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Maxy-FHD",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/skins/script/skins-Maxy-FHD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "QATAR-2022-V3-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "QATAR-2022-V3-FHD",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-PLI-QATAR-2022-V3-FHD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "SPIDERMAN-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "SPIDERMAN-FHD",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-PLI-SPIDERMAN-FHD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "WAR-S-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "WAR-S-FHD",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-PLI-WAR-S-FHD.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BLACKSKY-S-HD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "BLACKSKY-S-HD",
-    "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/main/pli/SKIN-BLACKSKY-S-HD-MOD-By-Muaath.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BATMAN-MP-HD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "BATMAN-MP-HD",
-    "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/main/pli/SKIN-BATMAN-MP-HD-By-Muaath.sh -O - | /bin/sh"
-  },
-  {
-    "title": "TOKYO2020-FHD",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "TOKYO2020-FHD",
-    "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/main/pli/SKIN-TOKYO2020-FHD-By-Muaath.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-1",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-1",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-1.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-2",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-2",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-2.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-3",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-3",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-3.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-4",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-4",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-4.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-5",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-5",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-5.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-6",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-6",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-6.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-7",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-7",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-7.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-8",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-8",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-8.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-9",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-9",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-9.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-10",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-10",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-10.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-11",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-11",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-11.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-12",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-12",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-12.sh -O - | /bin/sh"
-  },
-  {
-    "title": "display-oe-a-lcdskin-13",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "display-oe-a-lcdskin-13",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/Display-Skin/display-oe-a-lcdskin-13.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Abstract",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Abstract",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/plugins/xtreamity/installer-skin-abstract.sh -O - | /bin/sh"
-  },
-  {
-    "title": "qatar2022",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "qatar2022",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/plugins/xtreamity/installer-skin-qatar.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Toys",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Toys",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/plugins/xtreamity/installer-skin-toys.sh -O - | /bin/sh"
-  },
-  {
-    "title": "SetPicon",
-    "author": "emilnabil",
-    "category": "skins",
-    "desc": "أداة متخصصة لإدارة البيكونات وتحديد مسارها وتثبيتها تلقائياً.",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/setpicon/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Intelsat 31.5W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Intelsat 31.5W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/intelsat_31.5w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Hispasat 30.0W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Hispasat 30.0W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/hispasat_30.0w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Intelsat 27.5W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Intelsat 27.5W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/intelsat_27.5w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Intelsat 24.5W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Intelsat 24.5W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/intelsat_24.5w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "SES 4 22.0W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "SES 4 22.0W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/ses4_22.0w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "NSS 7 20.0W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "NSS 7 20.0W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/nss7_20.0w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Telstar 15.0W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Telstar 15.0W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/telstar_15.0w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Express 14W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Express 14W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/express_14w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Express 11.0W-14.0W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Express 11.0W-14.0W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/express_11.0w-14.0w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Nilesat 7W-8W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Nilesat 7W-8W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/nilesat/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eutelsat 5.0W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eutelsat 5.0W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat_5.0w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Amos 4.0W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Amos 4.0W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/amos_4.0w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "ABS 3.0W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "ABS 3.0W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/abs_3.0w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Thor 0.8W",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Thor 0.8W",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/thor_0.8w/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BulgariaSat 1.9E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "BulgariaSat 1.9E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/bulgariasat_1.9e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eutelsat 3.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eutelsat 3.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat_3.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Astra 4.8E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Astra 4.8E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/astra_4.8e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eutelsat 7.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eutelsat 7.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat_7.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eutelsat 9.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eutelsat 9.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat_9.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eutelsat 10.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eutelsat 10.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat_10.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Hotbird 13.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Hotbird 13.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/hotbird_13.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eutelsat 16.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eutelsat 16.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat_16.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Astra 19.2E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Astra 19.2E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/astra_19.2e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eutelsat 21.6E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eutelsat 21.6E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat_21.6e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Astra 23.5E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Astra 23.5E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/astra_23.5e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eshail 25.5E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eshail 25.5E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eshail_25.5e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Badr 26.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Badr 26.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/badr_26.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Astra 28.2E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Astra 28.2E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/astra_28.2e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Arabsat 30.5E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Arabsat 30.5E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/arabsat_30.5e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Astra 31.5E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Astra 31.5E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/astra_31.5e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Intelsat 33.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Intelsat 33.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat-intelsat_33.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eutelsat 36.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eutelsat 36.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat_36.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Hellas-Sat 39.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Hellas-Sat 39.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/hellas-sat_39.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Turksat 42.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Turksat 42.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/turksat_42.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "AzerSpace 45.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "AzerSpace 45.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/azerspace_45.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "AzerSpace 46.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "AzerSpace 46.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/azerspace_46.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Turksat 50.0E-57E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Turksat 50.0E-57E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/turksat_50.0e_56.0e_57e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Belintersat 51.5E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Belintersat 51.5E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/belintersat_51.5e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "TurkmenAlem 52.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "TurkmenAlem 52.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/turkmenalem_52.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Yahsat 52.5E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Yahsat 52.5E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/alyahsat_52.5e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Express 53.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Express 53.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/express_53.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Yamal 54.9E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Yamal 54.9E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/gsat-yamal_54.9e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Intelsat 60.0E-68.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Intelsat 60.0E-68.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/intelsat_60.0e_66.0e_68.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Intelsat 62.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Intelsat 62.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/intelsat_62.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eutelsat 70.0E-75.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Eutelsat 70.0E-75.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/eutelsat_70.0e_74.9e_75.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Intelsat 72.1E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Intelsat 72.1E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/Intelsat_72.1e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "ABS 75.0E",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "ABS 75.0E",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/picons/abs_75.0e/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Picons Other",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Picons Other",
-    "cmd": "wget https://raw.githubusercontent.com/emil237/picon-other/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Chocholousek Picons",
-    "author": "Unknown",
-    "category": "picons",
-    "desc": "Chocholousek Picons",
-    "cmd": "wget https://github.com/s3n0/e2plugins/raw/master/ChocholousekPicons/online-setup -O - | /bin/sh"
-  },
-  {
-    "title": "OpenATV 7.4",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openatv-7.4.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenATV 7.5",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openatv-7.5.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenATV 7.5.1",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openatv-7.5.1.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenATV 7.6",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openatv-7.6.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenATV 8.0",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openatv-8.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenBlackHole 5.5.1",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openblackhole-5.5.1.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenBlackHole 5.6",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openblackhole-5.6.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenBlackHole 6.0",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openblackhole-6.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenDroid",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/opendroid.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenPLi 9.0",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openpli-9.0.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenPLi 9.1",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openpli-9.1.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenPLi 9.2",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openpli-9.2.sh -O - | /bin/sh"
-  },
-  {
-    "title": "OpenVIX Latest Version",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/openvix_latest-version.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Pure2 7.6",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/pure2-7.6.sh -O - | /bin/sh"
-  },
-  {
-    "title": "VTI 15.0.02",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "ملفات صور النظام قد تختلف حسب موديل الرسيفر؛ لا تستخدمها قبل مطابقة الموديل وإصدار الصورة.",
-    "cmd": "wget https://dreambox4u.com/emilnabil237/images/vti-15.0.02.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper Egami (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/bootLogoswapper-Egami.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper Atv (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/bootlogoswapper-Atv.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper Pli (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/bootlogoswapper-pli.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper OpenBH (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/bootlogoswapper-OpenBH.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper OpenSpa (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/BootLogoSwapper-openspa.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper OpenVix (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/bootlogoswapper-OpenVix.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper-PURE2 (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - http://dreambox4u.com/emilnabil237/script/bootLogoswapper-Pure2.sh | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper Christmas (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://dreambox4u.com/emilnabil237/script/bootlogoswapper-christmas.sh | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper Kids (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/bootlogoswapper-kids.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper Ramadan (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/bootlogo-swapper-ramadan.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper Eid-Aldha (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/bootlogoswapper-Eid-Aldha.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper V2.1 (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/BootlogoSwapper_v2.1.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper V2.3 (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/BootlogoSwapper_v2.3.sh -O - | /bin/sh"
-  },
-  {
-    "title": "BootlogoSwapper V2.4 (بوت لوجو متعدد)",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/BootlogoSwapper_v2.4.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Circle",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-circle.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Barcelona",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-barcelona.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Bayern-Munich",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-bayern-munich.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Chelsea",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-chelsea.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Liverpool",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-liverpool.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-MadMax",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-MadMax.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Pigeon",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-pigeon.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Pingu",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Pingu.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-TS",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-ts.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Revolution",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Revolution.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Circle-Brown",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-circle-brown.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Collar",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-collar.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Colored-Rings",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-colored-Rings.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Fan",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-fan.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-kare-dugmeler",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-kare-dugmeler.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Kum-saati-kare",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Kum-saati-kare.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-kupler",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Kupler.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Number-Counter",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Number-Counter.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Xdreamy",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Xdreamy.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Renkli-donen-cemberler",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Renkli-donen-cemberler.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Wheel",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-wheel.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-3d",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-3D.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Aglare",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget -O - https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-aglare.sh | /bin/sh"
-  },
-  {
-    "title": "Spinner-Dance",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-dance.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Dart",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-dart.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Echse",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Echse.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Girls",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-girls.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Girls-Dance",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-girls-dance.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Jack-Sparrow",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Jack-Sparrow.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Nasht",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-nasht.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-PapaSchlumpf",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-PapaSchlumpf.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-presupaci-hodiny",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-presupaci-hodiny.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Simba",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-Simba.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-SylvesterTweety",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-SylvesterTweety.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Vu+",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-vu+.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Spinner-Window",
-    "author": "Unknown",
-    "category": "bootlogos",
-    "desc": "قد يغيّر ملفات واجهة الإقلاع أو الرسوم المتحركة الحالية.",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/spinners/spinner-window.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Eliesat (فيد اضافي للصورة)",
-    "author": "Unknown",
-    "category": "fast",
-    "desc": "Eliesat (فيد اضافي للصورة)",
-    "cmd": "wget https://gitlab.com/eliesat/scripts/-/raw/main/feed/eliesat-feed.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Emil (فيد أضافي للصورة)",
-    "author": "Unknown",
-    "category": "fast",
-    "desc": "Emil (فيد أضافي للصورة)",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/FEED-emil-feed.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Jungle (فيد أضافي للصورة)",
-    "author": "Unknown",
-    "category": "fast",
-    "desc": "Jungle (فيد أضافي للصورة)",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/FEED-jungle-feed.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Libraries_3.12.4",
-    "author": "Unknown",
-    "category": "fast",
-    "desc": "Libraries_3.12.4",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-libraries-3.12.4.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Libraries_3.12.6",
-    "author": "Unknown",
-    "category": "fast",
-    "desc": "Libraries_3.12.6",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-libraries-3.12.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Oe-alliance-Picons (فيد به بايكونات)",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "Oe-alliance-Picons (فيد به بايكونات)",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-oe-picons.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Oe-alliance-Settings (فيد به ملفات قنوات)",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "Oe-alliance-Settings (فيد به ملفات قنوات)",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-oe-settings.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Openatv-Deval (فيد صورة openatv للمطورين)",
-    "author": "Unknown",
-    "category": "fast",
-    "desc": "Openatv-Deval (فيد صورة openatv للمطورين)",
-    "cmd": "wget -O - -q https://feeds2.mynonpublic.com/devel-feed | bash"
-  },
-  {
-    "title": "OpenPicons (فيد بايكونات)",
-    "author": "Unknown",
-    "category": "skins",
-    "desc": "OpenPicons (فيد بايكونات)",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-openpicons.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Tarek-Hanfy (فيد اضافي للصورة)",
-    "author": "Unknown",
-    "category": "fast",
-    "desc": "Tarek-Hanfy (فيد اضافي للصورة)",
-    "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/FEED-Tarek.sh -O - | /bin/sh"
-  },
-  {
-    "title": "نسخة قنوات OpenATV",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "تحميل أرشيف نسخة القنوات المنشور بالمستودع إلى مجلد /tmp فقط. راجع محتوياته وتوافقه قبل أي استعادة.",
-    "cmd": "wget -O /tmp/channels_backup_openATV_Enigma2-Chanal-List-BYRomeh.tar.gz https://github.com/online4tech/Enigma2-Chanal-List-BYRomeh/raw/main/channels_backup_openATV_Enigma2-Chanal-List-BYRomeh.tar.gz"
-  },
-  {
-    "title": "Backup-my-Channels",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/Create-My-backup-shannels.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Full-Backup-Image",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/fullbackup/main/fullbackup-vu4k-encrypt.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-hotkey",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-hotkey.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-network",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-network.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-tuner",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-tuner.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-my-bouquetmakerxtream",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-bouquetmakerxtream.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-my-ip2sat-server",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-ip2sat-server.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-my-ipaudio-server",
-    "author": "Unknown",
-    "category": "audio",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-ipaudio-server.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-my-ipaudiopro-server",
-    "author": "Unknown",
-    "category": "audio",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-ipaudiopro-server.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-my-jediplaylists",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-jediplaylists.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-my-multistalkerpro",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-multistalkerpro.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-my-Subtitle-Setting",
-    "author": "Unknown",
-    "category": "subtitles",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup_my-subtitle-setting.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-my-xstreamity-servers",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-my-xstreamity-servers.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Backup-sittings-xtraevent",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "تحقق من وجود مساحة تخزين كافية ومسار الحفظ.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/backup-sittings-xtraevent.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-my-Channels",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/Restore-My-backup-shannels.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-hotkey",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-hotkey.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-network",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-network.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-tuner",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-tuner.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-my-bouquetmakerxtream",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-bouquetmakerxtream.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-my-ip2sat-server",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-ip2sat-server.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-my-ipaudio-server",
-    "author": "Unknown",
-    "category": "audio",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-ipaudio-server.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-my-ipaudiopro-server",
-    "author": "Unknown",
-    "category": "audio",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-ipaudiopro-server.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-my-jediplaylists",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-jediplaylists.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-my-multistalkerpro",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-multistalkerpro.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Restore-My-Subtitle-Setting",
-    "author": "Unknown",
-    "category": "subtitles",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/Restore_my-subtitle-setting.sh -O - | /bin/sh"
+    "title": "Foot On Sat",
+    "author": "Fairbird",
+    "desc": "أداة لإظهار نتائج وقنوات المباريات",
+    "category": "others",
+    "cmd": "wget https://raw.githubusercontent.com/fairbird/FootOnsat/main/Download/install.sh -O - | /bin/sh"
   },
   {
-    "title": "Restore-my-xstreamity-servers",
-    "author": "Unknown",
-    "category": "iptv",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-my-xstreamity-servers.sh -O - | /bin/sh"
+    "title": "Server Coloring",
+    "author": "Islam Salama",
+    "desc": "لإضافة لون لقنواتك المفتوحة بالسيرفر الخاص بك",
+    "category": "others",
+    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/islam-2412/ServerColoring/refs/heads/main/fury/installer.sh -O - | /bin/sh"
   },
   {
-    "title": "Restore-sittings-xtraevent",
-    "author": "Unknown",
-    "category": "backup",
-    "desc": "أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
-    "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-sittings-xtraevent.sh -O - | /bin/sh"
+    "title": "E2 Currency Pro",
+    "author": "Ramzus",
+    "desc": "أداة لمعرفة أسعار العملات والذهب",
+    "category": "others",
+    "cmd": "wget -qO- https://raw.githubusercontent.com/ramzus007/E2-Currency-Pro/main/installer.sh | sh"
   }
 ]
