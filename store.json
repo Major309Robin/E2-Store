@@ -1,7 +1,7 @@
 [
   {
     "title": "Update Linux Commands",
-    "author": "",
+    "author": "John Kamel & Robin John",
     "desc": "تحديث ملف أوامر اللينوكس",
     "category": "fast",
     "cmd": "wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/update_linuxcommands.sh | bash"
