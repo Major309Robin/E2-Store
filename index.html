@@ -241,20 +241,24 @@
 
                 
                 <div class="app-card glass-panel p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800/80 sm:col-span-2 space-y-3 hover:border-cyan-500/60 transition-all group">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 shrink-0 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-2xl border border-cyan-500/20">
-                            <i class="fa-solid fa-link"></i>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                        <div class="flex items-center gap-4 flex-1 min-w-0">
+                            <div class="w-12 h-12 shrink-0 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-2xl border border-cyan-500/20">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-sm sm:text-base group-hover:text-cyan-400 transition-colors" data-i18n="link_title">بانل E2 Store Link على الرسيفر</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="link_desc">بيظهر على شاشة الإنيجما2 ويربط الرسيفر بالصفحة وينفذ الأوامر عليه</p>
+                            </div>
                         </div>
-                        <div class="flex-1 min-w-0">
-                            <h4 class="font-bold text-sm sm:text-base group-hover:text-cyan-400 transition-colors" data-i18n="link_title">بانل E2 Store Link على الرسيفر</h4>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="link_desc">بيظهر على شاشة الإنيجما2 ويربط الرسيفر بالصفحة وينفذ الأوامر عليه</p>
+                        <div class="flex gap-2 w-full sm:w-auto shrink-0">
+                            <button type="button" onclick="copyAgentCmd('linkCmd')" class="flex-1 sm:flex-none justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold flex items-center gap-1.5">
+                                <i class="fa-regular fa-copy"></i> <span data-i18n="dl_copy_btn">نسخ</span>
+                            </button>
+                            <button type="button" id="linkInstallBtn" onclick="installPanelUpdate()" disabled class="flex-1 sm:flex-none justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-semibold flex items-center gap-1.5 opacity-50 cursor-not-allowed transition-all">
+                                <i class="fa-solid fa-download"></i> <span>Install</span>
+                            </button>
                         </div>
-                        <button type="button" onclick="copyAgentCmd('linkCmd')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold flex items-center gap-1.5 shrink-0">
-                            <i class="fa-regular fa-copy"></i> <span data-i18n="dl_copy_btn">نسخ</span>
-                        </button>
-                        <button type="button" id="linkInstallBtn" onclick="installPanelUpdate()" disabled class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-semibold flex items-center gap-1.5 shrink-0 opacity-50 cursor-not-allowed transition-all">
-                            <i class="fa-solid fa-download"></i> <span>Install</span>
-                        </button>
                     </div>
                     <code id="linkCmd" dir="ltr" class="block w-full bg-slate-100 dark:bg-slate-900 text-[11px] sm:text-xs text-cyan-600 dark:text-cyan-400 rounded-xl p-3 border border-slate-200 dark:border-slate-800 overflow-x-auto whitespace-nowrap text-left select-all">cd /tmp && wget --no-check-certificate -O Panel_2.0.1_all.ipk https://major309robin.github.io/E2-Store/Panel_2.0.1_all.ipk && opkg install --force-reinstall Panel_2.0.1_all.ipk</code>
                 </div>
@@ -391,9 +395,8 @@
                 <div class="space-y-1" style="display:none"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_catalog">رابط الكتالوج على GitHub (Raw JSON)</span></label>
                     <input id="rxCatalog" dir="ltr" type="text" value="https://major309robin.github.io/E2-Store/store.json" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
                 <div id="rxTestMsg" class="text-xs hidden"></div>
-                <div class="flex gap-2 pt-1">
-                    <button type="button" onclick="testReceiver()" class="flex-1 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-semibold"><span data-i18n="rx_test">اختبار الاتصال</span></button>
-                    <button type="submit" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold"><span data-i18n="save">حفظ</span></button>
+                <div class="pt-1">
+                    <button id="rxSaveBtn" type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold"><span data-i18n="save">حفظ</span></button>
                 </div>
             </form>
         </div>
@@ -1160,16 +1163,24 @@
             return { name: rxName.value.trim(), ip: rxIp.value.trim(), port: parseInt(rxPort.value) || 22,
                      user: rxUser.value.trim() || 'root', pass: rxPass.value, bridge: rxBridge.value.trim().replace(/\/$/, ''), catalog: rxCatalog.value.trim(), mode: effMode(), code: normCode(rxCode.value), webPort: 8765 };
         }
-        function saveReceiver(e) {
+        async function saveReceiver(e) {
             e.preventDefault();
             const _c = normCode(rxCode.value);
             if (_c && _c.length !== 20) { showToast(currentLang === 'ar' ? 'كود الربط لازم يكون 20 حرف/رقم' : 'The link code must be 20 characters'); return; }
             if (!_c && !rxIp.value.trim()) { showToast(currentLang === 'ar' ? 'اكتب الـ IP بتاع الرسيفر' : 'Enter the receiver IP'); return; }
-            RX = readRxForm();
+            const btn = document.getElementById('rxSaveBtn'); btn.disabled = true; btn.style.opacity = '.6';
+            const cfg = readRxForm();
+            RX = cfg;
             localStorage.setItem('e2receiver', JSON.stringify(RX));
-            closeModal('receiverModal'); refreshRxUi('unknown');
+            const res = await testReceiver(cfg);
+            btn.disabled = false; btn.style.opacity = '';
+            if (res === 'fail') { refreshRxUi('unknown'); return; }   // الداتا اتحفظت، والرسالة باينة في المودال
+            if (res === 'ok') await new Promise(r => setTimeout(r, 900));
+            else refreshRxUi('unknown');
+            document.getElementById('rxTestMsg').className = 'text-xs hidden';
+            closeModal('receiverModal');
             showToast(T('t_saved'));
-            loadCatalog(false);
+            if (res !== 'ok') loadCatalog(false);
         }
         // ===== Link mode: page <-> E2 Store Link panel on the receiver, through an HTTPS relay (ntfy.sh) =====
         async function linkRun(code, payload, onOut, timeoutMs) {
@@ -1255,61 +1266,54 @@
             } catch (e) { /* مش مفتوحة من الـ Agent */ }
         }
 
-        async function testReceiver() {
-            const cfg = readRxForm(), box = document.getElementById('rxTestMsg');
-            box.className = 'text-xs text-amber-400'; box.textContent = T('t_testing');
+        function setRxMsg(kind, text) {
+            const box = document.getElementById('rxTestMsg');
+            const col = kind === 'err' ? 'bg-red-500/10 border-red-500/40 text-red-400' : 'bg-amber-500/10 border-amber-500/40 text-amber-400';
+            box.className = 'text-xs font-semibold text-center rounded-xl p-3 border ' + col;
+            box.textContent = text;
+        }
+        // يرجّع: 'ok' | 'blocked' (https بيمنع الاختبار) | 'fail'
+        async function testReceiver(cfg) {
+            cfg = cfg || readRxForm();
+            const okMsg = T('t_connected', cfg.name || cfg.ip);
+            setRxMsg('info', T('t_testing'));
+            const done = () => { RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false); };
             if (cfg.mode === 'link') {
                 try {
-                    const m = await linkRun(cfg.code, { t: 'ping' }, null, 20000);
-                    box.className = 'text-xs text-emerald-400';
-                    box.textContent = (currentLang === 'ar' ? '✔ الرسيفر متصل: ' : '✔ Receiver linked: ') + (m.host || '');
-                    RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false);
+                    await linkRun(cfg.code, { t: 'ping' }, null, 20000);
+                    setRxMsg('info', '✔ ' + okMsg); done(); return 'ok';
                 } catch (err) {
-                    box.className = 'text-xs text-red-400';
-                    box.textContent = currentLang === 'ar' ? '✖ مفيش رد من الرسيفر. اتأكد من الكود وإن الرسيفر عليه إنترنت وبلجن E2 Store Link متثبّت.' : '✖ No reply from the receiver. Check the code, that it has internet, and that E2 Store Link is installed.';
+                    setRxMsg('err', currentLang === 'ar' ? '✖ مفيش رد من الرسيفر. اتأكد من الكود وإن الرسيفر عليه إنترنت وبلجن E2 Store Link متثبّت.' : '✖ No reply from the receiver. Check the code, that it has internet, and that E2 Store Link is installed.');
+                    return 'fail';
                 }
-                return;
             }
             if (cfg.mode === 'agent') {
                 try {
-                    const d = await agentPing(cfg);
-                    box.className = 'text-xs text-emerald-400';
-                    box.textContent = T('t_agent_ok', d.version, d.host || '', d.python);
-                    RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false);
+                    await agentPing(cfg);
+                    setRxMsg('info', '✔ ' + okMsg); done(); return 'ok';
                 } catch (err) {
-                    box.className = location.protocol === 'https:' ? 'text-xs text-amber-400' : 'text-xs text-red-400';
-                    box.textContent = location.protocol === 'https:'
-                        ? (currentLang === 'ar'
-                            ? 'ℹ المتصفح بيمنع اختبار الاتصال من صفحة https، ده طبيعي. دوس "حفظ" وهيتم التثبيت تلقائياً من صفحة الرسيفر.'
-                            : 'ℹ The browser blocks the connection test from an https page - this is normal. Press Save; installs will run automatically via the receiver page.')
-                        : T('t_agent_down', cfg.ip + ':' + (cfg.webPort || 8765));
+                    if (location.protocol === 'https:') return 'blocked';
+                    setRxMsg('err', T('t_agent_down', cfg.ip + ':' + (cfg.webPort || 8765)));
+                    return 'fail';
                 }
-                return;
             }
             if (cfg.mode === 'owif') {
                 try {
                     await owifCall(cfg, '/api/about');
-                    box.className = 'text-xs text-emerald-400';
-                    box.textContent = T('t_owif_ok', owifBase(cfg));
-                    RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false);
+                    setRxMsg('info', '✔ ' + okMsg); done(); return 'ok';
                 } catch (err) {
-                    box.className = 'text-xs text-red-400';
-                    box.textContent = location.protocol === 'https:'
-                        ? T('t_owif_mixed')
-                        : T('t_owif_down');
+                    setRxMsg('err', location.protocol === 'https:' ? T('t_owif_mixed') : T('t_owif_down'));
+                    return 'fail';
                 }
-                return;
             }
             try {
                 const r = await fetch(cfg.bridge + '/test', { method: 'POST', headers: {'Content-Type':'application/json'},
                     body: JSON.stringify({ host: cfg.ip, port: cfg.port, user: cfg.user, password: cfg.pass }) });
                 const d = await r.json();
-                box.className = 'text-xs ' + (d.ok ? 'text-emerald-400' : 'text-red-400');
-                box.textContent = d.ok ? T('t_ssh_ok', d.info || '') : ('✖ ' + d.error);
-                if (d.ok) { RX = Object.assign(RX || {}, cfg); localStorage.setItem('e2receiver', JSON.stringify(RX)); refreshRxUi('ok'); loadCatalog(false); }
+                if (d.ok) { setRxMsg('info', '✔ ' + okMsg); done(); return 'ok'; }
+                setRxMsg('err', '✖ ' + d.error); return 'fail';
             } catch (err) {
-                box.className = 'text-xs text-red-400';
-                box.textContent = T('t_bridge_down');
+                setRxMsg('err', T('t_bridge_down')); return 'fail';
             }
         }
 
