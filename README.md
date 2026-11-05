@@ -39,77 +39,27 @@ Run the following command in your terminal (via Telnet or SSH) while logged in a
 ```bash
 cd /tmp && wget --no-check-certificate -O Panel_2.0.1_all.ipk https://major309robin.github.io/E2-Store/Panel_2.0.1_all.ipk && opkg install --force-reinstall Panel_2.0.1_all.ipk
 ```
-
-Verify the installation:
-
-```bash
-opkg info e2-panel | grep Version
-wget -qO- http://127.0.0.1:8765/ping
-```
-
-You should see `Version: 2.0.1` and `"agent": true`.
-
----
-
-## 🌐 Usage
-
-1. Access the interface using your receiver's IP address:
-```
-http://<receiver-IP>:8765
-```
-2. Click on ⚙️ **Settings**, enter your receiver's IP address, and save.
+2. Click on ⚙️ ** **, enter your receiver's IP address, and save.
 3. Select the desired command and click **Install**.
 4. The output will appear in the terminal; if successful, the receiver will automatically restart.
 
 > 💡 If you open the page from a local file (`file://`) or via `https`, your browser may block the connection to the receiver. Solution: Access it via `http://IP:8765`.
 
 ---
-
-## ➕ Adding a New Command
-
-All commands are stored in the **`store.json`** file. Add a new entry to the end of the list as follows:
-
-```json
-{
-"title": "Command Name",
-"author": "Developer Name",
-"category": "tools",
-"desc": "A short description of the command",
-"cmd": "opkg update && opkg install package-name"
-}
-```
-
 **Available Categories (`category`):**
 
-| Value | Display Name |
+ Display Name |
 |---|---|
-| `fast` | Fast Order |
-| `panels` | Panels |
-| `tools` | Tools Plugins |
-| `backup` | Backup & Restore |
-| `softcams` | SoftCams Plugins |
-| `audio` | Audio Plugins |
-| `subtitles` | Subtitle Plugins |
-| `epg` | EPG Plugins |
-| `iptv` | IPTV Plugins |
-| `skins` | Skins |
-| `picons` | Picons |
-| `bootlogos` | Boot Logos & Spinners |
-| `others` | Other Plugins |
-
-Once you commit the file, open the page; the new command will appear automatically, and the counter will update. ---
-
-## 🗂️ Project Structure
-
-```
-E2-Store/
-├── index.html              # Store interface
-├── store.json              # All commands (single source of truth)
-├── logo.png                # Logo
-├── install-link.sh         # Panel installation script
-├── Panel_2.0.1_all.ipk     # Panel package for the receiver
-└── README.md
-```
+| Fast Order 
+| Panels 
+| Tools
+| SoftCam
+| Audio
+| Subtitle
+| EPG
+| IPTV
+| Skins 
+| Others
 
 ---
 
@@ -132,28 +82,6 @@ Management commands:
 /etc/init.d/e2ipkpanel restart    # Restart
 opkg remove e2-panel              # Remove the panel
 ```
-
----
-
-## 🩺 Troubleshooting
-
-| Issue | Solution |
-|---|---|
-| Page fails to connect to the receiver | Ensure the page is accessed via `http://IP:8765` and that the receiver responds to `ping` |
-| Commands do not appear | Ensure that `store.json` has been uploaded to GitHub and contains no JSON syntax errors. |
-| Installation failed | Check the **[ERROR]** section in the terminal; it contains the exit code and the reason for the failure. |
-| The receiver does not restart | The installation must complete without any errors. |
-| The card contains an outdated version | Perform a full refresh (`Ctrl+F5`) or download the latest file. |
-
----
-
-## 🤝 Contributing
-
-1. Fork the project.
-2. Add the command to `store.json` following the required format.
-3. Submit a Pull Request, including a description of the command and its source.
-
-> ⚠️ **Warning:** Commands are executed directly on the receiver. Read the command description before installation, and back up your settings if the command modifies system files.
 
 ---
 
