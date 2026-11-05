@@ -1,464 +1,604 @@
-[
-  {
-    "title": "Update Linux Commands",
-    "author": "John Kamel & Robin John",
-    "desc": "تحديث ملف أوامر اللينوكس",
-    "category": "fast",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/update_linuxcommands.sh | bash"
-  },
-  {
-    "title": "Update SoftCam Keys",
-    "author": "John Kamel & Robin John",
-    "desc": "تحديث ملف شفرات السوفتكام",
-    "category": "fast",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/major79879/MajorKey/refs/heads/main/SoftCam%20Script%20Updater.sh | bash"
-  },
-  {
-    "title": "AJPanel",
-    "author": "AMAJamry",
-    "desc": "لوحة أدوات متكاملة لإدارة إضافات وأدوات إنيجما فى مكان واحد",
-    "category": "panels",
-    "cmd": "wget https://raw.githubusercontent.com/AMAJamry/AJPanel/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Linuxsat panel",
-    "author": "Belfagor",
-    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
-    "category": "panels",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Belfagor2005/LinuxsatPanel/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Elie Sat Panel Grid",
-    "author": "Elie",
-    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
-    "category": "panels",
-    "cmd": "opkg update >/dev/null 2>&1 && opkg install wget curl ca-certificates >/dev/null 2>&1 && wget -qO- https://dreambox4u.com/eliesat/panel/eliesatpanelgrid.sh | sh"
-  },
-  {
-    "title": "Magic Panel Max",
-    "author": "Hamdy Ahmed",
-    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
-    "category": "panels",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Ham-ahmed/G12/refs/heads/main/MagicPanelMax-install.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Emil Panel Pro",
-    "author": "Emil Nabil",
-    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
-    "category": "panels",
-    "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/EmilPanelPro/emilpanelpro.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Enigma Play Repo",
-    "author": "Ahmad Arjan",
-    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
-    "category": "panels",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/Ahmadarjan1/EnigmaPlay-Repo/main/install.sh | sh"
-  },
-  {
-    "title": "Panel AIO",
-    "author": "Oli Oli",
-    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
-    "category": "panels",
-    "cmd": "wget -q -O - https://raw.githubusercontent.com/OliOli2013/PanelAIO-Plugin/main/installer.sh | /bin/sh"
-  },
-  {
-    "title": "Online 4 Tech",
-    "author": "Ahmed Romeh",
-    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
-    "category": "panels",
-    "cmd": "wget -O /tmp/online4tech.sh https://online4tech.github.io/online4Tech/install.sh && chmod +x /tmp/online4tech.sh && /tmp/online4tech.sh"
-  },
-  {
-    "title": "Mohamed Store",
-    "author": "Mahamed Iraqy",
-    "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
-    "category": "panels",
-    "cmd": "wget -O - https://raw.githubusercontent.com/wwwgoper77-wq/MohamedStore/main/install.sh | sh"
-  },
-  {
-    "title": "Arabic Savior",
-    "author": "Fairbird",
-    "desc": "تحسين دعم اللغة العربية وإصلاح مشاكل الخطوط والترجمة",
-    "category": "tools",
-    "cmd": "wget https://raw.githubusercontent.com/fairbird/ArabicSavior/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Crash Log Viewer",
-    "author": "Belfagor",
-    "desc": "أداة عرض و إظهار أخطاء النظام",
-    "category": "tools",
-    "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/Belfagor2005/CrashlogViewer/main/installer.sh -O - | /bin/bash"
-  },
-  {
-    "title": "Emil Remove Package",
-    "author": "Emil Nabil",
-    "desc": "أداة حذف الاضافات",
-    "category": "tools",
-    "cmd": "wget -q \"--no-check-certificate\" https://github.com/emilnabil/download-plugins/raw/refs/heads/main/EmilRemovePackage/EmilRemovePackage.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Raed Quick Signal",
-    "author": "Fairbird",
-    "desc": "أداة إظهار الإشارة على القنوات",
-    "category": "tools",
-    "cmd": "wget https://raw.githubusercontent.com/fairbird/RaedQuickSignal/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Time Shift Delay",
-    "author": "Mosad Pro",
-    "desc": "أداة إظهار التايم شيفت داخل صوت القناة",
-    "category": "tools",
-    "cmd": "wget -qO - http://dreambox4u.com/mosadpro/scripts/timeshift-delay.sh | sh"
-  },
-  {
-    "title": "Custom Channel Selection",
-    "author": "Mohamed Nasser",
-    "desc": "أداة التحكم في شكل عرض قائمة القنوات",
-    "category": "tools",
-    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/customchannelselection/refs/heads/main/myinstaller.sh | /bin/sh"
-  },
-  {
-    "title": "sky Blue Scan",
-    "author": "Mohamed El Fatlawy",
-    "desc": "بلاجن التحكم ترتيب وحذف القنوات",
-    "category": "tools",
-    "cmd": "wget -O /tmp/install-skybluescan.sh https://updates.skyblue1.us/e2/install-skybluescan.sh && sh /tmp/install-skybluescan.sh && reboot"
-  },
-  {
-    "title": "New Virtual Keyboard",
-    "author": "Fairbird",
-    "desc": "أداة كيبوورد متطورة",
-    "category": "tools",
-    "cmd": "wget https://raw.githubusercontent.com/fairbird/NewVirtualKeyBoard/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "NCam EMU",
-    "author": "Fairbird",
-    "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
-    "category": "softcams",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/Ncam_EMU/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Oscam Emu",
-    "author": "Linuxsat",
-    "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
-    "category": "softcams",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/OsCam_EMU/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Oscamicam",
-    "author": "Kitte888",
-    "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
-    "category": "softcams",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/OSCamicam_Kitte888/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Powercam",
-    "author": "MohameD OS",
-    "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
-    "category": "softcams",
-    "cmd": "wget -qO- --no-check-certificate \"https://gitlab.com/MOHAMED_OS/dz_store/-/raw/main/Cam_Emulator/online-setup\" | bash -s powercam"
-  },
-  {
-    "title": "Key Adder",
-    "author": "Fairbird",
-    "desc": "أداة لإدخال وتحديث شفرات ملف السوفتكام",
-    "category": "softcams",
-    "cmd": "wget https://raw.githubusercontent.com/fairbird/KeyAdder/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Fury Biss",
-    "author": "Islam Salama",
-    "desc": "أداة للبحث عن الفيدات وإظهار وإدخال شفراتها",
-    "category": "softcams",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/islam-2412/FuryBiss/refs/heads/main/fury/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "E2 Biss Key Editor",
-    "author": "Ismail El Khouly",
-    "desc": "أداة لإدخال شفرات القنوات",
-    "category": "softcams",
-    "cmd": "wget -q -O - https://raw.githubusercontent.com/ismail9875/E2BissKeyEditor/refs/heads/main/installer.sh | /bin/bash"
-  },
-  {
-    "title": "IP Audio Pro",
-    "author": "Zakaria Khadiri",
-    "desc": "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
-    "category": "audio",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/zKhadiri/IPAudioPro-Releases-/refs/heads/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Ultra Audio",
-    "author": "Ahmed El Hadary",
-    "desc": "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
-    "category": "audio",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | /bin/sh"
-  },
-  {
-    "title": "IP Audio Plus",
-    "author": "Ahmed Arjan",
-    "desc": "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
-    "category": "audio",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Ahmadarjan1/IPAudioPlus-Releases/refs/heads/main/installer.sh -O - | /bin/bash"
-  },
-  {
-    "title": "Alkuds Ipaudio",
-    "author": "Ibrahim Hamdy",
-    "desc": "أداة تشغيل الصوتيات والأي بي تي في",
-    "category": "audio",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/xximhxx/Alkuds-ipaudio-MAC-Xtreme-Player/main/installer.sh | sh"
-  },
-  {
-    "title": "My Hits",
-    "author": "Mohamed Nasser",
-    "desc": "أداة تحميل وتشغيل الأغاني",
-    "category": "audio",
-    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/myhits/refs/heads/main/myinstaller.sh | /bin/sh"
-  },
-  {
-    "title": "Subs Support Pro",
-    "author": "Mohamed Nasser",
-    "desc": "أداة لتحميل وإدارة الترجمات للمحتوى المرئى",
-    "category": "subtitles",
-    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/SubsSupportPro/refs/heads/main/myinstaller.sh | /bin/sh"
-  },
-  {
-    "title": "My Translator",
-    "author": "Ismail El Khouly",
-    "desc": "أداة لترجمة النصوص والصوت داخل القنوات",
-    "category": "subtitles",
-    "cmd": "wget -O /tmp/mytranslator.ipk \"https://github.com/ismailelkhooly/Ismail-/raw/refs/heads/main/enigma2-plugin-extensions-mytranslator_1.76.ipk\" && opkg install --force-reinstall /tmp/mytranslator.ipk && rm -f /tmp/mytranslator.ipk"
-  },
-  {
-    "title": "Subextractor Lite",
-    "author": "Arian 7S",
-    "desc": "أداة لاستخراج الترجمات المدمجة وإنشاء ملفات ترجمة مستقلة",
-    "category": "subtitles",
-    "cmd": "wget https://raw.githubusercontent.com/Arian7s/SubExtractorLite/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Channel Lingo",
-    "author": "Saiedf",
-    "desc": "بلاجن شامل الترجمات المدمجة والترجمة الصوتية",
-    "category": "subtitles",
-    "cmd": "wget -O /tmp/installer_ChannelLingo_auto.sh \"https://raw.githubusercontent.com/Saiedf/ChannelLingo/main/Release/UNIVERSAL/installer_ChannelLingo_auto.sh\" && sh /tmp/installer_ChannelLingo_auto.sh"
-  },
-  {
-    "title": "EPG Import",
-    "author": "Saiedf",
-    "desc": "أداة إستيراد وتحديث بيانات دليل البرامج الإلكتروني من مصادر متعددة",
-    "category": "epg",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/Saiedf/EPGImport/main/installer_epgimportiet5_auto.sh | /bin/sh"
-  },
-  {
-    "title": "TMBD",
-    "author": "Biko",
-    "desc": "إضافة لجلب وعرض معلومات الأفلام والمسلسلات",
-    "category": "epg",
-    "cmd": "wget https://raw.githubusercontent.com/biko-73/TMBD/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "TMBD Search",
-    "author": "Ciefp",
-    "desc": "إضافة لجلب وعرض معلومات الأفلام والمسلسلات",
-    "category": "epg",
-    "cmd": "wget -q https://raw.githubusercontent.com/ciefp/CiefpTMDBSearch/main/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Youre Watching",
-    "author": "Asdrere ALT",
-    "desc": "أداة عرض معلومات الافلام بطريقة جذابة",
-    "category": "epg",
-    "cmd": "wget --no-check-certificate -qO- \"https://raw.githubusercontent.com/asdrere123-alt/YoureWatching/main/install_yourewatching.sh?t=$(date +%s)\" | bash"
-  },
-  {
-    "title": "EPG Grabber",
-    "author": "Ziko",
-    "desc": "أداة إستيراد وتحديث بيانات دليل البرامج الإلكتروني من مصادر متعددة",
-    "category": "epg",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/ziko-ZR1/Epg-plugin/master/Download/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "E2I Player",
-    "author": "OE Mirrors",
-    "desc": "أداة تشغيل المحتوى المرئي عبر الإنترنت من مصادر متعددة",
-    "category": "iptv",
-    "cmd": "wget -q https://raw.githubusercontent.com/oe-mirrors/e2iplayer/refs/heads/python3/e2iplayer_install.sh -O - | /bin/sh"
-  },
-  {
-    "title": "E2I Player",
-    "author": "Mohamed OS",
-    "desc": "أداة تشغيل المحتوى المرئي عبر الإنترنت من مصادر متعددة",
-    "category": "iptv",
-    "cmd": "wget --no-check-certificate -qO - \"https://raw.githubusercontent.com/MOHAMED19OS/Install_E2I/refs/heads/main/online-setup.sh\" | bash"
-  },
-  {
-    "title": "E2I Player Hostes",
-    "author": "By Angel Heart",
-    "desc": "تحديث واستكمال هوستات بلاجن إيه تو بلاير",
-    "category": "iptv",
-    "cmd": "wget -q --no-check-certificate https://github.com/angelheart150/My_e2iplayer_hosts/raw/main/install-e2iplayer-update-hosts.sh -O - | /bin/sh"
-  },
-  {
-    "title": "TSI Player",
-    "author": "By Angel Heart",
-    "desc": "إضافة تي إس إيه بلاير لتحديث واستكمال هوستات بلاجن إيه تو بلاير",
-    "category": "iptv",
-    "cmd": "wget -q \"--no-check-certificate\" https://github.com/angelheart150/My-tsiplayer/raw/main/install-tsiplayer-update-hosts.sh -O - | /bin/sh"
-  },
-  {
-    "title": "My Streamer",
-    "author": "Mohamed Nasser",
-    "desc": "أداة تشغيل أي بي تي في للمواقع المجانية",
-    "category": "iptv",
-    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/MyStreamer/refs/heads/main/myinstaller.sh | /bin/sh"
-  },
-  {
-    "title": "Luka TV",
-    "author": "Mohamed Nasser",
-    "desc": "بلاجن تشغيل أي بي تي في المدفوع باضافة الاشتراك",
-    "category": "iptv",
-    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/LukaTV/refs/heads/main/myinstaller.sh | /bin/sh"
-  },
-  {
-    "title": "Xtream New",
-    "author": "Ahmed Hussein",
-    "desc": "أداة إضافة و تشغيل إشتراكات الأي بي تي في",
-    "category": "iptv",
-    "cmd": "wget -q --no-check-certificate \"https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/install_xtreamnew.sh?cb=$(date +%s)\" -O - | /bin/sh"
-  },
-  {
-    "title": "Ultra Stalker",
-    "author": "Ahmed El Hadary",
-    "desc": "أداة إضافة و تشغيل إشتراكات الأي بي تي في",
-    "category": "iptv",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/-UltraStalker/main/install.sh | /bin/sh"
-  },
-  {
-    "title": "Tivi Mate E2",
-    "author": "Opes Boy",
-    "desc": "أداة إضافة و تشغيل إشتراكات الأي بي تي في",
-    "category": "iptv",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/opesboy/TiviMateE2/main/install.sh | sh"
-  },
-  {
-    "title": "Aglare ATV",
-    "author": "Mohamed Nasser",
-    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-    "category": "skins",
-    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/skins/refs/heads/main/aglareatv/myinstaller.sh | /bin/sh"
-  },
-  {
-    "title": "Aglare PLI",
-    "author": "Mohamed Nasser",
-    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-    "category": "skins",
-    "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/skins/refs/heads/main/aglarepli/myinstaller.sh | /bin/sh"
-  },
-  {
-    "title": "Fury Skin",
-    "author": "Islam Salama",
-    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-    "category": "skins",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/islam-2412/IPKS/refs/heads/main/fury/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Cine View MLA",
-    "author": "Habeb S",
-    "desc": "إسكين بواجهة سينمائية متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-    "category": "skins",
-    "cmd": "wget -qO /tmp/cineview-install.sh https://raw.githubusercontent.com/habeb-s/CineView-MLA-Install/main/cineview-install.sh && sh /tmp/cineview-install.sh"
-  },
-  {
-    "title": "Obsidian FHD",
-    "author": "Dali 44G",
-    "desc": "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى",
-    "category": "skins",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/dali44g/Obsidian-FHD/main/install.sh | sh"
-  },
-  {
-    "title": "jihad Skin",
-    "author": "Ahmed S",
-    "desc": "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى",
-    "category": "skins",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/ahmeds200917/A…nstall_jihad.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Mohammed Skin",
-    "author": "Unknown",
-    "desc": "إسكين عربي حديث يتميز بتصميم أنيق وخفيف مع دعم أغلب الإضافات",
-    "category": "skins",
-    "cmd": "wget -q --no-check-certificate \"https://raw.githubusercontent.com/mido00020/MohammedSkin/main/installer.sh\" -O - | /bin/sh"
-  },
-  {
-    "title": "X Dreamy",
-    "author": "Insprion",
-    "desc": "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى",
-    "category": "skins",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Insprion80/Skins/main/xDreamy/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Luka ATV",
-    "author": "Mohamed Nasser",
-    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-    "category": "skins",
-    "cmd": "wget -O /tmp/lukaatv.ipk 'https://raw.githubusercontent.com/popking159/skins/main/lukaatv/lukaatv.ipk' && opkg install /tmp/lukaatv.ipk"
-  },
-  {
-    "title": "Luka PLI",
-    "author": "Mohamed Nasser",
-    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-    "category": "skins",
-    "cmd": "wget -O /tmp/lukapli.ipk 'https://raw.githubusercontent.com/popking159/skins/main/lukapli/lukapli.ipk' && opkg install /tmp/lukapli.ipk"
-  },
-  {
-    "title": "Maxy ATV",
-    "author": "Mohamed Nasser",
-    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-    "category": "skins",
-    "cmd": "wget -O /tmp/maxyatv.ipk 'https://raw.githubusercontent.com/popking159/skins/main/maxyatv/maxyatv.ipk' && opkg install /tmp/maxyatv.ipk"
-  },
-  {
-    "title": "Maxy PLI",
-    "author": "Mohamed Nasser",
-    "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-    "category": "skins",
-    "cmd": "wget -O /tmp/maxypli.ipk 'https://raw.githubusercontent.com/popking159/skins/main/maxypli/maxypli.ipk' && opkg install /tmp/maxypli.ipk"
-  },
-  {
-    "title": "Metrix Poster",
-    "author": "Mohamed Nasser",
-    "desc": "إضافات ومكونات وأشكال عرض حديثة للقنوات والأفلام لواجهة إسكين ماتريكس",
-    "category": "skins",
-    "cmd": "wget -O /tmp/metrix_skinparts.tar.gz 'https://raw.githubusercontent.com/popking159/skins/main/metrix_skinparts/metrix_skinparts_mnasr.tar.gz' && mkdir -p /tmp/metrix_skinparts && tar -xzf /tmp/metrix_skinparts.tar.gz -C /tmp/metrix_skinparts"
-  },
-  {
-    "title": "Metrix Poster",
-    "author": "Hmeng",
-    "desc": "إضافات ومكونات وأشكال عرض حديثة للقنوات والأفلام لواجهة إسكين ماتريكس",
-    "category": "skins",
-    "cmd": "wget -q --no-check-certificate https://gitlab.com/hmeng80/addons/-/raw/main/metrix-fhd-parts-ec.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Foot On Sat",
-    "author": "Fairbird",
-    "desc": "أداة لإظهار نتائج وقنوات المباريات",
-    "category": "others",
-    "cmd": "wget https://raw.githubusercontent.com/fairbird/FootOnsat/main/Download/install.sh -O - | /bin/sh"
-  },
-  {
-    "title": "Server Coloring",
-    "author": "Islam Salama",
-    "desc": "لإضافة لون لقنواتك المفتوحة بالسيرفر الخاص بك",
-    "category": "others",
-    "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/islam-2412/ServerColoring/refs/heads/main/fury/installer.sh -O - | /bin/sh"
-  },
-  {
-    "title": "E2 Currency Pro",
-    "author": "Ramzus",
-    "desc": "أداة لمعرفة أسعار العملات والذهب",
-    "category": "others",
-    "cmd": "wget -qO- https://raw.githubusercontent.com/ramzus007/E2-Currency-Pro/main/installer.sh | sh"
-  }
-]
+{
+  "categories": [
+    {
+      "id": "fast",
+      "nameAr": "Fast Order",
+      "nameEn": "Fast Order",
+      "nameFr": "Fast Order",
+      "icon": "fa-bolt"
+    },
+    {
+      "id": "panels",
+      "nameAr": "Panels",
+      "nameEn": "Panels",
+      "nameFr": "Panels",
+      "icon": "fa-window-maximize"
+    },
+    {
+      "id": "tools",
+      "nameAr": "Tools",
+      "nameEn": "Tools Plugins",
+      "nameFr": "Tools Plugins",
+      "icon": "fa-screwdriver-wrench"
+    },
+    {
+      "id": "softcams",
+      "nameAr": "SoftCams Plugins",
+      "nameEn": "SoftCams Plugins",
+      "nameFr": "SoftCams Plugins",
+      "icon": "fa-key"
+    },
+    {
+      "id": "audio",
+      "nameAr": "Audio Plugins",
+      "nameEn": "Audio Plugins",
+      "nameFr": "Audio Plugins",
+      "icon": "fa-volume-high"
+    },
+    {
+      "id": "subtitles",
+      "nameAr": "Subtitle Plugins",
+      "nameEn": "Subtitle Plugins",
+      "nameFr": "Subtitle Plugins",
+      "icon": "fa-closed-captioning"
+    },
+    {
+      "id": "epg",
+      "nameAr": "EPG Plugins",
+      "nameEn": "EPG Plugins",
+      "nameFr": "EPG Plugins",
+      "icon": "fa-calendar-days"
+    },
+    {
+      "id": "iptv",
+      "nameAr": "IPTV Plugins",
+      "nameEn": "IPTV Plugins",
+      "nameFr": "IPTV Plugins",
+      "icon": "fa-tv"
+    },
+    {
+      "id": "skins",
+      "nameAr": "Skins",
+      "nameEn": "Skins",
+      "nameFr": "Skins",
+      "icon": "fa-paintbrush"
+    },
+    {
+      "id": "others",
+      "nameAr": "Other Plugins",
+      "nameEn": "Other Plugins",
+      "nameFr": "Other Plugins",
+      "icon": "fa-puzzle-piece"
+    }
+  ],
+  "items": [
+    {
+      "title": "Update Linux Commands",
+      "author": "John Kamel & Robin John",
+      "desc": "تحديث ملف أوامر اللينوكس",
+      "category": "fast",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/major79879/LinuxCommands/refs/heads/main/update_linuxcommands.sh | bash",
+      "categoryName": "Fast Order"
+    },
+    {
+      "title": "Update SoftCam Keys",
+      "author": "John Kamel & Robin John",
+      "desc": "تحديث ملف شفرات السوفتكام",
+      "category": "fast",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/major79879/MajorKey/refs/heads/main/SoftCam%20Script%20Updater.sh | bash",
+      "categoryName": "Fast Order"
+    },
+    {
+      "title": "AJPanel",
+      "author": "AMAJamry",
+      "desc": "لوحة أدوات متكاملة لإدارة إضافات وأدوات إنيجما فى مكان واحد",
+      "category": "panels",
+      "cmd": "wget https://raw.githubusercontent.com/AMAJamry/AJPanel/main/installer.sh -O - | /bin/sh",
+      "categoryName": "Panels"
+    },
+    {
+      "title": "Linuxsat panel",
+      "author": "Belfagor",
+      "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
+      "category": "panels",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Belfagor2005/LinuxsatPanel/main/installer.sh -O - | /bin/sh",
+      "categoryName": "Panels"
+    },
+    {
+      "title": "Elie Sat Panel Grid",
+      "author": "Elie",
+      "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
+      "category": "panels",
+      "cmd": "opkg update >/dev/null 2>&1 && opkg install wget curl ca-certificates >/dev/null 2>&1 && wget -qO- https://dreambox4u.com/eliesat/panel/eliesatpanelgrid.sh | sh",
+      "categoryName": "Panels"
+    },
+    {
+      "title": "Magic Panel Max",
+      "author": "Hamdy Ahmed",
+      "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
+      "category": "panels",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Ham-ahmed/G12/refs/heads/main/MagicPanelMax-install.sh -O - | /bin/sh",
+      "categoryName": "Panels"
+    },
+    {
+      "title": "Emil Panel Pro",
+      "author": "Emil Nabil",
+      "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
+      "category": "panels",
+      "cmd": "wget https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/EmilPanelPro/emilpanelpro.sh -O - | /bin/sh",
+      "categoryName": "Panels"
+    },
+    {
+      "title": "Enigma Play Repo",
+      "author": "Ahmad Arjan",
+      "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
+      "category": "panels",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/Ahmadarjan1/EnigmaPlay-Repo/main/install.sh | sh",
+      "categoryName": "Panels"
+    },
+    {
+      "title": "Panel AIO",
+      "author": "Oli Oli",
+      "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
+      "category": "panels",
+      "cmd": "wget -q -O - https://raw.githubusercontent.com/OliOli2013/PanelAIO-Plugin/main/installer.sh | /bin/sh",
+      "categoryName": "Panels"
+    },
+    {
+      "title": "Online 4 Tech",
+      "author": "Ahmed Romeh",
+      "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
+      "category": "panels",
+      "cmd": "wget -O /tmp/online4tech.sh https://online4tech.github.io/online4Tech/install.sh && chmod +x /tmp/online4tech.sh && /tmp/online4tech.sh",
+      "categoryName": "Panels"
+    },
+    {
+      "title": "Mohamed Store",
+      "author": "Mahamed Iraqy",
+      "desc": "لوحة شاملة تجمع عشرات الأدوات والإضافات والخدمات",
+      "category": "panels",
+      "cmd": "wget -O - https://raw.githubusercontent.com/wwwgoper77-wq/MohamedStore/main/install.sh | sh",
+      "categoryName": "Panels"
+    },
+    {
+      "title": "Arabic Savior",
+      "author": "Fairbird",
+      "desc": "تحسين دعم اللغة العربية وإصلاح مشاكل الخطوط والترجمة",
+      "category": "tools",
+      "cmd": "wget https://raw.githubusercontent.com/fairbird/ArabicSavior/main/installer.sh -O - | /bin/sh",
+      "categoryName": "Tools Plugins"
+    },
+    {
+      "title": "Crash Log Viewer",
+      "author": "Belfagor",
+      "desc": "أداة عرض و إظهار أخطاء النظام",
+      "category": "tools",
+      "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/Belfagor2005/CrashlogViewer/main/installer.sh -O - | /bin/bash",
+      "categoryName": "Tools Plugins"
+    },
+    {
+      "title": "Emil Remove Package",
+      "author": "Emil Nabil",
+      "desc": "أداة حذف الاضافات",
+      "category": "tools",
+      "cmd": "wget -q \"--no-check-certificate\" https://github.com/emilnabil/download-plugins/raw/refs/heads/main/EmilRemovePackage/EmilRemovePackage.sh -O - | /bin/sh",
+      "categoryName": "Tools Plugins"
+    },
+    {
+      "title": "Raed Quick Signal",
+      "author": "Fairbird",
+      "desc": "أداة إظهار الإشارة على القنوات",
+      "category": "tools",
+      "cmd": "wget https://raw.githubusercontent.com/fairbird/RaedQuickSignal/main/installer.sh -O - | /bin/sh",
+      "categoryName": "Tools Plugins"
+    },
+    {
+      "title": "Time Shift Delay",
+      "author": "Mosad Pro",
+      "desc": "أداة إظهار التايم شيفت داخل صوت القناة",
+      "category": "tools",
+      "cmd": "wget -qO - http://dreambox4u.com/mosadpro/scripts/timeshift-delay.sh | sh",
+      "categoryName": "Tools Plugins"
+    },
+    {
+      "title": "Custom Channel Selection",
+      "author": "Mohamed Nasser",
+      "desc": "أداة التحكم في شكل عرض قائمة القنوات",
+      "category": "tools",
+      "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/customchannelselection/refs/heads/main/myinstaller.sh | /bin/sh",
+      "categoryName": "Tools Plugins"
+    },
+    {
+      "title": "sky Blue Scan",
+      "author": "Mohamed El Fatlawy",
+      "desc": "بلاجن التحكم ترتيب وحذف القنوات",
+      "category": "tools",
+      "cmd": "wget -O /tmp/install-skybluescan.sh https://updates.skyblue1.us/e2/install-skybluescan.sh && sh /tmp/install-skybluescan.sh && reboot",
+      "categoryName": "Tools Plugins"
+    },
+    {
+      "title": "New Virtual Keyboard",
+      "author": "Fairbird",
+      "desc": "أداة كيبوورد متطورة",
+      "category": "tools",
+      "cmd": "wget https://raw.githubusercontent.com/fairbird/NewVirtualKeyBoard/main/installer.sh -O - | /bin/sh",
+      "categoryName": "Tools Plugins"
+    },
+    {
+      "title": "NCam EMU",
+      "author": "Fairbird",
+      "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
+      "category": "softcams",
+      "cmd": "wget https://raw.githubusercontent.com/biko-73/Ncam_EMU/main/installer.sh -O - | /bin/sh",
+      "categoryName": "SoftCams Plugins"
+    },
+    {
+      "title": "Oscam Emu",
+      "author": "Linuxsat",
+      "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
+      "category": "softcams",
+      "cmd": "wget https://raw.githubusercontent.com/biko-73/OsCam_EMU/main/installer.sh -O - | /bin/sh",
+      "categoryName": "SoftCams Plugins"
+    },
+    {
+      "title": "Oscamicam",
+      "author": "Kitte888",
+      "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
+      "category": "softcams",
+      "cmd": "wget https://raw.githubusercontent.com/biko-73/OSCamicam_Kitte888/main/installer.sh -O - | /bin/sh",
+      "categoryName": "SoftCams Plugins"
+    },
+    {
+      "title": "Powercam",
+      "author": "MohameD OS",
+      "desc": "أداة لإضافة و إدارة و تشغيل إشتراكات السوفتكام",
+      "category": "softcams",
+      "cmd": "wget -qO- --no-check-certificate \"https://gitlab.com/MOHAMED_OS/dz_store/-/raw/main/Cam_Emulator/online-setup\" | bash -s powercam",
+      "categoryName": "SoftCams Plugins"
+    },
+    {
+      "title": "Key Adder",
+      "author": "Fairbird",
+      "desc": "أداة لإدخال وتحديث شفرات ملف السوفتكام",
+      "category": "softcams",
+      "cmd": "wget https://raw.githubusercontent.com/fairbird/KeyAdder/main/installer.sh -O - | /bin/sh",
+      "categoryName": "SoftCams Plugins"
+    },
+    {
+      "title": "Fury Biss",
+      "author": "Islam Salama",
+      "desc": "أداة للبحث عن الفيدات وإظهار وإدخال شفراتها",
+      "category": "softcams",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/islam-2412/FuryBiss/refs/heads/main/fury/installer.sh -O - | /bin/sh",
+      "categoryName": "SoftCams Plugins"
+    },
+    {
+      "title": "E2 Biss Key Editor",
+      "author": "Ismail El Khouly",
+      "desc": "أداة لإدخال شفرات القنوات",
+      "category": "softcams",
+      "cmd": "wget -q -O - https://raw.githubusercontent.com/ismail9875/E2BissKeyEditor/refs/heads/main/installer.sh | /bin/bash",
+      "categoryName": "SoftCams Plugins"
+    },
+    {
+      "title": "IP Audio Pro",
+      "author": "Zakaria Khadiri",
+      "desc": "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
+      "category": "audio",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/zKhadiri/IPAudioPro-Releases-/refs/heads/main/installer.sh -O - | /bin/sh",
+      "categoryName": "Audio Plugins"
+    },
+    {
+      "title": "Ultra Audio",
+      "author": "Ahmed El Hadary",
+      "desc": "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
+      "category": "audio",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | /bin/sh",
+      "categoryName": "Audio Plugins"
+    },
+    {
+      "title": "IP Audio Plus",
+      "author": "Ahmed Arjan",
+      "desc": "أداة تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
+      "category": "audio",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Ahmadarjan1/IPAudioPlus-Releases/refs/heads/main/installer.sh -O - | /bin/bash",
+      "categoryName": "Audio Plugins"
+    },
+    {
+      "title": "Alkuds Ipaudio",
+      "author": "Ibrahim Hamdy",
+      "desc": "أداة تشغيل الصوتيات والأي بي تي في",
+      "category": "audio",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/xximhxx/Alkuds-ipaudio-MAC-Xtreme-Player/main/installer.sh | sh",
+      "categoryName": "Audio Plugins"
+    },
+    {
+      "title": "My Hits",
+      "author": "Mohamed Nasser",
+      "desc": "أداة تحميل وتشغيل الأغاني",
+      "category": "audio",
+      "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/myhits/refs/heads/main/myinstaller.sh | /bin/sh",
+      "categoryName": "Audio Plugins"
+    },
+    {
+      "title": "Subs Support Pro",
+      "author": "Mohamed Nasser",
+      "desc": "أداة لتحميل وإدارة الترجمات للمحتوى المرئى",
+      "category": "subtitles",
+      "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/SubsSupportPro/refs/heads/main/myinstaller.sh | /bin/sh",
+      "categoryName": "Subtitle Plugins"
+    },
+    {
+      "title": "My Translator",
+      "author": "Ismail El Khouly",
+      "desc": "أداة لترجمة النصوص والصوت داخل القنوات",
+      "category": "subtitles",
+      "cmd": "wget -O /tmp/mytranslator.ipk \"https://github.com/ismailelkhooly/Ismail-/raw/refs/heads/main/enigma2-plugin-extensions-mytranslator_1.76.ipk\" && opkg install --force-reinstall /tmp/mytranslator.ipk && rm -f /tmp/mytranslator.ipk",
+      "categoryName": "Subtitle Plugins"
+    },
+    {
+      "title": "Subextractor Lite",
+      "author": "Arian 7S",
+      "desc": "أداة لاستخراج الترجمات المدمجة وإنشاء ملفات ترجمة مستقلة",
+      "category": "subtitles",
+      "cmd": "wget https://raw.githubusercontent.com/Arian7s/SubExtractorLite/main/installer.sh -O - | /bin/sh",
+      "categoryName": "Subtitle Plugins"
+    },
+    {
+      "title": "Channel Lingo",
+      "author": "Saiedf",
+      "desc": "بلاجن شامل الترجمات المدمجة والترجمة الصوتية",
+      "category": "subtitles",
+      "cmd": "wget -O /tmp/installer_ChannelLingo_auto.sh \"https://raw.githubusercontent.com/Saiedf/ChannelLingo/main/Release/UNIVERSAL/installer_ChannelLingo_auto.sh\" && sh /tmp/installer_ChannelLingo_auto.sh",
+      "categoryName": "Subtitle Plugins"
+    },
+    {
+      "title": "EPG Import",
+      "author": "Saiedf",
+      "desc": "أداة إستيراد وتحديث بيانات دليل البرامج الإلكتروني من مصادر متعددة",
+      "category": "epg",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/Saiedf/EPGImport/main/installer_epgimportiet5_auto.sh | /bin/sh",
+      "categoryName": "EPG Plugins"
+    },
+    {
+      "title": "TMBD",
+      "author": "Biko",
+      "desc": "إضافة لجلب وعرض معلومات الأفلام والمسلسلات",
+      "category": "epg",
+      "cmd": "wget https://raw.githubusercontent.com/biko-73/TMBD/main/installer.sh -O - | /bin/sh",
+      "categoryName": "EPG Plugins"
+    },
+    {
+      "title": "TMBD Search",
+      "author": "Ciefp",
+      "desc": "إضافة لجلب وعرض معلومات الأفلام والمسلسلات",
+      "category": "epg",
+      "cmd": "wget -q https://raw.githubusercontent.com/ciefp/CiefpTMDBSearch/main/installer.sh -O - | /bin/sh",
+      "categoryName": "EPG Plugins"
+    },
+    {
+      "title": "Youre Watching",
+      "author": "Asdrere ALT",
+      "desc": "أداة عرض معلومات الافلام بطريقة جذابة",
+      "category": "epg",
+      "cmd": "wget --no-check-certificate -qO- \"https://raw.githubusercontent.com/asdrere123-alt/YoureWatching/main/install_yourewatching.sh?t=$(date +%s)\" | bash",
+      "categoryName": "EPG Plugins"
+    },
+    {
+      "title": "EPG Grabber",
+      "author": "Ziko",
+      "desc": "أداة إستيراد وتحديث بيانات دليل البرامج الإلكتروني من مصادر متعددة",
+      "category": "epg",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/ziko-ZR1/Epg-plugin/master/Download/installer.sh -O - | /bin/sh",
+      "categoryName": "EPG Plugins"
+    },
+    {
+      "title": "E2I Player",
+      "author": "OE Mirrors",
+      "desc": "أداة تشغيل المحتوى المرئي عبر الإنترنت من مصادر متعددة",
+      "category": "iptv",
+      "cmd": "wget -q https://raw.githubusercontent.com/oe-mirrors/e2iplayer/refs/heads/python3/e2iplayer_install.sh -O - | /bin/sh",
+      "categoryName": "IPTV Plugins"
+    },
+    {
+      "title": "E2I Player",
+      "author": "Mohamed OS",
+      "desc": "أداة تشغيل المحتوى المرئي عبر الإنترنت من مصادر متعددة",
+      "category": "iptv",
+      "cmd": "wget --no-check-certificate -qO - \"https://raw.githubusercontent.com/MOHAMED19OS/Install_E2I/refs/heads/main/online-setup.sh\" | bash",
+      "categoryName": "IPTV Plugins"
+    },
+    {
+      "title": "E2I Player Hostes",
+      "author": "By Angel Heart",
+      "desc": "تحديث واستكمال هوستات بلاجن إيه تو بلاير",
+      "category": "iptv",
+      "cmd": "wget -q --no-check-certificate https://github.com/angelheart150/My_e2iplayer_hosts/raw/main/install-e2iplayer-update-hosts.sh -O - | /bin/sh",
+      "categoryName": "IPTV Plugins"
+    },
+    {
+      "title": "TSI Player",
+      "author": "By Angel Heart",
+      "desc": "إضافة تي إس إيه بلاير لتحديث واستكمال هوستات بلاجن إيه تو بلاير",
+      "category": "iptv",
+      "cmd": "wget -q \"--no-check-certificate\" https://github.com/angelheart150/My-tsiplayer/raw/main/install-tsiplayer-update-hosts.sh -O - | /bin/sh",
+      "categoryName": "IPTV Plugins"
+    },
+    {
+      "title": "My Streamer",
+      "author": "Mohamed Nasser",
+      "desc": "أداة تشغيل أي بي تي في للمواقع المجانية",
+      "category": "iptv",
+      "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/MyStreamer/refs/heads/main/myinstaller.sh | /bin/sh",
+      "categoryName": "IPTV Plugins"
+    },
+    {
+      "title": "Luka TV",
+      "author": "Mohamed Nasser",
+      "desc": "بلاجن تشغيل أي بي تي في المدفوع باضافة الاشتراك",
+      "category": "iptv",
+      "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/LukaTV/refs/heads/main/myinstaller.sh | /bin/sh",
+      "categoryName": "IPTV Plugins"
+    },
+    {
+      "title": "Xtream New",
+      "author": "Ahmed Hussein",
+      "desc": "أداة إضافة و تشغيل إشتراكات الأي بي تي في",
+      "category": "iptv",
+      "cmd": "wget -q --no-check-certificate \"https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/install_xtreamnew.sh?cb=$(date +%s)\" -O - | /bin/sh",
+      "categoryName": "IPTV Plugins"
+    },
+    {
+      "title": "Ultra Stalker",
+      "author": "Ahmed El Hadary",
+      "desc": "أداة إضافة و تشغيل إشتراكات الأي بي تي في",
+      "category": "iptv",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/K3bOra/-UltraStalker/main/install.sh | /bin/sh",
+      "categoryName": "IPTV Plugins"
+    },
+    {
+      "title": "Tivi Mate E2",
+      "author": "Opes Boy",
+      "desc": "أداة إضافة و تشغيل إشتراكات الأي بي تي في",
+      "category": "iptv",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/opesboy/TiviMateE2/main/install.sh | sh",
+      "categoryName": "IPTV Plugins"
+    },
+    {
+      "title": "Aglare ATV",
+      "author": "Mohamed Nasser",
+      "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+      "category": "skins",
+      "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/skins/refs/heads/main/aglareatv/myinstaller.sh | /bin/sh",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Aglare PLI",
+      "author": "Mohamed Nasser",
+      "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+      "category": "skins",
+      "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/skins/refs/heads/main/aglarepli/myinstaller.sh | /bin/sh",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Fury Skin",
+      "author": "Islam Salama",
+      "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+      "category": "skins",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/islam-2412/IPKS/refs/heads/main/fury/installer.sh -O - | /bin/sh",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Cine View MLA",
+      "author": "Habeb S",
+      "desc": "إسكين بواجهة سينمائية متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+      "category": "skins",
+      "cmd": "wget -qO /tmp/cineview-install.sh https://raw.githubusercontent.com/habeb-s/CineView-MLA-Install/main/cineview-install.sh && sh /tmp/cineview-install.sh",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Obsidian FHD",
+      "author": "Dali 44G",
+      "desc": "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى",
+      "category": "skins",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/dali44g/Obsidian-FHD/main/install.sh | sh",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "jihad Skin",
+      "author": "Ahmed S",
+      "desc": "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى",
+      "category": "skins",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/ahmeds200917/A…nstall_jihad.sh -O - | /bin/sh",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Mohammed Skin",
+      "author": "Unknown",
+      "desc": "إسكين عربي حديث يتميز بتصميم أنيق وخفيف مع دعم أغلب الإضافات",
+      "category": "skins",
+      "cmd": "wget -q --no-check-certificate \"https://raw.githubusercontent.com/mido00020/MohammedSkin/main/installer.sh\" -O - | /bin/sh",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "X Dreamy",
+      "author": "Insprion",
+      "desc": "إسكين إحترافي بواجهة عصرية ومعلومات موسعة عن القنوات والمحتوى",
+      "category": "skins",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/Insprion80/Skins/main/xDreamy/installer.sh -O - | /bin/sh",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Luka ATV",
+      "author": "Mohamed Nasser",
+      "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+      "category": "skins",
+      "cmd": "wget -O /tmp/lukaatv.ipk 'https://raw.githubusercontent.com/popking159/skins/main/lukaatv/lukaatv.ipk' && opkg install /tmp/lukaatv.ipk",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Luka PLI",
+      "author": "Mohamed Nasser",
+      "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+      "category": "skins",
+      "cmd": "wget -O /tmp/lukapli.ipk 'https://raw.githubusercontent.com/popking159/skins/main/lukapli/lukapli.ipk' && opkg install /tmp/lukapli.ipk",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Maxy ATV",
+      "author": "Mohamed Nasser",
+      "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+      "category": "skins",
+      "cmd": "wget -O /tmp/maxyatv.ipk 'https://raw.githubusercontent.com/popking159/skins/main/maxyatv/maxyatv.ipk' && opkg install /tmp/maxyatv.ipk",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Maxy PLI",
+      "author": "Mohamed Nasser",
+      "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
+      "category": "skins",
+      "cmd": "wget -O /tmp/maxypli.ipk 'https://raw.githubusercontent.com/popking159/skins/main/maxypli/maxypli.ipk' && opkg install /tmp/maxypli.ipk",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Metrix Poster",
+      "author": "Mohamed Nasser",
+      "desc": "إضافات ومكونات وأشكال عرض حديثة للقنوات والأفلام لواجهة إسكين ماتريكس",
+      "category": "skins",
+      "cmd": "wget -O /tmp/metrix_skinparts.tar.gz 'https://raw.githubusercontent.com/popking159/skins/main/metrix_skinparts/metrix_skinparts_mnasr.tar.gz' && mkdir -p /tmp/metrix_skinparts && tar -xzf /tmp/metrix_skinparts.tar.gz -C /tmp/metrix_skinparts",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Metrix Poster",
+      "author": "Hmeng",
+      "desc": "إضافات ومكونات وأشكال عرض حديثة للقنوات والأفلام لواجهة إسكين ماتريكس",
+      "category": "skins",
+      "cmd": "wget -q --no-check-certificate https://gitlab.com/hmeng80/addons/-/raw/main/metrix-fhd-parts-ec.sh -O - | /bin/sh",
+      "categoryName": "Skins"
+    },
+    {
+      "title": "Foot On Sat",
+      "author": "Fairbird",
+      "desc": "أداة لإظهار نتائج وقنوات المباريات",
+      "category": "others",
+      "cmd": "wget https://raw.githubusercontent.com/fairbird/FootOnsat/main/Download/install.sh -O - | /bin/sh",
+      "categoryName": "Other Plugins"
+    },
+    {
+      "title": "Server Coloring",
+      "author": "Islam Salama",
+      "desc": "لإضافة لون لقنواتك المفتوحة بالسيرفر الخاص بك",
+      "category": "others",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/islam-2412/ServerColoring/refs/heads/main/fury/installer.sh -O - | /bin/sh",
+      "categoryName": "Other Plugins"
+    },
+    {
+      "title": "E2 Currency Pro",
+      "author": "Ramzus",
+      "desc": "أداة لمعرفة أسعار العملات والذهب",
+      "category": "others",
+      "cmd": "wget -qO- https://raw.githubusercontent.com/ramzus007/E2-Currency-Pro/main/installer.sh | sh",
+      "categoryName": "Other Plugins"
+    }
+  ]
+}
