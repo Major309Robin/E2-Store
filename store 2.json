@@ -1,5 +1,78 @@
-[
-  {
+{
+  "categories": [
+    {
+      "id": "fast",
+      "nameAr": "Fast Order",
+      "nameEn": "Fast Order",
+      "nameFr": "Fast Order",
+      "icon": "fa-bolt"
+    },
+    {
+      "id": "panels",
+      "nameAr": "Panels",
+      "nameEn": "Panels",
+      "nameFr": "Panels",
+      "icon": "fa-window-maximize"
+    },
+    {
+      "id": "tools",
+      "nameAr": "Tools",
+      "nameEn": "Tools",
+      "nameFr": "Tools",
+      "icon": "fa-screwdriver-wrench"
+    },
+    {
+      "id": "softcams",
+      "nameAr": "SoftCam",
+      "nameEn": "SoftCam",
+      "nameFr": "SoftCam",
+      "icon": "fa-key"
+    },
+    {
+      "id": "audio",
+      "nameAr": "Audio",
+      "nameEn": "Audio",
+      "nameFr": "Audio",
+      "icon": "fa-volume-high"
+    },
+    {
+      "id": "subtitles",
+      "nameAr": "Subtitle",
+      "nameEn": "Subtitle",
+      "nameFr": "Subtitle",
+      "icon": "fa-closed-captioning"
+    },
+    {
+      "id": "epg",
+      "nameAr": "EPG",
+      "nameEn": "EPG",
+      "nameFr": "EPG",
+      "icon": "fa-calendar-days"
+    },
+    {
+      "id": "iptv",
+      "nameAr": "IPTV",
+      "nameEn": "IPTV",
+      "nameFr": "IPTV",
+      "icon": "fa-tv"
+    },
+    {
+      "id": "skins",
+      "nameAr": "Skins",
+      "nameEn": "Skins",
+      "nameFr": "Skins",
+      "icon": "fa-paintbrush"
+    },
+    {
+      "id": "others",
+      "nameAr": "Others",
+      "nameEn": "Others",
+      "nameFr": "Others",
+      "icon": "fa-puzzle-piece"
+    }
+  ],
+  "items": [
+    {
     "title": "AJPanel",
     "author": "AMAJamry",
     "desc": "لوحة أدوات متكاملة لإدارة إضافات وأدوات Enigma2 فى مكان واحد.",
@@ -2511,4 +2584,5 @@
     "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-sittings-xtraevent.sh -O - | /bin/sh",
     "categoryName": "Restore"
   }
-]
+  ]
+}
