@@ -651,20 +651,7 @@
         }
 
         let CATEGORIES_DATA = [
-            { id: 'all', nameKey: 'cat_all', nameAr: 'الكل', nameEn: 'All', nameFr: 'Tous', icon: 'fa-cubes' },
-            { id: 'fast', nameAr: 'Fast Order', nameEn: 'Fast Order', nameFr: 'Fast Order', icon: 'fa-bolt' },
-            { id: 'panels', nameAr: 'Panels', nameEn: 'Panels', nameFr: 'Panels', icon: 'fa-window-maximize' },
-            { id: 'tools', nameAr: 'Tools Plugins', nameEn: 'Tools Plugins', nameFr: 'Tools Plugins', icon: 'fa-screwdriver-wrench' },
-            { id: 'backup', nameAr: 'Backup & Restore', nameEn: 'Backup & Restore', nameFr: 'Backup & Restore', icon: 'fa-floppy-disk' },
-            { id: 'softcams', nameAr: 'SoftCams Plugins', nameEn: 'SoftCams Plugins', nameFr: 'SoftCams Plugins', icon: 'fa-key' },
-            { id: 'audio', nameAr: 'Audio Plugins', nameEn: 'Audio Plugins', nameFr: 'Audio Plugins', icon: 'fa-volume-high' },
-            { id: 'subtitles', nameAr: 'Subtitle Plugins', nameEn: 'Subtitle Plugins', nameFr: 'Subtitle Plugins', icon: 'fa-closed-captioning' },
-            { id: 'epg', nameAr: 'EPG Plugins', nameEn: 'EPG Plugins', nameFr: 'EPG Plugins', icon: 'fa-calendar-days' },
-            { id: 'iptv', nameAr: 'IPTV Plugins', nameEn: 'IPTV Plugins', nameFr: 'IPTV Plugins', icon: 'fa-tv' },
-            { id: 'skins', nameAr: 'Skins', nameEn: 'Skins', nameFr: 'Skins', icon: 'fa-paintbrush' },
-            { id: 'picons', nameAr: 'Picons', nameEn: 'Picons', nameFr: 'Picons', icon: 'fa-image' },
-            { id: 'bootlogos', nameAr: 'Boot Logos & Spinners', nameEn: 'Boot Logos & Spinners', nameFr: 'Boot Logos & Spinners', icon: 'fa-film' },
-            { id: 'others', nameAr: 'Other Plugins', nameEn: 'Other Plugins', nameFr: 'Other Plugins', icon: 'fa-puzzle-piece' },
+            { id: 'all', nameKey: 'cat_all', nameAr: 'الكل', nameEn: 'All', nameFr: 'Tous', icon: 'fa-cubes' }
         ];
 
         let currentLang = (() => { const sv = localStorage.getItem('e2lang'); if (['ar','en','fr'].includes(sv)) return sv; const b = (navigator.language || 'ar').slice(0,2); return ['ar','en','fr'].includes(b) ? b : 'ar'; })();
@@ -1130,10 +1117,17 @@
                 const items = arr.map(normalizeItem).filter(x => x.cmd);
                 if (!items.length) throw new Error(T('t_empty_cat'));
                 COMMANDS.splice(0, COMMANDS.length, ...items);
-                const _cats = new Map();
-                items.forEach(x => { if (!_cats.has(x.category)) _cats.set(x.category, x.categoryName || x.category); });
-                CATEGORIES_DATA = [{ id: 'all', nameKey: 'cat_all', nameAr: 'الكل', nameEn: 'All', nameFr: 'Tous', icon: 'fa-cubes' }]
-                    .concat([..._cats].map(([id, name]) => ({ id, nameAr: name, nameEn: name, nameFr: name, icon: 'fa-folder' })));
+                const _all = { id: 'all', nameKey: 'cat_all', nameAr: 'الكل', nameEn: 'All', nameFr: 'Tous', icon: 'fa-cubes' };
+                const _defs = (!Array.isArray(data) && Array.isArray(data.categories)) ? data.categories : null;
+                if (_defs) {
+                    CATEGORIES_DATA = [_all].concat(_defs.map(c => ({
+                        id: String(c.id), nameAr: c.nameAr || c.name || c.id, nameEn: c.nameEn || c.name || c.id,
+                        nameFr: c.nameFr || c.nameEn || c.name || c.id, icon: c.icon || 'fa-folder' })));
+                } else {
+                    const _cats = new Map();
+                    items.forEach(x => { if (!_cats.has(x.category)) _cats.set(x.category, x.categoryName || x.category); });
+                    CATEGORIES_DATA = [_all].concat([..._cats].map(([id, name]) => ({ id, nameAr: name, nameEn: name, nameFr: name, icon: 'fa-folder' })));
+                }
                 renderCategories();
                 document.getElementById('stat-commands').textContent = items.length;
                 applyFilterAndSearch(document.getElementById('searchInput').value.trim().toLowerCase(), activeCategory);
