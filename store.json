@@ -17,43 +17,43 @@
     {
       "id": "tools",
       "nameAr": "Tools",
-      "nameEn": "Tools Plugins",
-      "nameFr": "Tools Plugins",
+      "nameEn": "Tools",
+      "nameFr": "Tools",
       "icon": "fa-screwdriver-wrench"
     },
     {
       "id": "softcams",
-      "nameAr": "SoftCams Plugins",
-      "nameEn": "SoftCams Plugins",
-      "nameFr": "SoftCams Plugins",
+      "nameAr": "SoftCam",
+      "nameEn": "SoftCam",
+      "nameFr": "SoftCam",
       "icon": "fa-key"
     },
     {
       "id": "audio",
-      "nameAr": "Audio Plugins",
-      "nameEn": "Audio Plugins",
-      "nameFr": "Audio Plugins",
+      "nameAr": "Audio",
+      "nameEn": "Audio",
+      "nameFr": "Audio",
       "icon": "fa-volume-high"
     },
     {
       "id": "subtitles",
-      "nameAr": "Subtitle Plugins",
-      "nameEn": "Subtitle Plugins",
-      "nameFr": "Subtitle Plugins",
+      "nameAr": "Subtitle",
+      "nameEn": "Subtitle",
+      "nameFr": "Subtitle",
       "icon": "fa-closed-captioning"
     },
     {
       "id": "epg",
-      "nameAr": "EPG Plugins",
-      "nameEn": "EPG Plugins",
-      "nameFr": "EPG Plugins",
+      "nameAr": "EPG",
+      "nameEn": "EPG",
+      "nameFr": "EPG",
       "icon": "fa-calendar-days"
     },
     {
       "id": "iptv",
-      "nameAr": "IPTV Plugins",
-      "nameEn": "IPTV Plugins",
-      "nameFr": "IPTV Plugins",
+      "nameAr": "IPTV",
+      "nameEn": "IPTV",
+      "nameFr": "IPTV",
       "icon": "fa-tv"
     },
     {
@@ -65,9 +65,9 @@
     },
     {
       "id": "others",
-      "nameAr": "Other Plugins",
-      "nameEn": "Other Plugins",
-      "nameFr": "Other Plugins",
+      "nameAr": "Others",
+      "nameEn": "Others",
+      "nameFr": "Others",
       "icon": "fa-puzzle-piece"
     }
   ],
