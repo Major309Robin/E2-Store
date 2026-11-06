@@ -1213,7 +1213,6 @@ async function saveReceiver(e) {
             localStorage.setItem('e2receiver', JSON.stringify(RX));
             const label = RX.name || RX.ip || RX.code || 'receiver';
             const msg = document.getElementById('rxTestMsg');
-            if (msg) { msg.className = 'text-xs text-amber-400'; msg.textContent = 'Checking...'; }
             let ok = false;
             try {
                 if (RX.code) {
@@ -1352,8 +1351,8 @@ async function saveReceiver(e) {
                     box.className = location.protocol === 'https:' ? 'text-xs text-amber-400' : 'text-xs text-red-400';
                     box.textContent = location.protocol === 'https:'
                         ? (currentLang === 'ar'
-                            ? 'ℹ المتصفح بيمنع اختبار الاتصال من صفحة https، ده طبيعي. دوس "حفظ" وهيتم التثبيت تلقائياً من صفحة الرسيفر.'
-                            : 'ℹ The browser blocks the connection test from an https page - this is normal. Press Save; installs will run automatically via the receiver page.')
+                            ? 'ℹ المتصفح بيمنع الاتصال بالرسيفر من صفحة https. افتح الصفحة من الرسيفر نفسه (http://' + cfg.ip + ':' + (cfg.webPort || 8765) + ').'
+                            : 'ℹ The browser blocks connecting to the receiver from an https page. Open the page from the receiver itself (http://' + cfg.ip + ':' + (cfg.webPort || 8765) + ').')
                         : T('t_agent_down', cfg.ip + ':' + (cfg.webPort || 8765));
                 }
                 return;
@@ -1425,6 +1424,14 @@ async function saveReceiver(e) {
                     log.textContent = location.protocol === 'https:'
                         ? T('t_https', 'http://' + RX.ip + ':' + (RX.webPort || 8765))
                         : T('i_agent_hint');
+                    if (location.protocol === 'https:') {
+                        const _a = document.createElement('a');
+                        _a.href = 'http://' + RX.ip + ':' + (RX.webPort || 8765) + '/';
+                        _a.target = '_blank'; _a.rel = 'noopener';
+                        _a.textContent = currentLang === 'ar' ? '↗ افتح الصفحة من الرسيفر' : '↗ Open the page from the receiver';
+                        _a.className = 'block mt-3 underline text-cyan-400';
+                        log.appendChild(_a);
+                    }
                     refreshRxUi('bad');
                 }
                 return;
