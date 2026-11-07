@@ -1143,12 +1143,6 @@
 
         // ===== Receiver connection =====
         let RX = JSON.parse(localStorage.getItem('e2receiver') || 'null');
-        // Opened from GitHub (https) with a saved receiver: browsers block https pages from calling the receiver (http),
-        // so go straight to the receiver's own http page, in this same tab.
-        if (location.protocol === 'https:' && RX && RX.mode === 'agent' && RX.ip && !sessionStorage.getItem('e2noredir')) {
-            sessionStorage.setItem('e2noredir', '1');
-            location.replace('http://' + RX.ip + ':' + (RX.webPort || 8765) + '/' + location.hash);
-        }
         function normCode(v) { return String(v || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
         function effMode() { const e = document.getElementById('rxCode'); return (e && normCode(e.value).length === 20) ? 'link' : 'agent'; }
         if (RX) { RX.webPort = 8765; RX.mode = RX.code ? 'link' : 'agent'; if ([21, 22, 23].includes(parseInt(RX.webPort))) RX.webPort = 8765; }
@@ -1395,6 +1389,11 @@ async function saveReceiver(e) {
         async function installItem(id) {
             const item = (typeof id === 'object') ? id : COMMANDS.find(c => c.id === id); if (!item) return;
             if (!RX) { showToast(T('t_link_first')); openModal('receiverModal'); return; }
+            if (location.protocol === 'https:' && RX && RX.mode === 'agent' && RX.ip) {
+                const _ret = location.href.split('#')[0];
+                location.href = 'http://' + RX.ip + ':' + (RX.webPort || 8765) + '/?autoinstall=' + encodeURIComponent(item.id) + '&return=' + encodeURIComponent(_ret);
+                return;
+            }
             const log = document.getElementById('instLog'), icon = document.getElementById('instIcon'), st = document.getElementById('instStatus'); showInstallErrors('', '');
             document.getElementById('instTitle').textContent = item.title + ' ← ' + (RX.name || RX.ip);
             log.textContent = ''; st.textContent = T('i_installing'); icon.className = 'fa-solid fa-circle-notch spin text-cyan-400 text-xl';
@@ -1873,6 +1872,15 @@ async function saveReceiver(e) {
         routeHash();
         loadShared();
         loadCatalog(true);
+        (async () => {
+            const q = new URLSearchParams(location.search);
+            const aid = q.get('autoinstall'), ret = q.get('return');
+            if (!aid || location.protocol !== 'http:') return;
+            for (let k = 0; k < 100 && !(typeof COMMANDS !== 'undefined' && COMMANDS.length); k++) await new Promise(r => setTimeout(r, 200));
+            const item = (typeof COMMANDS !== 'undefined' ? COMMANDS : []).find(c => String(c.id) === String(aid));
+            if (item) { try { await installItem(item); } catch (e) {} }
+            if (ret) setTimeout(() => location.replace(ret), 3000);
+        })();
     </script>
 </body>
 </html>
