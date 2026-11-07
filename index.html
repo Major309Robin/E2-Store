@@ -241,20 +241,22 @@
 
                 
                 <div class="app-card glass-panel p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800/80 sm:col-span-2 space-y-3 hover:border-cyan-500/60 transition-all group">
-                    <div class="flex items-center gap-4">
+                    <div class="flex flex-wrap items-center gap-3 sm:gap-4">
                         <div class="w-12 h-12 shrink-0 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-2xl border border-cyan-500/20">
                             <i class="fa-solid fa-link"></i>
                         </div>
-                        <div class="flex-1 min-w-0">
+                        <div class="flex-1 min-w-[10rem]">
                             <h4 class="font-bold text-sm sm:text-base group-hover:text-cyan-400 transition-colors" data-i18n="link_title">بانل E2 Store Link على الرسيفر</h4>
                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="link_desc">بيظهر على شاشة الإنيجما2 ويربط الرسيفر بالصفحة وينفذ الأوامر عليه</p>
                         </div>
-                        <button type="button" onclick="copyAgentCmd('linkCmd')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold flex items-center gap-1.5 shrink-0">
-                            <i class="fa-regular fa-copy"></i> <span data-i18n="dl_copy_btn">نسخ</span>
-                        </button>
-                        <button type="button" id="linkInstallBtn" onclick="installPanelUpdate()" disabled class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-semibold flex items-center gap-1.5 shrink-0 opacity-50 cursor-not-allowed transition-all">
-                            <i class="fa-solid fa-download"></i> <span>Install</span>
-                        </button>
+                        <div class="flex gap-2 w-full sm:w-auto shrink-0">
+                            <button type="button" onclick="copyAgentCmd('linkCmd')" class="flex-1 sm:flex-none justify-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold flex items-center gap-1.5">
+                                <i class="fa-regular fa-copy"></i> <span data-i18n="dl_copy_btn">نسخ</span>
+                            </button>
+                            <button type="button" id="linkInstallBtn" onclick="installPanelUpdate()" disabled class="flex-1 sm:flex-none justify-center px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-semibold flex items-center gap-1.5 opacity-50 cursor-not-allowed transition-all">
+                                <i class="fa-solid fa-download"></i> <span>Install</span>
+                            </button>
+                        </div>
                     </div>
                     <code id="linkCmd" dir="ltr" class="block w-full bg-slate-100 dark:bg-slate-900 text-[11px] sm:text-xs text-cyan-600 dark:text-cyan-400 rounded-xl p-3 border border-slate-200 dark:border-slate-800 overflow-x-auto whitespace-nowrap text-left select-all">cd /tmp && wget --no-check-certificate -O Panel_2.0.1_all.ipk https://major309robin.github.io/E2-Store/Panel_2.0.1_all.ipk && opkg install --force-reinstall Panel_2.0.1_all.ipk</code>
                 </div>
@@ -1141,6 +1143,12 @@
 
         // ===== Receiver connection =====
         let RX = JSON.parse(localStorage.getItem('e2receiver') || 'null');
+        // Opened from GitHub (https) with a saved receiver: browsers block https pages from calling the receiver (http),
+        // so go straight to the receiver's own http page, in this same tab.
+        if (location.protocol === 'https:' && RX && RX.mode === 'agent' && RX.ip && !sessionStorage.getItem('e2noredir')) {
+            sessionStorage.setItem('e2noredir', '1');
+            location.replace('http://' + RX.ip + ':' + (RX.webPort || 8765) + '/' + location.hash);
+        }
         function normCode(v) { return String(v || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
         function effMode() { const e = document.getElementById('rxCode'); return (e && normCode(e.value).length === 20) ? 'link' : 'agent'; }
         if (RX) { RX.webPort = 8765; RX.mode = RX.code ? 'link' : 'agent'; if ([21, 22, 23].includes(parseInt(RX.webPort))) RX.webPort = 8765; }
@@ -1427,7 +1435,7 @@ async function saveReceiver(e) {
                     if (location.protocol === 'https:') {
                         const _a = document.createElement('a');
                         _a.href = 'http://' + RX.ip + ':' + (RX.webPort || 8765) + '/';
-                        _a.target = '_blank'; _a.rel = 'noopener';
+                        _a.target = '_self';
                         _a.textContent = currentLang === 'ar' ? '↗ افتح الصفحة من الرسيفر' : '↗ Open the page from the receiver';
                         _a.className = 'block mt-3 underline text-cyan-400';
                         log.appendChild(_a);
