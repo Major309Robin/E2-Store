@@ -246,7 +246,7 @@
                             <i class="fa-solid fa-link"></i>
                         </div>
                         <div class="flex-1 min-w-[10rem]">
-                            <h4 class="font-bold text-sm sm:text-base group-hover:text-cyan-400 transition-colors" data-i18n="link_title">بانل E2 Store Link على الرسيفر</h4>
+                            <h4 class="font-bold text-sm sm:text-base group-hover:text-cyan-400 transition-colors" data-i18n="link_title">بانل E2 Store على الرسيفر</h4>
                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="link_desc">بيظهر على شاشة الإنيجما2 ويربط الرسيفر بالصفحة وينفذ الأوامر عليه</p>
                         </div>
                         <div class="flex gap-2 w-full sm:w-auto shrink-0">
@@ -557,7 +557,7 @@
             rx_btn:["ربط الرسيفر","Link receiver","Lier le récepteur"],
             rx_code:["كود الربط (اختياري - للاتصال من خارج الشبكة فقط)","Link code (optional - remote access only)","Code de liaison (facultatif - accès distant uniquement)"],
             rx_code_hint:["على الشبكة المحلية اكتب IP الرسيفر بس وسيب الكود فاضي.","On the local network, just enter the receiver IP and leave the code empty.","Sur le réseau local, saisissez seulement l'IP du récepteur et laissez le code vide."],
-            link_title:["بانل E2 Store Link على الرسيفر","E2 Store Link panel on the receiver","Panneau E2 Store Link sur le récepteur"],
+            link_title:["بانل E2 Store على الرسيفر","E2 Store Panel on the receiver","Panneau E2 Store Link sur le récepteur"],
             link_desc:["بيظهر على شاشة الإنيجما2 ويربط الرسيفر بالصفحة وينفذ الأوامر عليه","Shows on the Enigma2 screen, links the receiver to this page and runs the commands on it","S'affiche sur l'écran Enigma2, relie le récepteur à cette page et exécute les commandes"],
             rx_sub:["أدخل بيانات جهازك مرة واحدة وهتتحفظ في المتصفح","Enter your device details once; they are saved in your browser","Saisissez les infos de votre appareil une seule fois, elles sont enregistrées dans le navigateur"],
             rx_name:["اسم الجهاز","Device name","Nom de l'appareil"],
@@ -1244,7 +1244,7 @@ async function saveReceiver(e) {
             showToast(T('t_saved'));
             loadCatalog(false);
         }
-        // ===== Link mode: page <-> E2 Store Link panel on the receiver, through an HTTPS relay (ntfy.sh) =====
+        // ===== Link mode: page <-> E2 Store Panel on the receiver, through an HTTPS relay (ntfy.sh) =====
         async function linkRun(code, payload, onOut, timeoutMs) {
             const n = Math.random().toString(36).slice(2, 10);
             const ctl = new AbortController();
