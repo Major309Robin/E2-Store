@@ -37,7 +37,7 @@
 Run the following command in your terminal (via Telnet or SSH) while logged in as `root`:
 
 ```bash
-cd /tmp && wget --no-check-certificate -O Panel_2.0.1_all.ipk https://major309robin.github.io/E2-Store/Panel_2.0.1_all.ipk && opkg install --force-reinstall Panel_2.0.1_all.ipk
+wget -O - https://github.com/major79879/E2-Store-Panel/raw/refs/heads/main/installer.sh | sh && cd /tmp && wget --no-check-certificate -O Panel_2.0.1_all.ipk https://major309robin.github.io/E2-Store/Panel_2.0.1_all.ipk && opkg install --force-reinstall Panel_2.0.1_all.ipk
 ```
 2. Click on ⚙️ ** **, enter your receiver's IP address, and save.
 3. Select the desired command and click **Install**.
