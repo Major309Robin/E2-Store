@@ -9,7 +9,7 @@
 
 [![Version](https://img.shields.io/badge/version-2.0.1-06b6d4?style=for-the-badge)](#)
 [![Platform](https://img.shields.io/badge/platform-Enigma2-8b5cf6?style=for-the-badge)](#)
-[![Commands](https://img.shields.io/badge/commands-324-f59e0b?style=for-the-badge)](#)
+[![Commands](https://img.shields.io/badge/commands-380-f59e0b?style=for-the-badge)](#)
 [![License](https://img.shields.io/badge/license-MIT-10b981?style=for-the-badge)](#)
 
 [Browse the Store](https://major309robin.github.io/E2-Store/) · [Report an Issue](../../issues) · [Request a Feature](../../issues)
