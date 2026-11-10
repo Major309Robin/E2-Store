@@ -370,7 +370,7 @@
             <form onsubmit="saveReceiver(event)" class="space-y-3">
                 <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_name">اسم الجهاز</span></label>
                     <input id="rxName" type="text" data-i18n-placeholder="rx_name_ph" placeholder="مثال: Vu+ الصالون" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500"></div>
-                <div class="space-y-1" style="display:none"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_code">كود الربط (اختياري - للاتصال من خارج الشبكة فقط)</span></label>
+                <div class="space-y-1"><label class="text-xs font-semibold text-slate-600 dark:text-slate-400"><span data-i18n="rx_code">كود الربط (اختياري - للاتصال من خارج الشبكة فقط)</span></label>
                     <input id="rxCode" dir="ltr" type="text" autocomplete="off" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" class="w-full bg-slate-100 dark:bg-slate-900 text-xs rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 tracking-wider uppercase">
                     <p class="text-[10px] text-slate-400" data-i18n="rx_code_hint">على الشبكة المحلية اكتب IP الرسيفر بس وسيب الكود فاضي.</p></div>
                 <div class="grid grid-cols-3 gap-3">
@@ -1210,6 +1210,7 @@ async function saveReceiver(e) {
             e.preventDefault();
             const _c = normCode(rxCode.value);
             if (_c && _c.length !== 20) { showToast(currentLang === 'ar' ? 'كود الربط لازم يكون 20 حرف/رقم' : 'The link code must be 20 characters'); return; }
+            if (!_c && location.protocol === 'https:') { showToast(currentLang === 'ar' ? 'اكتب كود الربط الظاهر على الجهاز (MENU ← About)' : 'Enter the link code shown on the receiver (MENU > About)'); return; }
             if (!_c && !rxIp.value.trim()) { showToast('Enter the receiver IP'); return; }
             RX = readRxForm();
             localStorage.setItem('e2receiver', JSON.stringify(RX));
@@ -1389,10 +1390,9 @@ async function saveReceiver(e) {
         async function installItem(id) {
             const item = (typeof id === 'object') ? id : COMMANDS.find(c => c.id === id); if (!item) return;
             if (!RX) { showToast(T('t_link_first')); openModal('receiverModal'); return; }
-            if (location.protocol === 'https:' && RX && RX.mode === 'agent' && RX.ip) {
-                const _ret = location.href.split('#')[0];
-                location.href = 'http://' + RX.ip + ':' + (RX.webPort || 8765) + '/?autoinstall=' + encodeURIComponent(item.id) + '&return=' + encodeURIComponent(_ret);
-                return;
+            if (location.protocol === 'https:' && RX && RX.mode === 'agent') {
+                showToast(currentLang === 'ar' ? 'اكتب كود الربط الظاهر على الجهاز (MENU ← About) للاتصال المباشر' : 'Enter the link code shown on the receiver (MENU > About) to connect directly');
+                openModal('receiverModal'); return;
             }
             const log = document.getElementById('instLog'), icon = document.getElementById('instIcon'), st = document.getElementById('instStatus'); showInstallErrors('', '');
             document.getElementById('instTitle').textContent = item.title + ' ← ' + (RX.name || RX.ip);
