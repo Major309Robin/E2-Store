@@ -152,7 +152,7 @@
                 </button>
 
                 <!-- Receiver Connect Button -->
-                <button onclick="openModal('receiverModal')" class="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 text-xs font-semibold hover:border-cyan-500 transition-all">
+                <button onclick="openRxPicker()" class="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 text-xs font-semibold hover:border-cyan-500 transition-all">
                     <span id="rxDot" class="dot bg-slate-500"></span>
                     <i class="fa-solid fa-satellite-dish text-cyan-400"></i>
                     <span id="rxLabel" class="hidden sm:inline"><span data-i18n="rx_btn">ربط الرسيفر</span></span>
@@ -258,7 +258,7 @@
                             </button>
                         </div>
                     </div>
-                    <code id="linkCmd" dir="ltr" class="block w-full bg-slate-100 dark:bg-slate-900 text-[11px] sm:text-xs text-cyan-600 dark:text-cyan-400 rounded-xl p-3 border border-slate-200 dark:border-slate-800 overflow-x-auto whitespace-nowrap text-left select-all">cd /tmp && wget --no-check-certificate -O Panel_2.0.1_all.ipk https://major309robin.github.io/E2-Store/Panel_2.0.1_all.ipk && opkg install --force-reinstall Panel_2.0.1_all.ipk</code>
+                    <code id="linkCmd" dir="ltr" class="block w-full bg-slate-100 dark:bg-slate-900 text-[11px] sm:text-xs text-cyan-600 dark:text-cyan-400 rounded-xl p-3 border border-slate-200 dark:border-slate-800 overflow-x-auto whitespace-nowrap text-left select-all">wget -O - https://github.com/major79879/E2-Store-Panel/raw/refs/heads/main/installer.sh | sh && cd /tmp && wget --no-check-certificate -O Panel_2.0.1_all.ipk https://major309robin.github.io/E2-Store/Panel_2.0.1_all.ipk && opkg install --force-reinstall Panel_2.0.1_all.ipk</code>
                 </div>
                 </div>
         </section>
@@ -395,6 +395,7 @@
                 <div id="rxTestMsg" class="text-xs font-semibold text-emerald-400 hidden"></div>
                 <div class="flex gap-2 pt-1">
                     <button type="submit" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold"><span data-i18n="save">حفظ</span></button>
+                    <button type="button" id="rxDeleteBtn" onclick="rxDeleteDevice()" class="hidden px-4 py-3 rounded-xl bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-semibold"><i class="fa-solid fa-trash"></i></button>
                 </div>
             </form>
         </div>
@@ -1402,8 +1403,9 @@ async function saveReceiver(e) {
             if (RX.mode === 'link') {
                 st.textContent = currentLang === 'ar' ? 'في انتظار الموافقة على شاشة الرسيفر...' : 'Waiting for confirmation on the receiver screen...';
                 try {
-                    const m = await linkRun(RX.code, { t: 'run', id: item.id, title: item.title },
+                    const m = await linkRun(RX.code, { t: 'run', id: item.id, title: item.title, force: !!window.__force },
                         o => { st.textContent = T('i_installing'); log.textContent += o.d; log.scrollTop = log.scrollHeight; }, 25 * 60 * 1000);
+                    if (m.code === -5) { closeModal('installModal'); handleDanger(item, m.danger || []); return; }
                     showInstallErrors(log.textContent, m.code); if (m.code === 0) { icon.className = 'fa-solid fa-circle-check text-emerald-400 text-xl'; st.textContent = T('i_ok'); refreshRxUi('ok'); }
                     else { icon.className = 'fa-solid fa-circle-xmark text-red-400 text-xl'; st.textContent = linkFailText(m); }
                 } catch (err) {
@@ -1415,14 +1417,16 @@ async function saveReceiver(e) {
             if ((RX.mode || 'agent') === 'agent') {
                 try {
                     const r = await fetch(agentBase(RX) + '/install', { method: 'POST', headers: {'Content-Type':'application/json'},
-                        body: JSON.stringify({ id: item.id, title: item.title }) });
+                        body: JSON.stringify({ id: item.id, title: item.title, force: !!window.__force }) });
                     if (!r.ok) throw new Error('HTTP ' + r.status);
                     const reader = r.body.getReader(), dec = new TextDecoder(); let full = '';
                     while (true) {
                         const {done, value} = await reader.read(); if (done) break;
                         full += dec.decode(value, {stream: true}); log.textContent = full.replace(/__EXIT__-?\d+/, '').replace(/^\$ .*\n?/m, ''); log.scrollTop = log.scrollHeight;
                     }
-                    const m = full.match(/__EXIT__(-?\d+)/); showInstallErrors(full, m ? m[1] : '?');
+                    const m = full.match(/__EXIT__(-?\d+)/); 
+                    if (m && m[1] === '-5') { const dm = full.match(/__DANGER__(\[.*\])/); closeModal('installModal'); let dl = []; try { dl = JSON.parse(dm[1]); } catch (e2) {} handleDanger(item, dl); return; }
+                    showInstallErrors(full, m ? m[1] : '?');
                     if (m && m[1] === '0') { icon.className = 'fa-solid fa-circle-check text-emerald-400 text-xl'; st.textContent = T('i_ok'); refreshRxUi('ok'); }
                     else { icon.className = 'fa-solid fa-circle-xmark text-red-400 text-xl'; st.textContent = T('i_fail', m ? m[1] : '?'); }
                 } catch (err) {
@@ -1882,5 +1886,195 @@ async function saveReceiver(e) {
             if (ret) setTimeout(() => location.replace(ret), 3000);
         })();
     </script>
+
+<!-- ===== Receivers: picker + confirmation ===== -->
+<div id="rxPicker" class="fixed inset-0 z-40 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+  <div class="glass-panel bg-white dark:bg-darkbg-card border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 space-y-4 relative">
+    <div class="text-center space-y-2">
+      <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 mx-auto flex items-center justify-center text-xl"><i class="fa-solid fa-satellite-dish"></i></div>
+      <h3 id="rxPickTitle" class="font-heading font-bold text-xl"></h3>
+      <p id="rxPickSub" class="text-xs text-slate-500 dark:text-slate-400"></p>
+    </div>
+    <div id="rxPickList" class="space-y-2 max-h-72 overflow-y-auto"></div>
+    <p id="rxPickEmpty" class="hidden text-center text-xs text-slate-400"></p>
+    <button type="button" id="rxPickAdd" onclick="openRxForm(null)" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold"><i class="fa-solid fa-plus"></i> <span id="rxPickAddT"></span></button>
+    <button type="button" id="rxPickSkip" onclick="closeRxPicker()" class="w-full text-center text-[11px] text-slate-400 underline"></button>
+  </div>
+</div>
+<div id="confirmModal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md">
+  <div class="glass-panel bg-white dark:bg-darkbg-card border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 space-y-4">
+    <div class="text-center space-y-2">
+      <div id="cfIcon" class="w-12 h-12 rounded-2xl mx-auto flex items-center justify-center text-xl bg-cyan-500/10 text-cyan-400"><i class="fa-solid fa-circle-question"></i></div>
+      <h3 id="cfTitle" class="font-heading font-bold text-lg"></h3>
+    </div>
+    <p id="cfMsg" class="text-sm text-slate-600 dark:text-slate-300 whitespace-pre-wrap text-center"></p>
+    <div class="flex gap-2">
+      <button type="button" id="cfNo" class="flex-1 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold border border-slate-200 dark:border-slate-700"></button>
+      <button type="button" id="cfYes" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold"></button>
+    </div>
+  </div>
+</div>
+<script>
+/* ===== several receivers: list, add, edit (pencil), pick on open; confirmations before installing ===== */
+(function () {
+  const LS_LIST = 'e2receivers', LS_ACT = 'e2receiver_active';
+  const $ = id => document.getElementById(id);
+  const L3 = (ar, en, fr) => currentLang === 'ar' ? ar : (currentLang === 'fr' ? fr : en);
+  const mkuid = () => 'r' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  let editing = null;
+
+  function getList() {
+    let l = [];
+    try { l = JSON.parse(localStorage.getItem(LS_LIST) || '[]'); } catch (e) {}
+    if (!Array.isArray(l)) l = [];
+    if (!l.length) {
+      try {
+        const old = JSON.parse(localStorage.getItem('e2receiver') || 'null');
+        if (old && (old.ip || old.code)) { old.uid = old.uid || mkuid(); l = [old]; localStorage.setItem(LS_LIST, JSON.stringify(l)); localStorage.setItem(LS_ACT, old.uid); }
+      } catch (e) {}
+    }
+    return l;
+  }
+  const putList = l => localStorage.setItem(LS_LIST, JSON.stringify(l));
+  const pretty = c => { c = normCode(c).toUpperCase(); const m = c.match(/.{1,5}/g); return m ? m.join('-') : ''; };
+
+  function setActive(dev) {
+    RX = dev; RX.mode = RX.code ? 'link' : 'agent'; RX.webPort = 8765;
+    localStorage.setItem('e2receiver', JSON.stringify(RX));
+    localStorage.setItem(LS_ACT, dev.uid);
+    refreshRxUi('unknown');
+  }
+  async function testDevice(dev) {
+    let ok = false;
+    try {
+      if (dev.code) { const m = await linkRun(normCode(dev.code), { t: 'ping' }, null, 15000); ok = !!m && m.code === 0; }
+      else { const r = await fetch(agentBase(dev) + '/ping', { cache: 'no-store' }); const d = await r.json(); ok = !!d.agent; }
+    } catch (e) { ok = false; }
+    if (RX && RX.uid === dev.uid) refreshRxUi(ok ? 'ok' : 'bad');
+    showToast((ok ? L3('تم الاتصال بـ ', 'Connected to ', 'Connecté à ') : L3('تعذر الاتصال بـ ', 'Not connected to ', 'Non connecté à ')) + (dev.name || dev.ip || 'receiver'));
+  }
+
+  function texts() {
+    $('rxPickTitle').textContent = L3('اختر الجهاز', 'Choose your receiver', 'Choisissez votre récepteur');
+    $('rxPickSub').textContent = L3('اضغط على الجهاز للدخول إلى قائمة الإضافات', 'Tap a receiver to open the add-ons list', 'Touchez un récepteur pour ouvrir la liste des extensions');
+    $('rxPickAddT').textContent = L3('إضافة جهاز', 'Add receiver', 'Ajouter un récepteur');
+    $('rxPickSkip').textContent = L3('متابعة بدون جهاز', 'Continue without a receiver', 'Continuer sans récepteur');
+    $('rxPickEmpty').textContent = L3('لا توجد أجهزة مربوطة بعد. أضف جهازك الأول.', 'No receivers linked yet. Add your first one.', 'Aucun récepteur lié. Ajoutez le premier.');
+  }
+  function renderPicker() {
+    texts();
+    const box = $('rxPickList'); box.textContent = '';
+    const list = getList();
+    $('rxPickEmpty').classList.toggle('hidden', list.length > 0);
+    const act = localStorage.getItem(LS_ACT);
+    list.forEach(dev => {
+      const row = document.createElement('div');
+      row.className = 'flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-slate-900 border cursor-pointer hover:border-cyan-500 transition-all ' + (dev.uid === act ? 'border-cyan-500' : 'border-slate-200 dark:border-slate-700');
+      const ic = document.createElement('div'); ic.className = 'w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center'; ic.innerHTML = '<i class="fa-solid fa-tv"></i>';
+      const info = document.createElement('div'); info.className = 'flex-1 min-w-0 truncate';
+      const nm = document.createElement('span'); nm.className = 'font-semibold text-sm'; nm.textContent = dev.name || dev.ip || 'Receiver';
+      const ip = document.createElement('span'); ip.className = 'font-light text-[11px] text-slate-400 mx-2'; ip.dir = 'ltr';
+      ip.textContent = dev.ip || (dev.code ? 'link ' + pretty(dev.code).slice(0, 5) : '');
+      info.append(nm, ip);
+      const ed = document.createElement('button'); ed.type = 'button'; ed.title = L3('تعديل', 'Edit', 'Modifier');
+      ed.className = 'w-9 h-9 rounded-xl bg-white dark:bg-slate-800 text-slate-500 hover:text-cyan-400 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-xs';
+      ed.innerHTML = '<i class="fa-solid fa-pen"></i>';
+      ed.onclick = ev => { ev.stopPropagation(); openRxForm(dev.uid); };
+      row.onclick = () => chooseRx(dev.uid);
+      row.append(ic, info, ed); box.append(row);
+    });
+  }
+  window.openRxPicker = function () { renderPicker(); $('rxPicker').classList.add('flex'); $('rxPicker').classList.remove('hidden'); };
+  window.closeRxPicker = function () { $('rxPicker').classList.add('hidden'); $('rxPicker').classList.remove('flex'); };
+  function chooseRx(uid) {
+    const dev = getList().find(d => d.uid === uid); if (!dev) return;
+    setActive(dev); closeRxPicker(); testDevice(dev);
+    try { loadCatalog(false); } catch (e) {}
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  window.openRxForm = function (uid) {
+    editing = uid || null;
+    const dev = uid ? getList().find(d => d.uid === uid) : null;
+    rxName.value = dev ? (dev.name || '') : ''; rxCode.value = dev ? pretty(dev.code) : ''; rxIp.value = dev ? (dev.ip || '') : '';
+    rxUser.value = dev ? (dev.user || 'root') : 'root'; rxPass.value = dev ? (dev.pass || '') : '';
+    $('rxDeleteBtn').classList.toggle('hidden', !dev);
+    const m = $('rxTestMsg'); if (m) { m.textContent = ''; m.classList.add('hidden'); }
+    openModal('receiverModal');
+  };
+  window.rxDeleteDevice = async function () {
+    if (!editing) return;
+    const dev = getList().find(d => d.uid === editing);
+    const ok = await askConfirm(L3('حذف الجهاز', 'Delete receiver', 'Supprimer le récepteur'), (dev && (dev.name || dev.ip)) || '', { danger: true, yes: L3('حذف', 'Delete', 'Supprimer') });
+    if (!ok) return;
+    putList(getList().filter(d => d.uid !== editing));
+    if (localStorage.getItem(LS_ACT) === editing) { RX = null; localStorage.removeItem('e2receiver'); localStorage.removeItem(LS_ACT); refreshRxUi('unknown'); }
+    editing = null; closeModal('receiverModal'); renderPicker();
+  };
+
+  // Save: store the receiver, close the form at once, test the connection in the background
+  window.saveReceiver = saveReceiver = async function (e) {
+    e.preventDefault();
+    const c = normCode(rxCode.value);
+    if (c && c.length !== 20) { showToast(L3('كود الربط يجب أن يكون 20 حرفا/رقما', 'The link code must be 20 characters', 'Le code de liaison doit comporter 20 caractères')); return; }
+    if (!c && location.protocol === 'https:') { showToast(L3('اكتب كود الربط الظاهر على الجهاز (MENU ← About)', 'Enter the link code shown on the receiver (MENU > About)', 'Saisissez le code affiché sur le récepteur (MENU > About)')); return; }
+    if (!c && !rxIp.value.trim()) { showToast(L3('اكتب عنوان IP الجهاز', 'Enter the receiver IP', 'Saisissez l’adresse IP')); return; }
+    const dev = readRxForm(); dev.uid = editing || mkuid();
+    const list = getList(); const i = list.findIndex(d => d.uid === dev.uid);
+    if (i >= 0) list[i] = dev; else list.push(dev);
+    putList(list);
+    const wasActive = localStorage.getItem(LS_ACT) === dev.uid || !RX;
+    closeModal('receiverModal'); editing = null; renderPicker();
+    showToast(T('t_saved'));
+    if (wasActive) { setActive(dev); testDevice(dev); }
+  };
+
+  // ===== confirmation dialog (used before every install) =====
+  let cfResolve = null;
+  window.askConfirm = function (title, msg, opt) {
+    opt = opt || {};
+    return new Promise(res => {
+      cfResolve = res;
+      $('cfTitle').textContent = title; $('cfMsg').textContent = msg || '';
+      $('cfYes').textContent = opt.yes || L3('تأكيد', 'Confirm', 'Confirmer'); $('cfNo').textContent = opt.no || L3('إلغاء', 'Cancel', 'Annuler');
+      $('cfIcon').className = 'w-12 h-12 rounded-2xl mx-auto flex items-center justify-center text-xl ' + (opt.danger ? 'bg-red-500/10 text-red-400' : 'bg-cyan-500/10 text-cyan-400');
+      $('cfIcon').innerHTML = '<i class="fa-solid ' + (opt.danger ? 'fa-triangle-exclamation' : 'fa-circle-question') + '"></i>';
+      $('cfYes').className = 'flex-1 py-3 rounded-xl text-white text-xs font-semibold ' + (opt.danger ? 'bg-gradient-to-r from-red-500 to-rose-600' : 'bg-gradient-to-r from-cyan-500 to-blue-600');
+      openModal('confirmModal');
+    });
+  };
+  function cfDone(v) { closeModal('confirmModal'); if (cfResolve) { const r = cfResolve; cfResolve = null; r(v); } }
+  function wireConfirm() { $('cfYes').onclick = () => cfDone(true); $('cfNo').onclick = () => cfDone(false); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireConfirm); else wireConfirm();
+
+  window.handleDanger = async function (item, list) {
+    const lines = (list || []).map(d => '• ' + d.why + '\n   ' + d.line).join('\n');
+    const ok = await askConfirm(L3('تحذير: أمر خطر', 'Warning: dangerous command', 'Attention : commande dangereuse'),
+      L3('هذه الإضافة تحتوي أوامر قد تضر الجهاز:', 'This add-on contains commands that could damage the receiver:', 'Cette extension contient des commandes pouvant endommager le récepteur :') + '\n\n' + lines + '\n\n' + L3('هل تريد المتابعة رغم ذلك؟', 'Run it anyway?', 'Exécuter quand même ?'),
+      { danger: true, yes: L3('تشغيل رغم ذلك', 'Run anyway', 'Exécuter') });
+    if (!ok) return;
+    window.__force = true;
+    try { await __installItem(item); } finally { window.__force = false; }
+  };
+
+  // every install first asks "Install X on <receiver>?"
+  const __installItem = installItem;
+  window.installItem = installItem = async function (id) {
+    const item = (typeof id === 'object') ? id : COMMANDS.find(c => c.id === id); if (!item) return;
+    if (!RX) return __installItem(id);
+    const ok = await askConfirm(L3('تأكيد التثبيت', 'Confirm install', 'Confirmer l’installation'),
+      L3('تثبيت «', 'Install “', 'Installer « ') + item.title + L3('» على ', '” on ', ' » sur ') + (RX.name || RX.ip || 'receiver') + '?');
+    if (!ok) return;
+    return __installItem(item);
+  };
+
+  function init() {
+    getList(); texts();
+    if (location.port === '8765' || /[?&]autoinstall=/.test(location.search)) return;   // opened from the receiver itself
+    openRxPicker();
+    if (!getList().length) openRxForm(null);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
 </body>
 </html>
