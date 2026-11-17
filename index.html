@@ -1897,7 +1897,11 @@ async function saveReceiver(e) {
     </div>
     <div id="rxPickList" class="space-y-2 max-h-72 overflow-y-auto"></div>
     <p id="rxPickEmpty" class="hidden text-center text-xs text-slate-400"></p>
-    <button type="button" id="rxPickAdd" onclick="openRxForm(null)" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold"><i class="fa-solid fa-plus"></i> <span id="rxPickAddT"></span></button>
+    <div class="grid grid-cols-3 gap-2">
+      <button type="button" id="rxPickAdd" onclick="openRxForm(null)" class="py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-[11px] font-semibold flex flex-col items-center gap-1"><i class="fa-solid fa-plus"></i><span id="rxPickAddT"></span></button>
+      <button type="button" id="rxPickScan" onclick="rxScan()" class="py-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] font-semibold flex flex-col items-center gap-1"><i class="fa-solid fa-magnifying-glass-location text-cyan-400"></i><span id="rxPickScanT"></span></button>
+      <button type="button" id="rxPickQr" onclick="rxQrOpen()" class="py-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] font-semibold flex flex-col items-center gap-1"><i class="fa-solid fa-qrcode text-cyan-400"></i><span id="rxPickQrT"></span></button>
+    </div>
     <button type="button" id="rxPickSkip" onclick="closeRxPicker()" class="w-full text-center text-[11px] text-slate-400 underline"></button>
   </div>
 </div>
@@ -1912,6 +1916,40 @@ async function saveReceiver(e) {
       <button type="button" id="cfNo" class="flex-1 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold border border-slate-200 dark:border-slate-700"></button>
       <button type="button" id="cfYes" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold"></button>
     </div>
+  </div>
+</div>
+<div id="scanModal" class="fixed inset-0 z-[55] hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md">
+  <div class="glass-panel bg-white dark:bg-darkbg-card border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 space-y-4">
+    <div class="flex items-center justify-between"><h3 id="scanTitle" class="font-heading font-bold text-lg"></h3>
+      <button type="button" onclick="closeModal('scanModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400"><i class="fa-solid fa-xmark"></i></button></div>
+    <p id="scanMsg" class="text-xs text-slate-500 dark:text-slate-400 text-center"></p>
+    <div id="scanList" class="space-y-2 max-h-72 overflow-y-auto"></div>
+  </div>
+</div>
+<div id="nameModal" class="fixed inset-0 z-[58] hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md">
+  <div class="glass-panel bg-white dark:bg-darkbg-card border border-slate-200 dark:border-slate-800 rounded-3xl max-w-sm w-full p-6 space-y-4">
+    <h3 id="nameTitle" class="font-heading font-bold text-lg text-center"></h3>
+    <p id="nameSub" class="text-xs text-slate-400 text-center" dir="ltr"></p>
+    <input id="nameInput" type="text" maxlength="40" class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm">
+    <div class="flex gap-2">
+      <button type="button" id="nameNo" class="flex-1 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold border border-slate-200 dark:border-slate-700"></button>
+      <button type="button" id="nameYes" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold"></button>
+    </div>
+  </div>
+</div>
+<div id="qrModal" class="fixed inset-0 z-[55] hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md">
+  <div class="glass-panel bg-white dark:bg-darkbg-card border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 space-y-4">
+    <div class="flex items-center justify-between"><h3 id="qrTitle" class="font-heading font-bold text-lg"></h3>
+      <button type="button" onclick="rxQrClose()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400"><i class="fa-solid fa-xmark"></i></button></div>
+    <p id="qrSub" class="text-xs text-slate-500 dark:text-slate-400 text-center"></p>
+    <video id="qrVideo" playsinline muted class="hidden w-full rounded-2xl bg-black"></video>
+    <canvas id="qrCanvas" class="hidden"></canvas>
+    <p id="qrMsg" class="text-xs text-center text-cyan-400"></p>
+    <div class="grid grid-cols-2 gap-2">
+      <button type="button" onclick="rxQrCamera()" class="py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-semibold flex flex-col items-center gap-1"><i class="fa-solid fa-camera"></i><span id="qrCamT"></span></button>
+      <button type="button" onclick="document.getElementById('qrFile').click()" class="py-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold flex flex-col items-center gap-1"><i class="fa-solid fa-image text-cyan-400"></i><span id="qrUpT"></span></button>
+    </div>
+    <input id="qrFile" type="file" accept="image/*" class="hidden">
   </div>
 </div>
 <script>
@@ -1958,6 +1996,8 @@ async function saveReceiver(e) {
     $('rxPickTitle').textContent = L3('اختر الجهاز', 'Choose your receiver', 'Choisissez votre récepteur');
     $('rxPickSub').textContent = L3('اضغط على الجهاز للدخول إلى قائمة الإضافات', 'Tap a receiver to open the add-ons list', 'Touchez un récepteur pour ouvrir la liste des extensions');
     $('rxPickAddT').textContent = L3('إضافة جهاز', 'Add receiver', 'Ajouter un récepteur');
+    $('rxPickScanT').textContent = L3('مسح الشبكة', 'Scan network', 'Scanner le réseau');
+    $('rxPickQrT').textContent = L3('كود QR', 'QR code', 'Code QR');
     $('rxPickSkip').textContent = L3('متابعة بدون جهاز', 'Continue without a receiver', 'Continuer sans récepteur');
     $('rxPickEmpty').textContent = L3('لا توجد أجهزة مربوطة بعد. أضف جهازك الأول.', 'No receivers linked yet. Add your first one.', 'Aucun récepteur lié. Ajoutez le premier.');
   }
@@ -2067,8 +2107,129 @@ async function saveReceiver(e) {
     return __installItem(item);
   };
 
+
+  // ===== name prompt =====
+  let nameResolve = null;
+  window.askName = function (title, sub, def) {
+    return new Promise(res => {
+      nameResolve = res;
+      $('nameTitle').textContent = title; $('nameSub').textContent = sub || ''; $('nameInput').value = def || '';
+      $('nameYes').textContent = L3('حفظ', 'Save', 'Enregistrer'); $('nameNo').textContent = L3('إلغاء', 'Cancel', 'Annuler');
+      openModal('nameModal'); setTimeout(() => $('nameInput').focus(), 50);
+    });
+  };
+  function nameDone(v) { closeModal('nameModal'); if (nameResolve) { const r = nameResolve; nameResolve = null; r(v); } }
+  function wireName() { $('nameYes').onclick = () => nameDone($('nameInput').value.trim() || ' '); $('nameNo').onclick = () => nameDone(null);
+    $('nameInput').onkeydown = e => { if (e.key === 'Enter') nameDone($('nameInput').value.trim() || ' '); }; }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireName); else wireName();
+
+  // add (or just select) a receiver that we only know by its link code
+  async function linkNewDevice(code, ip, suggested) {
+    code = normCode(code);
+    if (code.length !== 20) { showToast(L3('كود الربط غير صالح', 'Invalid link code', 'Code de liaison invalide')); return false; }
+    const list = getList(); const known = list.find(d => normCode(d.code) === code);
+    if (known) { showToast(L3('هذا الجهاز مربوط بالفعل', 'This receiver is already linked', 'Ce récepteur est déjà lié')); setActive(known); testDevice(known); renderPicker(); return true; }
+    const name = await askName(L3('اسم الجهاز', 'Receiver name', 'Nom du récepteur'), ip || pretty(code), suggested || '');
+    if (name === null) return false;
+    const dev = { uid: mkuid(), name: name.trim(), ip: ip || '', code: code, user: 'root', pass: '', webPort: 8765 };
+    list.push(dev); putList(list); renderPicker();
+    if (!RX || !localStorage.getItem(LS_ACT)) { setActive(dev); testDevice(dev); }
+    showToast(L3('تم حفظ الجهاز', 'Receiver saved', 'Récepteur enregistré'));
+    return true;
+  }
+
+  // ===== scan the network (the receiver does the scanning, a web page cannot) =====
+  window.rxScan = async function () {
+    $('scanTitle').textContent = L3('الأجهزة على الشبكة', 'Receivers on the network', 'Récepteurs sur le réseau');
+    $('scanList').textContent = ''; $('scanMsg').textContent = L3('جار البحث ...', 'Scanning ...', 'Recherche ...');
+    openModal('scanModal');
+    let devices = null;
+    try {
+      const sameOrigin = location.port === '8765' || (typeof AGENT_SAME_ORIGIN !== 'undefined' && AGENT_SAME_ORIGIN);
+      if (sameOrigin) { const r = await fetch('/scan', { cache: 'no-store' }); devices = (await r.json()).devices; }
+      else if (RX && RX.code) { const m = await linkRun(normCode(RX.code), { t: 'scan' }, null, 60000); if (m && m.code === 0) devices = m.devices; }
+    } catch (e) { devices = null; }
+    if (!devices) { $('scanMsg').textContent = L3('اربط جهازا واحدا أولا (بالكود أو QR) وسيجد المسح بقية الأجهزة على شبكته، أو افتح الموقع من الجهاز نفسه.', 'Link one receiver first (code or QR): Scan then finds the others on its network. Or open the site from the receiver itself.', 'Liez d’abord un récepteur (code ou QR) : la recherche trouve alors les autres sur son réseau. Ou ouvrez le site depuis le récepteur.'); return; }
+    $('scanMsg').textContent = devices.length ? L3('اضغط على جهاز لإضافته', 'Tap a receiver to add it', 'Touchez un récepteur pour l’ajouter') : L3('لم يتم العثور على أجهزة', 'No receivers found', 'Aucun récepteur trouvé');
+    const box = $('scanList'); box.textContent = '';
+    const have = getList().map(d => normCode(d.code));
+    devices.forEach(d => {
+      const row = document.createElement('div');
+      row.className = 'flex items-center gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-cyan-500';
+      const ic = document.createElement('div'); ic.className = 'w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center'; ic.innerHTML = '<i class="fa-solid fa-tv"></i>';
+      const info = document.createElement('div'); info.className = 'flex-1 min-w-0 truncate';
+      const ip = document.createElement('span'); ip.className = 'font-semibold text-sm'; ip.dir = 'ltr'; ip.textContent = d.ip;
+      const nm = document.createElement('span'); nm.className = 'font-light text-[11px] text-slate-400 mx-2'; nm.textContent = d.host || '';
+      info.append(ip, nm);
+      const badge = document.createElement('span'); badge.className = 'text-[10px] px-2 py-1 rounded-lg bg-emerald-500/10 text-emerald-400';
+      if (have.includes(normCode(d.code))) badge.textContent = L3('مربوط', 'Linked', 'Lié'); else badge.className = 'hidden';
+      row.append(ic, info, badge);
+      row.onclick = async () => { const ok = await linkNewDevice(d.code, d.ip, d.host); if (ok) closeModal('scanModal'); };
+      box.append(row);
+    });
+  };
+
+  // ===== QR: camera or uploaded picture =====
+  let qrStream = null, qrTimer = null;
+  function loadJsQR() { return window.jsQR ? Promise.resolve() : new Promise((res, rej) => { const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js'; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
+  async function decodeCanvas(cv) {
+    if ('BarcodeDetector' in window) { try { const r = await new BarcodeDetector({ formats: ['qr_code'] }).detect(cv); if (r.length) return r[0].rawValue; } catch (e) {} }
+    try { await loadJsQR(); const id = cv.getContext('2d').getImageData(0, 0, cv.width, cv.height); const q = window.jsQR(id.data, id.width, id.height, { inversionAttempts: 'attemptBoth' }); return q ? q.data : null; } catch (e) { return null; }
+  }
+  function parseLinkPayload(text) {
+    text = String(text || ''); let code = '', name = '';
+    try { const u = new URL(text); code = u.searchParams.get('link') || ''; name = u.searchParams.get('n') || ''; } catch (e) {}
+    if (!code) { const m = text.match(/([A-Za-z0-9]{5}-?){3}[A-Za-z0-9]{5}/); if (m) code = m[0]; }
+    return { code: normCode(code), name: name };
+  }
+  async function useQrText(text) {
+    const p = parseLinkPayload(text);
+    if (p.code.length !== 20) { $('qrMsg').textContent = L3('هذا ليس كود ربط لجهاز E2 Store', 'This is not an E2 Store receiver code', 'Ce n’est pas un code de récepteur E2 Store'); return false; }
+    rxQrClose(); await linkNewDevice(p.code, '', p.name); return true;
+  }
+  window.rxQrOpen = function () {
+    $('qrTitle').textContent = L3('ربط بـ QR', 'Link with QR', 'Lier avec QR'); $('qrSub').textContent = L3('امسح الكود الظاهر على الجهاز (MENU ← About) أو ارفع صورته', 'Scan the code shown on the receiver (MENU > About) or upload a picture of it', 'Scannez le code affiché sur le récepteur (MENU > About) ou importez une photo');
+    $('qrCamT').textContent = L3('الكاميرا', 'Camera', 'Caméra'); $('qrUpT').textContent = L3('رفع صورة', 'Upload image', 'Importer une image'); $('qrMsg').textContent = '';
+    openModal('qrModal');
+  };
+  window.rxQrClose = function () { if (qrTimer) { clearInterval(qrTimer); qrTimer = null; } if (qrStream) { qrStream.getTracks().forEach(t => t.stop()); qrStream = null; } $('qrVideo').classList.add('hidden'); closeModal('qrModal'); };
+  window.rxQrCamera = async function () {
+    try {
+      qrStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+      const v = $('qrVideo'); v.srcObject = qrStream; v.classList.remove('hidden'); await v.play();
+      $('qrMsg').textContent = L3('وجّه الكاميرا نحو الكود ...', 'Point the camera at the code ...', 'Dirigez la caméra vers le code ...');
+      const cv = $('qrCanvas'); let busy = false;
+      qrTimer = setInterval(async () => {
+        if (busy || !v.videoWidth) return; busy = true;
+        cv.width = v.videoWidth; cv.height = v.videoHeight; cv.getContext('2d').drawImage(v, 0, 0);
+        const t = await decodeCanvas(cv); busy = false;
+        if (t && await useQrText(t)) { /* closed */ }
+      }, 400);
+    } catch (e) { $('qrMsg').textContent = L3('تعذر فتح الكاميرا - ارفع صورة الكود بدلا من ذلك', 'Camera not available - upload a picture of the code instead', 'Caméra indisponible - importez une image du code'); }
+  };
+  function wireQr() {
+    $('qrFile').onchange = async e => {
+      const f = e.target.files[0]; if (!f) return; e.target.value = '';
+      try {
+        const bmp = await createImageBitmap(f); const cv = $('qrCanvas'); cv.width = bmp.width; cv.height = bmp.height; cv.getContext('2d').drawImage(bmp, 0, 0);
+        const t = await decodeCanvas(cv);
+        if (!t) { $('qrMsg').textContent = L3('لم أجد QR في هذه الصورة', 'No QR code found in this picture', 'Aucun QR trouvé dans cette image'); return; }
+        await useQrText(t);
+      } catch (err) { $('qrMsg').textContent = L3('تعذر قراءة الصورة', 'Could not read the picture', 'Lecture de l’image impossible'); }
+    };
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireQr); else wireQr();
+  window.__parseLinkPayload = parseLinkPayload;
+
   function init() {
     getList(); texts();
+    const qp = new URLSearchParams(location.search);
+    if (qp.get('link')) {                      // the site was opened by scanning the receiver's QR code
+      const p = parseLinkPayload(location.href);
+      try { history.replaceState(null, '', location.pathname); } catch (e) {}
+      linkNewDevice(p.code, '', p.name).then(ok => { if (!ok) openRxPicker(); });
+      return;
+    }
     if (location.port === '8765' || /[?&]autoinstall=/.test(location.search)) return;   // opened from the receiver itself
     openRxPicker();
     if (!getList().length) openRxForm(null);
