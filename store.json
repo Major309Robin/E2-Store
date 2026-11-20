@@ -99,6 +99,16 @@
       "id": "restore",
       "name": "Restore",
       "icon": "fa-clock-rotate-left"
+    },
+    {
+      "id": "libraries",
+      "name": "Libraries",
+      "icon": "fa-boxes-stacked"
+    },
+    {
+      "id": "bouquets",
+      "name": "Bouquets",
+      "icon": "fa-satellite-dish"
     }
   ],
   "items": [
@@ -397,13 +407,6 @@
       "cmd": "wget -q https://raw.githubusercontent.com/oe-mirrors/e2iplayer/refs/heads/python3/e2iplayer_install.sh -O - | /bin/sh"
     },
     {
-      "title": "E2I Player",
-      "author": "Mohamed OS",
-      "desc": "أداة تشغيل المحتوى المرئي عبر الإنترنت من مصادر متعددة",
-      "category": "iptv",
-      "cmd": "wget --no-check-certificate -qO - \"https://raw.githubusercontent.com/MOHAMED19OS/Install_E2I/refs/heads/main/online-setup.sh\" | bash"
-    },
-    {
       "title": "E2I Player Hostes",
       "author": "By Angel Heart",
       "desc": "تحديث واستكمال هوستات بلاجن إيه تو بلاير",
@@ -539,16 +542,9 @@
     {
       "title": "Metrix Poster",
       "author": "Mohamed Nasser",
-      "desc": "إضافات ومكونات وأشكال عرض حديثة للقنوات والأفلام لواجهة إسكين ماتريكس",
+      "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
       "category": "skins",
-      "cmd": "wget -O /tmp/metrix_skinparts.tar.gz 'https://raw.githubusercontent.com/popking159/skins/main/metrix_skinparts/metrix_skinparts_mnasr.tar.gz' && mkdir -p /tmp/metrix_skinparts && tar -xzf /tmp/metrix_skinparts.tar.gz -C /tmp/metrix_skinparts"
-    },
-    {
-      "title": "Metrix Poster",
-      "author": "Hmeng",
-      "desc": "إضافات ومكونات وأشكال عرض حديثة للقنوات والأفلام لواجهة إسكين ماتريكس",
-      "category": "skins",
-      "cmd": "wget -q --no-check-certificate https://gitlab.com/hmeng80/addons/-/raw/main/metrix-fhd-parts-ec.sh -O - | /bin/sh"
+      "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/MetrixPoster-By_MNASR/installer.sh -O - | /bin/sh"
     },
     {
       "title": "Foot On Sat",
@@ -691,13 +687,6 @@
       "cmd": "set -e\nURL='https://raw.githubusercontent.com/emilnabil/download-plugins/refs/heads/main/levi45emulator/enigma2-plugin-extensions-levi45emulator_all.deb'\nPKG='/tmp/levi45-emulator.deb'\nif command -v wget >/dev/null 2>&1; then wget -O \"$PKG\" \"$URL\"; elif command -v curl >/dev/null 2>&1; then curl -fL \"$URL\" -o \"$PKG\"; else echo 'wget or curl is not available'; exit 1; fi\nif [ ! -s \"$PKG\" ]; then echo 'Installer file download failed'; exit 1; fi\nif [ 'deb' = 'ipk' ]; then\n  if command -v opkg >/dev/null 2>&1; then opkg install \"$PKG\"; else echo 'This image has no opkg; IPK files are not supported here'; exit 1; fi\nelse\n  if command -v dpkg >/dev/null 2>&1; then dpkg -i \"$PKG\"; else echo 'This image has no dpkg; DEB files are not supported here'; exit 1; fi\nfi\nrm -f \"$PKG\"\necho 'Install command finished; check the device log to confirm the package installed.'"
     },
     {
-      "title": "IP Audio Pro",
-      "author": "zKhadiri",
-      "desc": "تشغيل وإدارة خدمات الصوت والراديو عبر الإنترنت",
-      "category": "audio",
-      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/zKhadiri/IPAudioPro-Releases-/refs/heads/main/installer.sh -O - | /bin/sh"
-    },
-    {
       "title": "Audio Shift",
       "author": "xfayez95",
       "desc": "أداة سريعة لتبديل المسارات الصوتية داخل القنوات والأفلام بسهولة لصور دريم أو إس",
@@ -712,46 +701,11 @@
       "cmd": "wget -qO- https://raw.githubusercontent.com/popking159/OrangeAudio/main/installer.sh | sh"
     },
     {
-      "title": "IP Audio Plus",
-      "author": "Ahmad Arjan",
-      "desc": "نسخة مطورة من خدمات الصوت عبر الإنترنت مع واجهة أكثر سهولة ودعماً لعدد أكبر من المصادر",
-      "category": "audio",
-      "cmd": "wget -q -O - https://raw.githubusercontent.com/Ahmadarjan1/IPAudioPlus-Releases/main/installer.sh | /bin/sh"
-    },
-    {
       "title": "Xtream 2 Audio",
       "author": "Emil Nabil",
       "desc": "تشغيل وتحويل القنوات الصوتية من خدمات إكستريم",
       "category": "audio",
       "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/Xtream2Audio/Xtream2Audio.sh -O - | /bin/sh"
-    },
-    {
-      "title": "IP Audio Pro",
-      "author": "Mohamed Nasser",
-      "desc": "أدوات صوت إضافية",
-      "category": "audio",
-      "cmd": "opkg install https://github.com/popking159/ipaudio/releases/download/IPAudio/enigma2-plugin-extensions-ipaudio_8.11_all.ipk"
-    },
-    {
-      "title": "Ultra Audio",
-      "author": "Ahmed Elhadary",
-      "desc": "إضافة روبط صوتية خارجية مع تايم شيفت متطور",
-      "category": "audio",
-      "cmd": "opkg install https://github.com/K3bOra/UltraAudio/releases/download/v1.0.10/Ultra_Audio_Final_V1.ipk"
-    },
-    {
-      "title": "Subs Support Pro",
-      "author": "Mohamed Nasser",
-      "desc": "إضافة ترجمة شهيرة لتحميل وإدارة ملفات الترجمة للأفلام والمسلسلات مباشرة من الجهاز",
-      "category": "subtitles",
-      "cmd": "wget https://github.com/popking159/SubsSupportPro/raw/refs/heads/main/myinstaller.sh -O - | /bin/sh"
-    },
-    {
-      "title": "My Translator V1.76",
-      "author": "Ismail Elkhooly",
-      "desc": "مترجم متعدد اللغات لترجمة النصوص والقوائم",
-      "category": "subtitles",
-      "cmd": "wget -O /tmp/mytranslator.ipk \"https://github.com/ismailelkhooly/Ismail-/raw/refs/heads/main/enigma2-plugin-extensions-mytranslator_1.76.ipk\" && opkg install --force-reinstall /tmp/mytranslator.ipk && rm -f /tmp/mytranslator.ipk"
     },
     {
       "title": "My Translator V1.80",
@@ -780,13 +734,6 @@
       "desc": "إضافة لتحميل وإدارة الترجمات للمحتوى المرئى",
       "category": "subtitles",
       "cmd": "wget -q --no-check-certificate https://github.com/popking159/ssupport/raw/main/subssupport-install.sh -O - | /bin/sh"
-    },
-    {
-      "title": "EPG Import",
-      "author": "Enigma2 Community",
-      "desc": "استيراد بيانات دليل البرامج الإلكتروني إي بي جي من مصادر قابلة للتهيئة",
-      "category": "epg",
-      "cmd": "opkg update && opkg install enigma2-plugin-extensions-epgimport"
     },
     {
       "title": "Auto Timer",
@@ -824,13 +771,6 @@
       "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/azroukarim/XPortal/refs/heads/main/installer.sh -O - | /bin/sh"
     },
     {
-      "title": "Xtream New",
-      "author": "Ahmed Hussein",
-      "desc": "إضافة أأي بي تي في حديثة تدعم أحدث أساليب تشغيل مكتبات الإكستريم",
-      "category": "iptv",
-      "cmd": "wget -q --no-check-certificate https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/install_xtreamnew.sh -O - | /bin/sh"
-    },
-    {
       "title": "Bouquet Maker Xtream",
       "author": "Biko",
       "desc": "أداة لإنشاء وترتيب الباقات والقنوات تلقائياً من مزودي إكستريم بطريقة احترافية",
@@ -866,13 +806,6 @@
       "cmd": "opkg update && opkg install enigma2-plugin-extensions-xstreamity"
     },
     {
-      "title": "Cine View FHD MLA",
-      "author": "Emil Nabil",
-      "desc": "إسكين بواجهة سينمائية متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-      "category": "skins",
-      "cmd": "wget -qO /tmp/cineview-install.sh https://raw.githubusercontent.com/habeb-s/CineView-MLA-Install/main/cineview-install.sh && sh /tmp/cineview-install.sh"
-    },
-    {
       "title": "MX Maestra Black Weather — Python 3.12",
       "author": "Emil Nabil",
       "desc": "إسكين مخصص لبيئات بايثون 3.12 فقط. لا تستخدمه مع إصدار أخر",
@@ -906,20 +839,6 @@
       "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
       "category": "skins",
       "cmd": "wget https://github.com/emilnabil/aglare/raw/refs/heads/main/skins-aglare-fhd.sh -O - | /bin/sh"
-    },
-    {
-      "title": "Aglare ATV",
-      "author": "Mohamed Nasser",
-      "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-      "category": "skins",
-      "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/skins/refs/heads/main/aglareatv/myinstaller.sh | /bin/sh"
-    },
-    {
-      "title": "Aglare PLI",
-      "author": "Mohamed Nasser",
-      "desc": "إسكين بواجهة متقدمة تعرض بوسترات ومعلومات الأفلام بصورة جذابة",
-      "category": "skins",
-      "cmd": "wget -qO - https://raw.githubusercontent.com/popking159/skins/refs/heads/main/aglarepli/myinstaller.sh | /bin/sh"
     },
     {
       "title": "Areadeltasat Dragon FHD",
@@ -979,10 +898,10 @@
     },
     {
       "title": "Maxy FHD",
-      "author": "Mohamed Nasser",
+      "author": "Emil Nabil",
       "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
       "category": "skins",
-      "cmd": "wget https://raw.githubusercontent.com/popking159/skins/refs/heads/main/maxyatv/installer.sh -O - | /bin/sh"
+      "cmd": "wget https://dreambox4u.com/emilnabil237/skins/script/skins-Maxy-FHD.sh -O - | /bin/sh"
     },
     {
       "title": "Full HD Glass17",
@@ -1006,18 +925,18 @@
       "cmd": "wget https://dreambox4u.com/emilnabil237/skins/openatv/SKIN-MetrixFHD-OpenATV-Extraevent-PosterX.sh -O - | /bin/sh"
     },
     {
-      "title": "Metrix Poster",
-      "author": "Mohamed Nasser",
+      "title": "Malek FHD",
+      "author": "Emil Nabil",
       "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
       "category": "skins",
-      "cmd": "wget https://github.com/emilnabil/download-plugins/raw/refs/heads/main/MetrixPoster-By_MNASR/installer.sh -O - | /bin/sh"
+      "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/main/ATV/skins-malek-fhd_2.2_py3.11.2-py3.12.1.sh -O - | /bin/sh"
     },
     {
       "title": "Malek FHD",
       "author": "Emil Nabil",
       "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
       "category": "skins",
-      "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/main/ATV/skins-malek-fhd_2.2_py3.11.2-py3.12.1.sh -O - | /bin/sh"
+      "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/main/pli/Skin-malek-fhd_1.2.sh -O - | /bin/sh"
     },
     {
       "title": "Nacht V1.7.3",
@@ -1046,6 +965,13 @@
       "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
       "category": "skins",
       "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-ATV-ozeta-xtra.sh -O - | /bin/sh"
+    },
+    {
+      "title": "Ozeta Xtra",
+      "author": "Emil Nabil",
+      "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
+      "category": "skins",
+      "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-PLI-ozeta-xtra.sh -O - | /bin/sh"
     },
     {
       "title": "Premium Magenta FHD",
@@ -1258,20 +1184,6 @@
       "cmd": "wget https://dreambox4u.com/emilnabil237/skins/pli9x/Skin-BLACKNEON-XP_mod_mnasr-pli9x.sh -O - | /bin/sh"
     },
     {
-      "title": "Malek FHD",
-      "author": "Emil Nabil",
-      "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
-      "category": "skins",
-      "cmd": "wget https://raw.githubusercontent.com/emil237/skins-enigma2/main/pli/Skin-malek-fhd_1.2.sh -O - | /bin/sh"
-    },
-    {
-      "title": "Ozeta Xtra",
-      "author": "Emil Nabil",
-      "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
-      "category": "skins",
-      "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-PLI-ozeta-xtra.sh -O - | /bin/sh"
-    },
-    {
       "title": "Youchie PLI FHD",
       "author": "Emil Nabil",
       "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
@@ -1326,13 +1238,6 @@
       "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
       "category": "skins",
       "cmd": "wget http://dreambox4u.com/emilnabil237/script/SKIN-PLI-CH.LEAGUE-FHD.sh -O - | /bin/sh"
-    },
-    {
-      "title": "Maxy FHD",
-      "author": "Emil Nabil",
-      "desc": "إسكين مميز قم بمراجعة توافقة مع نسخة بايثون الخاصة بصورتك",
-      "category": "skins",
-      "cmd": "wget https://dreambox4u.com/emilnabil237/skins/script/skins-Maxy-FHD.sh -O - | /bin/sh"
     },
     {
       "title": "Qatar 2022 V3 FHD",
@@ -2698,6 +2603,202 @@
       "desc": "راجع رابط المصدر وتوافق صورة النظام والجهاز قبل التنفيذ. أمر استعادة وقد يستبدل إعدادات موجودة؛ خذ نسخة احتياطية أولًا.",
       "category": "restore",
       "cmd": "wget http://dreambox4u.com/emilnabil237/script/restore-sittings-xtraevent.sh -O - | /bin/sh"
+    },
+    {
+      "title": "WGET",
+      "author": "Enigma2 Community",
+      "desc": "مكتبة انيجما مهمة جدا لتشغيل الاضافات بطريقة سليمة",
+      "category": "libraries",
+      "cmd": "opkg update && opkg install wget"
+    },
+    {
+      "title": "CURL",
+      "author": "Enigma2 Community",
+      "desc": "مكتبة انيجما مهمة جدا لتشغيل الاضافات بطريقة سليمة",
+      "category": "libraries",
+      "cmd": "opkg update && opkg install curl"
+    },
+    {
+      "title": "Astra SM",
+      "author": "Enigma2 Community",
+      "desc": "مكتبة انيجما مهمة جدا لتشغيل الاضافات بطريقة سليمة",
+      "category": "libraries",
+      "cmd": "opkg update && opkg install astra-sm"
+    },
+    {
+      "title": "Many Enigma2 Players",
+      "author": "Enigma2 Community",
+      "desc": "إضافة مكتبات مشغلات الصوت والصورة لتعمل الاضافات بطريقة سليمة",
+      "category": "libraries",
+      "cmd": "opkg install --force-reinstall enigma2-plugin-systemplugins-serviceapp exteplayer3 ffmpeg gstplayer"
+    },
+    {
+      "title": "E2I Player Deps",
+      "author": "Enigma2 Community",
+      "desc": "إضافة المكتبات اللازمة لتشغيل الاضافة بطريقة سليمة",
+      "category": "libraries",
+      "cmd": "opkg install enigma2-plugin-extensions-e2iplayer-deps"
+    },
+    {
+      "title": "E2 Store Panel",
+      "author": "Robin John",
+      "desc": "لوحة أدوات وإضافات متطورة ومتكاملة للإنيجما مع امكانية الاتصال بتطبيق الموبايل وايضا بالكمبيوتر",
+      "category": "panels",
+      "cmd": "cd /tmp && wget --no-check-certificate -O Panel_2.0.1_all.ipk https://major309robin.github.io/E2-Store/Panel_2.0.1_all.ipk && opkg install --force-reinstall Panel_2.0.1_all.ipk"
+    },
+    {
+      "title": "Pom Biss",
+      "author": "Shreef",
+      "desc": "أداة للبحث عن الفيدات وإظهار وإدخال شفراتها",
+      "category": "softcams",
+      "cmd": "cd /tmp && wget https://raw.githubusercontent.com/Shr776/PomBiss/main/installer.sh && sh inst"
+    },
+    {
+      "title": "Signal Meter",
+      "author": "Ibrahem Hamdy",
+      "desc": "أداة متطورة تمكنك من ضبط إشارة الطبق عن بعد عن طريق ربط البلاجن بتطبيق أندرويد يتصل عن بعد",
+      "category": "others",
+      "cmd": "u=https://raw.githubusercontent.com/xximhxx/SatEnigmaFinder/main; f=$(mktemp) && wget -O \"$f\" \"$u/install-signalmeter.sh\" && sh \"$f\" \"$u\""
+    },
+    {
+      "title": "Simply Cams",
+      "author": "Ahmed Mohammed Abbas",
+      "desc": "أداة متطورة تمكنك من مشاهدة كاميرات منزلك على الرسيفر",
+      "category": "others",
+      "cmd": "wget -q -O - https://raw.githubusercontent.com/Ahmed-Mohammed-Abbas/SimplyCams/main/installer.sh | sh"
+    },
+    {
+      "title": "Ciefp Settings T2MI Abertis",
+      "author": "Ciefp",
+      "desc": "أداة لاضافة مكتبات تشغيل القنوات الارضية ابيرتيس الاسبانية",
+      "category": "bouquets",
+      "cmd": "wget -q \"--no-check-certificate\" https://raw.githubusercontent.com/ciefp/CiefpSettingsT2miAbertis/main/installer.sh -O - | /bin/sh"
+    },
+    {
+      "title": "Abertis 30W",
+      "author": "Ciefp",
+      "desc": "اضافة مفضلة قنوات ابيرتيس الاسبانية الارضية لملف قنواتك",
+      "category": "bouquets",
+      "cmd": "wget -q --no-check-certificate \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/installer_abertis_30w.sh\" -O - | /bin/sh"
+    },
+    {
+      "title": "XML Update",
+      "author": "Saied Elfar",
+      "desc": "أداة لإضافة وتعديل وحذف ترددات الاقمار",
+      "category": "bouquets",
+      "cmd": "wget -qO- \"https://raw.githubusercontent.com/Saiedf/XMLupdatebyiet5/main/installer_xmlupdatebyiet5_auto.sh\" | /bin/sh"
+    },
+    {
+      "title": "Kids Safe Bouquets",
+      "author": "Dorinelu",
+      "desc": "أداة لحذف القنوات الغير مرغوب فيها من كل الاقمار لحماية الاطفال",
+      "category": "bouquets",
+      "cmd": "wget -q https://raw.githubusercontent.com/dorinelu/KidsSafeBouquets/main/installer.sh -O - | /bin/sh"
+    },
+    {
+      "title": "Bootlogo_B0001",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0001.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0001.sh\" && sed -i 's/\\r$//' /tmp/installer_B0001.sh && sh /tmp/installer_B0001.sh"
+    },
+    {
+      "title": "Bootlogo_B0002",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0002.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0002.sh\" && sed -i 's/\\r$//' /tmp/installer_B0002.sh && sh /tmp/installer_B0002.sh"
+    },
+    {
+      "title": "Bootlogo_B0003",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0003.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0003.sh\" && sed -i 's/\\r$//' /tmp/installer_B0003.sh && sh /tmp/installer_B0003.sh"
+    },
+    {
+      "title": "Bootlogo_B0004",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0004.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0004.sh\" && sed -i 's/\\r$//' /tmp/installer_B0004.sh && sh /tmp/installer_B0004.sh"
+    },
+    {
+      "title": "Bootlogo_B0005",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0005.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0005.sh\" && sed -i 's/\\r$//' /tmp/installer_B0005.sh && sh /tmp/installer_B0005.sh"
+    },
+    {
+      "title": "Bootlogo_B0006",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0006.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0006.sh\" && sed -i 's/\\r$//' /tmp/installer_B0006.sh && sh /tmp/installer_B0006.sh"
+    },
+    {
+      "title": "Bootlogo_B0007",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0007.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0007.sh\" && sed -i 's/\\r$//' /tmp/installer_B0007.sh && sh /tmp/installer_B0007.sh"
+    },
+    {
+      "title": "Bootlogo_B0008",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0008.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0008.sh\" && sed -i 's/\\r$//' /tmp/installer_B0008.sh && sh /tmp/installer_B0008.sh"
+    },
+    {
+      "title": "Bootlogo_B0009",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0009.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0009.sh\" && sed -i 's/\\r$//' /tmp/installer_B0009.sh && sh /tmp/installer_B0009.sh"
+    },
+    {
+      "title": "Bootlogo_B0010",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0010.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0010.sh\" && sed -i 's/\\r$//' /tmp/installer_B0010.sh && sh /tmp/installer_B0010.sh"
+    },
+    {
+      "title": "Bootlogo_B0011",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0011.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0011.sh\" && sed -i 's/\\r$//' /tmp/installer_B0011.sh && sh /tmp/installer_B0011.sh"
+    },
+    {
+      "title": "Bootlogo_B0012",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0012.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0012.sh\" && sed -i 's/\\r$//' /tmp/installer_B0012.sh && sh /tmp/installer_B0012.sh"
+    },
+    {
+      "title": "Bootlogo_B0013",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0013.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0013.sh\" && sed -i 's/\\r$//' /tmp/installer_B0013.sh && sh /tmp/installer_B0013.sh"
+    },
+    {
+      "title": "Bootlogo_B0014",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0014.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0014.sh\" && sed -i 's/\\r$//' /tmp/installer_B0014.sh && sh /tmp/installer_B0014.sh"
+    },
+    {
+      "title": "Bootlogo_B0015",
+      "author": "John Kamel",
+      "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
+      "category": "bootlogos",
+      "cmd": "wget -O /tmp/installer_B0015.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0015.sh\" && sed -i 's/\\r$//' /tmp/installer_B0015.sh && sh /tmp/installer_B0015.sh"
     }
   ]
 }
