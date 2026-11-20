@@ -2696,105 +2696,105 @@
       "cmd": "wget -q https://raw.githubusercontent.com/dorinelu/KidsSafeBouquets/main/installer.sh -O - | /bin/sh"
     },
     {
-      "title": "Bootlogo_B0001",
+      "title": "Bootlogo 1 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0001.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0001.sh\" && sed -i 's/\\r$//' /tmp/installer_B0001.sh && sh /tmp/installer_B0001.sh"
     },
     {
-      "title": "Bootlogo_B0002",
+      "title": "Bootlogo 2 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0002.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0002.sh\" && sed -i 's/\\r$//' /tmp/installer_B0002.sh && sh /tmp/installer_B0002.sh"
     },
     {
-      "title": "Bootlogo_B0003",
+      "title": "Bootlogo 3 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0003.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0003.sh\" && sed -i 's/\\r$//' /tmp/installer_B0003.sh && sh /tmp/installer_B0003.sh"
     },
     {
-      "title": "Bootlogo_B0004",
+      "title": "Bootlogo 4 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0004.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0004.sh\" && sed -i 's/\\r$//' /tmp/installer_B0004.sh && sh /tmp/installer_B0004.sh"
     },
     {
-      "title": "Bootlogo_B0005",
+      "title": "Bootlogo 5 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0005.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0005.sh\" && sed -i 's/\\r$//' /tmp/installer_B0005.sh && sh /tmp/installer_B0005.sh"
     },
     {
-      "title": "Bootlogo_B0006",
+      "title": "Bootlogo 6 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0006.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0006.sh\" && sed -i 's/\\r$//' /tmp/installer_B0006.sh && sh /tmp/installer_B0006.sh"
     },
     {
-      "title": "Bootlogo_B0007",
+      "title": "Bootlogo 7 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0007.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0007.sh\" && sed -i 's/\\r$//' /tmp/installer_B0007.sh && sh /tmp/installer_B0007.sh"
     },
     {
-      "title": "Bootlogo_B0008",
+      "title": "Bootlogo 8 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0008.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0008.sh\" && sed -i 's/\\r$//' /tmp/installer_B0008.sh && sh /tmp/installer_B0008.sh"
     },
     {
-      "title": "Bootlogo_B0009",
+      "title": "Bootlogo 9 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0009.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0009.sh\" && sed -i 's/\\r$//' /tmp/installer_B0009.sh && sh /tmp/installer_B0009.sh"
     },
     {
-      "title": "Bootlogo_B0010",
+      "title": "Bootlogo 10 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0010.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0010.sh\" && sed -i 's/\\r$//' /tmp/installer_B0010.sh && sh /tmp/installer_B0010.sh"
     },
     {
-      "title": "Bootlogo_B0011",
+      "title": "Bootlogo 11 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0011.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0011.sh\" && sed -i 's/\\r$//' /tmp/installer_B0011.sh && sh /tmp/installer_B0011.sh"
     },
     {
-      "title": "Bootlogo_B0012",
+      "title": "Bootlogo 12 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0012.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0012.sh\" && sed -i 's/\\r$//' /tmp/installer_B0012.sh && sh /tmp/installer_B0012.sh"
     },
     {
-      "title": "Bootlogo_B0013",
+      "title": "Bootlogo 13 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0013.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0013.sh\" && sed -i 's/\\r$//' /tmp/installer_B0013.sh && sh /tmp/installer_B0013.sh"
     },
     {
-      "title": "Bootlogo_B0014",
+      "title": "Bootlogo 14 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
       "cmd": "wget -O /tmp/installer_B0014.sh \"https://raw.githubusercontent.com/major79879/Major_Addons/refs/heads/main/Bootlogo/OpenATV/installers/installer_B0014.sh\" && sed -i 's/\\r$//' /tmp/installer_B0014.sh && sh /tmp/installer_B0014.sh"
     },
     {
-      "title": "Bootlogo_B0015",
+      "title": "Bootlogo 15 (OpenATV-Octagon)",
       "author": "John Kamel",
       "desc": "إضافة بوت لوجو لصورة أوبن إيه تي في لجهاز أوكتاجون",
       "category": "bootlogos",
